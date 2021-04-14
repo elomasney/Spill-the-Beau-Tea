@@ -1,8 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
+
+
 {% for product in products %}
+
 {{ product.product_name}}<br>
 {{ product.brand}}<br>
 <img src="{{ product.img_url }}" height="300">
 {% endfor %}
+
 {% endblock %}
