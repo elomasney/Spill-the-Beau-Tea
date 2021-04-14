@@ -2,7 +2,7 @@
 
 .navbar,
 .dropdown-menu {
-    background-color: #00a7e1;
+    background-color: #eb5d8a;
     -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
     padding: 10px;
@@ -10,38 +10,43 @@
 
 .navbar-light .navbar-nav .nav-link,
 .dropdown-item {
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-family: "Lato", sans serif;
-    color: #ec2e6a;
+    color: #00a7e1;
     font-weight: 900;
     letter-spacing: .1rem;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
 }
 
 #navbarLogo.navbar-brand a {
     font-family: "Dancing Script", sans-serif;
     font-size: 2rem;
     font-weight: 900;
-    color: #ec2e6a;
+    color: #00a7e1;
     letter-spacing: .1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.5);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 
 }
 
+#navbarLogo i {
+    color: #fcff5b;
+}
+
 body {
-    padding-top: 100px;
+    padding-top: 50px;
 }
 
 #footer-details {
     font-family: "Lato", sans-serif;
-    background-color: #ec2e6a;
-    color: #00a7e1;
+    background-color: #03a0d4;
+    color: #fcff5b;
     font-size: 1.5rem;
     letter-spacing: .1rem;
     font-family: "Dancing Script", sans-serif;
     font-weight: bold;
     padding: 15px;
     text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
 
 /*Homepage*/
@@ -49,17 +54,56 @@ body {
 .home-container {
     background-color: #ffffff;
     color: #000000;
-    height: auto;
+    height: 100vh;
     width: auto;
-    background: url("") no-repeat center center fixed;
+    background: url("../images/homepage_image.jpg") no-repeat center center fixed;
     background-size: cover;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: left;
+    -ms-flex-pack: left;
+    justify-content: left;
+    position: relative;
 }
 
 .opaque-overlay {
     position: absolute;
     left: 0;
-    height: 100vh;
-    width: 100vw;
+    height: 100%;
+    width: 100%;
     background-color: rgba(0, 0, 0, 0.2);
     background-size: cover;
+}
+
+#home {
+    padding: 20px;
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    letter-spacing: .1rem;
+    text-align: center;
+    background-color: #ec2e6a;
+    background: rgba(236, 46, 106, 0.5);
+    border-radius: 5px;
+    position: relative;
+
+}
+
+#home h2 {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2.7rem;
+    color: #fcff33;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+}
+
+#home button {
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    color: #00a7e1;
+    letter-spacing: .1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
 }
