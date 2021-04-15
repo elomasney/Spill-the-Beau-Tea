@@ -34,7 +34,7 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Eyes & Brows</a>
+                                <a class="dropdown-item" href="{{ url_for ('get_products')}}">Eyes & Brows</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Face</a>
                                 <div class="dropdown-divider"></div>
@@ -53,7 +53,7 @@
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="">Log Out</a></li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="">Register</a></li>
+                                href="{{ url_for('register')}}">Register</a></li>
                     </ul>
                 </div>
             </div>

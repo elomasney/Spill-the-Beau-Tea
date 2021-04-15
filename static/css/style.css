@@ -4,8 +4,8 @@
 
 .navbar {
     background-color: #fef2f8;
-    -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
-    box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
+    -webkit-box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
+    box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
     padding: 5px;
     z-index: 2;
 }
@@ -144,4 +144,57 @@ body {
     background: #ff0080;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+/*Register Page*/
+.register-container {
+    height: 100vh;
+    padding-top: 100px;
+}
+
+#registerHeading {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-size: 2.5rem;
+    color: #0ab8df;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    letter-spacing: .1rem;
+}
+
+.card-body {
+    background-color: rgba(255, 0, 128, 1);
+    padding: 30px;
+    margin: 30px 0;
+}
+
+#registerBtn {
+    background-color: #0ab8df;
+    color: #fafd42;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .8);
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
+
+}
+
+#registerForm {
+    border: none;
+}
+
+.form-group {
+    color: #0ab8df;
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
+    letter-spacing: .1rem;
+    font-size: 1.3rem;
+}
+
+.form-group i {
+    color: #fafd42;
 }
