@@ -29,12 +29,12 @@
                     <ul class="navbar-nav ml-auto">
                         <!--Code snippet from Stackoverflow to solve issue of hamburger menu closing once link is clicked, taken from Orel Eliyahu' on Stack Overflow - https://stackoverflow.com/questions/36405991/bootstrap-toggle-menu-on-one-page-site-does-not-uncollapse-when-clicked-->
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="">Home</a></li>
+                                href="{{ url_for('home')}}">Home</a></li>
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Eyes</a>
+                                <a class="dropdown-item" href="#">Eyes & Brows</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Face</a>
                                 <div class="dropdown-divider"></div>

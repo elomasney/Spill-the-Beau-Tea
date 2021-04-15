@@ -1,35 +1,52 @@
-@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Lato&display=swap');*/
 
-.navbar,
-.dropdown-menu {
-    background-color: #eb5d8a;
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Original+Surfer&family=Lato&family=Rokkitt&display=swap');
+
+.navbar {
+    background-color: #fef2f8;
     -webkit-box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
     box-shadow: 0 1rem 1rem rgba(0, 0, 0, .2);
-    padding: 10px;
+    padding: 5px;
+    z-index: 2;
+}
+
+.dropdown-menu {
+    background-color: #fffef2;
+}
+
+.dropdown-divider {
+    color: #0ab8df;
 }
 
 .navbar-light .navbar-nav .nav-link,
 .dropdown-item {
     font-size: 1.1rem;
     font-family: "Lato", sans serif;
-    color: #00a7e1;
+    color: #ff0080;
     font-weight: 900;
     letter-spacing: .1rem;
-    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
+    ;
 }
 
 #navbarLogo.navbar-brand a {
     font-family: "Dancing Script", sans-serif;
-    font-size: 2rem;
-    font-weight: 900;
-    color: #00a7e1;
+    font-size: 2.5rem;
+    font-weight: bolder;
+    color: #ff0080;
     letter-spacing: .1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    text-decoration: none;
 
 }
 
 #navbarLogo i {
-    color: #fcff5b;
+    color: #ff0080;
+}
+
+.navbar-light .navbar-nav .nav-link:focus,
+.navbar-light .navbar-nav .nav-link:hover {
+    color: #0ab8df;
 }
 
 body {
@@ -37,16 +54,15 @@ body {
 }
 
 #footer-details {
-    font-family: "Lato", sans-serif;
-    background-color: #03a0d4;
-    color: #fcff5b;
-    font-size: 1.5rem;
-    letter-spacing: .1rem;
     font-family: "Dancing Script", sans-serif;
+    background-color: #ff0080;
+    color: #fef2f8;
+    font-size: 1.5rem;
+    letter-spacing: .2rem;
     font-weight: bold;
     padding: 15px;
     text-align: center;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 /*Homepage*/
@@ -66,7 +82,7 @@ body {
     align-items: center;
     -webkit-box-pack: left;
     -ms-flex-pack: left;
-    justify-content: left;
+    justify-content: center;
     position: relative;
 }
 
@@ -75,35 +91,57 @@ body {
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.05);
     background-size: cover;
 }
 
 #home {
     padding: 20px;
-    font-family: "Lato", sans-serif;
+    font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
     letter-spacing: .1rem;
     text-align: center;
-    background-color: #ec2e6a;
-    background: rgba(236, 46, 106, 0.5);
-    border-radius: 5px;
+    background-color: rgba(255, 254, 249, 0.5);
+    /*background: rgba(236, 46, 106, 0.5);*/
+    border-radius: 10px;
     position: relative;
+    display: inline-block;
 
+}
+
+.center {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 #home h2 {
     font-family: "Dancing Script", sans-serif;
-    font-size: 2.7rem;
-    color: #fcff33;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    font-size: 4rem;
+    font-weight: bolder;
+    color: #ff0080;
+    text-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
+    letter-spacing: .1rem;
+
+}
+
+#home p {
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+    font-family: "Lato", sans-serif;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    color: #0ab8df;
 }
 
 #home button {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.5rem;
-    color: #00a7e1;
+    color: #fafd42;
+    background: #ff0080;
     letter-spacing: .1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.6);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }

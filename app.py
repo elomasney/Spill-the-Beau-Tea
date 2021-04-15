@@ -17,10 +17,10 @@ app.secret_key = os.environ.get("SECRET_KEY")
 mongo = PyMongo(app)
 
 
-@app.route("/")
+@app.route("/", methods=["GET", "POST"])
 @app.route("/home")
 def home():
-    categories = mongo.db.categoried.find()
+    categories = list(mongo.db.categories.find().sort("category_group", 1))
     return render_template("home.html", categories=categories)
 
 
