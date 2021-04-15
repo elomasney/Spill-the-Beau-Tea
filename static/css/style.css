@@ -160,10 +160,20 @@ body {
     color: #0ab8df;
 }
 
+#search.form-inline .form-control {
+    width: 80%;
+    height: 40px;
+}
+
+#search input {
+    font-size: 1.5rem;
+    color: #ff0080;
+}
+
 #home button {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: #fafd42;
     background: #ff0080;
     letter-spacing: .1rem;
