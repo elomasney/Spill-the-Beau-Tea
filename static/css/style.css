@@ -61,20 +61,28 @@ body {
     padding-top: 10px;
 }
 
+.flashes {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
 .flashes h4 {
-    line-height: 2;
-    margin-top: 50px;
-    margin-left: 35%;
+    line-height: 1;
+    padding-top: 50px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
     color: #0ab8df;
-    font-size: 2.5rem;
+    font-size: 2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    margin: auto;
+
 }
 
 .flashes i {
     color: #0ab8df;
     padding: 5px;
+    font-size: 2rem;
 }
 
 #footer-details {
@@ -182,7 +190,8 @@ body {
 }
 
 /*Register Page*/
-.register-container {
+.register-container,
+.profile-container {
     height: 100vh;
     padding-top: 80px;
 }
