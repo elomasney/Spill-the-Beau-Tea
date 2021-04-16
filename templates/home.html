@@ -12,12 +12,12 @@
                             <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                             <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
                         </form>
-                        <button type="button" class="btn btn-lg login-btn" id="login">
+                        <a href="{{ url_for('login')}}" type="button" class="btn btn-lg login-btn" id="login">
                             Log In
-                        </button>
-                        <button type="button" class="btn btn-lg register-btn" id="register">
+                        </a>
+                        <a href="{{ url_for('register')}}" type="button" class="btn btn-lg register-btn" id="register">
                             Register
-                        </button>
+                        </a>
             </div>
         </div>
     </div>

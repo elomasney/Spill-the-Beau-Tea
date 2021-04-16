@@ -49,9 +49,9 @@
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="">Manage Categories</a></li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="">Log In</a></li>
+                                href="{{ url_for ('login')}}">Sign In</a></li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="">Log Out</a></li>
+                                href="">Sign Out</a></li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="{{ url_for('register')}}">Register</a></li>
                     </ul>
@@ -67,7 +67,7 @@
         {% if messages %}
         {% for message in messages %}
         <div class="row flashes">
-            <h4>{{ message }}<i class="fas fa-exclamation"></i></h4>
+            <h4>{{ message }} <i class="fas fa-exclamation"></i></h4>
         </div>
         {% endfor %}
         {% endif %}

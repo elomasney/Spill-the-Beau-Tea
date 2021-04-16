@@ -170,7 +170,8 @@ body {
     color: #ff0080;
 }
 
-#home button {
+#home button,
+#home a {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -231,4 +232,11 @@ body {
 
 .form-group i {
     color: #fafd42;
+}
+
+/*LogIn Page*/
+#registerLink,
+#loginLink {
+    text-align: center;
+    color: #ff0080;
 }
