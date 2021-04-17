@@ -1,12 +1,32 @@
 {% extends "base.html" %}
 {% block content %}
 
+<div class="products-container container-fluid">
 
-{% for product in products %}
+    {% for product in products %}
+    <div id="product" class="card product-card mb-3 col-md-12">
+        <div class="row no-gutters">
+            <div class="col-md-5">
+                <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
+            </div>
+            <div class="col-md-7">
+                <div class="product-text card-body text-justify">
+                    <h4 class="product-brand card-title">{{ product.brand }}</h4>
+                    <h5 class="product-name card-title">{{ product.product_name }}</h5>
+                    <p class="card-text"><strong>Description:</strong></p>
+                    <p class="card-text">{{ product.description}}</p>
+                    <p class="card-text"><strong>Shades: </strong>{{ product.num_shades}}</p>
+                    <span class="card-text"> <strong>Price: €</strong>{{ product.price}}</span>
+                    <span class="product-buy card-text"><strong>Where to buy:</strong> <a href="{{ product.buy_url}}"
+                            target="_blank">Buy Here!</a></span>
 
-{{ product.product_name}}<br>
-{{ product.brand}}<br>
-<img src="{{ product.img_url }}" height="300">
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
 {% endfor %}
 
 {% endblock %}

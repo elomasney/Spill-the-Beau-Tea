@@ -196,9 +196,46 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+/*Products Page*/
+
+#product.product-card.card {
+    border: none;
+}
+
+.product-text.card-body {
+    padding: 30px 20px;
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    padding: 15px;
+}
+
+.product-brand.card-title {
+    font-family: "Dancing Script", sans-serif;
+    font-weight: bolder;
+    font-size: 2.5rem;
+    letter-spacing: .1rem;
+}
+
+.product-name.card-title {
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.4rem;
+    letter-spacing: .1rem;
+}
+
+.product-image.card-img {
+    padding: 30px 20px;
+    height: 80%;
+}
+
+.product-buy.card-text {
+    margin-left: 50px;
+}
+
 /*Register Page*/
 .register-container,
-.profile-container {
+.profile-container,
+.products-container {
     height: 100vh;
     padding-top: 80px;
 }
