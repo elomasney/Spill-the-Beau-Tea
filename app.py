@@ -27,9 +27,29 @@ def home():
         "home.html", categories=categories)
 
 
-@app.route("/get_products")
-def get_products():
-    products = mongo.db.products.find()
+@app.route("/get_categories/<category_group>")
+def get_categories(category_group):
+    categories = mongo.db.categories.find({"category_group": "category_group"})
+
+    if category_group == "Eyes & Brows":
+        categories = mongo.db.categories.find(
+            {"category_group": "Eyes & Brows"})
+    elif category_group == "Face":
+        categories = mongo.db.categories.find({"category_group": "Face"})
+    elif category_group == "Lips":
+        categories = mongo.db.categories.find({"category_group": "Lips"})
+    elif category_group == "Tools & Accessories":
+        categories = mongo.db.categories.find(
+            {"category_group": "Tools & Accessories"})
+    return render_template(
+        "categories.html", category_group=category_group,
+        categories=categories)
+
+
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    query = request.form.get("query")
+    products = list(mongo.db.products.find({"$text": {"$search": query}}))
     return render_template("products.html", products=products)
 
 

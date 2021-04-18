@@ -34,10 +34,20 @@
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div class="dropdown-menu scrollable-menu">
-                                {% for category in categories|sort(attribute="_id") %}
-                                <a class="dropdown-item" href="{{ url_for('get_products')}}">{{category["_id"]}}</a>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('get_categories', category_group='Eyes & Brows')}}">Eyes &
+                                    Brows</a>
                                 <div class="dropdown-divider"></div>
-                                {% endfor %}
+                                <a class="dropdown-item"
+                                    href="{{ url_for('get_categories', category_group='Face')}}">Face</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('get_categories', category_group='Lips')}}">Lips</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item"
+                                    href="{{ url_for('get_categories', category_group='Tools & Accessories')}}">Tools &
+                                    Accessories</a>
+                                <div class="dropdown-divider"></div>
                             </div>
                             {% if session.user %}
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
