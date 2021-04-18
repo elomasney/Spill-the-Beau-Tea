@@ -2,28 +2,27 @@
 {% block content %}
 
 <div class="products-container container-fluid">
-    <div class="card-deck">
-        {% for category in categories %}
-        <div class="card-deck">
-            <div class="card bg-dark text-white">
-                <img src="{{category.img_url}}" class="card-img" alt="{{ category.category_name }}">
-                <div class="card-img-overlay">
+    {% for category in categories %}
+    {% if loop.first%}
+    <h2 class="category-header">{{category.category_group}}</h2>
+    {% endif %}
+    <div class=" category-deck card-deck">
+        <div class="row">
+            <div class=" category-card card">
+                <img src="{{category.img_url}}" class=" category-image card-img" alt="{{ category.category_name }}">
 
-                    <h5 class="card-title">{{ category.category_name }}</h5>
-                    <p class="card-text"> This is a wider card with supporting text below as a natural lead-in to
-                        additional
-                        content. This content is a little bit longer.</p>
-                    <form class="example" action="{{url_for('search')}}" method="POST">
+                <h5 class="category-title card-title">{{ category.category_name }}</h5>
+                <div id="search-category" class="row">
+                    <p class="category-text card-text"> Explore {{category.category_name}} Products </p>
+                    <form class="search" action="{{url_for('search')}}" method="POST">
                         <input type="hidden" name="query" value="{{category.category_name}}">
                         <button type="submit"><i class="fa fa-search"></i></button>
                     </form>
-                    <!--<form class="example" action="{{url_for('search')}}" method="POST">
-                        <input type="text" placeholder="{{category.category_name}}" name="query" id="query">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>-->
                 </div>
             </div>
-            {% endfor %}
+        </div>
+    </div>
+    {% endfor %}
+</div>
 
-
-            {% endblock %}
+{% endblock %}

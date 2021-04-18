@@ -196,6 +196,69 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+/*Categories Page*/
+.category-header {
+    text-align: center;
+    font-family: "Dancing Script", sans-serif;
+    font-weight: bolder;
+    font-size: 4rem;
+    color: #ff0080;
+    letter-spacing: .2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.card-deck {
+    padding: 15px;
+    display: inline-block;
+    margin: auto;
+
+}
+
+.category-card.card {
+    background-color: #0ab8df;
+    border: none;
+}
+
+.category-image.card-img {
+    padding: 5px;
+}
+
+.category-title.card-title {
+    font-family: "Lato", sans-serif;
+    font-size: 1.5rem;
+    text-align: center;
+    letter-spacing: .2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
+}
+
+.category-title.card-title,
+.category-text.card-text {
+    background-color: rgba(10, 184, 223, 0.3);
+    color: #ff0080;
+    font-weight: 900;
+}
+
+
+.category-text.card-text,
+.search {
+    text-align: center;
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.1rem;
+    letter-spacing: .2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
+
+}
+
+.search button {
+    color: #ff0080;
+    background-color: #0ab8df;
+}
+
+#search-category {
+    justify-content: center;
+}
+
 /*Products Page*/
 
 #product.product-card.card {

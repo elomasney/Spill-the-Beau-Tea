@@ -4,7 +4,7 @@
 <div class="products-container container-fluid">
     {% for product in products %}
     {% if loop.first%}
-    <h3>{{product.category_name}}</h3>
+    <h2 class="category-header">{{product.category_name}}</h2>
     {% endif %}
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row no-gutters">
