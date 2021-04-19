@@ -1,25 +1,24 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="products-container container-fluid">
+<div class="product-container container-fluid">
     {% for category in categories %}
+    <!--Category Header-->
     {% if loop.first%}
     <h2 class="category-header">{{category.category_group}}</h2>
     {% endif %}
-    <div class=" category-deck card-deck">
-        <div class="row">
-            <div class=" category-card card">
-                <img src="{{category.img_url}}" class=" category-image card-img" alt="{{ category.category_name }}">
+    <!--Categories-->
+    <div class=" category-card card">
+        <img src="{{category.img_url}}" class=" category-image card-img" alt="{{ category.category_name }}">
 
-                <h5 class="category-title card-title">{{ category.category_name }}</h5>
-                <div id="search-category" class="row">
-                    <p class="category-text card-text"> Explore {{category.category_name}} Products </p>
-                    <form class="search" action="{{url_for('search')}}" method="POST">
-                        <input type="hidden" name="query" value="{{category.category_name}}">
-                        <button type="submit"><i class="fa fa-search"></i></button>
-                    </form>
-                </div>
-            </div>
+        <h5 class="category-title card-title">{{ category.category_name }}</h5>
+        <!--Search button for products in a category-->
+        <div id="search-category" class="row">
+            <p class="category-text card-text"> Explore {{category.category_name}} Products </p>
+            <form class="search" action="{{url_for('get_products')}}" method="POST">
+                <input type="hidden" name="product_query" value="{{category.category_name}}">
+                <button type="submit"><i class="fa fa-search"></i></button>
+            </form>
         </div>
     </div>
     {% endfor %}

@@ -12,23 +12,25 @@
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
             <div class="col-md-7">
-                <div class="product-text card-body text-justify">
+                <div id="product-info" class="product-text card-body text-justify">
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h5 class="product-name card-title">{{ product.product_name }}</h5>
-                    <p class="card-text"><strong>Description:</strong></p>
+                    <i id="star" class="fas fa-star"></i>
+                    <p class="card-text"><strong id="description">Description:</strong></p>
                     <p class="card-text">{{ product.description}}</p>
-                    <p class="card-text"><strong>Shades: </strong>{{ product.num_shades}}</p>
-                    <span class="card-text"> <strong>Price: €</strong>{{ product.price}}</span>
-                    <span class="product-buy card-text"><strong>Where to buy:</strong> <a href="{{ product.buy_url}}"
-                            target="_blank">Buy Here!</a></span>
-
-
+                    <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
+                    <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
+                    <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
+                            href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
+                    <a href="" type="button" class="btn btn-lg review-btn" id="review">
+                        Add Review
+                    </a>
                 </div>
             </div>
         </div>
     </div>
-
+    {% endfor %}
 </div>
-{% endfor %}
+
 
 {% endblock %}

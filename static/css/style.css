@@ -198,6 +198,7 @@ body {
 
 /*Categories Page*/
 .category-header {
+    padding-top: 40px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
@@ -207,25 +208,30 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-.card-deck {
+.card-group {
     padding: 15px;
-    display: inline-block;
+    display: flex;
     margin: auto;
-
+    width: 50%;
 }
 
 .category-card.card {
     background-color: #0ab8df;
     border: none;
+    height: 60%;
+    margin: auto;
+    margin-bottom: 20px;
+    width: 50%;
 }
 
 .category-image.card-img {
     padding: 5px;
+    height: 60%;
 }
 
 .category-title.card-title {
     font-family: "Lato", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1.7rem;
     text-align: center;
     letter-spacing: .2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
@@ -244,9 +250,8 @@ body {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     letter-spacing: .2rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
 
 }
 
@@ -270,6 +275,8 @@ body {
     font-family: "Lato", sans-serif;
     font-size: 1.1rem;
     padding: 15px;
+    color: #000000;
+    font-weight: bold;
 }
 
 .product-brand.card-title {
@@ -277,13 +284,18 @@ body {
     font-weight: bolder;
     font-size: 2.5rem;
     letter-spacing: .1rem;
+    color: #15bce2;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
+
 
 .product-name.card-title {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.4rem;
     letter-spacing: .1rem;
+    color: #15bce2;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 .product-image.card-img {
@@ -291,15 +303,41 @@ body {
     height: 80%;
 }
 
+strong#price,
+strong#shades,
+strong#buy,
+strong#description,
+i.fas.fa-star {
+    color: #fafd42;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding: 15px 0;
+}
+
 .product-buy.card-text {
     margin-left: 50px;
+}
+
+.product-buy a {
+    color: #fef2f8;
+}
+
+#product-info a#review {
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.2rem;
+    color: #fafd42;
+    background: #15bce2;
+    letter-spacing: .1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding: 5px 10px;
+    margin-top: 10px;
 }
 
 /*Register Page*/
 .register-container,
 .profile-container,
 .products-container {
-    height: 100vh;
+    height: 100%;
     padding-top: 80px;
 }
 

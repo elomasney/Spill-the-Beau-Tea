@@ -27,6 +27,14 @@ def home():
         "home.html", categories=categories)
 
 
+@app.route("/search", methods=["GET", "POST"])
+def search():
+    # Enables search functionality on homepage search bar
+    query = request.form.get("query")
+    products = list(mongo.db.products.find({"$text": {"$search": query}}))
+    return render_template("products.html", products=products)
+
+
 @app.route("/get_categories/<category_group>")
 def get_categories(category_group):
     categories = mongo.db.categories.find({"category_group": "category_group"})
@@ -46,10 +54,11 @@ def get_categories(category_group):
         categories=categories)
 
 
-@app.route("/search", methods=["GET", "POST"])
-def search():
-    query = request.form.get("query")
-    products = list(mongo.db.products.find({"$text": {"$search": query}}))
+@app.route("/get_products", methods=["GET", "POST"])
+def get_products():
+    # Gets products in specific category
+    product_query = request.form.get("product_query")
+    products = list(mongo.db.products.find({"$text": {"$search": product_query}}))
     return render_template("products.html", products=products)
 
 
