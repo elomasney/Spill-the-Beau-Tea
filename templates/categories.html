@@ -2,7 +2,7 @@
 {% block content %}
 
 <div class="product-container container-fluid">
-    {% if session.user == 'admin'%}
+    {% if session.user %}
     <div id="category-btns" class="btn-grid">
         <a href="{{ url_for('add_category') }}" class="btn ">Add Category</a>
         <a href="{{ url_for('add_category') }}" class="btn">Edit Category</a>

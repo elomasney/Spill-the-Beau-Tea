@@ -186,7 +186,8 @@ body {
 }
 
 #home button,
-#home a {
+#home a,
+#add_category.btn-large {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -220,7 +221,8 @@ body {
     color: #fafd42;
 }
 
-.category-header {
+.category-header,
+#categoryAdd {
     padding-top: 30px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
@@ -229,6 +231,45 @@ body {
     color: #ff0080;
     letter-spacing: .2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.form-container {
+    height: 100%;
+}
+
+.category-form {
+    background-color: #0ab8df;
+    color: #ff0080;
+    text-align: center;
+    margin: 50px;
+    padding: 30px;
+}
+
+#category_name,
+#category_group,
+#category_image {
+    font-family: "Lato", sans-serif;
+    padding: 10px 100px;
+    margin: 30px;
+}
+
+#add_category.btn-large {
+    padding: 10px 30px;
+    margin-left: 50px;
+}
+
+.category-input label,
+.category-input input,
+.category-input select {
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.2rem;
+}
+
+#category_group option {
+    background-color: #ff0080;
+    color: #fafd42;
+    font-size: 1.2rem;
 }
 
 .card-group {
@@ -362,7 +403,7 @@ i.fas.fa-star {
 .register-container,
 .profile-container,
 .products-container,
-.form-container {
+    {
     height: 100vh;
     padding-top: 80px;
 }
