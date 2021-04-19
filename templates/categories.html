@@ -2,6 +2,13 @@
 {% block content %}
 
 <div class="product-container container-fluid">
+    {% if session.user == 'admin'%}
+    <div id="category-btns" class="btn-grid">
+        <a href="{{ url_for('add_category') }}" class="btn ">Add Category</a>
+        <a href="{{ url_for('add_category') }}" class="btn">Edit Category</a>
+        <a href="{{ url_for('add_category') }}" class="btn">Delete Category</a>
+    </div>
+    {% endif %}
     {% for category in categories %}
     <!--Category Header-->
     {% if loop.first%}

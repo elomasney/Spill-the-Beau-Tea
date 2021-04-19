@@ -54,11 +54,30 @@ def get_categories(category_group):
         categories=categories)
 
 
+@app.route("/add_category", methods=["GET", "POST"])
+def add_category():
+    if request.method == "POST":
+        category = {
+            "category_name": request.form.get("category_name"),
+            "category_group": request.form.get("category_group"),
+            "img_url": request.form.get("category_image")
+        }
+        mongo.db.categories.insert_one(category)
+        flash("New Category Added")
+        return redirect(url_for("add_category"))
+
+    category_group = mongo.db.categories.aggregate([
+        {"$group": {"_id": "$category_group", }}])
+    return render_template(
+        "add_category.html", category_group=category_group)
+
+
 @app.route("/get_products", methods=["GET", "POST"])
 def get_products():
     # Gets products in specific category
     product_query = request.form.get("product_query")
-    products = list(mongo.db.products.find({"$text": {"$search": product_query}}))
+    products = list(mongo.db.products.find(
+        {"$text": {"$search": product_query}}))
     return render_template("products.html", products=products)
 
 

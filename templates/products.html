@@ -7,7 +7,7 @@
     <h2 class="category-header">{{product.category_name}}</h2>
     {% endif %}
     <div id="product" class="card product-card mb-3 col-md-12">
-        <div class="row no-gutters">
+        <div class="row">
             <div class="col-md-5">
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
@@ -22,14 +22,20 @@
                     <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
                             href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
+                    <a href="" type="button" class="btn btn-lg review-btn" id="product-reviews">
+                        See Reviews
+                    </a>
+                    {% if session.user %}
                     <a href="" type="button" class="btn btn-lg review-btn" id="review">
                         Add Review
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
     </div>
-    {% endfor %}
+</div>
+{% endfor %}
 </div>
 
 
