@@ -4,8 +4,14 @@
 <div class="product-container container-fluid">
     {% for category in categories %}
     <!--Category Header-->
-    {% if loop.first%}
+    {% if session.user|lower == "admin"|lower %}
+    {% if loop.first %}
+    <h2 class="category-header">Categories</h2>
+    {% endif %}
+    {% else %}
+    {% if loop.first %}
     <h2 class="category-header">{{category.category_group}}</h2>
+    {% endif %}
     {% endif %}
     <!--Categories-->
     <div class=" category-card card">

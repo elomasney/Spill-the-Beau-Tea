@@ -35,10 +35,17 @@ def search():
     return render_template("products.html", products=products)
 
 
+@app.route("/all_categories")
+def all_categories():
+    # Renders all categories - for admin purposes
+    categories = mongo.db.categories.find()
+    return render_template('categories.html', categories=categories)
+
+
 @app.route("/get_categories/<category_group>")
 def get_categories(category_group):
+    # Gets categories in a particular category group from dropdown menu
     categories = mongo.db.categories.find({"category_group": "category_group"})
-
     if category_group == "Eyes & Brows":
         categories = mongo.db.categories.find(
             {"category_group": "Eyes & Brows"})
@@ -56,6 +63,7 @@ def get_categories(category_group):
 
 @app.route("/add_category", methods=["GET", "POST"])
 def add_category():
+    # Adds a category to the db - access only for admin
     if request.method == "POST":
         category = {
             "category_name": request.form.get("category_name"),
@@ -64,7 +72,7 @@ def add_category():
         }
         mongo.db.categories.insert_one(category)
         flash("New Category Added")
-        return redirect(url_for("add_category"))
+        return redirect(url_for("all_categories"))
 
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
@@ -74,6 +82,7 @@ def add_category():
 
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
+    # Deletes a category from the db - access only for admin
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
     categories = mongo.db.categories.find()

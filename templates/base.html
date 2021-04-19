@@ -30,6 +30,23 @@
                         <!--Code snippet from Stackoverflow to solve issue of hamburger menu closing once link is clicked, taken from Orel Eliyahu' on Stack Overflow - https://stackoverflow.com/questions/36405991/bootstrap-toggle-menu-on-one-page-site-does-not-uncollapse-when-clicked-->
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="{{ url_for('home')}}">Home</a></li>
+                        <!--Admin Navbar-->
+                        {% if session.user|lower == "admin"|lower %}
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
+                                aria-haspopup="true" aria-expanded="false">Manage</a>
+                            <div class="dropdown-menu scrollable-menu">
+                                <a class="dropdown-item" href=" {{ url_for('all_categories')}}">Categories</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Products</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="">Reviews</a>
+                                <div class="dropdown-divider"></div>
+                        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
+                                href="{{ url_for('add_category') }}">Add A Category</a>
+                        </li>
+                        <!--Nav items available to anyone-->
+                        {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>
@@ -49,18 +66,16 @@
                                     Accessories</a>
                                 <div class="dropdown-divider"></div>
                             </div>
+                            {% endif %}
+                            <!--Navbar items only available to registered users-->
                             {% if session.user %}
-                        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="{{ url_for('add_category') }}">Add A Category</a>
-                        </li>
-                        {% endif %}
-                        {% if session.user %}
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="{{ url_for ('profile', username=session['user'])}}">Profile</a>
                         </li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="{{ url_for ('logout')}}">Sign Out</a></li>
                         {% else %}
+                        <!--Nav items available to non registered users-->
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
                                 href="{{ url_for ('login')}}">Sign In</a></li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
