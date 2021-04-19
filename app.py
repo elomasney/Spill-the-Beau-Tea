@@ -72,6 +72,14 @@ def add_category():
         "add_category.html", category_group=category_group)
 
 
+@app.route("/delete_category/<category_id>")
+def delete_category(category_id):
+    mongo.db.categories.remove({"_id": ObjectId(category_id)})
+    flash("Category Successfully Deleted")
+    categories = mongo.db.categories.find()
+    return render_template('categories.html', categories=categories)
+
+
 @app.route("/get_products", methods=["GET", "POST"])
 def get_products():
     # Gets products in specific category

@@ -198,12 +198,15 @@ body {
 }
 
 /*Categories Page*/
-#category-btns {
-    text-align: center;
-    margin: 40px 0;
+
+#category-btns a:hover,
+.adminBtns a:hover {
+    color: #fafd42;
 }
 
-#category-btns a {
+.adminBtns a.category_edit,
+.adminBtns a.category_delete {
+    justify-content: center;
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -211,14 +214,10 @@ body {
     background: #ff0080;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    padding: 20px 30px;
-    margin: 0 50px;
+    padding: 10px 20px;
+    margin: 15px 10px;
     -webkit-box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
     box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
-}
-
-#category-btns a:hover {
-    color: #fafd42;
 }
 
 .category-header,
@@ -284,14 +283,16 @@ body {
     border: none;
     height: 60%;
     margin: auto;
-    margin-bottom: 20px;
-    width: 50%;
+    margin-bottom: 30px;
+    width: 60%;
+    padding-bottom: 30px;
 }
 
 .category-image.card-img {
     padding: 5px;
-    height: 60%;
+    height: 50%;
 }
+
 
 .category-title.card-title {
     font-family: "Lato", sans-serif;
@@ -316,6 +317,7 @@ body {
     font-weight: bolder;
     font-size: 1.3rem;
     letter-spacing: .2rem;
+    margin-right: 10px;
 
 }
 
@@ -326,6 +328,7 @@ body {
 
 #search-category {
     justify-content: center;
+    margin-bottom: 10px;
 }
 
 /*Products Page*/
@@ -402,8 +405,7 @@ i.fas.fa-star {
 /*Register Page*/
 .register-container,
 .profile-container,
-.products-container,
-    {
+.products-container {
     height: 100vh;
     padding-top: 80px;
 }
