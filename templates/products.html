@@ -2,10 +2,30 @@
 {% block content %}
 
 <div class="products-container container-fluid">
+    <form id="searchProducts" class="form-inline my-2 my-lg-0" action="{{ url_for('search')}}" method="POST">
+        <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search" aria-label="Search">
+        <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
+    </form>
+
+
     {% for product in products %}
-    {% if loop.first%}
+    {% if query %}
+    {% if results == 0 %}
+    <h2 class="category-header">No results found for '{{ query }}'</h2>
+
+    {% elif results >=1 %}
+    {% if loop.first %}
+    <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
+    {% endif %}
+    {% endif %}
+
+    {% else %}
+
+    {% if loop.first %}
     <h2 class="category-header">{{product.category_name}}</h2>
     {% endif %}
+    {% endif %}
+
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-5">

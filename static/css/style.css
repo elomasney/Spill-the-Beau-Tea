@@ -175,20 +175,24 @@ body {
     color: #0ab8df;
 }
 
-#search.form-inline .form-control {
+#searchHome.form-inline .form-control,
+#searchProducts.form-inline .form-control {
     width: 80%;
     height: 40px;
 }
 
-#search input {
+#search input,
+#searchProducts input {
     font-size: 1.5rem;
     color: #ff0080;
+    font-family: "Dancing Script";
 }
 
 #home button,
 #home a,
 #add_category.btn-large,
-#edit_category.btn-large {
+#edit_category.btn-large,
+#searchBtn {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -327,7 +331,7 @@ body {
 
 }
 
-.search button {
+#search button {
     color: #ff0080;
     background-color: #0ab8df;
 }
@@ -338,6 +342,12 @@ body {
 }
 
 /*Products Page*/
+
+#searchProducts.form-inline {
+    padding: 20px;
+    background-color: #0ab8df;
+}
+
 
 #product.product-card.card {
     border: none;
