@@ -80,6 +80,25 @@ def add_category():
         "add_category.html", category_group=category_group)
 
 
+@app.route("/edit_category/<category_id>", methods=["GET", "POST"])
+def edit_category(category_id):
+    if request.method == "POST":
+        submit = {
+            "category_name": request.form.get("category_name"),
+            "category_group": request.form.get("category_group"),
+            "img_url": request.form.get("category_image")
+        }
+        mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
+        flash("Category successfully updated")
+        return redirect(url_for("all_categories"))
+
+    category_group = mongo.db.categories.aggregate([
+        {"$group": {"_id": "$category_group", }}])
+    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
+    return render_template(
+        "edit_category.html", category=category, category_group=category_group)
+
+
 @app.route("/delete_category/<category_id>")
 def delete_category(category_id):
     # Deletes a category from the db - access only for admin

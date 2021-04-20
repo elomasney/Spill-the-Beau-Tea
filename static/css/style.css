@@ -187,7 +187,8 @@ body {
 
 #home button,
 #home a,
-#add_category.btn-large {
+#add_category.btn-large,
+#edit_category.btn-large {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -221,7 +222,7 @@ body {
 }
 
 .category-header,
-#categoryAdd {
+#categoryManage {
     padding-top: 30px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
@@ -252,9 +253,14 @@ body {
     margin: 30px;
 }
 
-#add_category.btn-large {
+#add_category.btn-large,
+#edit_category.btn-large {
     padding: 10px 30px;
     margin-left: 50px;
+}
+
+#edit_category.btn-large a {
+    color: #fafd42;
 }
 
 .category-input label,
