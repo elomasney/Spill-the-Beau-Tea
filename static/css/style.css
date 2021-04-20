@@ -179,6 +179,7 @@ body {
 #searchProducts.form-inline .form-control {
     width: 80%;
     height: 40px;
+    text-align: left;
 }
 
 #search input,
@@ -240,7 +241,7 @@ body {
 }
 
 .form-container {
-    height: 100vh;
+    height: 100%;
     padding-left: 50px;
     padding-right: 50px;
 }
@@ -530,4 +531,12 @@ i.fas.fa-star {
 #loginLink {
     text-align: center;
     color: #ff0080;
+}
+
+#username.form-control,
+#password.form-control,
+#email.form-control {
+    width: 80%;
+    text-align: left;
+    margin: auto;
 }
