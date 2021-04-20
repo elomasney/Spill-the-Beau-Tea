@@ -38,7 +38,7 @@
                             <div class="dropdown-menu scrollable-menu">
                                 <a class="dropdown-item" href=" {{ url_for('all_categories')}}">Categories</a>
                                 <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="">Products</a>
+                                <a class="dropdown-item" href="{{ url_for('all_products')}}">Products</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="">Reviews</a>
                                 <div class="dropdown-divider"></div>
@@ -50,7 +50,7 @@
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>
-                            <div class="dropdown-menu scrollable-menu">
+                            <div id="navigation" class="dropdown-menu scrollable-menu">
                                 <a class="dropdown-item"
                                     href="{{ url_for('get_categories', category_group='Eyes & Brows')}}">Eyes &
                                     Brows</a>
@@ -62,7 +62,8 @@
                                     href="{{ url_for('get_categories', category_group='Lips')}}">Lips</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item"
-                                    href="{{ url_for('get_categories', category_group='Tools & Accessories')}}">Tools &
+                                    href="{{ url_for('get_categories', category_group='Tools & Accessories')}}">Tools
+                                    &
                                     Accessories</a>
                                 <div class="dropdown-divider"></div>
                             </div>

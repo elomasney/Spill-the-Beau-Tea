@@ -41,7 +41,8 @@ def search():
 def all_categories():
     # Renders all categories - for admin purposes
     categories = mongo.db.categories.find()
-    return render_template('categories.html', categories=categories)
+    return render_template(
+        'categories.html', categories=categories)
 
 
 @app.route("/get_categories/<category_group>")
@@ -110,14 +111,22 @@ def delete_category(category_id):
     return render_template('categories.html', categories=categories)
 
 
-@app.route("/get_products", methods=["GET", "POST"])
-def get_products():
+@app.route("/search_categories", methods=["GET", "POST"])
+def search_categories():
     # Gets products in specific category
     product_query = request.form.get("product_query")
     products = list(mongo.db.products.find(
         {"$text": {"$search": product_query}}))
 
     return render_template("products.html", products=products)
+
+
+@app.route("/all_products")
+def all_products():
+    # Renders all products in database
+    products = mongo.db.products.find()
+    return render_template(
+        'products.html', products=products)
 
 
 @app.route("/register", methods=["GET", "POST"])

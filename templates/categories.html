@@ -21,7 +21,7 @@
         <!--Search button for products in a category-->
         <div id="search-category" class="row">
             <p class="category-text card-text"> Explore {{category.category_name}} Products </p>
-            <form class="search" action="{{url_for('get_products')}}" method="POST">
+            <form class="search" action="{{url_for('search_categories')}}" method="POST">
                 <input type="hidden" name="product_query" value="{{category.category_name}}">
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>

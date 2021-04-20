@@ -5,7 +5,7 @@
     <h2 id="categoryManage">Add Category</h2>
     <div class="row card-panel">
         <form class=" category-form col s12" method="POST" action="{{ url_for('add_category') }}">
-            <!-- category name -->
+            <!-- Category Name -->
             <div class="row">
                 <div class=" category-input input-field col s12">
                     <label for="category_name">Name</label>
@@ -14,6 +14,7 @@
                         maxlength="25" type="text" class="validate" required>
                 </div>
             </div>
+            <!-- Category Group-->
             <div class="row">
                 <div class=" category-input input-field col s12">
                     <label for="category_group">Group</label>
@@ -26,6 +27,7 @@
                     </select>
                 </div>
             </div>
+            <!-- Category Image -->
             <div class="row">
                 <div class=" category-input input-field col s12">
                     <label for="category_image">Image</label>
