@@ -192,6 +192,7 @@ body {
 #home a,
 #add_category.btn-large,
 #edit_category.btn-large,
+#add_product.btn-large,
 #searchBtn {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
@@ -226,7 +227,8 @@ body {
 }
 
 .category-header,
-#categoryManage {
+#categoryManage,
+#productManage {
     padding-top: 30px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
@@ -238,29 +240,30 @@ body {
 }
 
 .form-container {
-    height: 100%;
+    height: 100vh;
+    padding-left: 50px;
+    padding-right: 50px;
 }
 
 .category-form {
     background-color: #0ab8df;
     color: #ff0080;
     text-align: center;
-    margin: 50px;
-    padding: 30px;
+    margin: 50px 0;
+    padding: 80px 20px;
 }
 
-#category_name,
-#category_group,
-#category_image {
-    font-family: "Lato", sans-serif;
-    padding: 10px 100px;
-    margin: 30px;
+#categorySubmit {
+    margin: auto;
+    margin-top: 30px;
 }
 
 #add_category.btn-large,
-#edit_category.btn-large {
+#edit_category.btn-large,
+#add_product.btn-large {
     padding: 10px 30px;
     margin-left: 50px;
+    margin-top: 10px;
 }
 
 #edit_category.btn-large a {
@@ -269,10 +272,31 @@ body {
 
 .category-input label,
 .category-input input,
-.category-input select {
+.category-input select,
+.product-input label,
+.product-input input,
+.product-input select {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
+    margin: auto;
+    margin-bottom: 10px;
+}
+
+.category-input input,
+.category-input select,
+.product-input input,
+.product-input select {
+    padding: 5px 50px;
+}
+
+.category-input i {
+    color: #fafd42;
+}
+
+.form-control {
+    display: flex;
+    width: 50%;
 }
 
 #category_group option {
@@ -342,12 +366,41 @@ body {
 }
 
 /*Products Page*/
+.products-container {
+    height: 100%;
+    padding-top: 80px;
+}
 
 #searchProducts.form-inline {
     padding: 20px;
     background-color: #0ab8df;
 }
 
+.product-form {
+    background-color: #0ab8df;
+    color: #ff0080;
+    text-align: center;
+    padding: 25px 0;
+
+}
+
+.addProduct {
+    height: 100%;
+    padding: 40px;
+}
+
+textarea#description.form-control {
+    margin: auto;
+}
+
+.form-control {
+    text-align: center;
+    color: #000000;
+}
+
+select#category_name.form-control {
+    text-align: center;
+}
 
 #product.product-card.card {
     border: none;
@@ -420,8 +473,7 @@ i.fas.fa-star {
 
 /*Register Page*/
 .register-container,
-.profile-container,
-.products-container {
+.profile-container {
     height: 100vh;
     padding-top: 80px;
 }

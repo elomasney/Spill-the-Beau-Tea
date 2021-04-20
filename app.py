@@ -129,6 +129,29 @@ def all_products():
         'products.html', products=products)
 
 
+@app.route("/add_product", methods=["GET", "POST"])
+def add_product():
+    # Adds a product to the db - access only for admin
+    if request.method == "POST":
+        product = {
+            "product_name": request.form.get("product_name"),
+            "brand": request.form.get("brand"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("product_image"),
+            "description": request.form.get("description"),
+            "price": request.form.get("product_price"),
+            "num_shades": request.form.get("shades"),
+            "buy_url": request.form.get("buy_url"),
+        }
+        mongo.db.products.insert_one(product)
+        flash("New Product Added")
+        return redirect(url_for("all_products"))
+
+    categories = mongo.db.categories.find()
+    return render_template(
+        "add_product.html", categories=categories)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

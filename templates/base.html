@@ -38,15 +38,17 @@
                             <div class="dropdown-menu scrollable-menu">
                                 <a class="dropdown-item" href=" {{ url_for('all_categories')}}">Categories</a>
                                 <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('add_category') }}">Add A Category</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ url_for('all_products')}}">Products</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="{{ url_for('add_product')}}">Add A Product</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="">Reviews</a>
                                 <div class="dropdown-divider"></div>
-                        <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link"
-                                href="{{ url_for('add_category') }}">Add A Category</a>
-                        </li>
-                        <!--Nav items available to anyone-->
-                        {% else %}
+
+                                <!--Nav items available to anyone-->
+                                {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button"
                                 aria-haspopup="true" aria-expanded="false">Categories</a>

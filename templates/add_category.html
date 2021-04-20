@@ -3,23 +3,23 @@
 
 <div class="form-container container-fluid">
     <h2 id="categoryManage">Add Category</h2>
-    <div class="row card-panel">
-        <form class=" category-form col s12" method="POST" action="{{ url_for('add_category') }}">
+    <div class="row">
+        <form class=" category-form col-12" method="POST" action="{{ url_for('add_category') }}">
             <!-- Category Name -->
             <div class="row">
-                <div class=" category-input input-field col s12">
-                    <label for="category_name">Name</label>
-                    <i class="fas fa-folder-open"></i>
-                    <input id="category_name" name="category_name" placeholder="Category Name" minlength="3"
-                        maxlength="25" type="text" class="validate" required>
+                <div class="category-input col-12">
+                    <label class=" col-form-label" for="category_name">Category Name: <i
+                            class="fas fa-folder-open"></i></label>
+                    <input class="form-control" id="category_name" name="category_name" minlength="3" maxlength="25"
+                        type="text" class="validate" required>
                 </div>
             </div>
             <!-- Category Group-->
             <div class="row">
-                <div class=" category-input input-field col s12">
-                    <label for="category_group">Group</label>
-                    <i class="fas fa-folder-open prefix"></i>
-                    <select id="category_group" name="category_group" class="validate" required>
+                <div class=" category-input col-12">
+                    <label class="col-form-label" for="category_group">Category Group: <i
+                            class="fas fa-folder-open prefix"></i></label>
+                    <select class="form-control" id="category_group" name="category_group" class="validate" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
                         <option value="{{category['_id']}}">{{category["_id"]}}</option>
@@ -29,21 +29,23 @@
             </div>
             <!-- Category Image -->
             <div class="row">
-                <div class=" category-input input-field col s12">
-                    <label for="category_image">Image</label>
-                    <i class="fas fa-folder-open"></i>
-                    <input id="category_image" name="category_image" placeholder="Insert image url" type="text"
-                        class="validate" required>
+                <div class=" category-input col-12">
+                    <label class=" col-form-label" for="category_image">Category Image: (image url) <i
+                            class="fas fa-folder-open prefix"></i></label>
+                    <input class="form-control" id="category_image" name="category_image" type="text" class="validate"
+                        required>
                 </div>
-            </div>
-            <!-- submit button -->
-            <div class="row">
-                <div class="col s12 ">
-                    <button id="add_category" type="submit" class="btn-large">
-                        Add Category <i class="fas fa-plus-square right"></i>
-                    </button>
+                <!-- submit button -->
+                <div id="categorySubmit" class="row">
+                    <div class="col-12">
+                        <button id="edit_category" type="submit" class="btn-large"><a href="
+                                    {{ url_for('all_categories') }}">
+                                Cancel <i class="fas fa-times-circle right"></i></a></button>
+                        <button id="add_category" type="submit" class="btn-large">
+                            Add Category <i class="fas fa-plus-square right"></i>
+                        </button>
+                    </div>
                 </div>
-            </div>
         </form>
     </div>
 </div>

@@ -1,94 +1,90 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="form-container container-fluid">
+<div class="addProduct container-fluid">
     <h2 id="productManage">Add Product</h2>
-    <div class="row card-panel">
-        <form class=" category-form col s12" method="POST" action="{{ url_for('') }}">
+    <div class="row form-group">
+        <form class=" product-form col-12" method="POST" action="{{ url_for('add_product') }}">
             <!-- Product Name -->
-    </div>
-    <div class="row">
-        <div class=" product-input input-field col s12">
-            <label for="product_name"> Product Name</label>
-            <i class="fas fa-folder-open"></i>
-            <input id="product_name" name="product_name" placeholder="Product Name" minlength="3" maxlength="25"
-                type="text" class="validate" required>
-        </div>
-    </div>
-    <!--Product Brand-->
-    <div class="row">
-        <div class=" product-input input-field col s12">
-            <label for="brand"> Brand </label>
-            <i class="fas fa-folder-open"></i>
-            <input id="brand" name="brand" placeholder="brand" minlength="3" maxlength="25" type="text" class="validate"
-                required>
-        </div>
-        <!--Product Category-->
-        <div class="row">
-            <div class=" product-input input-field col s12">
-                <label for="category_group">Category</label>
-                <i class="fas fa-folder-open prefix"></i>
-                <select id="category_group" name="category_group" class="validate" required>
-                    <option value="" disabled selected>Choose Category</option>
-                    {% for category in categories %}
-                    <option value="{{category.category_name}}">{{category.category_name}}</option>
-                    {% endfor %}
-                </select>
+
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="product_name"> Product Name: </label>
+                    <input class="form-control" id="product_name" name="product_name" minlength="3" maxlength="25"
+                        type="text" class="validate" required>
+                </div>
             </div>
-        </div>
-        <!--Product Image-->
-        <div class="row">
-            <div class=" product-input input-field col s12">
-                <label for="product_image">Image</label>
-                <i class="fas fa-folder-open"></i>
-                <input id="product_image" name="product_image" placeholder="Insert image url" type="text"
-                    class="validate" required>
+            <!--Product Brand-->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="brand">Product Brand: </label>
+                    <input class="form-control" id="brand" name="brand" minlength="3" maxlength="25" type="text"
+                        class="validate" required>
+                </div>
             </div>
-        </div>
-        <!--Product Description-->
-        <div class="row">
-            <div class=" category-input input-field col s12">
-                <label for="category_name"> Description</label>
-                <i class="fas fa-folder-open"></i>
-                <input id="category_name" name="category_name" placeholder="Product Name" minlength="3" maxlength="25"
-                    type="text" class="validate" required>
+            <!--Product Category-->
+            <div class="row">
+                <div id="product-dropdown" class=" product-input input-field col-12">
+                    <label for="category_name"> Product Category</label>
+                    <select class="form-control" id="category_name" name="category_name" class="validate" required>
+                        <option value="" disabled selected>Choose Category</option>
+                        {% for category in categories %}
+                        <option value="{{category.category_name}}">{{category.category_name}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
             </div>
-        </div>
-        <!--Product Price-->
-        <div class="row">
-            <div class=" category-input input-field col s12">
-                <label for="category_name"> Price</label>
-                <i class="fas fa-folder-open"></i>
-                <input id="category_name" name="category_name" placeholder="Product Name" minlength="3" maxlength="25"
-                    type="text" class="validate" required>
+            <!--Product Image-->
+            <div class="row">
+                <div class=" product-input col-12">
+                    <label for="product_image">Product Image:(image url) </label>
+                    <input class="form-control" id="product_image" name="product_image" type="text" class="validate"
+                        required>
+                </div>
             </div>
-        </div>
-        <!--Product Shades Available-->
-        <div class="row">
-            <div class=" product-input input-field col s12">
-                <label for="category_name"> No. of Shades</label>
-                <i class="fas fa-folder-open"></i>
-                <input id="category_name" name="category_name" placeholder="Product Name" minlength="3" maxlength="25"
-                    type="text" class="validate" required>
+            <!--Product Description-->
+            <div class="row">
+
+                <div class=" product-input col-12">
+                    <label for="description"> Product Description: </label>
+                    <textarea class="form-control" id="description" name="description" minlength="3" maxlength="200"
+                        type="text" rows="2" class="validate" required></textarea>
+                </div>
             </div>
-        </div>
-        <!--Purchase Link-->
-        <div class="row">
-            <div class=" product-input input-field col s12">
-                <label for="buy_url"> Where to Buy</label>
-                <i class="fas fa-folder-open"></i>
-                <input id="buy_url" name="buy_url" placeholder="Insert url link" minlength="3" maxlength="25"
-                    type="text" class="validate" required>
+            <!--Product Price-->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="product_price"> Price €: </label>
+                    <input class="form-control" id="product_price" name="product_price" minlength="1" maxlength="5"
+                        type="text" class="validate" required>
+                </div>
             </div>
-        </div>
-        <!-- submit button -->
-        <div class="row">
-            <div class="col s12 ">
-                <button id="add_category" type="submit" class="btn-large">
-                    Add Product <i class="fas fa-plus-square right"></i>
-                </button>
+            <!--Product Shades Available-->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="shades"> No. of Shades: </label>
+                    <input class="form-control" id="shades" name="shades" type="number" class="validate" required>
+                </div>
             </div>
-        </div>
+            <!--Purchase Link-->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="buy_url"> Where to Buy: (url link) </label>
+                    <input class="form-control" id="buy_url" name="buy_url" minlength="3" maxlength="25" type="text"
+                        class="validate" required>
+                </div>
+            </div>
+            <!-- submit button -->
+            <div class="row">
+                <div class="col-12 ">
+                    <button id="edit_category" type="submit" class="btn-large"><a href="
+                        {{ url_for('all_products') }}">
+                            Cancel <i class="fas fa-times-circle right"></i></a></button>
+                    <button id="add_product" type="submit" class="btn-large">
+                        Add Product <i class="fas fa-plus-square right"></i>
+                    </button>
+                </div>
+            </div>
         </form>
     </div>
 </div>
