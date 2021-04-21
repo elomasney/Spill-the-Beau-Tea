@@ -71,7 +71,8 @@
                                     </div>
                                     <div class="modal-body">
                                         <div class="row form-group">
-                                            <form class=" product-form col-12" method="POST" action="">
+                                            <form class=" product-form col-12" method="POST"
+                                                action="{{ url_for('edit_review', review_id=review._id, product_id=review.product._id) }}">
                                                 <!-- Review Tagline -->
 
                                                 <div class="row">
@@ -97,15 +98,20 @@
                                                         </legend>
                                                         <div id="radio" class="md-form mb-5">
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="1" /> 1 </label>
+                                                                    name="rating" id="rating" value="1" required /> 1
+                                                            </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="2" /> 2 </label>
+                                                                    name="rating" id="rating" value="2" required /> 2
+                                                            </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="3" /> 3 </label>
+                                                                    name="rating" id="rating" value="3" required /> 3
+                                                            </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="4" /> 4 </label>
+                                                                    name="rating" id="rating" value="4" required /> 4
+                                                            </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="5" /> 5 </label>
+                                                                    name="rating" id="rating" value="5" required /> 5
+                                                            </label>
                                                         </div>
                                                     </fieldset>
                                                 </div>

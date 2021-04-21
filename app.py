@@ -221,6 +221,29 @@ def add_review(product_id):
         now=now)
 
 
+@app.route("/edit_review/<review_id>/<product_id>", methods=["GET", "POST"])
+def edit_review(review_id, product_id):
+    # Edits a review by a user on the db
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    repurchase = "on" if request.form.get("repurchase") else "off"
+    now = datetime.now()
+    if request.method == "POST":
+        review = {
+            "product": product,
+            "age": request.form.get("age"),
+            "rating": request.form.get("rating"),
+            "title": request.form.get("title"),
+            "review": request.form.get("review_content"),
+            "repurchase": repurchase,
+            "created_by": session["user"],
+            "created_on": now.strftime("%d/%m/%Y"),
+        }
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, review)
+        flash("Review Updated")
+        return redirect(url_for("all_products"))
+    return render_template("profile.html", review=review)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
