@@ -85,6 +85,7 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    # Edits a category from the database
     if request.method == "POST":
         submit = {
             "category_name": request.form.get("category_name"),
@@ -150,6 +151,30 @@ def add_product():
     categories = mongo.db.categories.find()
     return render_template(
         "add_product.html", categories=categories)
+
+
+@app.route("/edit_product/<product_id>", methods=["GET", "POST"])
+def edit_product(product_id):
+    # Edits product from the database
+    if request.method == "POST":
+        submit = {
+            "product_name": request.form.get("product_name"),
+            "brand": request.form.get("brand"),
+            "category_name": request.form.get("category_name"),
+            "img_url": request.form.get("product_image"),
+            "description": request.form.get("description"),
+            "price": request.form.get("product_price"),
+            "num_shades": request.form.get("shades"),
+            "buy_url": request.form.get("buy_url"),
+        }
+        mongo.db.products.update({"_id": ObjectId(product_id)}, submit)
+        flash("Product successfully updated")
+        return redirect(url_for("all_products"))
+
+    categories = mongo.db.categories.find()
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    return render_template(
+        "edit_product.html", product=product, categories=categories)
 
 
 @app.route("/register", methods=["GET", "POST"])

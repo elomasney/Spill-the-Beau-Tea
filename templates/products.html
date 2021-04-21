@@ -44,7 +44,7 @@
                     <h5 class="product-name card-title">{{ product.product_name }}</h5>
                     <i id="star" class="fas fa-star"></i>
                     <p class="card-text"><strong id="description">Description:</strong></p>
-                    <p class="card-text">{{ product.description}}</p>
+                    <p class="card-text">{{product.description}}</p>
                     <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
                     <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
@@ -52,9 +52,17 @@
                     <a href="" type="button" class="btn btn-lg review-btn" id="product-reviews">
                         See Reviews
                     </a>
-                    {% if session.user %}
+                    {% if session.user != "admin" %}
                     <a href="" type="button" class="btn btn-lg review-btn" id="review">
                         Add Review
+                    </a>
+                    {% elif session.user|lower == "admin"|lower %}
+                    <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button"
+                        class="btn btn-lg review-btn" id="edit_product">
+                        Edit Product
+                    </a>
+                    <a href="" type="button" class="btn btn-lg review-btn" id="delete_product">
+                        Delete Product
                     </a>
                     {% endif %}
                 </div>

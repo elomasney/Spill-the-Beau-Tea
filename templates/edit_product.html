@@ -2,24 +2,24 @@
 {% block content %}
 
 <div class="addProduct container-fluid">
-    <h2 id="productManage">Add Product</h2>
+    <h2 id="productManage">Edit Product</h2>
     <div class="row form-group">
-        <form class=" product-form col-12" method="POST" action="{{ url_for('add_product') }}">
+        <form class=" product-form col-12" method="POST" action="{{ url_for('edit_product', product_id=product._id) }}">
             <!-- Product Name -->
 
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="product_name"> Product Name: </label>
-                    <input class="form-control" id="product_name" name="product_name" minlength="3" maxlength="25"
-                        type="text" class="validate" required>
+                    <input class="form-control" id="product_name" name="product_name" value="{{product.product_name}}"
+                        minlength="3" maxlength="25" type="text" class="validate" required>
                 </div>
             </div>
             <!--Product Brand-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="brand">Product Brand: </label>
-                    <input class="form-control" id="brand" name="brand" minlength="3" maxlength="25" type="text"
-                        class="validate" required>
+                    <input class="form-control" id="brand" name="brand" value="{{product.brand}}" minlength="3"
+                        maxlength="25" type="text" class="validate" required>
                 </div>
             </div>
             <!--Product Category-->
@@ -38,8 +38,8 @@
             <div class="row">
                 <div class=" product-input col-12">
                     <label for="product_image">Product Image:(image url) </label>
-                    <input class="form-control" id="product_image" name="product_image" type="text" class="validate"
-                        required>
+                    <input class="form-control" id="product_image" name="product_image" value="{{product.img_url}}"
+                        type="text" class="validate" required>
                 </div>
             </div>
             <!--Product Description-->
@@ -47,31 +47,32 @@
 
                 <div class=" product-input col-12">
                     <label for="description"> Product Description: </label>
-                    <textarea class="form-control" id="description" name="description" minlength="3" type="text"
-                        rows="2" class="validate" required></textarea>
+                    <textarea class="form-control" id="description" name="description" value="{{product.description}}"
+                        minlength="3" type="text" class="validate" required>{{product.description}}</textarea>
                 </div>
             </div>
             <!--Product Price-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="product_price"> Price €: </label>
-                    <input class="form-control" id="product_price" name="product_price" minlength="1" maxlength="5"
-                        type="text" class="validate" required>
+                    <input class="form-control" id="product_price" name="product_price" value="{{product.price}}"
+                        minlength="1" maxlength="5" type="text" class="validate" required>
                 </div>
             </div>
             <!--Product Shades Available-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="shades"> No. of Shades: </label>
-                    <input class="form-control" id="shades" name="shades" type="number" class="validate" required>
+                    <input class="form-control" id="shades" name="shades" value="{{product.num_shades}}" type="number"
+                        class="validate" required>
                 </div>
             </div>
             <!--Purchase Link-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="buy_url"> Where to Buy: (url link) </label>
-                    <input class="form-control" id="buy_url" name="buy_url" minlength="3" maxlength="25" type="text"
-                        class="validate" required>
+                    <input class="form-control" id="buy_url" name="buy_url" value="{{product.buy_url}}" minlength="3"
+                        maxlength="25" type="text" class="validate" required>
                 </div>
             </div>
             <!-- submit button -->
@@ -81,7 +82,7 @@
                         {{ url_for('all_products') }}">
                             Cancel <i class="fas fa-times-circle right"></i></a></button>
                     <button id="add_product" type="submit" class="btn-large">
-                        Add Product <i class="fas fa-plus-square right"></i>
+                        Edit Product <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>

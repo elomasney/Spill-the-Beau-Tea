@@ -285,10 +285,13 @@ body {
 }
 
 .category-input input,
-.category-input select,
 .product-input input,
 .product-input select {
     padding: 5px 50px;
+}
+
+.category-input select {
+    padding: 0 180px;
 }
 
 .category-input i {
@@ -300,7 +303,8 @@ body {
     width: 50%;
 }
 
-#category_group option {
+#category_group option,
+#category_name option {
     background-color: #ff0080;
     color: #fafd42;
     font-size: 1.2rem;
@@ -392,6 +396,7 @@ body {
 
 textarea#description.form-control {
     margin: auto;
+    color: #000000;
 }
 
 .form-control {
@@ -400,7 +405,7 @@ textarea#description.form-control {
 }
 
 select#category_name.form-control {
-    text-align: center;
+    padding: 0 200px;
 }
 
 #product.product-card.card {
@@ -459,7 +464,9 @@ i.fas.fa-star {
 }
 
 #product-info a#review,
-#product-info a#product-reviews {
+#product-info a#product-reviews,
+#product-info a#edit_product,
+#product-info a#delete_product {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -470,6 +477,11 @@ i.fas.fa-star {
     padding: 5px 10px;
     margin-top: 10px;
     margin-right: 10px;
+}
+
+#buttonGrid.btn-grid {
+    text-align: right;
+    margin-right: 20px;
 }
 
 /*Register Page*/
@@ -491,7 +503,7 @@ i.fas.fa-star {
 
 .card-body {
     background-color: rgba(255, 0, 128, 1);
-    padding: 30px;
+    padding: 50px 100px;
     margin: 30px 0;
 }
 
@@ -536,7 +548,6 @@ i.fas.fa-star {
 #username.form-control,
 #password.form-control,
 #email.form-control {
-    width: 80%;
+    width: 100%;
     text-align: left;
-    margin: auto;
 }
