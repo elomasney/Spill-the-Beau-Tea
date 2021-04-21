@@ -467,7 +467,10 @@ i.fas.fa-star {
 #product-info a#review,
 #product-info a#product-reviews,
 #product-info a#edit_product,
-#product-info a#delete_product {
+#product-info a#delete_product,
+#review-info a#review,
+#review-info a#edit_review,
+#review-info a#delete_review {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -483,6 +486,53 @@ i.fas.fa-star {
 #buttonGrid.btn-grid {
     text-align: right;
     margin-right: 20px;
+}
+
+/*Reviews*/
+#review-info.card-body {
+    margin: 30px 200px;
+    font-family: "Lato", sans-serif;
+    font-size: 1.2rem;
+    padding: 15px;
+    color: #000000;
+    font-weight: bold;
+}
+
+.rating.card-title {
+    color: #fafd42;
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.rating.card-title i {
+    color: #fafd42;
+}
+
+.product.card-title {
+    color: #fafd42;
+    font-family: "Dancing Script";
+    font-weight: bolder;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    letter-spacing: .1rem;
+}
+
+.review-title.card-title {
+    color: #15bce2;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2.5rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#reviewText,
+#added_by,
+#created_by {
+    color: #15bce2;
+    font-family: "Lato", sans-serif;
+    font-size: 1.3rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 /*Register Page*/

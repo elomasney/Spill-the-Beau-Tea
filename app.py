@@ -186,6 +186,12 @@ def delete_product(product_id):
     return render_template("products.html", products=products)
 
 
+@app.route("/reviews")
+def reviews():
+    reviews = mongo.db.reviews.find()
+    return render_template("reviews.html", reviews=reviews)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":

@@ -1,0 +1,76 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="products-container container-fluid">
+
+    {% for review in reviews %}
+
+    {% if loop.first %}
+    <h2 class="category-header">Reviews</h2>
+    {% endif %}
+
+    <div id="reviews" class="card product-card mb-3 col-md-12">
+        <div class="row">
+            <div class="col-md-12">
+                <div id="review-info" class="review-text card-body text-justify">
+                    {% if session.user|lower == "admin"|lower %}
+                    <h3 class="product card-title">{{ review.product_name }}</h3>
+                    {% endif %}
+                    <h4 class="review-title card-title">{{ review.title }}</h4>
+                    <h5 class="rating card-title">Rating:
+
+                        {% if review.rating == 1 %}
+                        <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == 2 %}
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == 3 %}
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == 4 %}
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == 5 %}
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        {% else %}
+                        No Ratings Yet
+                        {% endif %}
+                    </h5>
+                    <p class="card-text "><strong id="reviewText">Review:</strong></p>
+                    <p class="card-text ">{{review.review}}</p>
+                    <p class="card-text "><strong id="added_by">Added By: </strong>
+                        {{ review.created_by|capitalize}}</p>
+                    <span class="card-text "> <strong id="created_by">Added On:
+                        </strong>{{ review.created_on}}</span>
+                    <div class="text-center">
+                        {% if session.user %}
+                        <a href="" type="button" class="btn btn-lg review-btn" id="review">
+                            Add Review
+                        </a>
+                        <a href="" type="button" class="btn btn-lg review-btn" id="edit_review">
+                            Edit Review
+                        </a>
+                        {% endif%}
+                        {% if review.created_by == session['user'] or session['user'] == 'admin'%}
+                        <a href="" type="button" class="btn btn-lg review-btn" id="delete_review">
+                            Delete Review
+                        </a>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endfor %}
+</div>
+
+
+{% endblock %}
