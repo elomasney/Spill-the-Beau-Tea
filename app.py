@@ -188,7 +188,9 @@ def delete_product(product_id):
 
 @app.route("/reviews")
 def reviews():
-    reviews = mongo.db.reviews.find()
+    # Gets all reviews from the db
+    # Sorts by product id
+    reviews = mongo.db.reviews.find().sort("product", 1)
     return render_template("reviews.html", reviews=reviews)
 
 
