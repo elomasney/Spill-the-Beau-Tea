@@ -177,6 +177,15 @@ def edit_product(product_id):
         "edit_product.html", product=product, categories=categories)
 
 
+@app.route("/delete_product/<product_id>")
+def delete_product(product_id):
+    # Deletes a product from the db - Admin access only
+    mongo.db.products.remove({"_id": ObjectId(product_id)})
+    flash("Product Successfully Deleted")
+    products = mongo.db.products.find()
+    return render_template("products.html", products=products)
+
+
 @app.route("/register", methods=["GET", "POST"])
 def register():
     if request.method == "POST":
