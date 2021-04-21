@@ -14,26 +14,26 @@
             <div class="col-md-12">
                 <div id="review-info" class="review-text card-body text-justify">
                     {% if session.user|lower == "admin"|lower %}
-                    <h3 class="product card-title">{{ review.product_name }}</h3>
+                    <h3 class="product card-title">{{ review.product.product_name }}</h3>
                     {% endif %}
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
 
-                        {% if review.rating == 1 %}
+                        {% if review.rating == "1" %}
                         <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == 2 %}
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == 3 %}
+                        {% elif review.rating == "2" %}
                         <i id="star" class="fas fa-star"></i>
                         <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == 4 %}
+                        {% elif review.rating == "3" %}
                         <i id="star" class="fas fa-star"></i>
                         <i id="star" class="fas fa-star"></i>
                         <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == "4" %}
                         <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == 5 %}
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        <i id="star" class="fas fa-star"></i>
+                        {% elif review.rating == "5" %}
                         <i id="star" class="fas fa-star"></i>
                         <i id="star" class="fas fa-star"></i>
                         <i id="star" class="fas fa-star"></i>
@@ -51,9 +51,102 @@
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
                         {% if session.user %}
-                        <a href="" type="button" class="btn btn-lg review-btn" id="edit_review">
+
+                        <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal"
+                            data-target="#exampleModal">
                             Edit Review
-                        </a>
+                        </button>
+
+                        <!--Editing a Review using a Modal Popup-->
+                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                            aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-lg" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                        <h5 class="modal-title" id="reviewModal">Edit Review</h5>
+
+                                    </div>
+                                    <div class="modal-body">
+                                        <div class="row form-group">
+                                            <form class=" product-form col-12" method="POST" action="">
+                                                <!-- Review Tagline -->
+
+                                                <div class="row">
+                                                    <div class=" product-input input-field col-12">
+                                                        <label for="title">Title: </label>
+                                                        <input class="form-control" id="title" name="title"
+                                                            minlength="3" value="{{review.title}}" maxlength="25"
+                                                            type="text" class="validate" required>
+                                                    </div>
+                                                </div>
+                                                <!--User Age-->
+                                                <div class="row">
+                                                    <div class=" product-input input-field col-12">
+                                                        <label for="age">Age: </label>
+                                                        <input class="form-control" id="age" name="age" type="number"
+                                                            value="{{review.age}}" class="validate" required>
+                                                    </div>
+                                                </div>
+                                                <!--Product Rating-->
+                                                <div>
+                                                    <fieldset>
+                                                        <legend id="starRating"><i class="fas fa-star"></i> Star Rating
+                                                        </legend>
+                                                        <div id="radio" class="md-form mb-5">
+                                                            <label class="radio-inline"> <input type="radio"
+                                                                    name="rating" id="rating" value="1" /> 1 </label>
+                                                            <label class="radio-inline"> <input type="radio"
+                                                                    name="rating" id="rating" value="2" /> 2 </label>
+                                                            <label class="radio-inline"> <input type="radio"
+                                                                    name="rating" id="rating" value="3" /> 3 </label>
+                                                            <label class="radio-inline"> <input type="radio"
+                                                                    name="rating" id="rating" value="4" /> 4 </label>
+                                                            <label class="radio-inline"> <input type="radio"
+                                                                    name="rating" id="rating" value="5" /> 5 </label>
+                                                        </div>
+                                                    </fieldset>
+                                                </div>
+                                                <!--Product Review-->
+                                                <div class="row">
+                                                    <div class=" product-input col-12">
+                                                        <label for="review_content">Review: </label>
+                                                        <textarea class="form-control" id="review_content"
+                                                            value="{{review.review}}" name="review_content"
+                                                            minlength="3" type="text" rows="2" class="validate"
+                                                            required>{{review.review}}</textarea>
+                                                    </div>
+                                                </div>
+                                                <!--Repurchase Checkbox-->
+                                                <div class="switch">
+                                                    <i
+                                                        class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                                                    <label for="repurchase">Would you repurchase?</label>
+                                                    <input type="checkbox" id="repurchase" name="repurchase">
+                                                    <span class="lever"></span>
+                                                </div>
+
+                                        </div>
+                                    </div>
+                                    <div class="modal-footer">
+                                        <!-- submit button -->
+                                        <div class="row">
+                                            <div class="col-12 ">
+                                                <button id="edit_category" type="submit" class="btn-large"><a href="
+                                                {{ url_for('all_products') }}">
+                                                        Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                                <button id="add_product" type="submit" class="btn-large">
+                                                    Edit Review <i class="fas fa-plus-square right"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                         {% endif%}
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
                         <a href="" type="button" class="btn btn-lg review-btn" id="delete_review">

@@ -58,7 +58,7 @@
                         Add Review
                     </button>
 
-                    <!--Adding a Review Modal-->
+                    <!--Adding a Review using a Modal Popup-->
                     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
                         aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
@@ -67,61 +67,56 @@
                                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                         <span aria-hidden="true">&times;</span>
                                     </button>
-                                    <h5 class="modal-title" id="exampleModalLabel">Add Review</h5>
+                                    <h5 class="modal-title" id="reviewModal">Add Review</h5>
 
                                 </div>
                                 <div class="modal-body">
                                     <div class="row form-group">
-                                        <form class=" product-form col-12" method="POST" action="">
+                                        <form class=" product-form col-12" method="POST"
+                                            action=" {{url_for('add_review', product_id= product._id)}}">
                                             <!-- Review Tagline -->
 
                                             <div class="row">
                                                 <div class=" product-input input-field col-12">
-                                                    <label for="product_name">Title: </label>
-                                                    <input class="form-control" id="product_name" name="product_name"
-                                                        minlength="3" maxlength="25" type="text" class="validate"
-                                                        required>
+                                                    <label for="title">Title: </label>
+                                                    <input class="form-control" id="title" name="title" minlength="3"
+                                                        maxlength="25" type="text" class="validate" required>
                                                 </div>
                                             </div>
                                             <!--User Age-->
                                             <div class="row">
                                                 <div class=" product-input input-field col-12">
-                                                    <label for="brand">Age: </label>
-                                                    <input class="form-control" id="brand" name="brand" minlength="3"
-                                                        maxlength="25" type="text" class="validate" required>
+                                                    <label for="age">Age: </label>
+                                                    <input class="form-control" id="age" name="age" type="number"
+                                                        class="validate" required>
                                                 </div>
                                             </div>
                                             <!--Product Rating-->
                                             <div>
                                                 <fieldset>
-                                                    <legend id="radioLabel"><i class="fas fa-star"></i> Star Rating
+                                                    <legend id="starRating"><i class="fas fa-star"></i> Star Rating
                                                     </legend>
                                                     <div id="radio" class="md-form mb-5">
-                                                        <label class="radio-inline"> <input type="radio"
-                                                                name="inlineRadioOptions" id="inlineRadio1"
-                                                                value="option1" /> 1 </label>
-                                                        <label class="radio-inline"> <input type="radio"
-                                                                name="inlineRadioOptions" id="inlineRadio2"
-                                                                value="option2" /> 2 </label>
-                                                        <label class="radio-inline"> <input type="radio"
-                                                                name="inlineRadioOptions" id="inlineRadio3"
-                                                                value="option3" /> 3 </label>
-                                                        <label class="radio-inline"> <input type="radio"
-                                                                name="inlineRadioOptions" id="inlineRadio4"
-                                                                value="option4" /> 4 </label>
-                                                        <label class="radio-inline"> <input type="radio"
-                                                                name="inlineRadioOptions" id="inlineRadio5"
-                                                                value="option5" /> 5 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating"
+                                                                id="rating" value="1" /> 1 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating"
+                                                                id="rating" value="2" /> 2 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating"
+                                                                id="rating" value="3" /> 3 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating"
+                                                                id="rating" value="4" /> 4 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating"
+                                                                id="rating" value="5" /> 5 </label>
                                                     </div>
                                                 </fieldset>
                                             </div>
                                             <!--Product Review-->
                                             <div class="row">
                                                 <div class=" product-input col-12">
-                                                    <label for="product_image">Review: </label>
-                                                    <textarea class="form-control" id="description" name="description"
-                                                        minlength="3" type="text" rows="2" class="validate"
-                                                        required></textarea>
+                                                    <label for="review_content">Review: </label>
+                                                    <textarea class="form-control" id="review_content"
+                                                        name="review_content" minlength="3" type="text" rows="2"
+                                                        class="validate" required></textarea>
                                                 </div>
                                             </div>
                                             <!--Repurchase Checkbox-->
@@ -129,10 +124,10 @@
                                                 <i
                                                     class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
                                                 <label for="repurchase">Would you repurchase?</label>
-                                                <input type="checkbox" id="is_urgent" name="is_urgent">
+                                                <input type="checkbox" id="repurchase" name="repurchase">
                                                 <span class="lever"></span>
                                             </div>
-                                        </form>
+
                                     </div>
                                 </div>
                                 <div class="modal-footer">
@@ -147,6 +142,7 @@
                                             </button>
                                         </div>
                                     </div>
+                                    </form>
                                 </div>
                             </div>
                         </div>

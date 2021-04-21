@@ -3,6 +3,7 @@ from flask import (
     Flask, flash, render_template,
     redirect, request, session, url_for)
 from flask_pymongo import PyMongo
+from datetime import datetime
 from bson.objectid import ObjectId
 from werkzeug.security import generate_password_hash, check_password_hash
 if os.path.exists("env.py"):
@@ -192,6 +193,32 @@ def reviews():
     # Sorts by product id
     reviews = mongo.db.reviews.find().sort("product", 1)
     return render_template("reviews.html", reviews=reviews)
+
+
+@app.route("/add_review/<product_id>", methods=["GET", "POST"])
+def add_review(product_id):
+    # Adds a review to the db
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    repurchase = "on" if request.form.get("repurchase") else "off"
+    now = datetime.now()
+    if request.method == "POST":
+        review = {
+            "product": product,
+            "age": request.form.get("age"),
+            "rating": request.form.get("rating"),
+            "title": request.form.get("title"),
+            "review": request.form.get("review_content"),
+            "repurchase": repurchase,
+            "created_by": session["user"],
+            "created_on": now.strftime("%d/%m/%Y"),
+        }
+        mongo.db.reviews.insert_one(review)
+        flash("New Review Added")
+        return redirect(url_for("all_products"))
+
+    return render_template(
+        "products.html", review=review, product=product,
+        now=now)
 
 
 @app.route("/register", methods=["GET", "POST"])
