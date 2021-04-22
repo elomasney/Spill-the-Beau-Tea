@@ -32,8 +32,11 @@ def home():
 def search():
     # Enables search functionality on homepage search bar
     query = request.form.get("query")
-    products = mongo.db.products.find({"$text": {"$search": query}})
-    results = products.count()
+    products = list(mongo.db.products.find({"$text": {"$search": query}}))
+    results = len(products)
+    if results == 0:
+        flash("No results found, please try again")
+        return redirect(url_for("all_products"))
     return render_template(
         "products.html", query=query, products=products, results=results)
 
@@ -126,7 +129,7 @@ def search_categories():
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
-    products = mongo.db.products.find()
+    products = mongo.db.products.find().sort("category_name",1)
     return render_template(
         'products.html', products=products)
 

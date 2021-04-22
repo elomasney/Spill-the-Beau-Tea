@@ -16,10 +16,7 @@
     {% else %}
 
     {% if query %}
-    {% if results == 0 %}
-    <h2 class="category-header">No results found for '{{ query }}'</h2>
-
-    {% elif results >=1 %}
+    {% if results >= 1 %}
     {% if loop.first %}
     <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
     {% endif %}
