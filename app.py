@@ -183,11 +183,11 @@ def edit_product(product_id):
 
 @app.route("/delete_product/<product_id>")
 def delete_product(product_id):
-    # Deletes a product from the db - Admin access only
+    # Deletes a review from the db - Admin & Registered user access
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     flash("Product Successfully Deleted")
-    products = mongo.db.products.find()
-    return render_template("products.html", products=products)
+    product = mongo.db.products.find()
+    return render_template("products.html", product=product)
 
 
 @app.route("/reviews")
@@ -245,6 +245,15 @@ def edit_review(review_id, product_id):
         flash("Review Updated")
         return redirect(url_for("all_products"))
     return render_template("profile.html", review=review)
+
+
+@app.route("/delete_review/<review_id>")
+def delete_review(review_id):
+    # Removes review from the db - Admin & Registered user access
+    mongo.db.reviews.remove({"_id": ObjectId(review_id)})
+    flash("Review Successfully Deleted")
+    review = mongo.db.reviews.find()
+    return render_template("products.html", review=review)
 
 
 @app.route("/register", methods=["GET", "POST"])

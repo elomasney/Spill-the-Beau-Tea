@@ -155,7 +155,8 @@
                         </div>
                         {% endif%}
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a href="" type="button" class="btn btn-lg review-btn" id="delete_review">
+                        <a href="{{url_for('delete_review', review_id=review._id)}}" type="button"
+                            class="btn btn-lg review-btn" id="delete_review">
                             Delete Review
                         </a>
                         {% endif %}
