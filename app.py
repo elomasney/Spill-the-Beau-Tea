@@ -129,9 +129,17 @@ def search_categories():
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
-    products = mongo.db.products.find().sort("category_name",1)
+    products = mongo.db.products.find().sort("category_name", 1)
     return render_template(
         'products.html', products=products)
+
+
+@app.route("/product_info/<product_id>")
+def product_info(product_id):
+    # Renders one product with details and reviews
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    return render_template(
+        'product_info.html', product=product, product_id=product_id)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -201,7 +209,9 @@ def reviews():
 @app.route("/add_review/<product_id>", methods=["GET", "POST"])
 def add_review(product_id):
     # Adds a review to the db
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    products = mongo.db.products.find()
+    for product in products:
+        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
     if request.method == "POST":
