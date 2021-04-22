@@ -35,7 +35,7 @@ def search():
     products = list(mongo.db.products.find({"$text": {"$search": query}}))
     results = len(products)
     if results == 0:
-        flash("No results found, please try again")
+        flash("No results found for {}, please try again")
         return redirect(url_for("all_products"))
     return render_template(
         "products.html", query=query, products=products, results=results)
@@ -122,16 +122,30 @@ def search_categories():
     product_query = request.form.get("product_query")
     products = list(mongo.db.products.find(
         {"$text": {"$search": product_query}}))
+    ratings = mongo.db.reviews.aggregate([
+        {"$group": {
+            "_id": "$product",
+            "ratings": {"$sum": 1},
+            "average": {"$avg": "$rating"}
+        }
+        }])
 
-    return render_template("products.html", products=products)
+    return render_template("products.html", products=products, ratings=ratings)
 
 
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("category_name", 1)
+    ratings = mongo.db.reviews.aggregate([
+        {"$group": {
+            "_id": "$product",
+            "ratings": {"$sum": "$rating"},
+            "average": {"$avg": "$rating"}
+        }
+        }])
     return render_template(
-        'products.html', products=products)
+        'products.html', products=products, ratings=ratings)
 
 
 @app.route("/product_info/<product_id>")
@@ -216,9 +230,9 @@ def add_review(product_id):
     now = datetime.now()
     if request.method == "POST":
         review = {
-            "product": product,
+            "product": product_id,
             "age": request.form.get("age"),
-            "rating": request.form.get("rating"),
+            "rating": int(request.form.get("rating")),
             "title": request.form.get("title"),
             "review": request.form.get("review_content"),
             "repurchase": repurchase,
@@ -231,7 +245,7 @@ def add_review(product_id):
 
     return render_template(
         "products.html", review=review, product=product,
-        now=now)
+        now=now, product_id=product_id)
 
 
 @app.route("/edit_review/<review_id>/<product_id>", methods=["GET", "POST"])

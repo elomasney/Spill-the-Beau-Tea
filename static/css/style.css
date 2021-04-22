@@ -414,6 +414,15 @@ select#category_name.form-control {
 }
 
 .product-text.card-body {
+    font-family: "Lato", sans-serif;
+    font-size: 1.1rem;
+    padding: 40px;
+    color: #000000;
+    font-weight: bold;
+    margin: 90px 20px;
+}
+
+.product-info.card-body {
     padding: 30px 20px;
     font-family: "Lato", sans-serif;
     font-size: 1.1rem;
@@ -422,10 +431,18 @@ select#category_name.form-control {
     font-weight: bold;
 }
 
+#product-price,
+#product-shades {
+    margin-bottom: 30px;
+    color: #fafd42;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    font-size: 1.5rem;
+}
+
 .product-brand.card-title {
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
-    font-size: 2.5rem;
+    font-size: 2.7rem;
     letter-spacing: .1rem;
     color: #15bce2;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -435,7 +452,7 @@ select#category_name.form-control {
 .product-name.card-title {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: .1rem;
     color: #15bce2;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -472,13 +489,13 @@ i.fas.fa-star {
 #review-info a#delete_review {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     color: #fafd42;
     background: #15bce2;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 5px 10px;
-    margin-top: 10px;
+    margin-top: 20px;
     margin-right: 10px;
 }
 
