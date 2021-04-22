@@ -37,8 +37,16 @@ def search():
     if results == 0:
         flash("No results found for {}, please try again")
         return redirect(url_for("all_products"))
+    ratings = mongo.db.reviews.aggregate([
+        {"$group": {
+            "_id": "$product",
+            "ratings": {"$sum": 1},
+            "average": {"$avg": "$rating"}
+        }
+        }])
     return render_template(
-        "products.html", query=query, products=products, results=results)
+        "products.html", query=query, products=products,
+        results=results, ratings=ratings)
 
 
 @app.route("/all_categories")
@@ -116,24 +124,7 @@ def delete_category(category_id):
     return render_template('categories.html', categories=categories)
 
 
-@app.route("/search_categories", methods=["GET", "POST"])
-def search_categories():
-    # Gets products in specific category
-    product_query = request.form.get("product_query")
-    products = list(mongo.db.products.find(
-        {"$text": {"$search": product_query}}))
-    ratings = mongo.db.reviews.aggregate([
-        {"$group": {
-            "_id": "$product",
-            "ratings": {"$sum": 1},
-            "average": {"$avg": "$rating"}
-        }
-        }])
-
-    return render_template("products.html", products=products, ratings=ratings)
-
-
-@app.route("/all_products")
+@app.route("/all_products/")
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("category_name", 1)
@@ -144,8 +135,9 @@ def all_products():
             "average": {"$avg": "$rating"}
         }
         }])
+    review = mongo.db.reviews.find({"product": "product"})
     return render_template(
-        'products.html', products=products, ratings=ratings)
+        'products.html', products=products, ratings=ratings, review=review)
 
 
 @app.route("/product_info/<product_id>")
@@ -153,7 +145,7 @@ def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
-        'product_info.html', product=product, product_id=product_id)
+        'product_info.html', product=product)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -172,6 +164,7 @@ def add_product():
         }
         mongo.db.products.insert_one(product)
         flash("New Product Added")
+
         return redirect(url_for("all_products"))
 
     categories = mongo.db.categories.find()
