@@ -229,6 +229,7 @@ body {
 
 .category-header,
 .profile-header,
+.review-header,
 #categoryManage,
 #productManage {
     padding-top: 30px;
@@ -409,9 +410,11 @@ select#category_name.form-control {
     padding: 0 200px;
 }
 
-#product.product-card.card {
+#product.product-card.card,
+.card {
     border: none;
 }
+
 
 .product-text.card-body {
     font-family: "Lato", sans-serif;
@@ -484,9 +487,7 @@ i.fas.fa-star {
 #product-info button#review,
 #product-info a#product-reviews,
 #product-info a#edit_product,
-#product-info a#delete_product,
-#review-info button#edit_review,
-#review-info a#delete_review {
+#product-info a#delete_product {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
@@ -511,7 +512,8 @@ i.fas.fa-star {
     font-size: 1.2rem;
     padding: 15px;
     color: #000000;
-    font-weight: bold;
+    font-weight: bolder;
+    background-color: #15bce2;
 }
 
 .rating.card-title {
@@ -536,19 +538,35 @@ i.fas.fa-star {
 }
 
 .review-title.card-title {
-    color: #15bce2;
+    color: #ff0080;
     font-family: "Dancing Script", sans-serif;
     font-size: 2.5rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
+    letter-spacing: .1rem;
 }
 
 #reviewText,
 #added_by,
 #created_by {
-    color: #15bce2;
+    color: #ff0080;
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    letter-spacing: .1rem;
+}
+
+#review-info button#edit_review,
+#review-info a#delete_review {
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    font-size: 1.3rem;
+    color: #fafd42;
+    background: #ff0080;
+    letter-spacing: .1rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding: 5px 10px;
+    margin-top: 20px;
+    margin-right: 10px;
 }
 
 /* Review Modal*/

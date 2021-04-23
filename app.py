@@ -124,10 +124,11 @@ def delete_category(category_id):
     return render_template('categories.html', categories=categories)
 
 
-@app.route("/all_products/")
+@app.route("/all_products")
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("category_name", 1)
+    review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
@@ -135,7 +136,6 @@ def all_products():
             "average": {"$avg": "$rating"}
         }
         }])
-    review = mongo.db.reviews.find({"product": "product"})
     return render_template(
         'products.html', products=products, ratings=ratings, review=review)
 
@@ -144,8 +144,10 @@ def all_products():
 def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    reviews = mongo.db.reviews.find().limit(5).sort("created_on", 1)
+
     return render_template(
-        'product_info.html', product=product)
+        'product_info.html', product=product, reviews=reviews)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -223,7 +225,7 @@ def add_review(product_id):
     now = datetime.now()
     if request.method == "POST":
         review = {
-            "product": product_id,
+            "product": ObjectId(product_id),
             "age": request.form.get("age"),
             "rating": int(request.form.get("rating")),
             "title": request.form.get("title"),
@@ -241,17 +243,18 @@ def add_review(product_id):
         now=now, product_id=product_id)
 
 
-@app.route("/edit_review/<review_id>/<product_id>", methods=["GET", "POST"])
-def edit_review(review_id, product_id):
+@app.route("/edit_review/<review_id>", methods=["GET", "POST"])
+def edit_review(review_id):
     # Edits a review by a user on the db
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    reviews = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    product_id = reviews["product"]
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
     if request.method == "POST":
         review = {
-            "product": product,
+            "product": ObjectId(product_id),
             "age": request.form.get("age"),
-            "rating": request.form.get("rating"),
+            "rating": int(request.form.get("rating")),
             "title": request.form.get("title"),
             "review": request.form.get("review_content"),
             "repurchase": repurchase,
@@ -261,7 +264,8 @@ def edit_review(review_id, product_id):
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, review)
         flash("Review Updated")
         return redirect(url_for("all_products"))
-    return render_template("profile.html", review=review)
+    return render_template(
+        "profile.html", review=review, reviews=reviews, product_id=product_id)
 
 
 @app.route("/delete_review/<review_id>")

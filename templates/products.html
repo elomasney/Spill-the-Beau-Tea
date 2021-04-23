@@ -30,10 +30,11 @@
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
-
+                    {% if product_id == "_id"%}
                     {% for rating in ratings %}
                     <i id="star" class="fas fa-star">{{rating["average"]}}</i>
                     {% endfor %}
+                    {% endif %}
 
                     <!--<p class="card-text"><strong>Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>-->
