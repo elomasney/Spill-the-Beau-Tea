@@ -35,7 +35,7 @@ def search():
     products = list(mongo.db.products.find({"$text": {"$search": query}}))
     results = len(products)
     if results == 0:
-        flash("No results found for {}, please try again")
+        flash("No Results found, please try again")
         return redirect(url_for("all_products"))
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
@@ -145,9 +145,16 @@ def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     reviews = mongo.db.reviews.find().limit(5).sort("created_on", 1)
+    ratings = mongo.db.reviews.aggregate([
+        {"$group": {
+            "_id": "$product",
+            "ratings": {"$sum": "$rating"},
+            "average": {"$avg": "$rating"}
+        }
+        }])
 
     return render_template(
-        'product_info.html', product=product, reviews=reviews)
+        'product_info.html', product=product, reviews=reviews, ratings=ratings)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -264,8 +271,10 @@ def edit_review(review_id):
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, review)
         flash("Review Updated")
         return redirect(url_for("all_products"))
+    products = mongo.db.products.find()
     return render_template(
-        "profile.html", review=review, reviews=reviews, product_id=product_id)
+        "products.html", review=review, reviews=reviews,
+        product_id=product_id, now=now, products=products)
 
 
 @app.route("/delete_review/<review_id>")

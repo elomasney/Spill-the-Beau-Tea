@@ -38,39 +38,45 @@
                     {% for rating in ratings %}
                     {% if rating["_id"] == product._id%}
                     {% if rating["average"] == 1 %}
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     {% elif rating["average"] == 2 %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     {% elif rating["average"] == 3 %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     {% elif rating["average"] == 4 %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="far fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     {% elif rating["average"] == 5 %}
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-                    <i class="fas fa-star"></i>
-
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    {% else %}
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     {% endif %}
                     {% endif %}
                     {% endfor %}
+
 
 
                     <!--<p class="card-text"><strong>Description:</strong></p>

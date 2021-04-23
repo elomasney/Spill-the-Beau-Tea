@@ -19,38 +19,57 @@
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
 
-                        {% if review.rating == "1" %}
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == "2" %}
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == "3" %}
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == "4" %}
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        {% elif review.rating == "5" %}
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
-                        <i id="star" class="fas fa-star"></i>
+                        {% if review.rating == 1 %}
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        {% elif review.rating == 2 %}
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        {% elif review.rating == 3 %}
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        {% elif review.rating == 4 %}
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="far fa-star"></i>
+                        {% elif review.rating == 5 %}
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                         {% else %}
-                        No Ratings Yet
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                         {% endif %}
                     </h5>
                     <p class="card-text "><strong id="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>
+                    {% if review.repurchase == "on" %}
+                    <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
+                    {% else %}
+                    <i class="fas fa-thumbs-down"></i>
+                    {% endif %}
                     <p class="card-text "><strong id="added_by">Added By: </strong>
                         {{ review.created_by|capitalize}}</p>
                     <span class="card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
-                        {% if session.user %}
+                        {% if review.created_by == session['user'] or session['user'] == 'admin'%}
 
                         <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal"
                             data-target="#exampleModal">
