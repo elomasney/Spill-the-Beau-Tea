@@ -470,7 +470,8 @@ strong#price,
 strong#shades,
 strong#buy,
 strong#description,
-i.fas.fa-star {
+i.fas.fa-star,
+i.far.fa-star {
     color: #fafd42;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 15px 0;
@@ -505,6 +506,12 @@ i.fas.fa-star {
     margin-right: 20px;
 }
 
+hr {
+    background-color: #fafd42;
+    padding: 2px;
+    margin: 5px 120px;
+}
+
 /*Reviews*/
 #review-info.card-body {
     margin: 30px 200px;
@@ -514,6 +521,17 @@ i.fas.fa-star {
     color: #000000;
     font-weight: bolder;
     background-color: #15bce2;
+}
+
+.no-review {
+    font-family: "Dancing Script", sans-serif;
+    font-weight: bolder;
+    font-size: 3rem;
+    color: #ff0080;
+    letter-spacing: .2rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    padding: 100px;
+    text-align: center;
 }
 
 .rating.card-title {
@@ -568,6 +586,13 @@ i.fas.fa-star {
     margin-top: 20px;
     margin-right: 10px;
 }
+
+#review-info i {
+    color: #fafd42;
+    font-size: 1.5rem;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
 
 /* Review Modal*/
 .switch {

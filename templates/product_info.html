@@ -26,7 +26,11 @@
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
-                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
                     <p class="card-text"><strong id="description">Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>
                     <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
@@ -144,11 +148,13 @@
     </div>
 </div>
 <div>
+    <hr>
     {% for review in reviews %}
     {% if review.product == product._id %}
     {% if loop.first %}
     <h3 class="review-header">Reviews</h3>
     {% endif %}
+
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -185,6 +191,11 @@
                     </h5>
                     <p class="card-text "><strong id="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>
+                    {% if review.repurchase == "on" %}
+                    <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
+                    {% else %}
+                    <i class="fas fa-thumbs-down"></i>
+                    {% endif %}
                     <p class="card-text "><strong id="added_by">Added By: </strong>
                         {{ review.created_by|capitalize}}</p>
                     <span class="card-text "> <strong id="created_by">Added On:
@@ -234,23 +245,29 @@
                                                 <!--Product Rating-->
                                                 <div>
                                                     <fieldset>
-                                                        <legend id="starRating"><i class="fas fa-star"></i> Star Rating
+                                                        <legend id="starRating"><i class="fas fa-star"></i> Star
+                                                            Rating
                                                         </legend>
                                                         <div id="radio" class="md-form mb-5">
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="1" required /> 1
+                                                                    name="rating" id="rating" value="1" required />
+                                                                1
                                                             </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="2" required /> 2
+                                                                    name="rating" id="rating" value="2" required />
+                                                                2
                                                             </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="3" required /> 3
+                                                                    name="rating" id="rating" value="3" required />
+                                                                3
                                                             </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="4" required /> 4
+                                                                    name="rating" id="rating" value="4" required />
+                                                                4
                                                             </label>
                                                             <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="5" required /> 5
+                                                                    name="rating" id="rating" value="5" required />
+                                                                5
                                                             </label>
                                                         </div>
                                                     </fieldset>
@@ -306,6 +323,10 @@
         </div>
     </div>
 </div>
+{% elif review.product != product._id %}
+{% if loop.first %}
+<h3 class="no-review"> No Reviews yet! Be the first to write a Review!</h3>
+{% endif %}
 {% endif %}
 {% endfor %}
 </div>
