@@ -148,15 +148,10 @@
 </div>
 <div>
     <hr>
+    <!--<h3 class="review-header">Reviews</h3>-->
+    <h3 class="no-review">{{message}}</h3>
     {% for review in reviews %}
-    {% if review.product != product._id %}
-    {% if loop.first %}
-    <h3 class="no-review"> No Reviews yet! Be the first to write a Review!</h3>
-    {% endif %}
-    {% else %}
-    {% if loop.first %}
-    <h3 class="review-header">Reviews</h3>
-    {% endif %}
+
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -227,8 +222,6 @@
     </div>
 </div>
 
-
-{% endif %}
 
 {% endfor %}
 </div>

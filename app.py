@@ -127,7 +127,7 @@ def delete_category(category_id):
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
-    products = mongo.db.products.find().sort("category_name", 1)
+    products = mongo.db.products.find().sort("brand", 1)
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
@@ -144,7 +144,14 @@ def all_products():
 def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-    reviews = mongo.db.reviews.find().limit(5).sort("created_on", 1)
+    reviews = list(mongo.db.reviews.find({
+        "product": ObjectId(product_id)}).sort("created_on", 1).limit(5))
+    review_count = len(reviews)
+    message = ""
+    if review_count == 0:
+        message += "Be the first to write a Review!"
+    else:
+        message += "Reviews"
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
@@ -154,7 +161,8 @@ def product_info(product_id):
         }])
 
     return render_template(
-        'product_info.html', product=product, reviews=reviews, ratings=ratings)
+        'product_info.html', product=product, reviews=reviews,
+        ratings=ratings, review_count=review_count, message=message)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -225,9 +233,8 @@ def reviews():
 @app.route("/add_review/<product_id>", methods=["GET", "POST"])
 def add_review(product_id):
     # Adds a review to the db
-    products = mongo.db.products.find()
-    for product in products:
-        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
     if request.method == "POST":
@@ -243,10 +250,10 @@ def add_review(product_id):
         }
         mongo.db.reviews.insert_one(review)
         flash("New Review Added")
-        return redirect(url_for("all_products"))
+        return redirect(url_for("product_info", product_id=product_id))
 
     return render_template(
-        "products.html", review=review, product=product,
+        "product-info.html", review=review, product=product,
         now=now, product_id=product_id)
 
 
