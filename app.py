@@ -361,9 +361,13 @@ def profile(username):
     # grab the sessions username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"].capitalize()
-
+    products = mongo.db.products.find()
+    favourites = mongo.db.users.find_one(
+        {"username": session["user"].lower()})["favourites"]
     if session['user']:
-        return render_template("profile.html", username=username)
+        return render_template(
+            "profile.html", username=username, products=products,
+            favourites=favourites)
 
     return redirect(url_for("login"))
 
@@ -372,16 +376,18 @@ def profile(username):
 def favourites(product_id):
     if session["user"]:
         product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+        products = mongo.db.products.find()
         mongo.db.users.update({"username": session["user"]}, {
             "$push": {
-                "favourites": {"_id": ObjectId(product_id)}
+                "favourites": {"_id": ObjectId(product_id)},
             }
             })
         flash("Product added to favourites")
         return redirect(url_for("profile", username=session["user"]))
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"].capitalize()
-    return render_template("profile.html", username=username, product=product)
+    return render_template(
+        "profile.html", username=username, product=product, products=products)
 
 
 @app.route("/logout")

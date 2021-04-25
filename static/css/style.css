@@ -632,8 +632,7 @@ textarea.form-control {
 }
 
 /*Register Page*/
-.register-container,
-.profile-container {
+.register-containerr {
     height: 100vh;
     padding-top: 80px;
 }
@@ -697,4 +696,43 @@ textarea.form-control {
 #email.form-control {
     width: 100%;
     text-align: left;
+}
+
+/* Profile Page*/
+.profile-container {
+    height: 100%;
+    padding-top: 80px;
+}
+
+#favourites {
+    padding: 150px;
+}
+
+.favourites.card {
+    padding-top: 10px;
+    text-align: center;
+    color: #fafd42;
+    font-family: "Dancing Script", sans-serif;
+    font-size: 2rem;
+    background-color: #15bce2;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#favouriteCard.card-body {
+    padding: 10px;
+    margin: 0;
+
+}
+
+#favouritesHeading.category-header {
+    padding-bottom: 30px;
+}
+
+.favourites.card button {
+    color: #ff0080;
+    font-family: "Lato", sans-serif;
+    font-size: 2rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }

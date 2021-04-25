@@ -20,18 +20,47 @@
                     <button>Delete Review</button>
                 </div>
             </div>
+
             <!--Favourite Products List-->
             <div class="row">
                 <div id="favourites" class="col-md-12">
-                    <ul class="list-group">
-                        <li class="list-group-item"></li>
-                        <button>Delete Product</button>
-                    </ul>
+                    <hr>
+                    <h3 id="favouritesHeading" class="category-header">Favourites</h3>
+                    {% for product in products %}
+                    {% for favourite_product in favourites %}
+                    {% if product._id == favourite_product["_id"] %}
+                    <div id="accordion text-center">
+                        <div class="favourites card">
+                            <div class="card-header" id="headingOne">
+                                <h5 class="mb-0">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                        aria-expanded="true" aria-controls="collapseOne">
+                                        {{product.brand}} : {{product.product_name}}
+                                    </button>
+                                </h5>
+                            </div>
+
+                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                                data-parent="#accordion">
+                                <div id="favouriteCard" class="card-body">
+                                    <a>Delete Product</a>
+                                </div>
+                            </div>
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                        {% endfor %}
+
+
+                        </ul>
+
+
+
+                    </div>
                 </div>
+
             </div>
 
         </div>
-
     </div>
-</div>
-{% endblock %}
+    {% endblock %}
