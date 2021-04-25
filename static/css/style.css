@@ -699,13 +699,19 @@ textarea.form-control {
 }
 
 /* Profile Page*/
+hr#profileHeader {
+    background-color: #fafd42;
+    padding: 2px;
+    margin: 15px 250px;
+}
+
 .profile-container {
     height: 100%;
     padding-top: 80px;
 }
 
 #favourites {
-    padding: 150px;
+    padding: 20px 150px;
 }
 
 .favourites.card {
@@ -735,4 +741,10 @@ textarea.form-control {
     font-size: 2rem;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+hr#userReviews {
+    background-color: #fafd42;
+    padding: 2px;
+    margin: 50px 120px;
 }

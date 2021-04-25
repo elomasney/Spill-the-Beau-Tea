@@ -362,12 +362,13 @@ def profile(username):
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"].capitalize()
     products = mongo.db.products.find()
+    user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
     favourites = mongo.db.users.find_one(
         {"username": session["user"].lower()})["favourites"]
     if session['user']:
         return render_template(
             "profile.html", username=username, products=products,
-            favourites=favourites)
+            favourites=favourites, user_reviews=user_reviews)
 
     return redirect(url_for("login"))
 
