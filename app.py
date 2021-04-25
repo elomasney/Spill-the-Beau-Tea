@@ -368,6 +368,22 @@ def profile(username):
     return redirect(url_for("login"))
 
 
+@app.route("/favourites/<product_id>)", methods=["GET", "POST"])
+def favourites(product_id):
+    if session["user"]:
+        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+        mongo.db.users.update({"username": session["user"]}, {
+            "$push": {
+                "favourites": {"_id": ObjectId(product_id)}
+            }
+            })
+        flash("Product added to favourites")
+        return redirect(url_for("profile", username=session["user"]))
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"].capitalize()
+    return render_template("profile.html", username=username, product=product)
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookies

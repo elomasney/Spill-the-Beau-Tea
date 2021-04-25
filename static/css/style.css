@@ -415,12 +415,12 @@ select#category_name.form-control {
     border: none;
 }
 
-button.btn.heart {
+a.btn.heart {
     float: right;
     font-size: 2.5rem;
 }
 
-button.btn.heart i {
+a.btn.heart i {
     color: #fafd42;
 }
 
