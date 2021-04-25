@@ -27,14 +27,11 @@
             </div>
             <div class="col-md-7">
                 <div id="product-info" class="product-text card-body text-justify">
-                    <h4 class="product-brand card-title">{{ product.brand }}</h4>
+                    <button class="btn heart"><i class="far fa-heart"></i></button>
+                    <h4 class=" product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
-                    <i class="far fa-star"></i>
+
                     {% for rating in ratings %}
                     {% if rating["_id"] == product._id%}
                     {% if rating["average"] == 1 %}
@@ -76,13 +73,12 @@
                     {% endif %}
                     {% endif %}
                     {% endfor %}
-
-
-
                     <!--<p class="card-text"><strong>Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>-->
-                    <p id="product-shades" class="card-text"><strong>Shades: </strong> {{ product.num_shades}}</p>
-                    <span id="product-price" class="card-text"> <strong>Price: </strong>€ {{ product.price}}</span>
+                    <p id="product-shades" class="card-text"><strong>Shades: </strong> {{ product.num_shades}}
+                    </p>
+                    <span id="product-price" class="card-text"> <strong>Price: </strong>€
+                        {{ product.price}}</span>
                     <div>
                         <a href="{{url_for('product_info', product_id=product._id)}}" type="button"
                             class="btn btn-lg review-btn" id="product-reviews">

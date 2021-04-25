@@ -23,14 +23,54 @@
             </div>
             <div class="col-md-7">
                 <div id="product-info" class="product-info card-body text-justify">
+                    <button class="btn heart"><i class="far fa-heart"></i></button>
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
+
+
+                    {% for rating in ratings %}
+                    {% if rating["_id"] == product._id%}
+                    {% if rating["average"] == 1 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 2 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 3 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 4 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 5 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    {% else %}
                     <i id="star" class="far fa-star"></i>
                     <i id="star" class="far fa-star"></i>
                     <i id="star" class="far fa-star"></i>
                     <i id="star" class="far fa-star"></i>
                     <i id="star" class="far fa-star"></i>
+                    {% endif %}
+                    {% endif %}
+                    {% endfor %}
+
                     <p class="card-text"><strong id="description">Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>
                     <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
@@ -115,8 +155,7 @@
                                             </div>
                                             <!--Repurchase Checkbox-->
                                             <div class="switch">
-                                                <i
-                                                    class="fas fa-exclamation-circle prefix light-blue-text text-darken-4"></i>
+                                                <i class="fas fa-thumbs-up"></i>
                                                 <label for="repurchase">Would you repurchase?</label>
                                                 <input type="checkbox" id="repurchase" name="repurchase">
                                                 <span class="lever"></span>
@@ -158,7 +197,6 @@
                 <div id="review-info" class="review-text card-body text-justify">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
-
                         {% if review.rating == 1 %}
                         <i class="fas fa-star"></i>
                         <i class="far fa-star"></i>

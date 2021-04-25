@@ -131,13 +131,15 @@ def all_products():
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
-            "_id": "$product",
+            "_id": ("$product"),
             "ratings": {"$sum": "$rating"},
             "average": {"$avg": "$rating"}
         }
         }])
+    rating_count = ratings["ratings"]
     return render_template(
-        'products.html', products=products, ratings=ratings, review=review)
+        'products.html', products=products, ratings=ratings, review=review,
+        rating_count=rating_count)
 
 
 @app.route("/product_info/<product_id>")
@@ -233,8 +235,6 @@ def reviews():
 @app.route("/add_review/<product_id>", methods=["GET", "POST"])
 def add_review(product_id):
     # Adds a review to the db
-
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
     if request.method == "POST":
@@ -252,6 +252,7 @@ def add_review(product_id):
         flash("New Review Added")
         return redirect(url_for("product_info", product_id=product_id))
 
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
         "product-info.html", review=review, product=product,
         now=now, product_id=product_id)
