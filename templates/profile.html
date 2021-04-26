@@ -7,7 +7,7 @@
     <div id="profile" class="row">
         <div class=" card col-12">
             <h3 class="profile-header">
-                {{username}}'s Profile
+                {{username.capitalize()}}'s Profile
             </h3>
             <hr id="profileHeader">
             {% if session.user|lower == "admin"|lower %}
@@ -314,7 +314,7 @@
                                 </div>
                                 {% endfor %}
                                 {% endif %}
-                                <div class="col-md-4 offset-md-4"><button id="deleteAccount"><a
+                                <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a
                                             href="{{url_for('delete_profile', user_id=session['user'])}}">Delete
                                             Account</a></button></div>
                             </div>

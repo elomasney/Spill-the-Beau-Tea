@@ -359,7 +359,7 @@ def login():
 def profile(username):
     # grab the sessions username from the db
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"].capitalize()
+        {"username": session["user"]})["username"]
     products = mongo.db.products.find()
     user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
     favourites = mongo.db.users.find_one(
@@ -385,7 +385,7 @@ def favourites(product_id):
         flash("Product added to favourites")
         return redirect(url_for("profile", username=session["user"]))
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"].capitalize()
+        {"username": session["user"]})["username"]
     return render_template(
         "profile.html", username=username, product=product, products=products)
 
@@ -402,7 +402,7 @@ def delete_favourite(product_id):
         flash("Product removed from favourites")
         return redirect(url_for("profile", username=session["user"]))
     username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"].capitalize()
+        {"username": session["user"]})["username"]
     return render_template(
         "profile.html", username=username, product=product)
 
