@@ -720,7 +720,8 @@ hr#profileHeader {
 }
 
 .favourites.card,
-.admin-manage.card {
+.admin-manage.card,
+.user.card {
     padding-top: 10px;
     text-align: center;
     color: #fafd42;
@@ -732,7 +733,8 @@ hr#profileHeader {
 }
 
 #favouriteCard.card-body,
-div.admin-card.card-body {
+div.admin-card.card-body,
+.user-details.card-body {
     padding: 10px;
     margin: 0;
 
@@ -743,7 +745,8 @@ div.admin-card.card-body {
 }
 
 .favourites.card button,
-.admin-manage.card button {
+.admin-manage.card button,
+.user.card button {
     color: #ff0080;
     font-family: "Lato", sans-serif;
     font-size: 2rem;
@@ -751,7 +754,18 @@ div.admin-card.card-body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-.admin-card.card-body button {
+.user.card p {
+    font-size: 2.5rem;
+    font-weight: bolder;
+}
+
+.user-details.card-body p {
+    font-family: "Lato", sans-serif;
+    font-size: 1.7rem;
+}
+
+.admin-card.card-body button,
+.user-details.card-body button {
     border: none;
     background-color: #ff0080;
     padding: 5px;
@@ -762,6 +776,14 @@ div.admin-card.card-body {
 #favouriteCard a,
 div.admin-card.card-body a {
     color: #fafd42;
+}
+
+.user-details a {
+    color: #15bce2;
+}
+
+#accordion {
+    padding: 10px 150px;
 }
 
 hr#userReviews {

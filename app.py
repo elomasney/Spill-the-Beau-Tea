@@ -413,7 +413,7 @@ def delete_profile(user_id):
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("Your account has been deleted!")
     session.clear()
-    return redirect(url_for("home"))
+    return redirect(url_for("home", user=session["user"]))
 
 
 @app.route("/logout")
@@ -422,6 +422,12 @@ def logout():
     flash("You have been logged out")
     session.pop("user")
     return redirect(url_for("login"))
+
+
+@app.route("/manage_users")
+def manage_users():
+    users = list(mongo.db.users.find())
+    return render_template("manage_users.html", users=users)
 
 
 if __name__ == "__main__":

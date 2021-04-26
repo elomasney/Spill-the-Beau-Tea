@@ -46,8 +46,7 @@
                     </div>
                     <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
-                            <button><a href="">All Users</a></button><br>
-                            <button><a href="">Delete User </a></button>
+                            <button><a href="{{url_for('manage_users')}}">Manage Users</a></button>
                         </div>
                     </div>
                 </div>
@@ -316,7 +315,7 @@
                                 {% endfor %}
                                 {% endif %}
                                 <div class="col-md-4 offset-md-4"><button id="deleteAccount"><a
-                                            href="{{url_for('delete_profile', user_id=user._id)}}">Delete
+                                            href="{{url_for('delete_profile', user_id=session['user'])}}">Delete
                                             Account</a></button></div>
                             </div>
                         </div>
