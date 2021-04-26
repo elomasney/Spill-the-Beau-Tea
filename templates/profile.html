@@ -16,21 +16,22 @@
                     {% for product in products %}
                     {% for favourite_product in favourites %}
                     {% if product._id == favourite_product["_id"] %}
-                    <div id="accordion text-center">
+                    <div id="accordion" class="text-center">
                         <div class="favourites card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne"
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse"
                                         aria-expanded="true" aria-controls="collapseOne">
                                         {{product.brand}} : {{product.product_name}}
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                            <div id="collapse" class="collapse show" aria-labelledby="headingOne"
                                 data-parent="#accordion">
                                 <div id="favouriteCard" class="card-body">
-                                    <a>Delete Product</a>
+                                    <a href="{{ url_for('delete_favourite', product_id=product._id)}}">Delete
+                                        Product</a>
                                 </div>
                             </div>
                         </div>

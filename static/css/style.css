@@ -743,6 +743,10 @@ hr#profileHeader {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+#favouriteCard a {
+    color: #fafd42;
+}
+
 hr#userReviews {
     background-color: #fafd42;
     padding: 2px;

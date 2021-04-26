@@ -391,6 +391,23 @@ def favourites(product_id):
         "profile.html", username=username, product=product, products=products)
 
 
+@app.route("/delete_favourite/<product_id>)", methods=["GET", "POST"])
+def delete_favourite(product_id):
+    if session["user"]:
+        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+        mongo.db.users.update({"username": session["user"]}, {
+            "$pull": {
+                "favourites": {"_id": ObjectId(product_id)},
+            }
+            })
+        flash("Product removed from favourites")
+        return redirect(url_for("profile", username=session["user"]))
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"].capitalize()
+    return render_template(
+        "profile.html", username=username, product=product)
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookies
