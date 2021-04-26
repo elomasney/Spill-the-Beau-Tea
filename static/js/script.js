@@ -9,4 +9,5 @@ $('.collapse').collapse()
 // Toggles favourites icon button on click
 $('.far.fa-heart').click(function () {
     $('.far.fa-heart').toggleClass('far fa-heart fas fa-heart')
+
 });

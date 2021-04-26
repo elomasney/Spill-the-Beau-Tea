@@ -136,10 +136,9 @@ def all_products():
             "average": {"$avg": "$rating"}
         }
         }])
-    rating_count = ratings["ratings"]
+
     return render_template(
-        'products.html', products=products, ratings=ratings, review=review,
-        rating_count=rating_count)
+        'products.html', products=products, ratings=ratings, review=review)
 
 
 @app.route("/product_info/<product_id>")

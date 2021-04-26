@@ -13,9 +13,6 @@
         <div class="row">
             <div class="col-md-12">
                 <div id="review-info" class="review-text card-body text-justify">
-                    {% if session.user|lower == "admin"|lower %}
-                    <h3 class="product card-title">{{ review.product.product_name }}</h3>
-                    {% endif %}
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
 

@@ -9,6 +9,65 @@
             <h3 class="profile-header">
                 {{username}}'s Profile</h3>
             <hr id="profileHeader">
+            {% if session.user|lower == "admin"|lower %}
+            <div id="adminAccordion" class="accordion">
+                <div class="admin-manage card">
+                    <div class="admin-heading card-header" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne"
+                                aria-expanded="true" aria-controls="collapseOne">
+                                Manage
+                            </button>
+                        </h2>
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#adminAccordion">
+                        <div class="admin-card card-body">
+                            <button><a href=" {{ url_for('all_categories')}}"> All
+                                    Categories</a></button><br>
+                            <button><a href="{{ url_for('add_category') }}">Add A
+                                    Category</a></button><br>
+                            <button><a href="{{ url_for('all_products')}}">All
+                                    Products</a></button><br>
+                            <button><a href="{{ url_for('add_product')}}">Add A
+                                    Product</a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-manage card">
+                    <div class="admin-heading card-header" id="headingTwo">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                Users
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#adminAccordion">
+                        <div class="admin-card card-body">
+                            <button><a href="">All Users</a></button><br>
+                            <button><a href="">Delete User </a></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="admin-manage card">
+                    <div class="admin-heading card-header" id="headingThree">
+                        <h2 class="mb-0">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse"
+                                data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Reviews
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
+                        data-parent="#adminAccordion">
+                        <div class="admin-card card-body">
+                            <button><a href="{{ url_for('reviews')}}">All Reviews</a></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% else %}
             <!--Favourite Products List-->
             <div class="row">
                 <div id="favourites" class="col-md-12">
@@ -254,6 +313,7 @@
                                     </div>
                                 </div>
                                 {% endfor %}
+                                {% endif %}
                             </div>
                         </div>
                     </div>

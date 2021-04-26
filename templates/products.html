@@ -27,8 +27,10 @@
             </div>
             <div class="col-md-7">
                 <div id="product-info" class="product-text card-body text-justify">
+                    {% if session.user|lower %}
                     <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
                         role="button" aria-pressed="true"><i class="far fa-heart"></i></a>
+                    {% endif %}
                     <h4 class=" product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
