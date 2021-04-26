@@ -407,6 +407,15 @@ def delete_favourite(product_id):
         "profile.html", username=username, product=product)
 
 
+@app.route("/delete_profile/<user_id>")
+def delete_profile(user_id):
+    mongo.db.reviews.delete_many({"created_by": session["user"]})
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("Your account has been deleted!")
+    session.clear()
+    return redirect(url_for("home"))
+
+
 @app.route("/logout")
 def logout():
     # remove user from session cookies

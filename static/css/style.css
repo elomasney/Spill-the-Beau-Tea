@@ -194,7 +194,8 @@ body {
 #add_category.btn-large,
 #edit_category.btn-large,
 #add_product.btn-large,
-#searchBtn {
+#searchBtn,
+#deleteAccount {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -767,4 +768,9 @@ hr#userReviews {
     background-color: #fafd42;
     padding: 2px;
     margin: 50px 120px;
+}
+
+#deleteAccount {
+    margin: 30px 40px;
+    padding: 10px 10px;
 }
