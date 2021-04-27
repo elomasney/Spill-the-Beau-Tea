@@ -160,20 +160,22 @@
                                             <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left"
                                                 title="Would buy again"></i>
                                             {% else %}
-                                            <i class="fas fa-thumbs-down"></i>
+                                            <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left"
+                                                title="Would'nt buy again"></i>
                                             {% endif %}
                                             <span class="card-text "> <strong id="created_by">Added On:
                                                 </strong>{{ reviews.created_on}}</span>
                                             <div class="text-center">
 
                                                 <button type="button" id="edit_review" class="btn btn-lg review-btn"
-                                                    data-toggle="modal" data-target="#exampleModal">
+                                                    data-toggle="modal" data-target="#editReview_{{reviews._id}}">
                                                     Edit Review
                                                 </button>
 
                                                 <!--Editing a Review using a Modal Popup-->
-                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1"
+                                                    role="dialog" aria-labelledby="exampleModalLabel"
+                                                    aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
                                                             <div class="modal-header">
@@ -188,7 +190,7 @@
                                                             <div class="modal-body">
                                                                 <div class="row form-group">
                                                                     <form class=" product-form col-12" method="POST"
-                                                                        action="{{ url_for('edit_review', review_id=review_id) }}">
+                                                                        action="{{ url_for('edit_review', review_id=reviews._id) }}">
                                                                         <!-- Review Tagline -->
 
                                                                         <div class="row">

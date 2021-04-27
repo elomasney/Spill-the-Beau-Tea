@@ -1,10 +1,11 @@
 //Toggles the tooltip on the repurchase icon in reviews
-$(function () {
-    $('[data-toggle="tooltip"]').tooltip()
-})
+$(document).ready(function () {
+    $('[data-toggle="tooltip"]').tooltip();
+
+});
 
 //Collapsable favourites accordion menu
-$('.collapse').collapse()
+$('.collapse').collapse();
 
 // Toggles favourites icon button on click
 $('.far.fa-heart').click(function () {

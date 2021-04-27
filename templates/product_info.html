@@ -243,7 +243,8 @@
                     {% if review.repurchase == "on" %}
                     <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
                     {% else %}
-                    <i class="fas fa-thumbs-down"></i>
+                    <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left"
+                        title="Wouldn't buy again"></i>
                     {% endif %}
                     <p class="card-text "><strong id="added_by">Added By: </strong>
                         {{ review.created_by|capitalize}}</p>

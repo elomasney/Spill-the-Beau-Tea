@@ -260,12 +260,12 @@ def add_review(product_id):
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     # Edits a review by a user on the db
-    reviews = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
-    product_id = reviews["product"]
+    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    product_id = review["product"]
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
     if request.method == "POST":
-        review = {
+        review_edit = {
             "product": ObjectId(product_id),
             "age": request.form.get("age"),
             "rating": int(request.form.get("rating")),
@@ -275,13 +275,13 @@ def edit_review(review_id):
             "created_by": session["user"],
             "created_on": now.strftime("%d/%m/%Y"),
         }
-        mongo.db.reviews.update({"_id": ObjectId(review_id)}, review)
+        mongo.db.reviews.update({"_id": ObjectId(review_id)}, review_edit)
         flash("Review Updated")
-        return redirect(url_for("all_products"))
-    products = mongo.db.products.find()
+        return redirect(url_for("profile", username=session["user"]))
+    reviews = mongo.db.reviews.find()
     return render_template(
-        "products.html", review=review, reviews=reviews,
-        product_id=product_id, now=now, products=products)
+        "profile.html", review_edit=review_edit, review=review,
+        product_id=product_id, now=now, reviews=reviews)
 
 
 @app.route("/delete_review/<review_id>")
@@ -375,8 +375,14 @@ def profile(username):
 @app.route("/favourites/<product_id>)", methods=["GET", "POST"])
 def favourites(product_id):
     if session["user"]:
+        username = mongo.db.users.find_one(
+            {"username": session["user"].lower()})
+        favourites = mongo.db.users.find_one(username)["favourites"]
         product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
         products = mongo.db.products.find()
+        if ObjectId(product_id) in favourites:
+            flash("Product already added to favourites")
+            return redirect(url_for("profile", username=session["user"]))
         mongo.db.users.update({"username": session["user"]}, {
             "$push": {
                 "favourites": {"_id": ObjectId(product_id)},
@@ -384,8 +390,6 @@ def favourites(product_id):
             })
         flash("Product added to favourites")
         return redirect(url_for("profile", username=session["user"]))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
     return render_template(
         "profile.html", username=username, product=product, products=products)
 
