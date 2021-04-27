@@ -523,7 +523,8 @@ hr {
 }
 
 /*Reviews*/
-#review-info.card-body {
+#review-info.card-body,
+#userReviewInfo.card-body {
     margin: 30px 200px;
     font-family: "Lato", sans-serif;
     font-size: 1.2rem;
@@ -584,7 +585,9 @@ hr {
 }
 
 #review-info button#edit_review,
-#review-info a#delete_review {
+#review-info a#delete_review,
+#userReviewInfo button#edit_review,
+#userReviewInfo a#delete_review {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
@@ -597,7 +600,8 @@ hr {
     margin-right: 10px;
 }
 
-#review-info i {
+#review-info i,
+#userReviewInfo i {
     color: #fafd42;
     font-size: 1.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -792,6 +796,10 @@ hr#userReviews {
     background-color: #fafd42;
     padding: 2px;
     margin: 50px 120px;
+}
+
+#userReviewInfo.card-body {
+    margin: 30px 50px;
 }
 
 #deleteAccount {

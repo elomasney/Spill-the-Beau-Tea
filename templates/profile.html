@@ -75,7 +75,7 @@
                     {% for product in products %}
                     {% for favourite_product in favourites %}
                     {% if product._id == favourite_product["_id"] %}
-                    <div id="accordion" class="text-center">
+                    <div id="favAccordion" class="text-center">
                         <div class="favourites card">
                             <div class="card-header" id="headingOne">
                                 <h5 class="mb-0">
@@ -87,237 +87,230 @@
                             </div>
 
                             <div id="collapse" class="collapse show" aria-labelledby="headingOne"
-                                data-parent="#accordion">
+                                data-parent="#favAccordion">
                                 <div id="favouriteCard" class="card-body">
                                     <a href="{{ url_for('delete_favourite', product_id=product._id)}}">Delete
                                         Product</a>
                                 </div>
                             </div>
                         </div>
-                        {% endif %}
-                        {% endfor %}
-                        {% endfor %}
-                        <!--User Reviews-->
-                        <div class="row">
-                            <div class="col-md-12">
-                                <hr id="userReviews">
-                                <h3 class="category-header">My Reviews</h3>
-                                {% for reviews in user_reviews %}
-                                <div id="reviews" class="card product-card mb-3 col-md-12">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div id="review-info" class="review-text card-body text-justify">
-                                                {% for product in products %}
-                                                {% if reviews.product == product._id%}
-                                                <h3 class="product card-title">{{ product.product_name }}</h3>
-                                                {% endif %}
-                                                {% endfor %}
-                                                <h4 class="review-title card-title">{{ reviews.title }}</h4>
-                                                <h5 class="rating card-title">Rating:
+                    </div>
+                    {% endif %}
+                    {% endfor %}
+                    {% endfor %}
+                    <!--User Reviews-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <hr id="userReviews">
+                            <h3 class="category-header">My Reviews</h3>
+                            {% for reviews in user_reviews %}
+                            <div id="reviews" class="card product-card mb-3 col-md-12">
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <div id="userReviewInfo" class="review-text card-body text-justify">
+                                            {% for product in products %}
+                                            {% if reviews.product == product._id%}
+                                            <h3 class="product card-title">{{ product.product_name }}</h3>
+                                            {% endif %}
+                                            {% endfor %}
+                                            <h4 class="review-title card-title">{{ reviews.title }}</h4>
+                                            <h5 class="rating card-title">Rating:
 
-                                                    {% if reviews.rating == 1 %}
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    {% elif reviews.rating == 2 %}
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    {% elif reviews.rating == 3 %}
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    {% elif reviews.rating == 4 %}
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    {% elif reviews.rating == 5 %}
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    <i class="fas fa-star"></i>
-                                                    {% else %}
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    <i class="far fa-star"></i>
-                                                    {% endif %}
-                                                </h5>
-                                                <p class="card-text "><strong id="reviewText">Review:</strong></p>
-                                                <p class="card-text ">{{reviews.review}}</p>
-                                                {% if reviews.repurchase == "on" %}
-                                                <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left"
-                                                    title="Would buy again"></i>
+                                                {% if reviews.rating == 1 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                {% elif reviews.rating == 2 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                {% elif reviews.rating == 3 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                {% elif reviews.rating == 4 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                {% elif reviews.rating == 5 %}
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
                                                 {% else %}
-                                                <i class="fas fa-thumbs-down"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
+                                                <i class="far fa-star"></i>
                                                 {% endif %}
-                                                <span class="card-text "> <strong id="created_by">Added On:
-                                                    </strong>{{ reviews.created_on}}</span>
-                                                <div class="text-center">
+                                            </h5>
+                                            <p class="card-text "><strong id="reviewText">Review:</strong></p>
+                                            <p class="card-text ">{{reviews.review}}</p>
+                                            {% if reviews.repurchase == "on" %}
+                                            <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left"
+                                                title="Would buy again"></i>
+                                            {% else %}
+                                            <i class="fas fa-thumbs-down"></i>
+                                            {% endif %}
+                                            <span class="card-text "> <strong id="created_by">Added On:
+                                                </strong>{{ reviews.created_on}}</span>
+                                            <div class="text-center">
 
-                                                    <button type="button" id="edit_review" class="btn btn-lg review-btn"
-                                                        data-toggle="modal" data-target="#exampleModal">
-                                                        Edit Review
-                                                    </button>
+                                                <button type="button" id="edit_review" class="btn btn-lg review-btn"
+                                                    data-toggle="modal" data-target="#exampleModal">
+                                                    Edit Review
+                                                </button>
 
-                                                    <!--Editing a Review using a Modal Popup-->
-                                                    <div class="modal fade" id="exampleModal" tabindex="-1"
-                                                        role="dialog" aria-labelledby="exampleModalLabel"
-                                                        aria-hidden="true">
-                                                        <div class="modal-dialog modal-lg" role="document">
-                                                            <div class="modal-content">
-                                                                <div class="modal-header">
-                                                                    <button type="button" class="close"
-                                                                        data-dismiss="modal" aria-label="Close">
-                                                                        <span aria-hidden="true">&times;</span>
-                                                                    </button>
-                                                                    <h5 class="modal-title" id="reviewModal">Edit Review
-                                                                    </h5>
+                                                <!--Editing a Review using a Modal Popup-->
+                                                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+                                                    aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog modal-lg" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                                <button type="button" class="close" data-dismiss="modal"
+                                                                    aria-label="Close">
+                                                                    <span aria-hidden="true">&times;</span>
+                                                                </button>
+                                                                <h5 class="modal-title" id="reviewModal">Edit Review
+                                                                </h5>
 
-                                                                </div>
-                                                                <div class="modal-body">
-                                                                    <div class="row form-group">
-                                                                        <form class=" product-form col-12" method="POST"
-                                                                            action="{{ url_for('edit_review', review_id=reviews._id) }}">
-                                                                            <!-- Review Tagline -->
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <div class="row form-group">
+                                                                    <form class=" product-form col-12" method="POST"
+                                                                        action="{{ url_for('edit_review', review_id=review_id) }}">
+                                                                        <!-- Review Tagline -->
 
-                                                                            <div class="row">
-                                                                                <div
-                                                                                    class=" product-input input-field col-12">
-                                                                                    <label for="title">Title: </label>
-                                                                                    <input class="form-control"
-                                                                                        id="title" name="title"
-                                                                                        minlength="3"
-                                                                                        value="{{reviews.title}}"
-                                                                                        maxlength="25" type="text"
-                                                                                        class="validate" required>
-                                                                                </div>
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class=" product-input input-field col-12">
+                                                                                <label for="title">Title: </label>
+                                                                                <input class="form-control" id="title"
+                                                                                    name="title" minlength="3"
+                                                                                    value="{{reviews.title}}"
+                                                                                    maxlength="25" type="text"
+                                                                                    class="validate" required>
                                                                             </div>
-                                                                            <!--User Age-->
-                                                                            <div class="row">
-                                                                                <div
-                                                                                    class=" product-input input-field col-12">
-                                                                                    <label for="age">Age: </label>
-                                                                                    <input class="form-control" id="age"
-                                                                                        name="age" type="number"
-                                                                                        value="{{reviews.age}}"
-                                                                                        class="validate" required>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!--Product Rating-->
-                                                                            <div>
-                                                                                <fieldset>
-                                                                                    <legend id="starRating"><i
-                                                                                            class="fas fa-star"></i>
-                                                                                        Star Rating
-                                                                                    </legend>
-                                                                                    <div id="radio"
-                                                                                        class="md-form mb-5">
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio"
-                                                                                                name="rating"
-                                                                                                id="rating" value="1"
-                                                                                                required /> 1
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio"
-                                                                                                name="rating"
-                                                                                                id="rating" value="2"
-                                                                                                required /> 2
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio"
-                                                                                                name="rating"
-                                                                                                id="rating" value="3"
-                                                                                                required /> 3
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio"
-                                                                                                name="rating"
-                                                                                                id="rating" value="4"
-                                                                                                required /> 4
-                                                                                        </label>
-                                                                                        <label class="radio-inline">
-                                                                                            <input type="radio"
-                                                                                                name="rating"
-                                                                                                id="rating" value="5"
-                                                                                                required /> 5
-                                                                                        </label>
-                                                                                    </div>
-                                                                                </fieldset>
-                                                                            </div>
-                                                                            <!--Product Review-->
-                                                                            <div class="row">
-                                                                                <div class=" product-input col-12">
-                                                                                    <label for="review_content">Review:
-                                                                                    </label>
-                                                                                    <textarea class="form-control"
-                                                                                        id="review_content"
-                                                                                        value="{{reviews.review}}"
-                                                                                        name="review_content"
-                                                                                        minlength="3" type="text"
-                                                                                        rows="2" class="validate"
-                                                                                        required>{{reviews.review}}</textarea>
-                                                                                </div>
-                                                                            </div>
-                                                                            <!--Repurchase Checkbox-->
-                                                                            <div class="switch">
-                                                                                <i class="fas fa-thumbs-up"></i>
-                                                                                <label for="repurchase">Would you
-                                                                                    repurchase?</label>
-                                                                                <input type="checkbox" id="repurchase"
-                                                                                    name="repurchase">
-                                                                                <span class="lever"></span>
-                                                                            </div>
-
-                                                                    </div>
-                                                                </div>
-                                                                <div class="modal-footer">
-                                                                    <!-- submit button -->
-                                                                    <div class="row">
-                                                                        <div class="col-12 ">
-                                                                            <button id="edit_category" type="submit"
-                                                                                class="btn-large"><a href="
-                                                                    {{ url_for('all_products')}}">
-                                                                                    Cancel <i
-                                                                                        class="fas fa-times-circle right"></i></a></button>
-                                                                            <button id="add_product" type="submit"
-                                                                                class="btn-large">
-                                                                                Edit Review <i
-                                                                                    class="fas fa-plus-square right"></i>
-                                                                            </button>
                                                                         </div>
-                                                                    </div>
-                                                                    </form>
+                                                                        <!--User Age-->
+                                                                        <div class="row">
+                                                                            <div
+                                                                                class=" product-input input-field col-12">
+                                                                                <label for="age">Age: </label>
+                                                                                <input class="form-control" id="age"
+                                                                                    name="age" type="number"
+                                                                                    value="{{reviews.age}}"
+                                                                                    class="validate" required>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--Product Rating-->
+                                                                        <div>
+                                                                            <fieldset>
+                                                                                <legend id="starRating"><i
+                                                                                        class="fas fa-star"></i>
+                                                                                    Star Rating
+                                                                                </legend>
+                                                                                <div id="radio" class="md-form mb-5">
+                                                                                    <label class="radio-inline">
+                                                                                        <input type="radio"
+                                                                                            name="rating" id="rating"
+                                                                                            value="1" required /> 1
+                                                                                    </label>
+                                                                                    <label class="radio-inline">
+                                                                                        <input type="radio"
+                                                                                            name="rating" id="rating"
+                                                                                            value="2" required /> 2
+                                                                                    </label>
+                                                                                    <label class="radio-inline">
+                                                                                        <input type="radio"
+                                                                                            name="rating" id="rating"
+                                                                                            value="3" required /> 3
+                                                                                    </label>
+                                                                                    <label class="radio-inline">
+                                                                                        <input type="radio"
+                                                                                            name="rating" id="rating"
+                                                                                            value="4" required /> 4
+                                                                                    </label>
+                                                                                    <label class="radio-inline">
+                                                                                        <input type="radio"
+                                                                                            name="rating" id="rating"
+                                                                                            value="5" required /> 5
+                                                                                    </label>
+                                                                                </div>
+                                                                            </fieldset>
+                                                                        </div>
+                                                                        <!--Product Review-->
+                                                                        <div class="row">
+                                                                            <div class=" product-input col-12">
+                                                                                <label for="review_content">Review:
+                                                                                </label>
+                                                                                <textarea class="form-control"
+                                                                                    id="review_content"
+                                                                                    value="{{reviews.review}}"
+                                                                                    name="review_content" minlength="3"
+                                                                                    type="text" rows="2"
+                                                                                    class="validate"
+                                                                                    required>{{reviews.review}}</textarea>
+                                                                            </div>
+                                                                        </div>
+                                                                        <!--Repurchase Checkbox-->
+                                                                        <div class="switch">
+                                                                            <i class="fas fa-thumbs-up"></i>
+                                                                            <label for="repurchase">Would you
+                                                                                repurchase?</label>
+                                                                            <input type="checkbox" id="repurchase"
+                                                                                name="repurchase">
+                                                                            <span class="lever"></span>
+                                                                        </div>
+
                                                                 </div>
+                                                            </div>
+                                                            <div class="modal-footer">
+                                                                <!-- submit button -->
+                                                                <div class="row">
+                                                                    <div class="col-12 ">
+                                                                        <button id="edit_category" type="submit"
+                                                                            class="btn-large"><a href="
+                                                                    {{ url_for('all_products')}}">
+                                                                                Cancel <i
+                                                                                    class="fas fa-times-circle right"></i></a></button>
+                                                                        <button id="add_product" type="submit"
+                                                                            class="btn-large">
+                                                                            Edit Review <i
+                                                                                class="fas fa-plus-square right"></i>
+                                                                        </button>
+                                                                    </div>
+                                                                </div>
+                                                                </form>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <a href="{{url_for('delete_review', review_id=reviews._id)}}"
-                                                        type="button" class="btn btn-lg review-btn" id="delete_review">
-                                                        Delete Review
-                                                    </a>
                                                 </div>
+                                                <a href="{{url_for('delete_review', review_id=reviews._id)}}"
+                                                    type="button" class="btn btn-lg review-btn" id="delete_review">
+                                                    Delete Review
+                                                </a>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                {% endfor %}
-                                {% endif %}
-                                <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a
-                                            href="{{url_for('delete_profile', user_id=session['user'])}}">Delete
-                                            Account</a></button></div>
                             </div>
+                            {% endfor %}
+                            {% endif %}
+                            <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a
+                                        href="{{url_for('delete_profile', user_id=session['user'])}}">Delete
+                                        Account</a></button></div>
                         </div>
                     </div>
-                    {% endblock %}
+                </div>
+                {% endblock %}
