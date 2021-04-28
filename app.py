@@ -127,7 +127,19 @@ def delete_category(category_id):
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
-    products = mongo.db.products.find().sort("brand", 1)
+    products = list(mongo.db.products.find().sort("brand", 1))
+
+    favourites = mongo.db.users.find_one(
+        {"username": session["user"].lower()})["favourites"]
+    favourite_product_ids = set()
+    for favourite_product in favourites:
+        favourite_product_ids.add(favourite_product["_id"])
+
+    for product in products:
+        if product["_id"] in favourite_product_ids:
+            product["favourite"] = True
+        else:
+            product["favourite"] = False
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
@@ -145,6 +157,7 @@ def all_products():
 def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+
     reviews = list(mongo.db.reviews.find({
         "product": ObjectId(product_id)}).sort("created_on", 1).limit(5))
     review_count = len(reviews)
@@ -403,6 +416,8 @@ def favourites(product_id):
 def delete_favourite(product_id):
     if session["user"]:
         product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+        username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
         mongo.db.users.update({"username": session["user"]}, {
             "$pull": {
                 "favourites": {"_id": ObjectId(product_id)},
@@ -410,10 +425,10 @@ def delete_favourite(product_id):
             })
         flash("Product removed from favourites")
         return redirect(url_for("profile", username=session["user"]))
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
+
     return render_template(
-        "profile.html", username=username, product=product)
+        "profile.html", username=username, product=product,
+        favourites=favourites)
 
 
 @app.route("/delete_profile/<user_id>")
