@@ -160,7 +160,7 @@ def product_info(product_id):
             "average": {"$avg": "$rating"}
         }
         }])
-
+    print(ratings)
     return render_template(
         'product_info.html', product=product, reviews=reviews,
         ratings=ratings, review_count=review_count, message=message)
@@ -360,13 +360,18 @@ def profile(username):
     # grab the sessions username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    products = mongo.db.products.find()
+    product = mongo.db.products.find()
     user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
     favourites = mongo.db.users.find_one(
         {"username": session["user"].lower()})["favourites"]
+    for favourite_product in favourites:
+        product_info = mongo.db.products.find_one(
+            {"_id": favourite_product["_id"]})
+        favourite_product.update(product_info)
+
     if session['user']:
         return render_template(
-            "profile.html", username=username, products=products,
+            "profile.html", username=username, product=product,
             favourites=favourites, user_reviews=user_reviews)
 
     return redirect(url_for("login"))
