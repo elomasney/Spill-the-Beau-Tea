@@ -435,8 +435,9 @@ def delete_user_account(user_id):
     mongo.db.reviews.delete_many({"created_by": user_id})
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("This account has been deleted!")
-    session.clear()
-    return redirect(url_for("manage_users"))
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    return redirect(url_for("profile", username=username))
 
 
 @app.route("/logout")
@@ -451,6 +452,12 @@ def logout():
 def manage_users():
     users = list(mongo.db.users.find())
     return render_template("manage_users.html", users=users)
+
+
+# 404 error page
+@app.errorhandler(404)
+def page_not_found(error):
+    return render_template("404.html"), 404
 
 
 if __name__ == "__main__":

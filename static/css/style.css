@@ -859,3 +859,10 @@ hr#userReviews {
     margin: 30px 40px;
     padding: 10px 10px;
 }
+
+/*404 Page*/
+.background-image {
+    background: url("../images/404_image.jpg") no-repeat center center fixed;
+    height: 100vh;
+    width: auto;
+}
