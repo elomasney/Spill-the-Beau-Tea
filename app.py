@@ -128,18 +128,6 @@ def delete_category(category_id):
 def all_products():
     # Renders all products in database
     products = list(mongo.db.products.find().sort("brand", 1))
-
-    favourites = mongo.db.users.find_one(
-        {"username": session["user"].lower()})["favourites"]
-    favourite_product_ids = set()
-    for favourite_product in favourites:
-        favourite_product_ids.add(favourite_product["_id"])
-
-    for product in products:
-        if product["_id"] in favourite_product_ids:
-            product["favourite"] = True
-        else:
-            product["favourite"] = False
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
@@ -233,7 +221,7 @@ def delete_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     flash("Product Successfully Deleted")
     product = mongo.db.products.find()
-    return render_template("products.html", product=product)
+    return redirect(url_for("all_products", product=product))
 
 
 @app.route("/reviews")
