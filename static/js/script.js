@@ -38,7 +38,7 @@ function confirm_delete_category(delete_url) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#fafd42',
-        cancelButtonColor: '#ff0080',
+        cancelButtonColor: '#15bce2',
         confirmButtonText: 'Yes, delete it!',
 
     }).then((result) => {
@@ -72,7 +72,7 @@ function confirm_delete_product(delete_url) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#fafd42',
-        cancelButtonColor: '#ff0080',
+        cancelButtonColor: '#15bce2',
         confirmButtonText: 'Yes, delete it!',
 
     }).then((result) => {
@@ -106,7 +106,7 @@ function confirm_delete_review(delete_url) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#fafd42',
-        cancelButtonColor: '#ff0080',
+        cancelButtonColor: '#15bce2',
         confirmButtonText: 'Yes, delete it!',
 
     }).then((result) => {
@@ -140,7 +140,7 @@ function confirm_delete_account(delete_url) {
         icon: 'warning',
         showCancelButton: true,
         confirmButtonColor: '#fafd42',
-        cancelButtonColor: '#ff0080',
+        cancelButtonColor: '#15bce2',
         confirmButtonText: 'Yes, delete it!',
 
     }).then((result) => {

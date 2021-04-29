@@ -207,6 +207,58 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+/* Sweet Alerts*/
+.swal2-shown {
+    font-size: .8rem;
+}
+
+div.swal2-popup {
+    background-color: #ff0080;
+}
+
+h2#swal2-title.swal2-title {
+    color: #fafd42;
+    font-weight: bolder;
+    font-size: 2rem;
+    padding: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#swal2-content {
+    color: #15bce2;
+    font-size: 1.6rem;
+    letter-spacing: .1rem;
+    font-weight: bold;
+    padding: 5px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+div.swal2-icon.swal2-warning.swal2-icon-show {
+    color: #fafd42;
+    border: #fafd42;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+div.swal2-icon.swal2-success {
+    color: #fafd42;
+    border-color: #ff0080;
+}
+
+button.swal2-cancel.swal2-styled {
+    color: #ff0080;
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+button.swal2-confirm.swal2-styled {
+    color: #ff0080;
+    font-size: 1.4rem;
+    font-weight: bold;
+    margin-right: 5px;
+}
+
 /*Categories Page*/
 
 #category-btns a:hover,
