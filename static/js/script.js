@@ -21,24 +21,30 @@ $('.far.fa-heart').click(function () {
 
 });
 
+//Popup confirm delete on link click
+$(function () {
+    $('.category_delete').on('click', function () {
+        let delete_url = $(this).attr('data-href');
+        confirm_delete(delete_url);
+    });
+});
+
 //Confirm Delete Category
-function confirm_delete() {
+function confirm_delete(delete_url) {
+
     Swal.fire({
         title: 'Delete this Category?',
         text: "This category will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#3085d6',
-        cancelButtonColor: '#d33',
-        confirmButtonText: 'Yes, delete it!'
+        confirmButtonColor: '#fafd42',
+        cancelButtonColor: '#ff0080',
+        confirmButtonText: 'Yes, delete it!',
 
     }).then((result) => {
         if (result.isConfirmed) {
 
-            let categoryId = ` ${
-                category.category_id
-            }.toString()`
-            window.location.href = "/delete_category/categoryId";
+            window.location.href = delete_url
 
             Swal.fire(
                 'Deleted!',

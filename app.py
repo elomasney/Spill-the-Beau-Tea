@@ -52,7 +52,7 @@ def search():
 @app.route("/all_categories")
 def all_categories():
     # Renders all categories - for admin purposes
-    categories = mongo.db.categories.find()
+    categories = mongo.db.categories.find().sort("category_group", 1)
     return render_template(
         'categories.html', categories=categories)
 
@@ -120,7 +120,7 @@ def delete_category(category_id):
     # Deletes a category from the db - access only for admin
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
-    categories = mongo.db.categories.find()
+    categories = mongo.db.categories.find().sort("category_group", 1)
     return render_template('categories.html', categories=categories)
 
 

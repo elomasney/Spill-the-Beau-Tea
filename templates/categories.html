@@ -30,8 +30,8 @@
         <div class="btn-grid grid-2 text-center">
             <span class="adminBtns"><a href="{{url_for('edit_category', category_id= category._id)}}"
                     class="category_edit">Edit Category</a></span>
-            <span class="adminBtns"><a id="deleteCategory"
-                    href="{{url_for('delete_category', category_id= category._id)}}" class="category_delete">Delete
+            <span class="adminBtns"><a id="deleteCategory" data-type="delete_category"
+                    data-href="{{url_for('delete_category', category_id= category._id)}}" class="category_delete">Delete
                     Category</a></span>
 
         </div>
