@@ -294,8 +294,9 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <a href="{{url_for('delete_review', review_id=reviews._id)}}"
-                                                    type="button" class="btn btn-lg review-btn" id="delete_review">
+                                                <a id="delete_review"
+                                                    data-href="{{url_for('delete_review', review_id=reviews._id)}}"
+                                                    type="button" class="review_delete btn btn-lg review-btn">
                                                     Delete Review
                                                 </a>
                                             </div>

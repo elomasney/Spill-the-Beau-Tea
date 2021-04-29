@@ -291,7 +291,9 @@ def delete_review(review_id):
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
     review = mongo.db.reviews.find()
-    return render_template("products.html", review=review)
+    username = mongo.db.users.find_one(
+        {"username": session["user"]})["username"]
+    return redirect(url_for("profile", username=username, review=review))
 
 
 @app.route("/register", methods=["GET", "POST"])

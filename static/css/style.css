@@ -196,7 +196,8 @@ body {
 #edit_category.btn-large,
 #add_product.btn-large,
 #searchBtn,
-#deleteAccount {
+#deleteAccount,
+#deleteAccount a {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
