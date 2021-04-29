@@ -20,7 +20,9 @@
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="user-details card-body">
                 <p>Email: {{user.email}}</p>
-                <button><a href="{{url_for('delete_profile', user_id=users._id)}}">Delete Account </a></button>
+                <button><a class="account_delete"
+                        data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
+                        Account </a></button>
             </div>
         </div>
     </div>

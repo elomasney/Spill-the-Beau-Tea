@@ -307,7 +307,8 @@
                             {% endfor %}
                             {% endif %}
                             <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a
-                                        href="{{url_for('delete_profile', user_id=session['user'])}}">Delete
+                                        class="account_delete"
+                                        data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
                                         Account</a></button></div>
                         </div>
                     </div>

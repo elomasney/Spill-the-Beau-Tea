@@ -421,13 +421,22 @@ def delete_favourite(product_id):
         favourites=favourites)
 
 
-@app.route("/delete_profile/<user_id>")
-def delete_profile(user_id):
+@app.route("/delete_profile/<username>")
+def delete_profile(username):
     mongo.db.reviews.delete_many({"created_by": session["user"]})
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    mongo.db.users.remove({"username": session["user"]})
     flash("Your account has been deleted!")
     session.clear()
-    return redirect(url_for("home", user=session["user"]))
+    return redirect(url_for("home", username=username))
+
+
+@app.route("/delete_user_account/<user_id>")
+def delete_user_account(user_id):
+    mongo.db.reviews.delete_many({"created_by": user_id})
+    mongo.db.users.remove({"_id": ObjectId(user_id)})
+    flash("This account has been deleted!")
+    session.clear()
+    return redirect(url_for("manage_users"))
 
 
 @app.route("/logout")

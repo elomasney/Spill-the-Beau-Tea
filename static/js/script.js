@@ -122,3 +122,37 @@ function confirm_delete_review(delete_url) {
         }
     })
 };
+
+//Popup confirm delete user account on link click
+$(function () {
+    $('.account_delete').on('click', function () {
+        let delete_url = $(this).attr('data-href');
+        confirm_delete_account(delete_url);
+    });
+});
+
+//Confirm Delete Account
+function confirm_delete_account(delete_url) {
+
+    Swal.fire({
+        title: 'Delete your account?',
+        text: "Your account will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#fafd42',
+        cancelButtonColor: '#ff0080',
+        confirmButtonText: 'Yes, delete it!',
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            window.location.href = delete_url
+
+            Swal.fire(
+                'Deleted!',
+                'Your account has been deleted.',
+                'success');
+
+        }
+    })
+};
