@@ -156,3 +156,56 @@ function confirm_delete_account(delete_url) {
         }
     })
 };
+
+//Average Ratings
+
+star_rating = $('.ratings').attr('data-ratings');
+noRating = document.getElementById('no-rating');
+rating = document.getElementById('rating-avg');
+
+function ratings() {
+    let star_rating = $(this).attr('data-ratings');
+    stars();
+}
+
+function stars() {
+    if (star_rating == 1) {
+        document.getElementById('no-rating').classList.add('hide')
+        rating.innerHTML =
+            `<i id="star" class="fas fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>`;
+    } else if (star_rating == 2) {
+        document.getElementById('no-rating').classList.add('hide')
+        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>`;
+    } else if (star_rating == 3) {
+        document.getElementById('no-rating').classList.add('hide')
+        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="far fa-star"></i>
+        <i id="star" class="far fa-star"></i>`;
+    } else if (star_rating == 4) {
+        document.getElementById('no-rating').classList.add('hide')
+        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="far fa-star"></i>`;
+    } else if (star_rating == 5) {
+        document.getElementById('no-rating').classList.add('hide')
+        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>
+        <i id="star" class="fas fa-star"></i>`;
+    }
+};
+
+ratings();

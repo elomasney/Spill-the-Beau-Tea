@@ -127,12 +127,12 @@ def delete_category(category_id):
 @app.route("/all_products")
 def all_products():
     # Renders all products in database
-    products = list(mongo.db.products.find().sort("brand", 1))
+    products = mongo.db.products.find().sort("brand", 1)
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": ("$product"),
-            "ratings": {"$sum": "$rating"},
+            "ratings": {"$sum": 1},
             "average": {"$avg": "$rating"}
         }
         }])
@@ -152,15 +152,16 @@ def product_info(product_id):
     message = ""
     if review_count == 0:
         message += "Be the first to write a Review!"
+
     else:
         message += "Reviews"
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
-            "ratings": {"$sum": "$rating"},
             "average": {"$avg": "$rating"}
         }
         }])
+
     print(ratings)
     return render_template(
         'product_info.html', product=product, reviews=reviews,

@@ -66,7 +66,7 @@ body {
     padding-right: 0;
     padding-left: 0;
     padding-top: 10px;
-    height: 100vh;
+    height: 100%;
 }
 
 .flashes {
@@ -467,6 +467,10 @@ select#category_name.form-control {
 #product.product-card.card,
 .card {
     border: none;
+}
+
+.hide {
+    display: none;
 }
 
 a.btn.heart {
