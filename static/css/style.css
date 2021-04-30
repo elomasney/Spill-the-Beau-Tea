@@ -66,7 +66,7 @@ body {
     padding-right: 0;
     padding-left: 0;
     padding-top: 10px;
-    height: 100%;
+    height: 100vh;
 }
 
 .flashes {
@@ -142,7 +142,6 @@ body {
     letter-spacing: .1rem;
     text-align: center;
     background-color: rgba(255, 254, 249, 0.5);
-    /*background: rgba(236, 46, 106, 0.5);*/
     border-radius: 10px;
     position: relative;
     display: inline-block;
@@ -640,7 +639,8 @@ hr {
 #review-info button#edit_review,
 #review-info a#delete_review,
 #userReviewInfo button#edit_review,
-#userReviewInfo a#delete_review {
+#userReviewInfo a#delete_review,
+#btn-404 {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.3rem;
@@ -862,7 +862,54 @@ hr#userReviews {
 
 /*404 Page*/
 .background-image {
-    background: url("../images/404_image.jpg") no-repeat center center fixed;
+    background: url("../images/404_image.jpg") no-repeat center;
     height: 100vh;
-    width: auto;
+
+}
+
+.container-404 {
+    background-color: rgba(255, 254, 249, 0.4);
+    padding: 50px 20px;
+    margin-top: 100px;
+    margin-left: 50px;
+    margin-right: 50px;
+}
+
+#header-404 {
+    font-family: "Dancing Script", sans-serif;
+    font-size: 7rem;
+    font-weight: bolder;
+    padding-bottom: 20px;
+    color: #ff0080;
+    text-align: center;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#sub-404,
+#message-404,
+#error-404 {
+    color: #ff0080;
+    text-align: center;
+    padding-bottom: 30px;
+    font-size: 2.2rem;
+    font-family: "Lato", sans-serif;
+    font-weight: bolder;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#sub-404 i {
+    color: #ff0080;
+    font-size: 2.5rem;
+    padding: 10px;
+}
+
+button#btn-404 {
+    display: flex;
+    margin: auto;
+    padding: 20px;
+    font-size: 1.5rem;
+}
+
+button#btn-404 a {
+    color: #fafd42;
 }
