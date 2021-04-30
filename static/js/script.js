@@ -210,3 +210,10 @@ function stars() {
 };
 
 ratings();
+
+//Change main container height on 404 page only
+$(function () {
+    if (window.location.pathname == "/404") {
+        $('#main-container').height('100vh');
+    }
+});

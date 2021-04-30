@@ -1,7 +1,11 @@
 {% extends "base.html" %}
+{% block navbar %}
+<div id="top-404" class="container-fluid"></div>
+{% endblock %}
+
 {% block content %}
 
-<main class="404 background-image opaque-overlay">
+<div class="404 background-image opaque-overlay">
     <div class="row">
         <div class="col-md-12">
             <div class="container-404">
@@ -12,16 +16,7 @@
                     </h3>
                     <button id="btn-404"><a href="{{url_for('home')}}">Lets Get You Back Home</a> </button>
             </div>
-
         </div>
-
     </div>
-
-</main>
-
-
-
-
-
-
+</div>
 {% endblock %}

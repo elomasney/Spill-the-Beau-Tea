@@ -65,7 +65,6 @@ body {
     margin: 0;
     padding-right: 0;
     padding-left: 0;
-    padding-top: 10px;
     height: 100%;
 }
 
@@ -286,7 +285,7 @@ button.swal2-confirm.swal2-styled {
 .review-header,
 #categoryManage,
 #productManage {
-    padding-top: 30px;
+    padding-top: 40px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
@@ -920,4 +919,9 @@ button#btn-404 a {
 
 #disclaimer {
     align-content: center;
+}
+
+#top-404 {
+    background-color: #ff0080;
+    padding: 30px;
 }

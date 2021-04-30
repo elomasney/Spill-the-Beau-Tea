@@ -386,7 +386,7 @@ def favourites(product_id):
         favourites = mongo.db.users.find_one(username)["favourites"]
         product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
         products = mongo.db.products.find()
-        if ObjectId(product_id) in favourites:
+        if product_id in favourites:
             flash("Product already added to favourites")
             return redirect(url_for("profile", username=session["user"]))
         mongo.db.users.update({"username": session["user"]}, {
