@@ -40,7 +40,6 @@ def search():
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
-            "ratings": {"$sum": 1},
             "average": {"$avg": "$rating"}
         }
         }])
@@ -131,12 +130,10 @@ def all_products():
     review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
-            "_id": ("$product"),
-            "ratings": {"$sum": 1},
+            "_id": "$product",
             "average": {"$avg": "$rating"}
         }
         }])
-
     return render_template(
         'products.html', products=products, ratings=ratings, review=review)
 

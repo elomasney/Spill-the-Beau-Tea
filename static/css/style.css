@@ -917,3 +917,7 @@ button#btn-404 {
 button#btn-404 a {
     color: #fafd42;
 }
+
+#disclaimer {
+    align-content: center;
+}

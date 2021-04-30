@@ -165,6 +165,7 @@ rating = document.getElementById('rating-avg');
 
 function ratings() {
     let star_rating = $(this).attr('data-ratings');
+    Math.ceil(star_rating);
     stars();
 }
 

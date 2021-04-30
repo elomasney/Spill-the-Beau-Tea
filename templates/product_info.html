@@ -48,7 +48,7 @@
                     <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
                             href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
-                    {% if session.user != "admin" %}
+                    {% if session.user|lower %}
                     <button type="button" id="review" class="btn btn-lg review-btn" data-toggle="modal"
                         data-target="#exampleModal">
                         Add Review
