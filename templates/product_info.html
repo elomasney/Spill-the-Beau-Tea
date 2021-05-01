@@ -32,9 +32,41 @@
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
                     {% for rating in ratings %}
                     {% if product._id == rating["_id"]%}
+                    {% if rating["average"] == 1 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 2 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 3 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 4 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="far fa-star"></i>
+                    {% elif rating["average"] == 5 %}
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    <i id="star" class="fas fa-star"></i>
+                    {% endif %}
                     <p id="rating-avg" class="ratings" data-ratings="{{rating['average']}}"></p>
                     {% endif %}
                     {% endfor %}
+                    {% if review_count == 0%}
                     <p id="no-rating">
                         <i id="star" class="far fa-star"></i>
                         <i id="star" class="far fa-star"></i>
@@ -42,6 +74,7 @@
                         <i id="star" class="far fa-star"></i>
                         <i id="star" class="far fa-star"></i>
                     </p>
+                    {% endif %}
                     <p class="card-text"><strong id="description">Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>
                     <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>

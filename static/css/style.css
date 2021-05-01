@@ -773,6 +773,10 @@ hr#profileHeader {
     padding-top: 80px;
 }
 
+#profile-heart {
+    font-size: 2.5rem;
+}
+
 #favourites {
     padding: 20px 150px;
 }

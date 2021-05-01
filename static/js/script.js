@@ -158,16 +158,20 @@ function confirm_delete_account(delete_url) {
 };
 
 //Average Ratings
-
-star_rating = $('.ratings').attr('data-ratings');
+/*star_rating = $('.ratings').attr('data-ratings');
 noRating = document.getElementById('no-rating');
-rating = document.getElementById('rating-avg');
+rating = document.getElementById('rating-avg');*/
 
-function ratings() {
-    let star_rating = $(this).attr('data-ratings');
-    Math.ceil(star_rating);
-    stars();
-};
+
+/*$(function ratings() {
+    $('.ratings').each(function () {
+        let star_rating = $(this).attr('data-ratings');
+        console.log(star_rating)
+        Math.ceil(star_rating);
+        stars();
+    })
+});
+
 
 function stars() {
     if (star_rating == 1) {
@@ -209,7 +213,7 @@ function stars() {
     }
 };
 
-ratings();
+ratings();*/
 
 //Change main container height on 404 page only
 $(function () {

@@ -127,7 +127,6 @@ def delete_category(category_id):
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("brand", 1)
-    review = list(mongo.db.reviews.find())
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
@@ -136,8 +135,7 @@ def all_products():
         }])
 
     return render_template(
-        'products.html', products=list(products), ratings=list(ratings),
-        review=review)
+        'products.html', products=list(products), ratings=list(ratings))
 
 
 @app.route("/product_info/<product_id>")
