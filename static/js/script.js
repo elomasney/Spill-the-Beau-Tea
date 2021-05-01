@@ -167,7 +167,7 @@ function ratings() {
     let star_rating = $(this).attr('data-ratings');
     Math.ceil(star_rating);
     stars();
-}
+};
 
 function stars() {
     if (star_rating == 1) {

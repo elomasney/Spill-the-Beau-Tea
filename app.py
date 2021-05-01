@@ -45,7 +45,7 @@ def search():
         }])
     return render_template(
         "products.html", query=query, products=products,
-        results=results, ratings=ratings)
+        results=results, ratings=list(ratings))
 
 
 @app.route("/all_categories")
@@ -134,8 +134,10 @@ def all_products():
             "average": {"$avg": "$rating"}
         }
         }])
+
     return render_template(
-        'products.html', products=products, ratings=ratings, review=review)
+        'products.html', products=list(products), ratings=list(ratings),
+        review=review)
 
 
 @app.route("/product_info/<product_id>")
@@ -159,10 +161,10 @@ def product_info(product_id):
         }
         }])
 
-    print(ratings)
     return render_template(
         'product_info.html', product=product, reviews=reviews,
-        ratings=ratings, review_count=review_count, message=message)
+        ratings=list(ratings), review_count=review_count,
+        message=message)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -361,16 +363,16 @@ def profile(username):
     # grab the sessions username from the db
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    product = mongo.db.products.find()
-    user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
-    favourites = mongo.db.users.find_one(
-        {"username": session["user"].lower()})["favourites"]
-    for favourite_product in favourites:
-        product_info = mongo.db.products.find_one(
-            {"_id": favourite_product["_id"]})
-        favourite_product.update(product_info)
-
     if session['user']:
+        product = mongo.db.products.find()
+        user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
+        favourites = mongo.db.users.find_one(
+            {"username": session["user"].lower()})["favourites"]
+        for favourite_product in favourites:
+            product_info = mongo.db.products.find_one(
+                {"_id": favourite_product["_id"]})
+            favourite_product.update(product_info)
+
         return render_template(
             "profile.html", username=username, product=product,
             favourites=favourites, user_reviews=user_reviews)

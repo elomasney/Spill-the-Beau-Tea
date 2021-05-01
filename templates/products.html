@@ -7,14 +7,16 @@
         <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
     </form>
 
-
+    {% for product in products %}
     {% if query %}
     {% if results >= 1 %}
+    {% if loop.first %}
     <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
     {% endif %}
     {% endif %}
+    {% endif %}
 
-    {% for product in products %}
+
     {% if loop.first %}
     <h2 class="category-header">Products</h2>
     {% endif %}
@@ -45,6 +47,7 @@
                         <i id="star" class="far fa-star"></i>
                         <i id="star" class="far fa-star"></i>
                     </p>
+
 
                     <!--<p class="card-text"><strong>Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>-->
