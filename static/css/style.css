@@ -474,11 +474,12 @@ select#category_name.form-control {
 
 a.btn.heart {
     float: right;
-    font-size: 2.5rem;
+    font-size: 3.5rem;
 }
 
 a.btn.heart i {
     color: #fafd42;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 .product-text.card-body {

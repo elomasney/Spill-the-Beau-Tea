@@ -46,6 +46,17 @@ def search():
     has_rating = []
     for rating in ratings:
         has_rating.append(rating["_id"])
+    if "user" in session:
+        user = mongo.db.users.find_one({"username": session["user"]})
+        favourites = []
+        user_favourites = list(mongo.db.products.find(
+            {"_id": {"$in": user["favourites"]}}))
+        for favourite in user_favourites:
+            favourites.append(favourite["_id"])
+        return render_template(
+            "products.html", query=query, products=products,
+            favourites=favourites, results=results,
+            ratings=ratings, has_rating=has_rating)
     return render_template(
         "products.html", query=query, products=products,
         results=results, ratings=ratings, has_rating=has_rating)
@@ -163,11 +174,17 @@ def product_info(product_id):
             "average": {"$avg": "$rating"}
         }
         }])
-
+    if "user" in session:
+        user = mongo.db.users.find_one({"username": session["user"]})
+        favourites = []
+        user_favourites = list(mongo.db.products.find(
+            {"_id": {"$in": user["favourites"]}}))
+        for favourite in user_favourites:
+            favourites.append(favourite["_id"])
     return render_template(
         'product_info.html', product=product, reviews=reviews,
         ratings=list(ratings), review_count=review_count,
-        message=message)
+        message=message, favourites=favourites)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
@@ -380,71 +397,48 @@ def login():
 
 @app.route("/profile/<username>", methods=("GET", "POST"))
 def profile(username):
-    # grab the sessions username from the db
-    username = mongo.db.users.find_one(
-        {"username": session["user"]})["username"]
-    if session['user']:
-        product = mongo.db.products.find()
-        user_reviews = mongo.db.reviews.find({"created_by": session["user"]})
-        favourites = mongo.db.users.find_one(
-            {"username": session["user"].lower()})["favourites"]
-        for favourite_product in favourites:
-            product_info = mongo.db.products.find_one(
-                {"_id": favourite_product["_id"]})
-            favourite_product.update(product_info)
+    if "user" in session:
+        # grab the session user from the db
+        user = mongo.db.users.find_one({"username": session["user"]})
+        user_reviews = list(mongo.db.reviews.find(
+            {"created_by": session["user"]}))
+        favourites = list(mongo.db.products.find(
+            {"_id": {"$in": user["favourites"]}}))
 
         return render_template(
-            "profile.html", username=username, product=product,
-            favourites=favourites, user_reviews=user_reviews)
+            "profile.html", user=user,
+            favourites=favourites, user_reviews=user_reviews
+        )
 
     return redirect(url_for("login", _external=True, _scheme='https'))
 
 
 @app.route("/favourites/<product_id>)", methods=["GET", "POST"])
 def favourites(product_id):
-    if session["user"]:
-        username = mongo.db.users.find_one(
-            {"username": session["user"].lower()})
-        favourites = mongo.db.users.find_one(username)["favourites"]
-        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-        products = mongo.db.products.find()
-        if product_id in favourites:
-            flash("Product already added to favourites")
-            return redirect(
-                url_for("profile", username=session["user"],
-                        _external=True, _scheme='https'))
-        mongo.db.users.update({"username": session["user"]}, {
-            "$push": {
-                "favourites": {"_id": ObjectId(product_id)},
-            }
-            })
+    if "user" in session:
+        user = mongo.db.users.find_one_and_update(
+            {"username": session["user"].lower()},
+            {"$push": {"favourites": ObjectId(product_id)}})
         flash("Product added to favourites")
         return redirect(
-            url_for("profile", username=session["user"],
+            url_for("profile", username=user["username"],
                     _external=True, _scheme='https'))
-    return render_template(
-        "profile.html", username=username, product=product, products=products)
+
+    return redirect(url_for("login", _external=True, _scheme='https'))
 
 
 @app.route("/delete_favourite/<product_id>)", methods=["GET", "POST"])
 def delete_favourite(product_id):
-    if session["user"]:
-        product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-        username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-        mongo.db.users.update({"username": session["user"]}, {
-            "$pull": {
-                "favourites": {"_id": ObjectId(product_id)},
-            }
-            })
+    if "user" in session:
+        user = mongo.db.users.find_one_and_update(
+            {"username": session["user"]},
+            {"$pull": {"favourites": ObjectId(product_id)}})
         flash("Product removed from favourites")
         return redirect(
-            url_for("profile", username=session["user"], _external=True,
+            url_for("profile", username=user["username"], _external=True,
                     _scheme='https'))
 
-    return render_template(
-        "profile.html", username=username, product=product,
-        favourites=favourites)
+    return redirect(url_for("login", _external=True, _scheme='https'))
 
 
 @app.route("/delete_profile/<username>")

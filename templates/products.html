@@ -26,10 +26,17 @@
             <div class="col-md-7">
                 <div id="product-info" class="product-text card-body text-justify">
                     {% if session.user|lower %}
-                        <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
-                            role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
-                            title="Add to Favourites"><i class="far fa-heart"></i>
-                        </a>
+                        {% if product._id in favourites %}
+                            <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active"
+                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
+                                title="Remove from Favourites"><i class="fas fa-heart"></i>
+                            </a>
+                        {% else %}
+                            <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
+                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
+                                title="Add to Favourites"><i class="far fa-heart"></i>
+                            </a>
+                        {% endif %}
                     {% endif %}
                     <h4 class=" product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
