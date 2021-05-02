@@ -536,7 +536,8 @@ strong#shades,
 strong#buy,
 strong#description,
 i.fas.fa-star,
-i.far.fa-star {
+i.far.fa-star,
+i.fas.fa-star-half-alt {
     color: #fafd42;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 15px 0;

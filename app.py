@@ -36,16 +36,19 @@ def search():
     results = len(products)
     if results == 0:
         flash("No Results found, please try again")
-        return redirect(url_for("all_products"))
-    ratings = mongo.db.reviews.aggregate([
+        return redirect(
+            url_for("all_products", _external=True, _scheme='https'))
+    ratings = list(mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
             "average": {"$avg": "$rating"}
-        }
-        }])
+        }}]))
+    has_rating = []
+    for rating in ratings:
+        has_rating.append(rating["_id"])
     return render_template(
         "products.html", query=query, products=products,
-        results=results, ratings=list(ratings))
+        results=results, ratings=ratings, has_rating=has_rating)
 
 
 @app.route("/all_categories")
@@ -86,7 +89,8 @@ def add_category():
         }
         mongo.db.categories.insert_one(category)
         flash("New Category Added")
-        return redirect(url_for("all_categories"))
+        return redirect(
+            url_for("all_categories", _external=True, _scheme='https'))
 
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
@@ -105,7 +109,8 @@ def edit_category(category_id):
         }
         mongo.db.categories.update({"_id": ObjectId(category_id)}, submit)
         flash("Category successfully updated")
-        return redirect(url_for("all_categories"))
+        return redirect(
+            url_for("all_categories", _external=True, _scheme='https'))
 
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
@@ -182,7 +187,8 @@ def add_product():
         mongo.db.products.insert_one(product)
         flash("New Product Added")
 
-        return redirect(url_for("all_products"))
+        return redirect(
+            url_for("all_products", _external=True, _scheme='https'))
 
     categories = mongo.db.categories.find()
     return render_template(
@@ -205,7 +211,8 @@ def edit_product(product_id):
         }
         mongo.db.products.update({"_id": ObjectId(product_id)}, submit)
         flash("Product successfully updated")
-        return redirect(url_for("all_products"))
+        return redirect(
+            url_for("all_products", _external=True, _scheme='https'))
 
     categories = mongo.db.categories.find()
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
@@ -219,7 +226,9 @@ def delete_product(product_id):
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     flash("Product Successfully Deleted")
     product = mongo.db.products.find()
-    return redirect(url_for("all_products", product=product))
+    return redirect(
+        url_for("all_products", product=product, _external=True,
+                _scheme='https'))
 
 
 @app.route("/reviews")
@@ -248,7 +257,9 @@ def add_review(product_id):
         }
         mongo.db.reviews.insert_one(review)
         flash("New Review Added")
-        return redirect(url_for("product_info", product_id=product_id))
+        return redirect(
+            url_for("product_info", product_id=product_id,
+                    _external=True, _scheme='https'))
 
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
@@ -276,7 +287,9 @@ def edit_review(review_id):
         }
         mongo.db.reviews.update({"_id": ObjectId(review_id)}, review_edit)
         flash("Review Updated")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(
+            url_for("profile", username=session["user"], _external=True,
+                    _scheme='https'))
     reviews = mongo.db.reviews.find()
     return render_template(
         "profile.html", review_edit=review_edit, review=review,
@@ -291,7 +304,9 @@ def delete_review(review_id):
     review = mongo.db.reviews.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
-    return redirect(url_for("profile", username=username, review=review))
+    return redirect(
+        url_for("profile", username=username, review=review,
+                _external=True, _scheme='https'))
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -302,14 +317,16 @@ def register():
             {"username": request.form.get("username").lower()})
         if existing_user:
             flash("Username already exists")
-            return redirect(url_for("register"))
+            return redirect(
+                url_for("register", _external=True, _scheme='https'))
 
         # check if email already exists in database
         existing_email = mongo.db.users.find_one(
             {"email": request.form.get("email").lower()})
         if existing_email:
             flash("Email already registered")
-            return redirect(url_for("register"))
+            return redirect(
+                url_for("register", _external=True, _scheme='https'))
 
         # Adds user registration details to the db
         register = {
@@ -323,7 +340,9 @@ def register():
         # put new user into 'session' cookie
         session["user"] = request.form.get("username").lower()
         flash("Registration Successful")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(
+            url_for("profile", username=session["user"], _external=True,
+                    _scheme='https'))
 
     return render_template("register.html")
 
@@ -342,16 +361,19 @@ def login():
                 session["user"] = request.form.get("username").lower()
                 flash("Welcome, {}".format(
                     request.form.get("username").capitalize()))
-                return redirect(url_for("profile", username=session["user"]))
+                return redirect(
+                    url_for("profile", username=session["user"],
+                            _external=True, _scheme='https'))
             else:
                 # invalid password entered by user
                 flash("Incorrect Username and/or Password")
-                return redirect(url_for("login"))
+                return redirect(
+                    url_for("login", _external=True, _scheme='https'))
 
         else:
             # username doesn't exist
             flash("Incorrect Username and/or Password")
-            return redirect(url_for("login"))
+            return redirect(url_for("login", _external=True, _scheme='https'))
 
     return render_template("login.html")
 
@@ -375,7 +397,7 @@ def profile(username):
             "profile.html", username=username, product=product,
             favourites=favourites, user_reviews=user_reviews)
 
-    return redirect(url_for("login"))
+    return redirect(url_for("login", _external=True, _scheme='https'))
 
 
 @app.route("/favourites/<product_id>)", methods=["GET", "POST"])
@@ -388,14 +410,18 @@ def favourites(product_id):
         products = mongo.db.products.find()
         if product_id in favourites:
             flash("Product already added to favourites")
-            return redirect(url_for("profile", username=session["user"]))
+            return redirect(
+                url_for("profile", username=session["user"],
+                        _external=True, _scheme='https'))
         mongo.db.users.update({"username": session["user"]}, {
             "$push": {
                 "favourites": {"_id": ObjectId(product_id)},
             }
             })
         flash("Product added to favourites")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(
+            url_for("profile", username=session["user"],
+                    _external=True, _scheme='https'))
     return render_template(
         "profile.html", username=username, product=product, products=products)
 
@@ -412,7 +438,9 @@ def delete_favourite(product_id):
             }
             })
         flash("Product removed from favourites")
-        return redirect(url_for("profile", username=session["user"]))
+        return redirect(
+            url_for("profile", username=session["user"], _external=True,
+                    _scheme='https'))
 
     return render_template(
         "profile.html", username=username, product=product,
@@ -425,7 +453,8 @@ def delete_profile(username):
     mongo.db.users.remove({"username": session["user"]})
     flash("Your account has been deleted!")
     session.clear()
-    return redirect(url_for("home", username=username))
+    return redirect(
+        url_for("home", username=username, _external=True, _scheme='https'))
 
 
 @app.route("/delete_user_account/<user_id>")
@@ -435,7 +464,8 @@ def delete_user_account(user_id):
     flash("This account has been deleted!")
     username = mongo.db.users.find_one(
             {"username": session["user"]})["username"]
-    return redirect(url_for("profile", username=username))
+    return redirect(
+        url_for("profile", username=username, _external=True, _scheme='https'))
 
 
 @app.route("/logout")
@@ -443,7 +473,7 @@ def logout():
     # remove user from session cookies
     flash("You have been logged out")
     session.pop("user")
-    return redirect(url_for("login"))
+    return redirect(url_for("login", _external=True, _scheme='https'))
 
 
 @app.route("/manage_users")

@@ -31,49 +31,31 @@
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
                     {% for rating in ratings %}
-                    {% if product._id == rating["_id"]%}
-                    {% if rating["average"] == 1 %}
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    {% elif rating["average"] == 2 %}
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    {% elif rating["average"] == 3 %}
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    {% elif rating["average"] == 4 %}
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="far fa-star"></i>
-                    {% elif rating["average"] == 5 %}
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    <i id="star" class="fas fa-star"></i>
-                    {% endif %}
-                    <p id="rating-avg" class="ratings" data-ratings="{{rating['average']}}"></p>
-                    {% endif %}
+                        <!-- only apply if the product._id matches the rating._id -->
+                        {% if product._id == rating._id %}
+                            <!-- set variable "count" to the leftover value deducted from rating.average -->
+                            {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
+                            <!-- for each star in the rating.average, insert whole-star -->
+                            {% for star in range(rating.average|int) %}
+                                <i id="star" class="fas fa-star"></i>
+                            {% endfor %}
+                            <!-- for each half-star in rating.average, insert half-star -->
+                            {% if ".5" in rating.average|string %}
+                                <i class="fas fa-star-half-alt"></i>
+                            {% endif %}
+                            <!-- for each remaining value in "count" variable, insert empty-star -->
+                            {% for star in range(count) %}
+                                <i id="star" class="far fa-star"></i>
+                            {% endfor %}
+                        {% endif %}
                     {% endfor %}
-                    {% if review_count == 0%}
-                    <p id="no-rating">
-                        <i id="star" class="far fa-star"></i>
-                        <i id="star" class="far fa-star"></i>
-                        <i id="star" class="far fa-star"></i>
-                        <i id="star" class="far fa-star"></i>
-                        <i id="star" class="far fa-star"></i>
-                    </p>
+                    <!--if product has no reviews-->
+                    {% if review_count == 0 %}
+                        {% set count = 5  %}
+                        <!-- for each star in the range(count), insert whole-star -->
+                        {% for star in range(count) %}
+                            <i id="star" class="far fa-star"></i>
+                        {% endfor %}
                     {% endif %}
                     <p class="card-text"><strong id="description">Description:</strong></p>
                     <p class="card-text">{{product.description}}</p>
@@ -201,43 +183,16 @@
                 <div id="review-info" class="review-text card-body text-justify">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
-                        {% if review.rating == 1 %}
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 2 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 3 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 4 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 5 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        {% else %}
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% endif %}
+                    <!-- set variable "count" to the leftover value deducted from review rating -->
+                    {% set count = (5 - review.rating)%}
+                    <!-- for each star in the review rating, insert whole-star -->
+                    {% for star in range(review.rating|int) %}
+                    <i id="star" class="fas fa-star"></i>
+                    {% endfor %}
+                    <!-- for each remaining value in "count" variable, insert empty-star -->
+                    {% for star in range(count) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %} 
                     </h5>
                     <p class="card-text "><strong id="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>

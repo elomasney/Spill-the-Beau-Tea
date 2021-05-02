@@ -15,44 +15,16 @@
                 <div id="review-info" class="review-text card-body text-justify">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <h5 class="rating card-title">Rating:
-
-                        {% if review.rating == 1 %}
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 2 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 3 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 4 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% elif review.rating == 5 %}
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        {% else %}
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        <i class="far fa-star"></i>
-                        {% endif %}
+                    <!-- set variable "count" to the leftover value deducted from review rating -->
+                    {% set count = (5 - review.rating)%}
+                    <!-- for each star in the review rating, insert whole-star -->
+                    {% for star in range(review.rating|int) %}
+                    <i id="star" class="fas fa-star"></i>
+                    {% endfor %}
+                    <!-- for each remaining value in "count" variable, insert empty-star -->
+                    {% for star in range(count) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %} 
                     </h5>
                     <p class="card-text "><strong id="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>

@@ -157,64 +157,6 @@ function confirm_delete_account(delete_url) {
     })
 };
 
-//Average Ratings
-/*star_rating = $('.ratings').attr('data-ratings');
-noRating = document.getElementById('no-rating');
-rating = document.getElementById('rating-avg');*/
-
-
-/*$(function ratings() {
-    $('.ratings').each(function () {
-        let star_rating = $(this).attr('data-ratings');
-        console.log(star_rating)
-        Math.ceil(star_rating);
-        stars();
-    })
-});
-
-
-function stars() {
-    if (star_rating == 1) {
-        document.getElementById('no-rating').classList.add('hide')
-        rating.innerHTML =
-            `<i id="star" class="fas fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>`;
-    } else if (star_rating == 2) {
-        document.getElementById('no-rating').classList.add('hide')
-        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>`;
-    } else if (star_rating == 3) {
-        document.getElementById('no-rating').classList.add('hide')
-        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="far fa-star"></i>
-        <i id="star" class="far fa-star"></i>`;
-    } else if (star_rating == 4) {
-        document.getElementById('no-rating').classList.add('hide')
-        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="far fa-star"></i>`;
-    } else if (star_rating == 5) {
-        document.getElementById('no-rating').classList.add('hide')
-        rating.innerHTML = `<i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>
-        <i id="star" class="fas fa-star"></i>`;
-    }
-};
-
-ratings();*/
-
 //Change main container height on 404 page only
 $(function () {
     if (window.location.pathname == "/404") {
