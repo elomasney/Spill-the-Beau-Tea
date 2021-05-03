@@ -2,11 +2,14 @@
 {% block content %}
 
 <div class="products-container container-fluid">
+    <div class="col-md-12 text-left"><a href="{{ url_for('product_info', product_id=product._id) }}" type="button"
+        class="btn btn-lg review-btn" id="product_back"> < Go to Product</a>
+    </div>
     {% if session.user|lower != "admin"|lower %}
     <h2 class="category-header">{{product.brand}}: {{product.product_name}}</h2>
     {% endif %}
     <h2 class="category-header">Reviews</h2>
-
+   
     {% for review in reviews %}
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">

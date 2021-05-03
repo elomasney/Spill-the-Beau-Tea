@@ -70,8 +70,8 @@ body {
 
 .flashes {
     margin: auto;
-    width: 50%;
     padding: 10px;
+    background-color: #ff0080;
 }
 
 .flashes h4 {
@@ -79,17 +79,17 @@ body {
     padding-top: 50px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
-    color: #0ab8df;
+    color: #fafd42;
     font-size: 2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     margin: auto;
+    padding-bottom: 10px;
 
 }
 
 .flashes i {
-    color: #0ab8df;
+    color: #fafd42;
     padding: 5px;
-    font-size: 2rem;
 }
 
 #footer-details {
@@ -176,7 +176,7 @@ body {
 
 #searchHome.form-inline .form-control,
 #searchProducts.form-inline .form-control {
-    width: 80%;
+    width: 90%;
     height: 40px;
     text-align: left;
 }
@@ -426,6 +426,10 @@ button.swal2-confirm.swal2-styled {
 }
 
 /*Products Page*/
+#searchBtn{
+    padding: 5px 10px;
+}
+
 .products-container {
     height: 100%;
     padding-top: 80px;
@@ -646,6 +650,7 @@ hr {
 #userReviewInfo button#edit_review,
 #userReviewInfo a#delete_review,
 a#more_reviews,
+a#product_back,
 #btn-404 {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
