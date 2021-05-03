@@ -1,11 +1,5 @@
 /* jshint esversion: 8 */
 
-//Global Variables
-const delete_category_url = "delete_category/category_id = category._id"
-
-
-
-
 //Toggles the tooltip on the repurchase icon in reviews
 $(document).ready(function () {
     $('[data-toggle="tooltip"]').tooltip();
@@ -21,6 +15,9 @@ $('.far.fa-heart').click(function () {
 
 });
 
+/**
+ * @function - displays sweetalert confirmation on 'delete category' button
+ */
 //Popup confirm delete category on link click
 $(function () {
     $('.category_delete').on('click', function () {
@@ -29,6 +26,12 @@ $(function () {
     });
 });
 
+/**
+ * @function confirm_delete_category - displays sweetalert popup
+ * @param delete_url - path to delete a category from the db
+ * Asks user to confirm if they want to delete a category from the database
+ * On confirmation the category is deleted from the db
+ */
 //Confirm Delete Category
 function confirm_delete_category(delete_url) {
 
@@ -55,6 +58,9 @@ function confirm_delete_category(delete_url) {
     })
 };
 
+/**
+ * @function - displays sweetalert confirmation on 'delete product' button
+ */
 //Popup confirm delete product on link click
 $(function () {
     $('.product_delete').on('click', function () {
@@ -63,6 +69,12 @@ $(function () {
     });
 });
 
+/**
+ * @function confirm_delete_product - displays sweetalert popup
+ * @param delete_url - path to delete a product from the db
+ * Asks user to confirm if they want to delete a product from the database
+ * On confirmation the product is deleted from the db
+ */
 //Confirm Delete Product
 function confirm_delete_product(delete_url) {
 
@@ -89,6 +101,9 @@ function confirm_delete_product(delete_url) {
     })
 };
 
+/**
+ * @function - displays sweetalert confirmation on 'delete review' button
+ */
 //Popup confirm delete reviews on link click
 $(function () {
     $('.review_delete').on('click', function () {
@@ -97,6 +112,12 @@ $(function () {
     });
 });
 
+/**
+ * @function confirm_delete_review - displays sweetalert popup
+ * @param delete_url - path to delete a review from the db
+ * Asks user to confirm if they want to delete a review from the database
+ * On confirmation the review is deleted from the db
+ */
 //Confirm Delete Review
 function confirm_delete_review(delete_url) {
 
@@ -123,6 +144,9 @@ function confirm_delete_review(delete_url) {
     })
 };
 
+/**
+ * @function - displays sweetalert confirmation on 'delete account' button
+ */
 //Popup confirm delete user account on link click
 $(function () {
     $('.account_delete').on('click', function () {
@@ -131,6 +155,12 @@ $(function () {
     });
 });
 
+/**
+ * @function confirm_delete_account - displays sweetalert popup
+ * @param delete_url - path to delete a user account from the db
+ * Asks user to confirm if they want to delete a user account from the database
+ * On confirmation the user account is deleted from the db
+ */
 //Confirm Delete Account
 function confirm_delete_account(delete_url) {
 
@@ -157,6 +187,9 @@ function confirm_delete_account(delete_url) {
     })
 };
 
+/**
+ * @function - changes main container height on 404 error page only
+ */
 //Change main container height on 404 page only
 $(function () {
     if (window.location.pathname == "/404") {
