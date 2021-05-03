@@ -206,3 +206,6 @@ $('.flashes').hide().slideDown('slow')
 setTimeout(function(){
     $('.flashes').slideUp('slow');
 }, 5000);
+
+//Set copyright year dynamically
+$('.copyright-date').text(new Date().getFullYear());
