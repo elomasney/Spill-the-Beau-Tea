@@ -74,7 +74,7 @@
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree"
                         data-parent="#adminAccordion">
                         <div class="admin-card card-body">
-                            <button><a href="{{ url_for('reviews')}}">All Reviews</a></button>
+                            <button><a href="{{ url_for('manage_reviews')}}">All Reviews</a></button>
                         </div>
                     </div>
                 </div>
@@ -125,43 +125,16 @@
                                             <h4 class="review-title card-title">{{ reviews.title }}</h4>
                                             <h5 class="rating card-title">Rating:
 
-                                                {% if reviews.rating == 1 %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                {% elif reviews.rating == 2 %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                {% elif reviews.rating == 3 %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                {% elif reviews.rating == 4 %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                {% elif reviews.rating == 5 %}
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                <i class="fas fa-star"></i>
-                                                {% else %}
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                <i class="far fa-star"></i>
-                                                {% endif %}
+                                            <!-- set variable "count" to the leftover value deducted from review rating -->
+                                            {% set count = (5 - reviews.rating)%}
+                                            <!-- for each star in the review rating, insert whole-star -->
+                                            {% for star in range(reviews.rating|int) %}
+                                                <i id="star" class="fas fa-star"></i>
+                                            {% endfor %}
+                                            <!-- for each remaining value in "count" variable, insert empty-star -->
+                                            {% for star in range(count) %}
+                                                <i id="star" class="far fa-star"></i>
+                                            {% endfor %}    
                                             </h5>
                                             <p class="card-text "><strong id="reviewText">Review:</strong></p>
                                             <p class="card-text ">{{reviews.review}}</p>

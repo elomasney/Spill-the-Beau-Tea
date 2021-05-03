@@ -249,11 +249,27 @@ def delete_product(product_id):
 
 
 @app.route("/reviews")
-def reviews():
+def manage_reviews():
     # Gets all reviews from the db
     # Sorts by product id
-    reviews = mongo.db.reviews.find().sort("product", 1)
-    return render_template("reviews.html", reviews=reviews)
+    products = list(mongo.db.products.find())
+    reviews = list(mongo.db.reviews.find().sort("product", 1))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    return render_template(
+        "reviews.html", reviews=reviews, products=products, user=user)
+
+
+@app.route("/reviews/<product_id>")
+def reviews(product_id):
+    # Gets all reviews for a specific product from the db
+    # Finds corresponding reviews for each product
+    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+
+    reviews = list(mongo.db.reviews.find({
+        "product": ObjectId(product_id)}).sort("created_on", 1))
+    user = mongo.db.users.find_one({"username": session["user"]})
+    return render_template(
+        "reviews.html", reviews=reviews, product=product, user=user)
 
 
 @app.route("/add_review/<product_id>", methods=["GET", "POST"])

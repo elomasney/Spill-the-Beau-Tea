@@ -645,6 +645,7 @@ hr {
 #review-info a#delete_review,
 #userReviewInfo button#edit_review,
 #userReviewInfo a#delete_review,
+a#more_reviews,
 #btn-404 {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
@@ -656,6 +657,11 @@ hr {
     padding: 5px 10px;
     margin-top: 20px;
     margin-right: 10px;
+}
+
+a#more_reviews{
+    padding: 10px 20px;
+    margin-bottom: 30px;
 }
 
 #review-info i,

@@ -2,13 +2,12 @@
 {% block content %}
 
 <div class="products-container container-fluid">
+    {% if session.user|lower != "admin"|lower %}
+    <h2 class="category-header">{{product.brand}}: {{product.product_name}}</h2>
+    {% endif %}
+    <h2 class="category-header">Reviews</h2>
 
     {% for review in reviews %}
-
-    {% if loop.first %}
-    <h2 class="category-header">Reviews</h2>
-    {% endif %}
-
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-12">
@@ -39,7 +38,7 @@
                     <span class="card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
-                        {% if review.created_by == session['user'] or session['user'] == 'admin'%}
+                        {% if review.created_by == session['user']%}
 
                         <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal"
                             data-target="#exampleModal_{{review._id}}">

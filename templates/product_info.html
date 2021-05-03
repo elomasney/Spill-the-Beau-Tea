@@ -228,11 +228,13 @@
         </div>
     </div>
 </div>
-
-
 {% endfor %}
 </div>
-
+<div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button"
+    class="btn btn-lg review-btn" id="more_reviews">
+    More Reviews...
+</a>
+</div>
 </div>
 
 
