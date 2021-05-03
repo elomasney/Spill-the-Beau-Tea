@@ -196,3 +196,13 @@ $(function () {
         $('#main-container').height('100vh');
     }
 });
+
+/**
+ * @function - adds slide up/slide down animation to flash messages
+ * Sets timeout for 5 seconds
+ */
+//Timeout for flash messages
+$('.flashes').hide().slideDown('slow')
+setTimeout(function(){
+    $('.flashes').slideUp('slow');
+}, 5000);
