@@ -658,6 +658,13 @@ a#more_reviews,
     margin-top: 20px;
     margin-right: 10px;
 }
+a#review_count{
+    color: #fafd42;
+    text-shadow: 2px 2px 2px rgb(0 0 0);
+    line-height: 2.5;
+    padding: 5px 5px;
+    font-size: 1.3rem;
+}
 
 a#more_reviews{
     padding: 10px 20px;

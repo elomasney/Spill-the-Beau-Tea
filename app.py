@@ -41,6 +41,7 @@ def search():
     ratings = list(mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
+            "ratings": {"$sum": 1},
             "average": {"$avg": "$rating"}
         }}]))
     has_rating = []
@@ -149,7 +150,6 @@ def all_products():
             "average": {"$avg": "$rating"}
         }
         }])
-
     return render_template(
         'products.html', products=list(products), ratings=list(ratings))
 

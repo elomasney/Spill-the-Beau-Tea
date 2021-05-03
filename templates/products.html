@@ -58,6 +58,10 @@
                             {% for star in range(count) %}
                                 <i id="star" class="far fa-star"></i>
                             {% endfor %}
+                           <a href="{{url_for('reviews', product_id=product._id)}}" type="button"
+                                class="btn btn-lg review-btn" id="review_count">
+                                ( {{rating.ratings}} )
+                            </a>
                         {% endif %}
                     {% endfor %}
                     <!-- if product has no reviews, set 5 empty stars -->
