@@ -22,6 +22,7 @@ mongo = PyMongo(app)
 @app.route("/", methods=["GET", "POST"])
 @app.route("/home")
 def home():
+    # Gets category groups from the db fo dropdown menu
     categories = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
     return render_template(
@@ -31,13 +32,18 @@ def home():
 @app.route("/search", methods=["GET", "POST"])
 def search():
     # Enables search functionality on homepage search bar
+    # Gets input value from search bar
     query = request.form.get("query")
+    # List of products based on the value of the query
     products = list(mongo.db.products.find({"$text": {"$search": query}}))
+    # Number of results returned from query search
     results = len(products)
+    # If no results are found
     if results == 0:
         flash("No Results found, please try again")
         return redirect(
             url_for("all_products", _external=True, _scheme='https'))
+    # Gets ratings from reviews and calculates the average rating
     ratings = list(mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
@@ -45,8 +51,10 @@ def search():
             "average": {"$avg": "$rating"}
         }}]))
     has_rating = []
+    # Gets list of product ids in ratings
     for rating in ratings:
         has_rating.append(rating["_id"])
+    # Check if a user is in session to check if products are in user favourites
     if "user" in session:
         user = mongo.db.users.find_one({"username": session["user"]})
         favourites = []
@@ -65,7 +73,7 @@ def search():
 
 @app.route("/all_categories")
 def all_categories():
-    # Renders all categories - for admin purposes
+    # Gets all categories from the db - Admin purpose only
     categories = mongo.db.categories.find().sort("category_group", 1)
     return render_template(
         'categories.html', categories=categories)
@@ -75,6 +83,7 @@ def all_categories():
 def get_categories(category_group):
     # Gets categories in a particular category group from dropdown menu
     categories = mongo.db.categories.find({"category_group": "category_group"})
+    # Gets specific category_group from the db
     if category_group == "Eyes & Brows":
         categories = mongo.db.categories.find(
             {"category_group": "Eyes & Brows"})
@@ -103,7 +112,7 @@ def add_category():
         flash("New Category Added")
         return redirect(
             url_for("all_categories", _external=True, _scheme='https'))
-
+    # Groups all categories by category_group
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
     return render_template(
@@ -123,9 +132,10 @@ def edit_category(category_id):
         flash("Category successfully updated")
         return redirect(
             url_for("all_categories", _external=True, _scheme='https'))
-
+    # Groups all categories by category group
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
+    # Gets all categories by category id
     category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template(
         "edit_category.html", category=category, category_group=category_group)
@@ -136,6 +146,7 @@ def delete_category(category_id):
     # Deletes a category from the db - access only for admin
     mongo.db.categories.remove({"_id": ObjectId(category_id)})
     flash("Category Successfully Deleted")
+    # Gets all categories from the db and sorts by category_group
     categories = mongo.db.categories.find().sort("category_group", 1)
     return render_template('categories.html', categories=categories)
 
@@ -144,6 +155,7 @@ def delete_category(category_id):
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("brand", 1)
+    # Groups reviews by product id - gets average ratings from reviews
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
@@ -158,27 +170,32 @@ def all_products():
 def product_info(product_id):
     # Renders one product with details and reviews
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
-
+    # Gets a list of the most recent 5 product reviews
     reviews = list(mongo.db.reviews.find({
         "product": ObjectId(product_id)}).sort("created_on", 1).limit(5))
+    # Count the number of reviews for the product
     review_count = len(reviews)
     message = ""
+    # Displays message if there are zero reviews for the product
     if review_count == 0:
         message += "Be the first to write a Review!"
-
+    # Displays the header Reviews if there are reviews
     else:
         message += "Reviews"
+    # Groups reviews by product id - gets average ratings from reviews
     ratings = mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
             "average": {"$avg": "$rating"}
         }
         }])
+    # Checks if user is in session to find if a product is in user favs
     if "user" in session:
         user = mongo.db.users.find_one({"username": session["user"]})
         favourites = []
         user_favourites = list(mongo.db.products.find(
             {"_id": {"$in": user["favourites"]}}))
+        # Gets the product ids for items in user favs
         for favourite in user_favourites:
             favourites.append(favourite["_id"])
     return render_template(
@@ -206,7 +223,7 @@ def add_product():
 
         return redirect(
             url_for("all_products", _external=True, _scheme='https'))
-
+    # Gets all categories from the db
     categories = mongo.db.categories.find()
     return render_template(
         "add_product.html", categories=categories)
@@ -230,8 +247,9 @@ def edit_product(product_id):
         flash("Product successfully updated")
         return redirect(
             url_for("all_products", _external=True, _scheme='https'))
-
+    # Gets all categories from the db
     categories = mongo.db.categories.find()
+    # Gets one product from the db
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
         "edit_product.html", product=product, categories=categories)
@@ -254,6 +272,7 @@ def manage_reviews():
     # Sorts by product id
     products = list(mongo.db.products.find())
     reviews = list(mongo.db.reviews.find().sort("product", 1))
+    # Gets users from db to display certain items depending on user
     user = mongo.db.users.find_one({"username": session["user"]})
     return render_template(
         "reviews.html", reviews=reviews, products=products, user=user)
@@ -292,7 +311,7 @@ def add_review(product_id):
         return redirect(
             url_for("product_info", product_id=product_id,
                     _external=True, _scheme='https'))
-
+    # Gets one product from the db
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
         "product-info.html", review=review, product=product,
@@ -414,8 +433,10 @@ def profile(username):
     if "user" in session:
         # grab the session user from the db
         user = mongo.db.users.find_one({"username": session["user"]})
+        # gets a list of reviews created by user
         user_reviews = list(mongo.db.reviews.find(
             {"created_by": session["user"]}))
+        # Gets list of user favourite products
         favourites = list(mongo.db.products.find(
             {"_id": {"$in": user["favourites"]}}))
 
@@ -429,7 +450,9 @@ def profile(username):
 
 @app.route("/favourites/<product_id>)", methods=["GET", "POST"])
 def favourites(product_id):
+    # Checks if user is in session
     if "user" in session:
+        # Adds product to user favourites
         user = mongo.db.users.find_one_and_update(
             {"username": session["user"].lower()},
             {"$push": {"favourites": ObjectId(product_id)}})
@@ -443,7 +466,9 @@ def favourites(product_id):
 
 @app.route("/delete_favourite/<product_id>)", methods=["GET", "POST"])
 def delete_favourite(product_id):
+    # Checks if user is in session
     if "user" in session:
+        # Removes a product from user favourites
         user = mongo.db.users.find_one_and_update(
             {"username": session["user"]},
             {"$pull": {"favourites": ObjectId(product_id)}})
@@ -457,9 +482,12 @@ def delete_favourite(product_id):
 
 @app.route("/delete_profile/<username>")
 def delete_profile(username):
+    # Deletes all reviews created by user
     mongo.db.reviews.delete_many({"created_by": session["user"]})
+    # Removes user account from db
     mongo.db.users.remove({"username": session["user"]})
     flash("Your account has been deleted!")
+    # Clears session cookies
     session.clear()
     return redirect(
         url_for("home", username=username, _external=True, _scheme='https'))
@@ -467,7 +495,10 @@ def delete_profile(username):
 
 @app.route("/delete_user_account/<user_id>")
 def delete_user_account(user_id):
+    # Allows Admin to delete user accounts
+    # Gets all reviews created by user account
     mongo.db.reviews.delete_many({"created_by": user_id})
+    # Removes user account from the db
     mongo.db.users.remove({"_id": ObjectId(user_id)})
     flash("This account has been deleted!")
     username = mongo.db.users.find_one(
@@ -486,6 +517,7 @@ def logout():
 
 @app.route("/manage_users")
 def manage_users():
+    # Gets a list of all user accounts - Admin access only
     users = list(mongo.db.users.find())
     return render_template("manage_users.html", users=users)
 
