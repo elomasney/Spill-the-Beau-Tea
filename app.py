@@ -280,7 +280,6 @@ def add_review(product_id):
     if request.method == "POST":
         review = {
             "product": ObjectId(product_id),
-            "age": request.form.get("age"),
             "rating": int(request.form.get("rating")),
             "title": request.form.get("title"),
             "review": request.form.get("review_content"),
@@ -310,7 +309,6 @@ def edit_review(review_id):
     if request.method == "POST":
         review_edit = {
             "product": ObjectId(product_id),
-            "age": request.form.get("age"),
             "rating": int(request.form.get("rating")),
             "title": request.form.get("title"),
             "review": request.form.get("review_content"),

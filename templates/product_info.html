@@ -112,14 +112,6 @@
                                                         maxlength="25" type="text" class="validate" required>
                                                 </div>
                                             </div>
-                                            <!--User Age-->
-                                            <div class="row">
-                                                <div class=" product-input input-field col-12">
-                                                    <label for="age">Age: </label>
-                                                    <input class="form-control" id="age" name="age" type="number"
-                                                        class="validate" required>
-                                                </div>
-                                            </div>
                                             <!--Product Rating-->
                                             <div>
                                                 <fieldset>
@@ -163,7 +155,7 @@
                                     <div class="row">
                                         <div class="col-12 ">
                                             <button id="edit_category" type="submit" class="btn-large"><a href="
-                                                {{ url_for('all_products')}}">
+                                                {{ url_for('product_info', product_id=product._id) }}">
                                                     Cancel <i class="fas fa-times-circle right"></i></a></button>
                                             <button id="add_product" type="submit" class="btn-large">
                                                 Add Review <i class="fas fa-plus-square right"></i>
