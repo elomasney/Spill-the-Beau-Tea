@@ -4,9 +4,9 @@
 <div class="addProduct container-fluid">
     <h2 id="productManage">Edit Product</h2>
     <div class="row form-group">
+        <!--Form for adding a product to the db-->
         <form class=" product-form col-12" method="POST" action="{{ url_for('edit_product', product_id=product._id) }}">
             <!-- Product Name -->
-
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="product_name"> Product Name: </label>

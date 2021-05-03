@@ -1,34 +1,39 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!--Search bar for search query-->
 <div class="products-container container-fluid">
     <form id="searchProducts" class="form-inline my-2 my-lg-0" action="{{ url_for('search')}}" method="POST">
         <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search by category, brand or product name" aria-label="Search">
         <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
     </form>
-
+    <!--Header to return number of results found from query search-->
     {% if query %}
     {% if results >= 1 %}
     <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
     {% endif %}
     {% endif %}
-
+    <!--Product Brand-->
     <h2 class="category-header">{{product.brand}}</h2>
+    <!--Product Category & Name-->
     <h2 class="category-header"> {{product.category_name}}: {{product.product_name}}</h2>
-
+    <!--Product Image-->
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-5">
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
+            <!--Product information - details about the product-->
             <div class="col-md-7">
                 <div id="product-info" class="product-info card-body text-justify">
+                    <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if session.user|lower %}
+                    <!--If product already in favourites - add full coloured heart-->
                     {% if product._id in favourites %}
                             <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active"
                                 role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
                                 title="Remove from Favourites"><i class="fas fa-heart"></i>
                             </a>
+                        <!--If product not in user favourites - show outlined heart-->
                         {% else %}
                             <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
                                 role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
@@ -36,9 +41,11 @@
                             </a>
                         {% endif %}
                     {% endif %}
+                    <!--Product Card - details about the specific product-->
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
+                    <!--Product Rating Average-->
                     {% for rating in ratings %}
                         <!-- only apply if the product._id matches the rating._id -->
                         {% if product._id == rating._id %}
@@ -72,16 +79,19 @@
                     <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
                             href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
+                    <!--Button to add a review for the product - only available to registered users-->
                     {% if session.user|lower %}
                     <button type="button" id="review" class="btn btn-lg review-btn" data-toggle="modal"
                         data-target="#exampleModal">
                         Add Review
                     </button>
+                    <!--Button to edit a product from the db - available to admin only-->
                     {% elif session.user|lower == "admin"|lower %}
                     <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button"
                         class="btn btn-lg review-btn" id="edit_product">
                         Edit Product
                     </a>
+                     <!--Button to delete a product from the db - available to admin only-->
                     <a href="{{ url_for('delete_product', product_id=product._id) }}" type="button"
                         class="btn btn-lg review-btn" id="delete_product">
                         Delete Product
@@ -97,14 +107,12 @@
                                         <span aria-hidden="true">&times;</span>
                                     </button>
                                     <h5 class="modal-title" id="reviewModal">Add Review</h5>
-
                                 </div>
                                 <div class="modal-body">
                                     <div class="row form-group">
                                         <form class=" product-form col-12" method="POST"
                                             action=" {{url_for('add_review', product_id= product._id)}}">
                                             <!-- Review Tagline -->
-
                                             <div class="row">
                                                 <div class=" product-input input-field col-12">
                                                     <label for="title">Title: </label>
@@ -174,15 +182,18 @@
 </div>
 <div>
     <hr>
-    <!--<h3 class="review-header">Reviews</h3>-->
+    <!--Header that displays different message based on whether the product has reviews or not-->
     <h3 class="no-review">{{message}}</h3>
+    <!--Displays reviews related to the specific product
+    Shows max 5 most recent reviews-->
     {% for review in reviews %}
-
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-12">
+                <!--Review Card - review information-->
                 <div id="review-info" class="review-text card-body text-justify">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
+                    <!--Review Rating-->
                     <h5 class="rating card-title">Rating:
                     <!-- set variable "count" to the leftover value deducted from review rating -->
                     {% set count = (5 - review.rating)%}
@@ -208,6 +219,7 @@
                     <span class="card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
+                        <!--Button to delete review from db if the review was written by the user or the user is admin-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
                         <a href="{{url_for('delete_review', review_id=review._id)}}" type="button"
                             class="btn btn-lg review-btn" id="delete_review">
@@ -222,6 +234,7 @@
 </div>
 {% endfor %}
 </div>
+<!--Button to show all reviews for the product if more than the 5 displayed-->
 {% if review_count >=1 %}
 <div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button"
     class="btn btn-lg review-btn" id="more_reviews">

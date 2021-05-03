@@ -258,6 +258,9 @@ button.swal2-confirm.swal2-styled {
 }
 
 /*Categories Page*/
+.category-container{
+    padding-top: 30px;
+}
 
 #category-btns a:hover,
 .adminBtns a:hover {
@@ -286,6 +289,7 @@ button.swal2-confirm.swal2-styled {
 #categoryManage,
 #productManage {
     padding-top: 40px;
+    padding-bottom: 15px;
     text-align: center;
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;

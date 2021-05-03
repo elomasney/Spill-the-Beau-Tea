@@ -1,22 +1,20 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="product-container container-fluid">
-    {% for category in categories %}
+<div class="category-container container-fluid">
+    
     <!--Category Header-->
     {% if session.user|lower == "admin"|lower %}
-    {% if loop.first %}
     <h2 class="category-header">Categories</h2>
-    {% endif %}
     {% else %}
-    {% if loop.first %}
-    <h2 class="category-header">{{category.category_group}}</h2>
-    {% endif %}
+    <h2 class="category-header">{{category_group}}</h2>
     {% endif %}
     <!--Categories-->
+    {% for category in categories %}
     <div class=" category-card card">
+        <!--Category Image-->
         <img src="{{category.img_url}}" class=" category-image card-img" alt="{{ category.category_name }}">
-
+        <!--Category Name-->
         <h5 class="category-title card-title">{{ category.category_name }}</h5>
         <!--Search button for products in a category-->
         <div id="search-category" class="row">
@@ -26,6 +24,7 @@
                 <button type="submit"><i class="fa fa-search"></i></button>
             </form>
         </div>
+        <!--Edit and Delete buttons - admin only-->
         {% if session.user == "admin" %}
         <div class="btn-grid grid-2 text-center">
             <span class="adminBtns"><a href="{{url_for('edit_category', category_id= category._id)}}"
@@ -33,11 +32,9 @@
             <span class="adminBtns"><a id="deleteCategory" data-type="delete_category"
                     data-href="{{url_for('delete_category', category_id= category._id)}}" class="category_delete">Delete
                     Category</a></span>
-
         </div>
         {% endif %}
     </div>
     {% endfor %}
 </div>
-
 {% endblock %}

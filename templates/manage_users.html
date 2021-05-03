@@ -1,12 +1,12 @@
 {% extends "base.html" %}
 {% block content %}
-<h3 class="category-header">
-    Manage Users
-</h3>
+<!--Page to display names of all users - Admin access only-->
+<h3 class="category-header">Manage Users</h3>
 <h5 class="category-header">Accounts</h5>
 {% for user in users %}
 <div id="accordion">
     <div class=" user card">
+        <!--User Name-->
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <p>Account Name:</p>
@@ -16,10 +16,11 @@
                 </button>
             </h5>
         </div>
-
+        <!--User Email-->
         <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
             <div class="user-details card-body">
                 <p>Email: {{user.email}}</p>
+                <!--Button to delete a user account from the db-->
                 <button><a class="account_delete"
                         data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
                         Account </a></button>

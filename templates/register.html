@@ -3,7 +3,7 @@
 
 <div class="register-container container-fluid">
     <h3 id="registerHeading">Create New Account</h3>
-
+    <!--Form for New User to register for an account-->
     <div id="registerForm" class="row card">
         <form class="col-md-8 offset-md-2" method="POST" action="{{ url_for('register')}}">
             <div class="card-body">
@@ -41,6 +41,7 @@
                 </div>
         </form>
     </div>
+    <!--Link to Login page if user has already set up an account-->
     <div class="row">
         <div class="col-12">
             <p id="loginLink">Already registered?

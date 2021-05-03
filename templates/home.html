@@ -6,9 +6,10 @@
     <div class="row">
         <div class="col-12">
             <div id="home" class="center">
+                <!--Jumbotron-->
                 <h2>Make-Up Your Mind<h2>
                         <p>Real Reviews You Can Trust!</p>
-                        <!--Search Query-->
+                        <!--Search Bar - for Search Query-->
                         <form id="searchHome" class="form-inline my-2 my-lg-0" action="{{ url_for('search')}}"
                             method="POST">
                             <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search by category, brand or product name"
@@ -20,8 +21,7 @@
                             Sign In
                         </a>
                         <a href="{{ url_for('register')}}" type="button" class="btn btn-lg register-btn" id="register">
-                            Register
-                        </a>
+                            Register</a>
             </div>
         </div>
     </div>
