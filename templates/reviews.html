@@ -1,22 +1,22 @@
 {% extends "base.html" %}
 {% block content %}
 
-<div class="products-container container-fluid">
+<div id="reviewsContainer" class="container">
     <!--Button to direct user back to the product info page-->
     <div class="col-md-12 text-left"><a href="{{ url_for('product_info', product_id=product._id) }}" type="button"
         class="btn btn-lg review-btn" id="product_back"> < Go to Product</a>
     </div>
     <!--Displays the product name and brand of the product related to the reviews shown-->
     {% if session.user|lower != "admin"|lower %}
-    <h2 class="category-header">{{product.brand}}: {{product.product_name}}</h2>
+    <h2 id="reviewProductName" class="category-header">{{product.brand}}: {{product.product_name}}</h2>
     {% endif %}
-    <h2 class="category-header">Reviews</h2>
+    <h2 id="reviewHeader" class="category-header">Reviews</h2>
    <!--Displays review information-->
     {% for review in reviews %}
     <div id="reviews" class="card product-card mb-3 col-md-12">
         <div class="row">
-            <div class="col-md-12">
-                <div id="review-info" class="review-text card-body text-justify">
+            <div id="reviewCard" class="col-md-12">
+                <div id="review-info" class="review-text card-body">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <!--Review Rating-->
                     <h5 class="rating card-title">Rating:
@@ -43,68 +43,78 @@
                         {{ review.created_by|capitalize}}</p>
                     <span class="card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
-                    <div class="text-center">
+                    <div class=" reviewBtns text-center">
                         <!--Button to edit the review in the db - only if the user created the review-->
                         {% if review.created_by == session['user']%}
                         <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal"
                             data-target="#exampleModal_{{review._id}}">
                             Edit Review
                         </button>
+                         <!--Button to delete review from the db - only if the user created the review-->
+                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
+                         <a id="delete_review" data-href="{{url_for('delete_review', review_id=review._id)}}"
+                             type="button" class="review_delete btn btn-lg review-btn">
+                             Delete Review
+                         </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-                        <!--Editing a Review using a Modal Popup-->
-                        <div class="modal fade" id="exampleModal_{{review._id}}" tabindex="-1" role="dialog"
-                            aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-lg" role="document">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                            <span aria-hidden="true">&times;</span>
-                                        </button>
-                                        <h5 class="modal-title" id="reviewModal">Edit Review</h5>
+        <!--Editing a Review using a Modal Popup-->
+        <div class="modal fade" id="exampleModal_{{review._id}}" tabindex="-1" role="dialog"
+            aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                            <h5 class="modal-title" id="reviewModal">Edit Review</h5>
 
-                                    </div>
-                                    <div class="modal-body">
-                                        <div class="row form-group">
-                                            <!--Edit review form-->
-                                            <form class=" product-form col-12" method="POST"
-                                                action="{{ url_for('edit_review', review_id=review._id) }}">
+                    </div>
+                    <div class="modal-body">
+                        <div class="row form-group">
+                        <!--Edit review form-->
+                            <form class=" product-form col-12" method="POST"
+                                action="{{ url_for('edit_review', review_id=review._id) }}">
                                                 
-                                                <!-- Review Tagline -->
-                                                <div class="row">
-                                                    <div class=" product-input input-field col-12">
-                                                        <label for="title">Title: </label>
-                                                        <input class="form-control" id="title" name="title"
-                                                            minlength="3" value="{{review.title}}" maxlength="25"
-                                                            type="text" class="validate" required>
-                                                    </div>
-                                                </div>
+                            <!-- Review Tagline -->
+                                <div class="row">
+                                    <div class=" product-input input-field col-12">
+                                        <label for="title">Title: </label>
+                                        <input class="form-control" id="title" name="title"
+                                                minlength="3" value="{{review.title}}" maxlength="25"
+                                                type="text" class="validate" required>
+                                    </div>
+                                </div>
                             
-                                                <!--Product Rating-->
-                                                <div>
-                                                    <fieldset>
-                                                        <legend id="starRating"><i class="fas fa-star"></i> Star Rating
-                                                        </legend>
-                                                        <div id="radio" class="md-form mb-5">
-                                                            <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="1" required /> 1
-                                                            </label>
-                                                            <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="2" required /> 2
-                                                            </label>
-                                                            <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="3" required /> 3
-                                                            </label>
-                                                            <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="4" required /> 4
-                                                            </label>
-                                                            <label class="radio-inline"> <input type="radio"
-                                                                    name="rating" id="rating" value="5" required /> 5
-                                                            </label>
-                                                        </div>
-                                                    </fieldset>
-                                                </div>
-                                                <!--Product Review-->
-                                                <div class="row">
+                            <!--Product Rating-->
+                                <div>
+                                    <fieldset>
+                                        <legend id="starRating"><i class="fas fa-star"></i> Star Rating</legend>
+                                            <div id="radio" class="md-form mb-5">
+                                                <label class="radio-inline"> <input type="radio"
+                                                    name="rating" id="rating" value="1" required /> 1
+                                                </label>
+                                                <label class="radio-inline"> <input type="radio"
+                                                    name="rating" id="rating" value="2" required /> 2
+                                                </label>
+                                                <label class="radio-inline"> <input type="radio"
+                                                    name="rating" id="rating" value="3" required /> 3
+                                                </label>
+                                                <label class="radio-inline"> <input type="radio"
+                                                        name="rating" id="rating" value="4" required /> 4
+                                                </label>
+                                                <label class="radio-inline"> <input type="radio"
+                                                    name="rating" id="rating" value="5" required /> 5
+                                                </label>
+                                            </div>
+                                                </fieldset>
+                                        </div>
+                                        <!--Product Review-->
+                                            <div class="row">
                                                     <div class=" product-input col-12">
                                                         <label for="review_content">Review: </label>
                                                         <textarea class="form-control" id="review_content"
@@ -139,20 +149,9 @@
                                 </div>
                             </div>
                         </div>
-                        {% endif%}
-                        <!--Button to delete review from the db - only if the user created the review-->
-                        {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a id="delete_review" data-href="{{url_for('delete_review', review_id=review._id)}}"
-                            type="button" class="review_delete btn btn-lg review-btn">
-                            Delete Review
-                        </a>
-                        {% endif %}
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+            {% endif%}     
+        {% endif %}    
 {% endfor %}
+</div>
 </div>
 {% endblock %}
