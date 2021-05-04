@@ -306,9 +306,8 @@ def reviews(product_id):
 
     reviews = list(mongo.db.reviews.find({
         "product": ObjectId(product_id)}).sort("created_on", 1))
-    user = mongo.db.users.find_one({"username": session["user"]})
     return render_template(
-        "reviews.html", reviews=reviews, product=product, user=user)
+        "reviews.html", reviews=reviews, product=product)
 
 
 @app.route("/add_review/<product_id>", methods=["GET", "POST"])
