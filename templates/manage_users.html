@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 {% block content %}
 <!--Page to display names of all users - Admin access only-->
-<h3 class="category-header">Manage Users</h3>
-<h5 class="category-header">Accounts</h5>
+<h3 id="manageUsers" class="category-header">Manage Users</h3>
+<h5 id="accounts" class="category-header">Accounts</h5>
 {% for user in users %}
 <div id="accordion">
     <div class=" user card">

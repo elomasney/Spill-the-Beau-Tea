@@ -1050,7 +1050,8 @@ body{
     padding: 0;
 }
 
-#favourites{
+#favourites,
+#accordion{
     padding: 10px 10px;
 }
 
@@ -1192,6 +1193,15 @@ select#category_name.form-control {
     display: block;
 }
 
+/* Manage Users Page */
+.user.card p {
+    font-size: 1.9rem
+}
+
+.user-details.card-body p{
+    font-size: 1.3rem;
+}
+
 /*404 Page*/
 .container-404 {
     padding: 50px 0px;
@@ -1263,7 +1273,8 @@ body{
     padding: 60px 30px;
 }
 
-#favourites {
+#favourites,
+#accordion {
     padding: 20px 40px;
 }
 
@@ -1299,6 +1310,15 @@ body{
 
 .category-card.card {
     width: 70%;
+}
+
+/*Manage Users Page*/
+#manageUsers{
+    margin-top: 60px;
+}
+
+#accounts{
+    padding-top: 10px;
 }
 
 #footer-details {
