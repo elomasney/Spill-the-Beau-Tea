@@ -1174,6 +1174,23 @@ select#category_name.form-control {
     padding: 20px;
 }
 
+.category-card.card {
+    width: 100%;
+}
+
+.category-text.card-text,
+.search{
+    font-size: 1rem;
+    padding-left: 15px;
+}
+
+.adminBtns a.category_edit, 
+.adminBtns a.category_delete {
+    padding: 10px 5px;
+    font-size: 1rem;
+    margin: 10px 10px;
+    display: block;
+}
 
 /*404 Page*/
 .container-404 {
@@ -1278,6 +1295,10 @@ body{
 
 #productManage {
     padding-top: 60px;
+}
+
+.category-card.card {
+    width: 70%;
 }
 
 #footer-details {
