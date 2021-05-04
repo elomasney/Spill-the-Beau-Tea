@@ -174,9 +174,12 @@ def all_products():
             {"_id": {"$in": user["favourites"]}}))
         for favourite in user_favourites:
             favourites.append(favourite["_id"])
+        return render_template(
+            'products.html', products=list(products), ratings=ratings,
+            has_rating=has_rating, favourites=favourites)
     return render_template(
-        'products.html', products=list(products), ratings=ratings,
-        has_rating=has_rating, favourites=favourites)
+            'products.html', products=list(products), ratings=ratings,
+            has_rating=has_rating)
 
 
 @app.route("/product_info/<product_id>")
@@ -211,10 +214,14 @@ def product_info(product_id):
         # Gets the product ids for items in user favs
         for favourite in user_favourites:
             favourites.append(favourite["_id"])
+        return render_template(
+            'product_info.html', product=product, reviews=reviews,
+            ratings=list(ratings), review_count=review_count,
+            message=message, favourites=favourites)
     return render_template(
-        'product_info.html', product=product, reviews=reviews,
-        ratings=list(ratings), review_count=review_count,
-        message=message, favourites=favourites)
+            'product_info.html', product=product, reviews=reviews,
+            ratings=list(ratings), review_count=review_count,
+            message=message)
 
 
 @app.route("/add_product", methods=["GET", "POST"])
