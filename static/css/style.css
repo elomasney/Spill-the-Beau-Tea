@@ -966,9 +966,9 @@ button#btn-404 a {
 /*Media Queries*/
 
 /*Phones*/
-@media screen and (min-width:320px){
+@media screen and (max-width:480px){
 .navbar{
-    padding: 5px 10px;
+    padding: 5px 5px;
 }
 
 button.navbar-toggler{
@@ -983,6 +983,29 @@ button.navbar-toggler{
 .navbar-light .navbar-nav .nav-link,
 .dropdown-menu{
     font-size: 1.1rem;
+}
+
+#home h2 {
+    font-size: 2rem;
+}
+
+#home p{
+    font-size: 1.5rem;
+}
+
+#home button{
+    margin: auto;
+    font-size: 1rem;
+}
+
+#home a{
+    font-size: 1rem;
+    padding: 5px 20px;
+}
+
+#searchHome.form-inline .form-control{
+    width: 100%;
+    margin: auto;
 }
 
 #footer-details {
@@ -1025,6 +1048,14 @@ button.navbar-toggler{
 .navbar-light .navbar-nav .nav-link,
 .dropdown-menu{
     font-size: 1.3rem;
+}
+
+#searchHome.form-inline .form-control{
+    width: 80%;
+}
+
+#home{
+    padding: 50px;
 }
 
 #registerCard.card-body{
