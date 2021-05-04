@@ -1177,6 +1177,26 @@ body{
     font-size: 1.2rem;
 }
 
+/*Profile Page*/
+#adminAccordion {
+    padding: 60px 30px;
+}
+
+#favourites {
+    padding: 20px 40px;
+}
+
+#deleteAccount {
+    margin: auto;
+    padding: 10px 20px;
+    margin-bottom: 30px;
+    font-size: 1.6rem;
+}
+
+#userReviewInfo.card-body {
+    margin: 30px 5px;
+}
+
 #footer-details {
     font-size: 1.3rem;
     padding: 10px;
