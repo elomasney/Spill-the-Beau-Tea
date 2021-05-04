@@ -155,15 +155,28 @@ def delete_category(category_id):
 def all_products():
     # Renders all products in database
     products = mongo.db.products.find().sort("brand", 1)
-    # Groups reviews by product id - gets average ratings from reviews
-    ratings = mongo.db.reviews.aggregate([
+    # Gets ratings from reviews and calculates the average rating
+    ratings = list(mongo.db.reviews.aggregate([
         {"$group": {
             "_id": "$product",
+            "ratings": {"$sum": 1},
             "average": {"$avg": "$rating"}
-        }
-        }])
+        }}]))
+    has_rating = []
+    # Gets list of product ids in ratings
+    for rating in ratings:
+        has_rating.append(rating["_id"])
+    # Check if a user is in session to check if products are in user favourites
+    if "user" in session:
+        user = mongo.db.users.find_one({"username": session["user"]})
+        favourites = []
+        user_favourites = list(mongo.db.products.find(
+            {"_id": {"$in": user["favourites"]}}))
+        for favourite in user_favourites:
+            favourites.append(favourite["_id"])
     return render_template(
-        'products.html', products=list(products), ratings=list(ratings))
+        'products.html', products=list(products), ratings=ratings,
+        has_rating=has_rating, favourites=favourites)
 
 
 @app.route("/product_info/<product_id>")

@@ -971,6 +971,10 @@ body{
     padding: 0;
 }
 
+.flashes h4{
+    font-size: 1.5rem;
+}
+
 #navbarLogo.navbar-brand a {
     font-size: 1.2rem;
 }
@@ -1202,6 +1206,45 @@ select#category_name.form-control {
     font-size: 1.3rem;
 }
 
+/* Products/Product Info page*/
+.product-text.card-body {
+    margin: 0;
+    padding: 20px;
+}
+
+.product-brand.card-title {
+    font-size: 2rem;
+}
+
+a.btn.heart {
+    font-size: 2.5rem;
+}
+
+.product-name.card-title {
+    font-size: 1.1rem;
+    letter-spacing: 0;
+}
+
+a#review_count {
+    line-height: 1;
+    font-size: 1rem;
+}
+
+#product-price, #product-shades {
+    font-size: 1.2rem;
+}
+
+.product-image.card-img {
+    padding: 10px 10px;
+}
+
+#product-info a#product-reviews, 
+#product-info a#edit_product, 
+#product-info a#delete_product {
+    font-size: 1rem;
+    display: block;
+}
+
 /*404 Page*/
 .container-404 {
     padding: 50px 0px;
@@ -1310,6 +1353,19 @@ body{
 
 .category-card.card {
     width: 70%;
+}
+
+/* Products/ProductInfo Pages */
+#searchProducts.form-inline .form-control {
+    width: 80%;
+}
+
+.product-image.card-img {
+    padding: 30px 150px;
+}
+
+.product-text.card-body {
+    margin: 0px 10px;
 }
 
 /*Manage Users Page*/

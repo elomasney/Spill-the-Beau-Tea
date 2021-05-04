@@ -22,12 +22,12 @@
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row">
             <!--Product Image-->
-            <div class="col-md-5">
+            <div class="col-md-12 col-lg-5">
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
             <!--Product Information - details about the product-->
-            <div class="col-md-7">
-                <div id="product-info" class="product-text card-body text-justify">
+            <div class="col-md-12 col-lg-7">
+                <div id="product-info" class="product-text card-body">
                     {% if session.user|lower %}
                      <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                         {% if product._id in favourites %}
@@ -86,7 +86,7 @@
                         <strong>Price: </strong>
                         €{{ product.price }}
                     </span>
-                    <div>
+                    <div id="productBtns">
                         <!--A link to direct users to the product-info page, a more detailed page on the specific product-->
                         <a href="{{ url_for('product_info', product_id=product._id) }}" type="button"
                             class="btn btn-lg review-btn" id="product-reviews">
