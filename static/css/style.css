@@ -1102,8 +1102,9 @@ body{
     padding: 5px 5px;
 }
 
-/* Add Category Page*/
-#categoryManage, #productManage {
+/* Add/Edit Category Pages*/
+#categoryManage, 
+#productManage {
     padding-top: 70px;
     padding-bottom: 0;
     font-size: 2.5rem;
@@ -1111,16 +1112,23 @@ body{
 
 .category-input select,
 .category-input input,
-.category-input label{
+.category-input label,
+.product-input select,
+.product-input input,
+.product-input label,
+.product-input textarea{
     font-size: 1.1rem;
 }
 
-.category-input select.form-control {
+.category-input select.form-control,
+.product-input select.form-control,
+.product-input textarea {
     padding: 0;
     width: 100%;
 }
 
-.category-input input.form-control {
+.category-input input.form-control,
+.product-input input.form-control {
     width: 100%;
 }
 
@@ -1146,6 +1154,24 @@ body{
 
 #category_group option, #category_name option {
     font-size: 1rem;
+}
+
+/*Add/Edit product pages*/
+select#category_name.form-control {
+    padding: 0px 65px;
+}
+
+.product-form {
+    margin-top: 20px;
+    padding: 30px 10px;
+}
+
+#productManage {
+    padding-top: 50px;
+}
+
+.addProduct{
+    padding: 20px;
 }
 
 
@@ -1243,8 +1269,15 @@ body{
 }
 
 .category-input input.form-control,
-.category-input select.form-control{
+.category-input select.form-control,
+.product-input input.form-control,
+.product-input select.form-control,
+.product-input textarea.form-control{
     width: 90%;
+}
+
+#productManage {
+    padding-top: 60px;
 }
 
 #footer-details {
