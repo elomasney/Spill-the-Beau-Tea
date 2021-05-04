@@ -13,18 +13,18 @@
     {% endif %}
     {% endif %}
     <!--Product Brand-->
-    <h2 class="category-header">{{product.brand}}</h2>
+    <h2 id="brandHead" class="category-header">{{product.brand}}</h2>
     <!--Product Category & Name-->
-    <h2 class="category-header"> {{product.category_name}}: {{product.product_name}}</h2>
+    <h2 id="productName" class="category-header"> {{product.category_name}}: {{product.product_name}}</h2>
     <!--Product Image-->
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row">
-            <div class="col-md-5">
+            <div class="col-md-12 col-lg-5">
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
             <!--Product information - details about the product-->
-            <div class="col-md-7">
-                <div id="product-info" class="product-info card-body text-justify">
+            <div id="productDetails" class=" col-md-12 col-lg-7">
+                <div id="product-info" class="product-info card-body">
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if session.user|lower %}
                     <!--If product already in favourites - add full coloured heart-->
@@ -73,10 +73,10 @@
                             <i id="star" class="far fa-star"></i>
                         {% endfor %}
                     {% endif %}
-                    <p class="card-text"><strong id="description">Description:</strong></p>
-                    <p class="card-text">{{product.description}}</p>
-                    <p class="card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
-                    <span class="card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
+                    <p class="product-card card-text"><strong id="description">Description:</strong></p>
+                    <p class="product-card card-text">{{product.description}}</p>
+                    <p class="product-card card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
+                    <span class="product-card card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--<span class="product-buy card-text"><strong id="buy">Where to buy:</strong> <a
                             href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
                     <!--Button to add a review for the product - only available to registered users-->
