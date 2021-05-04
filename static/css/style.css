@@ -971,15 +971,6 @@ body{
     padding: 0;
 }
 
-.navbar{
-    padding: 5px 5px;
-}
-
-button.navbar-toggler{
-    margin-right: 10px;
-    padding: 2px 5px;
-}
-
 #navbarLogo.navbar-brand a {
     font-size: 1.2rem;
 }
@@ -1111,6 +1102,50 @@ button.navbar-toggler{
     padding: 5px 5px;
 }
 
+/* Add Category Page*/
+#categoryManage, #productManage {
+    padding-top: 70px;
+    padding-bottom: 0;
+    font-size: 2.5rem;
+}
+
+.category-input select,
+.category-input input,
+.category-input label{
+    font-size: 1.1rem;
+}
+
+.category-input select.form-control {
+    padding: 0;
+    width: 100%;
+}
+
+.category-input input.form-control {
+    width: 100%;
+}
+
+#categoryAdd.form-container{
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.category-form{
+    padding: 30px 10px;
+}
+
+#add_category.btn-large, 
+#edit_category.btn-large, 
+#add_product.btn-large {
+    padding: 0 5px;
+    margin-left: 2px;
+    margin-top: 0;
+}
+
+#category_group option, #category_name option {
+    font-size: 1rem;
+}
+
+
 /*404 Page*/
 .container-404 {
     padding: 50px 0px;
@@ -1195,6 +1230,17 @@ body{
 
 #userReviewInfo.card-body {
     margin: 30px 5px;
+}
+
+/*Add Category Page*/
+#categoryAdd.form-container{
+    height: 100vh;
+    padding-top: 50px;
+}
+
+.category-input input.form-control,
+.category-input select.form-control{
+    width: 90%;
 }
 
 #footer-details {
