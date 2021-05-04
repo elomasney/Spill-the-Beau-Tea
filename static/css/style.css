@@ -1017,6 +1017,12 @@ button.navbar-toggler{
     padding: 0;
 }
 
+.category-header{
+    font-size: 2.5rem;
+    padding-top: 0;
+}
+
+/*Login/Register Page*/
 #loginCard.card-body,
 #registerCard.card-body{
     padding: 15px;
@@ -1038,7 +1044,74 @@ button.navbar-toggler{
 .form-group{
     font-size: 1rem;
 }
-     
+/*Profile*/
+.profile-container {
+    height: 100%;
+}
+
+.profile-header{
+    font-size: 2.5rem;
+    padding-top: 10px;
+    padding-bottom: 0;
+}
+
+#adminAccordion{
+    padding: 0;
+}
+
+#favourites{
+    padding: 10px 10px;
+}
+
+#profile-heart {
+    font-size: 2rem;
+}
+
+.favourites.card button{
+    font-size: 1.3rem;
+}
+
+#favouriteCard.card-body{
+    font-size: 1.5rem;
+}
+
+#userReviewInfo.card-body {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.review-title.card-title {
+    font-size: 1.7rem;
+}
+
+.rating.card-title{
+    font-size: 1.3rem;
+}
+
+#reviewText, #added_by, #created_by {
+    font-size: 1.1rem;
+}
+
+#userReviewInfo button#edit_review,
+#userReviewInfo a#delete_review{
+    font-size: 1rem;
+}
+
+#deleteAccount{
+    margin: 10px 10px;
+}
+
+.admin-manage.card button, 
+.user.card button {
+    font-size: 1.7rem;
+}
+
+#deleteAccount {
+    margin: 50px 10px;
+    padding: 5px 5px;
+}
+
+/*404 Page*/
 .container-404 {
     padding: 50px 0px;
     margin-top: 30px;
