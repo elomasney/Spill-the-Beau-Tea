@@ -967,6 +967,10 @@ button#btn-404 a {
 
 /*Phones*/
 @media screen and (max-width:480px){
+body{
+    padding: 0;
+}
+
 .navbar{
     padding: 5px 5px;
 }
@@ -1035,12 +1039,38 @@ button.navbar-toggler{
     font-size: 1rem;
 }
      
-
+.container-404 {
+    padding: 50px 0px;
+    margin-top: 30px;
+    margin-left: 10px;
+    margin-right: 10px;
 }
 
+#header-404 {
+    font-size: 5.5rem;
+}
+
+#error-404 {
+    font-size: 1.8rem;
+}
+
+#sub-404, #message-404{
+    font-size: 1.6rem;
+}
+
+button#btn-404 {
+    padding: 10px;
+    font-size: 1.3rem;
+}
+}
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 767px){
+
+body{
+    padding: 0;
+}
+
 #navbarLogo.navbar-brand a {
     font-size: 1.5rem;
 }
@@ -1083,5 +1113,4 @@ button.navbar-toggler{
 /*Large devices (desktops, 992px and up)*/
 
 @media screen and (min-width: 992px) {
-
 }
