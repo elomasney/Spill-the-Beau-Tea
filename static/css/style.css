@@ -104,6 +104,12 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+.card-body {
+    background-color: rgba(255, 0, 128, 1);
+    padding: 50px 100px;
+    margin: 30px 0;
+}
+
 /*Homepage*/
 
 .home-container {
@@ -734,9 +740,10 @@ textarea.form-control {
     padding-top: 30px;
 }
 
-.card-body {
+#registerCard.card-body,
+#loginCard.card-body {
     background-color: rgba(255, 0, 128, 1);
-    padding: 50px 100px;
+    padding: 50px 70px;
     margin: 30px 0;
 }
 
@@ -756,6 +763,7 @@ textarea.form-control {
 
 #registerForm {
     border: none;
+    padding-bottom: 20px;
 }
 
 .form-group {
@@ -776,6 +784,7 @@ textarea.form-control {
 #loginLink {
     text-align: center;
     color: #ff0080;
+    padding-bottom: 20px;
 }
 
 #username.form-control,
@@ -952,4 +961,96 @@ button#btn-404 a {
 #top-404 {
     background-color: #ff0080;
     padding: 30px;
+}
+
+/*Media Queries*/
+
+/*Phones*/
+@media screen and (min-width:320px){
+.navbar{
+    padding: 5px 10px;
+}
+
+button.navbar-toggler{
+    margin-right: 10px;
+    padding: 2px 5px;
+}
+
+#navbarLogo.navbar-brand a {
+    font-size: 1.2rem;
+}
+
+.navbar-light .navbar-nav .nav-link,
+.dropdown-menu{
+    font-size: 1.1rem;
+}
+
+#footer-details {
+    font-size: 1rem;
+    padding: 0;
+}
+
+#loginCard.card-body,
+#registerCard.card-body{
+    padding: 15px;
+}
+
+.register-container {
+    padding-top: 30px;
+}
+
+#registerBtn{
+    margin: 0px 50px;
+    font-size: 1.2rem;
+}
+
+#registerHeading{
+    font-size: 1.8rem;
+}
+
+.form-group{
+    font-size: 1rem;
+}
+     
+
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media screen and (min-width: 767px){
+#navbarLogo.navbar-brand a {
+    font-size: 1.5rem;
+}
+    
+.navbar-light .navbar-nav .nav-link,
+.dropdown-menu{
+    font-size: 1.3rem;
+}
+
+#registerCard.card-body{
+    padding: 50px 40px;
+}
+
+#registerBtn{
+    font-size: 1.5rem;
+}
+
+#registerHeading{
+    font-size: 2rem;
+}
+
+.form-group{
+    font-size: 1.2rem;
+}
+
+#footer-details {
+    font-size: 1.3rem;
+    padding: 10px;
+}
+}
+
+/*Large devices (desktops, 992px and up)*/
+
+@media screen and (min-width: 992px) {
+
 }
