@@ -17,7 +17,6 @@ html {
     -webkit-box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
     box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
     padding: 5px;
-    z-index: 2;
 }
 
 .dropdown-menu {
@@ -37,7 +36,11 @@ html {
     letter-spacing: .2rem;
     padding: 15px;
     text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.9);
-    ;
+
+}
+
+.navbar-light .navbar-toggler {
+    padding: 0px 10px;
 }
 
 .scrollable-menu {
@@ -1055,9 +1058,10 @@ button#btn-404 a {
         padding: 0;
     }
 
+
     .flashes h4 {
         font-size: 1.5rem;
-        padding-top: 20px;
+        padding-top: 40px;
     }
 
     #navbarLogo.navbar-brand a {
@@ -1108,13 +1112,15 @@ button#btn-404 a {
     }
 
     /*Login/Register Page*/
+
     #loginCard.card-body,
     #registerCard.card-body {
         padding: 15px;
     }
 
+    .login-container,
     .register-container {
-        padding-top: 30px;
+        padding-top: 50px;
     }
 
     #registerBtn,
@@ -1123,7 +1129,8 @@ button#btn-404 a {
         font-size: 1.2rem;
     }
 
-    #registerHeading {
+    #registerHeading,
+    #loginHeading {
         font-size: 1.8rem;
     }
 
@@ -1451,7 +1458,10 @@ button#btn-404 a {
 
     #reviewHeader {
         font-size: 2.5rem;
-        padding-top: 60px;
+    }
+
+    #reviewsContainer {
+        padding-top: 50px;
     }
 
     .review-text button.edit_review.btn-large {
@@ -1528,6 +1538,9 @@ button#btn-404 a {
         font-size: 3rem;
     }
     
+    .register-container{
+        height: 100vh;
+    }
 
     #registerCard.card-body {
         padding: 50px 40px;
@@ -1625,13 +1638,6 @@ button#btn-404 a {
     }
 
     /* Reviews Page*/
-    #reviewsContainer {
-        padding-top: 100px;
-    }
-
-    #reviewHeader {
-        padding-top: 60px;
-    }
 
     #reviewProductName {
         font-size: 3.5rem;
