@@ -15,7 +15,7 @@
 }
 
 .dropdown-divider {
-    color: #0ab8df;
+    border-top: 1px solid #ff0080;
 }
 
 .navbar-light .navbar-nav .nav-link,
@@ -202,7 +202,9 @@ body {
 #add_product.btn-large,
 #searchBtn,
 #deleteAccount,
-#deleteAccount a {
+#deleteAccount a,
+#edit_review.btn-large,
+#add_review.btn-large {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -327,13 +329,17 @@ button.swal2-confirm.swal2-styled {
 
 #add_category.btn-large,
 #edit_category.btn-large,
-#add_product.btn-large {
+#add_product.btn-large,
+#edit_review.btn-large,
+#add_review.btn-large {
     padding: 10px 30px;
     margin-left: 50px;
     margin-top: 10px;
 }
 
-#edit_category.btn-large a {
+#edit_category.btn-large a,
+#edit_review.btn-large a,
+#add_review.btn-large a {
     color: #fafd42;
 }
 
@@ -451,7 +457,8 @@ button.swal2-confirm.swal2-styled {
     background-color: #0ab8df;
 }
 
-.product-form {
+.product-form,
+.review-form {
     background-color: #0ab8df;
     color: #ff0080;
     text-align: center;
@@ -694,6 +701,20 @@ a#more_reviews{
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+#edit_review.btn-large, 
+#add_review.btn-large{
+    padding: 5px 10px;
+    margin-left: 0;
+}
+
+#modalBtns{
+    display: grid;
+}
+
+.review-form {
+    margin-top: 0; 
+    padding: 10px 5px;
+}
 
 /* Review Modal*/
 .switch {
@@ -722,6 +743,10 @@ textarea.form-control {
 
 .modal-footer {
     justify-content: center;
+}
+
+#reviewModalBtns{
+    display: grid;
 }
 
 /*Register Page*/
@@ -985,6 +1010,11 @@ body{
     font-size: 1.1rem;
 }
 
+.dropdown-item {
+    display: inline;
+    font-size: 1.1rem;
+}
+
 #home h2 {
     font-size: 2rem;
 }
@@ -1078,6 +1108,10 @@ body{
     font-size: 1rem;
 }
 
+#profileReviewBtns{
+    display: grid;
+}
+
 .review-title.card-title {
     font-size: 1.7rem;
 }
@@ -1156,7 +1190,7 @@ body{
 #add_product.btn-large {
     padding: 0 5px;
     margin-left: 2px;
-    margin-top: 0;
+    margin-top: 5px;
 }
 
 #category_group option, #category_name option {
@@ -1299,7 +1333,8 @@ a#more_reviews{
     padding: 25px;
 }
 
-#review-info i{
+#review-info i,
+#userReviewInfo i{
     font-size: 1.1rem;
 }
 
@@ -1459,6 +1494,11 @@ body{
 
 .product-text.card-body {
     margin: 0px 10px;
+}
+
+#edit_review.btn-large,
+#add_review.btn-large{
+    margin-left: 15px;
 }
 
 .no-review {

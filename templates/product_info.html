@@ -82,7 +82,7 @@
                     <!--Button to add a review for the product - only available to registered users-->
                     {% if session.user|lower %}
                     <button type="button" id="review" class="btn btn-lg review-btn" data-toggle="modal"
-                        data-target="#exampleModal">
+                        data-target="#addReview">
                         Add Review
                     </button>
                     <!--Button to edit a product from the db - available to admin only-->
@@ -98,8 +98,8 @@
                     </a>
                     {% endif %}
                     <!--Adding a Review using a Modal Popup-->
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="addReview" tabindex="-1" role="dialog"
+                        aria-labelledby="addReviewLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -110,7 +110,7 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row form-group">
-                                        <form class=" product-form col-12" method="POST"
+                                        <form class=" review-form col-12" method="POST"
                                             action=" {{url_for('add_review', product_id= product._id)}}">
                                             <!-- Review Tagline -->
                                             <div class="row">
@@ -161,11 +161,11 @@
                                 <div class="modal-footer">
                                     <!-- submit button -->
                                     <div class="row">
-                                        <div class="col-12 ">
-                                            <button id="edit_category" type="submit" class="btn-large"><a href="
+                                        <div id="modalBtns" class="col-12 ">
+                                            <button id="edit_review" type="submit" class="btn-large"><a href="
                                                 {{ url_for('product_info', product_id=product._id) }}">
                                                     Cancel <i class="fas fa-times-circle right"></i></a></button>
-                                            <button id="add_product" type="submit" class="btn-large">
+                                            <button id="add_review" type="submit" class="btn-large">
                                                 Add Review <i class="fas fa-plus-square right"></i>
                                             </button>
                                         </div>

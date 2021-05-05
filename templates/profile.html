@@ -132,7 +132,7 @@
                                 <div class="row">
                                     <div class="col-md-12">
                                         <!--Review Details-->
-                                        <div id="userReviewInfo" class="review-text card-body text-justify">
+                                        <div id="userReviewInfo" class="review-text card-body">
                                             {% for product in products %}
                                             {% if reviews.product == product._id%}
                                             <h3 class="product card-title">{{ product.product_name }}</h3>
@@ -165,7 +165,7 @@
                                             {% endif %}
                                             <span class="card-text "> <strong id="created_by">Added On:
                                                 </strong>{{ reviews.created_on}}</span>
-                                            <div class="text-center">
+                                            <div class="reviewBtns text-center">
                                                 <!--Button to allow user to edit the review in the db-->
                                                 <button type="button" id="edit_review" class="btn btn-lg review-btn"
                                                     data-toggle="modal" data-target="#editReview_{{reviews._id}}">
@@ -174,7 +174,7 @@
 
                                                 <!--Editing a Review using a Modal Popup-->
                                                 <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1"
-                                                    role="dialog" aria-labelledby="exampleModalLabel"
+                                                    role="dialog" aria-labelledby="editReviewLabel"
                                                     aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
                                                         <div class="modal-content">
@@ -189,7 +189,7 @@
                                                             </div>
                                                             <div class="modal-body">
                                                                 <div class="row form-group">
-                                                                    <form class=" product-form col-12" method="POST"
+                                                                    <form class=" review-form col-12" method="POST"
                                                                         action="{{ url_for('edit_review', review_id=reviews._id) }}">
                                                                         <!-- Review Tagline -->
                                                                         <div class="row">
@@ -268,7 +268,7 @@
                                                             <div class="modal-footer">
                                                                 <!-- submit button -->
                                                                 <div class="row">
-                                                                    <div class="col-12 ">
+                                                                    <div id="profileReviewBtns" class="col-12 ">
                                                                         <button id="edit_category" type="submit"
                                                                             class="btn-large"><a href="
                                                                             {{ url_for ('profile', username=session['user'])}}">
