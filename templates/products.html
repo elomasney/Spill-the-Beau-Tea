@@ -4,8 +4,7 @@
 <div class="products-container container-fluid">
     <!--Search Bar for searching products in the db-->
     <form id="searchProducts" class="form-inline my-2 my-lg-0" action="{{ url_for('search')}}" method="POST">
-        <input class="form-control mr-sm-2" type="text" name="query" value="{{ query }}" placeholder="Search by category, brand or product name"
-            aria-label="Search">
+        <input class="form-control mr-sm-2" type="text" name="query" value="{{ query }}" placeholder="Search by category, brand or product name" aria-label="Search">
         <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
     </form>
 
@@ -29,55 +28,50 @@
             <div class="col-md-12 col-lg-7">
                 <div id="product-info" class="product-text card-body">
                     {% if session.user|lower %}
-                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
-                        {% if product._id in favourites %}
-                        <!--If product already in favourites - add full coloured heart-->
-                            <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active"
-                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
-                                title="Remove from Favourites"><i class="fas fa-heart"></i>
-                            </a>
-                        {% else %}
-                        <!--If product not in user favourites - show outlined heart-->
-                            <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
-                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
-                                title="Add to Favourites"><i class="far fa-heart"></i>
-                            </a>
-                        {% endif %}
+                    <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
+                    {% if product._id in favourites %}
+                    <!--If product already in favourites - add full coloured heart-->
+                    <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
+                    </a>
+                    {% else %}
+                    <!--If product not in user favourites - show outlined heart-->
+                    <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
+                    </a>
+                    {% endif %}
                     {% endif %}
                     <h4 class=" product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
                     <!--Product Average Ratings-->
                     {% for rating in ratings %}
-                        <!-- only apply if the product._id matches the rating._id -->
-                        {% if product._id == rating._id %}
-                            <!-- set variable "count" to the leftover value deducted from rating.average -->
-                            {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
-                            <!-- for each star in the rating.average, insert whole-star -->
-                            {% for star in range(rating.average|int) %}
-                                <i id="star" class="fas fa-star"></i>
-                            {% endfor %}
-                            <!-- for each half-star in rating.average, insert half-star -->
-                            {% if ".5" in rating.average|string %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% endif %}
-                            <!-- for each remaining value in "count" variable, insert empty-star -->
-                            {% for star in range(count) %}
-                                <i id="star" class="far fa-star"></i>
-                            {% endfor %}
-                            <!--Shows review count for the product-->
-                            <!--Acts as a link to direct users to the reviews for that product-->
-                           <a href="{{url_for('reviews', product_id=product._id)}}" type="button"
-                                class="btn btn-lg review-btn" id="review_count">
-                                ( {{rating.ratings}} Reviews)
-                            </a>
-                        {% endif %}
+                    <!-- only apply if the product._id matches the rating._id -->
+                    {% if product._id == rating._id %}
+                    <!-- set variable "count" to the leftover value deducted from rating.average -->
+                    {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
+                    <!-- for each star in the rating.average, insert whole-star -->
+                    {% for star in range(rating.average|int) %}
+                    <i id="star" class="fas fa-star"></i>
+                    {% endfor %}
+                    <!-- for each half-star in rating.average, insert half-star -->
+                    {% if ".5" in rating.average|string %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% endif %}
+                    <!-- for each remaining value in "count" variable, insert empty-star -->
+                    {% for star in range(count) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %}
+                    <!--Shows review count for the product-->
+                    <!--Acts as a link to direct users to the reviews for that product-->
+                    <a href="{{url_for('reviews', product_id=product._id)}}" type="button" class="btn btn-lg review-btn" id="review_count">
+                        ( {{rating.ratings}} Reviews)
+                    </a>
+                    {% endif %}
                     {% endfor %}
                     <!-- if product has no reviews, set 5 empty stars -->
                     {% if product._id not in has_rating %}
-                        {% for star in range(5) %}
-                            <i id="star" class="far fa-star"></i>
-                        {% endfor %}
+                    {% for star in range(5) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %}
                     {% endif %}
                     <p id="product-shades" class="card-text">
                         <strong>Shades: </strong> {{ product.num_shades }}
@@ -88,19 +82,16 @@
                     </span>
                     <div id="productBtns">
                         <!--A link to direct users to the product-info page, a more detailed page on the specific product-->
-                        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button"
-                            class="btn btn-lg review-btn" id="product-reviews">
+                        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product-reviews">
                             More Info...
                         </a>
                         <!--Button to edit the product in the db - only displayed if user is Admin-->
                         {% if session.user|lower == "admin"|lower %}
-                        <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button"
-                            class="btn btn-lg review-btn" id="edit_product">
+                        <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="edit_product">
                             Edit Product
                         </a>
                         <!-- Button to delete a product from the db - only displayed if user is admin-->
-                        <a id="delete_product" data-href="{{ url_for('delete_product', product_id=product._id) }}"
-                            type="button" class="product_delete btn btn-lg review-btn" id="delete_product">
+                        <a id="delete_product" data-href="{{ url_for('delete_product', product_id=product._id) }}" type="button" class="product_delete btn btn-lg review-btn" id="delete_product">
                             Delete Product
                         </a>
                     </div>

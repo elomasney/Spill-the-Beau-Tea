@@ -12,9 +12,7 @@
                     <div class="form-group col-md-12">
                         <i class="fas fa-user-plus"></i>
                         <label for="username">Username</label>
-                        <input id="username" name="username" type="text" minlength="3" maxlength="15"
-                            pattern="^[a-zA-Z0-9]{3,15}$" class="form-control" aria-describedby="username"
-                            placeholder="Enter username" required>
+                        <input id="username" name="username" type="text" minlength="3" maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" class="form-control" aria-describedby="username" placeholder="Enter username" required>
                     </div>
                 </div>
                 <!--Email-->
@@ -22,30 +20,27 @@
                     <div class="form-group col-md-12">
                         <i class="fas fa-envelope"></i>
                         <label for="email">Email</label>
-                        <input id="email" name="email" type="email" class="form-control" aria-describedby="email"
-                            placeholder="Email" required>
+                        <input id="email" name="email" type="email" class="form-control" aria-describedby="email" placeholder="Email" required>
                     </div>
-                    </div>
-                    <!--Password-->
-                    <div class="row"></div>
-                    <div class="form-group col-md-12">
-                        <i class="fas fa-user-lock"></i>
-                        <label for="password">Password</label>
-                        <input id="password" name="password" type="password" minlength="5" maxlength="15"
-                            pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
-                            <small id="passwordHelpBlock" class="form-text text-muted">
-                                Your password must be 5-15 characters long.
-                              </small>
-                        </div>
                 </div>
-                <!--Register-->
-                <div class="row">
-                    <button id="registerBtn" type="submit" class="btn col-md-10 offset-md-1">Register <i
-                            class="fas fa-sign-in-alt"></i></button>
+                <!--Password-->
+                <div class="row"></div>
+                <div class="form-group col-md-12">
+                    <i class="fas fa-user-lock"></i>
+                    <label for="password">Password</label>
+                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
+                    <small id="passwordHelpBlock" class="form-text text-muted">
+                        Your password must be 5-15 characters long.
+                    </small>
                 </div>
+            </div>
+            <!--Register-->
+            <div class="row">
+                <button id="registerBtn" type="submit" class="btn col-md-10 offset-md-1">Register <i class="fas fa-sign-in-alt"></i></button>
+            </div>
         </form>
-        </div>
-           <!--Link to Login page if user has already set up an account-->
+    </div>
+    <!--Link to Login page if user has already set up an account-->
     <div class="row">
         <div class="col-12">
             <p id="loginLink">Already registered?
@@ -53,6 +48,6 @@
             </p>
         </div>
     </div>
-    </div>
+</div>
 </div>
 {% endblock %}

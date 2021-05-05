@@ -10,8 +10,7 @@
         <div class="card-header" id="headingOne">
             <h5 class="mb-0">
                 <p>Account Name:</p>
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                    aria-controls="collapseOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                     {{user.username.capitalize()}}
                 </button>
             </h5>
@@ -21,14 +20,11 @@
             <div class="user-details card-body">
                 <p>Email: {{user.email}}</p>
                 <!--Button to delete a user account from the db-->
-                <button><a class="account_delete"
-                        data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
+                <button><a class="account_delete" data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
                         Account </a></button>
             </div>
         </div>
     </div>
-
-</div>
 </div>
 {% endfor %}
 {% endblock %}

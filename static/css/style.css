@@ -1,6 +1,13 @@
+/*
+* Prefixed by https://autoprefixer.github.io
+* PostCSS: v7.0.29,
+* Autoprefixer: v9.7.6
+* Browsers: last 4 version
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Dancing+Script&family=Original+Surfer&family=Lato&family=Rokkitt&display=swap');
 
-html{
+html {
     min-height: 100%;
 }
 
@@ -164,7 +171,8 @@ body {
     top: 50%;
     left: 50%;
     -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%);
 }
 
 #home h2 {
@@ -271,7 +279,7 @@ button.swal2-confirm.swal2-styled {
 }
 
 /*Categories Page*/
-.category-container{
+.category-container {
     padding-top: 30px;
 }
 
@@ -282,7 +290,9 @@ button.swal2-confirm.swal2-styled {
 
 .adminBtns a.category_edit,
 .adminBtns a.category_delete {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     font-size: 1.2rem;
@@ -375,6 +385,8 @@ button.swal2-confirm.swal2-styled {
 }
 
 .form-control {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 50%;
 }
@@ -388,6 +400,8 @@ button.swal2-confirm.swal2-styled {
 
 .card-group {
     padding: 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: auto;
     width: 50%;
@@ -442,12 +456,14 @@ button.swal2-confirm.swal2-styled {
 }
 
 #search-category {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-bottom: 10px;
 }
 
 /*Products Page*/
-#searchBtn{
+#searchBtn {
     padding: 5px 10px;
 }
 
@@ -685,7 +701,8 @@ a#product_back,
     margin-top: 20px;
     margin-right: 10px;
 }
-a#review_count{
+
+a#review_count {
     color: #fafd42;
     text-shadow: 2px 2px 2px rgb(0 0 0);
     line-height: 2.5;
@@ -693,7 +710,7 @@ a#review_count{
     font-size: 1.3rem;
 }
 
-a#more_reviews{
+a#more_reviews {
     padding: 10px 20px;
     margin-bottom: 30px;
 }
@@ -705,18 +722,18 @@ a#more_reviews{
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-#edit_review.btn-large, 
-#add_review.btn-large{
+#edit_review.btn-large,
+#add_review.btn-large {
     padding: 5px 10px;
     margin-left: 0;
 }
 
-#modalBtns{
-    display: grid;
+#modalBtns {
+    display: block;
 }
 
 .review-form {
-    margin-top: 0; 
+    margin-top: 0;
     padding: 10px 5px;
 }
 
@@ -746,11 +763,9 @@ textarea.form-control {
 }
 
 .modal-footer {
-    justify-content: center;
-}
-
-#reviewModalBtns{
-    display: grid;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
 }
 
 /*Register Page*/
@@ -775,6 +790,10 @@ textarea.form-control {
     background-color: rgba(255, 0, 128, 1);
     padding: 50px 70px;
     margin: 30px 0;
+}
+
+#registerCard.form-group {
+    display: inline;
 }
 
 #registerBtn {
@@ -803,13 +822,14 @@ textarea.form-control {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, .4);
     letter-spacing: .1rem;
     font-size: 1.3rem;
+    display: inline;
 }
 
 .form-group i {
     color: #fafd42;
 }
 
-#passwordHelpBlock.form-text.text-muted{
+#passwordHelpBlock.form-text.text-muted {
     color: #fafd42 !important;
 }
 
@@ -978,6 +998,8 @@ hr#userReviews {
 }
 
 button#btn-404 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     margin: auto;
     padding: 20px;
@@ -989,7 +1011,8 @@ button#btn-404 a {
 }
 
 #disclaimer {
-    align-content: center;
+    -ms-flex-line-pack: center;
+        align-content: center;
 }
 
 #top-404 {
@@ -1000,556 +1023,592 @@ button#btn-404 a {
 /*Media Queries*/
 
 /*Phones*/
-@media screen and (max-width:480px){
-body{
-    padding: 0;
+@media screen and (max-width:480px) {
+    body {
+        padding: 0;
+    }
+
+    .flashes h4 {
+        font-size: 1.5rem;
+    }
+
+    #navbarLogo.navbar-brand a {
+        font-size: 1.2rem;
+    }
+
+    .navbar-light .navbar-nav .nav-link,
+    .dropdown-menu {
+        font-size: 1.1rem;
+    }
+
+    .dropdown-item {
+        display: inline;
+        font-size: 1.1rem;
+    }
+
+    #home h2 {
+        font-size: 2rem;
+    }
+
+    #home p {
+        font-size: 1.5rem;
+    }
+
+    #home button {
+        margin: auto;
+        font-size: 1rem;
+    }
+
+    #home a {
+        font-size: 1rem;
+        padding: 5px 20px;
+    }
+
+    #searchHome.form-inline .form-control {
+        width: 100%;
+        margin: auto;
+    }
+
+    #footer-details {
+        font-size: 1rem;
+        padding: 0;
+    }
+
+    .category-header {
+        font-size: 2.5rem;
+        padding-top: 0;
+    }
+
+    /*Login/Register Page*/
+    #loginCard.card-body,
+    #registerCard.card-body {
+        padding: 15px;
+    }
+
+    .register-container {
+        padding-top: 30px;
+    }
+
+    #registerBtn {
+        margin: 0px 50px;
+        font-size: 1.2rem;
+    }
+
+    #registerHeading {
+        font-size: 1.8rem;
+    }
+
+    .form-group {
+        font-size: 1rem;
+    }
+
+    /*Profile*/
+    .profile-container {
+        height: 100%;
+    }
+
+    .profile-header {
+        font-size: 2.5rem;
+        padding-top: 10px;
+        padding-bottom: 0;
+    }
+
+    #adminAccordion {
+        padding: 0;
+    }
+
+    #favourites,
+    #accordion {
+        padding: 10px 10px;
+    }
+
+    #profile-heart {
+        font-size: 2rem;
+    }
+
+    .favourites.card button {
+        font-size: 1.3rem;
+    }
+
+    #favouriteCard.card-body {
+        font-size: 1.5rem;
+    }
+
+    #userReviewInfo.card-body,
+    #review-info.card-body {
+        margin: 0;
+        font-size: 1rem;
+    }
+
+    #profileReviewBtns {
+        display: -ms-grid;
+        display: grid;
+    }
+
+    .review-title.card-title {
+        font-size: 1.7rem;
+    }
+
+    .rating.card-title {
+        font-size: 1.3rem;
+    }
+
+    #reviewText,
+    #added_by,
+    #created_by {
+        font-size: 1.1rem;
+    }
+
+    #userReviewInfo button#edit_review,
+    #userReviewInfo a#delete_review {
+        font-size: 1rem;
+    }
+
+    #deleteAccount {
+        margin: 10px 10px;
+    }
+
+    .admin-manage.card button,
+    .user.card button {
+        font-size: 1.7rem;
+    }
+
+    #deleteAccount {
+        margin: 50px 10px;
+        padding: 5px 5px;
+    }
+
+    /* Add/Edit Category Pages*/
+    #categoryManage,
+    #productManage {
+        padding-top: 70px;
+        padding-bottom: 0;
+        font-size: 2.5rem;
+    }
+
+    .category-input select,
+    .category-input input,
+    .category-input label,
+    .product-input select,
+    .product-input input,
+    .product-input label,
+    .product-input textarea {
+        font-size: 1.1rem;
+    }
+
+    .category-input select.form-control,
+    .product-input select.form-control,
+    .product-input textarea {
+        padding: 0;
+        width: 100%;
+    }
+
+    .category-input input.form-control,
+    .product-input input.form-control {
+        width: 100%;
+    }
+
+    #categoryAdd.form-container,
+    #categoryEdit.form-container {
+        padding-left: 20px;
+        padding-right: 20px;
+
+    }
+
+    .category-form {
+        padding: 30px 10px;
+        margin: 30px 0;
+    }
+
+    #add_category.btn-large,
+    #edit_category.btn-large,
+    #add_product.btn-large {
+        padding: 0 5px;
+        margin-left: 2px;
+        margin-top: 5px;
+    }
+
+    #category_group option,
+    #category_name option {
+        font-size: 1rem;
+    }
+
+    /*Add/Edit product pages*/
+
+    #modalBtns {
+        display: -ms-grid;
+        display: grid;
+    }
+
+    select#category_name.form-control {
+        padding: 0px 65px;
+    }
+
+    .product-form {
+        margin-top: 20px;
+        padding: 30px 10px;
+    }
+
+    #productManage {
+        padding-top: 50px;
+    }
+
+    .addProduct {
+        padding: 20px;
+    }
+
+    .category-card.card {
+        width: 100%;
+    }
+
+    .category-text.card-text,
+    .search {
+        font-size: 1rem;
+        padding-left: 15px;
+    }
+
+    .adminBtns a.category_edit,
+    .adminBtns a.category_delete {
+        padding: 10px 5px;
+        font-size: 1rem;
+        margin: 10px 10px;
+        display: block;
+    }
+
+    /* Manage Users Page */
+    .user.card p {
+        font-size: 1.9rem
+    }
+
+    .user-details.card-body p {
+        font-size: 1.3rem;
+    }
+
+    /* Products/Product Info page*/
+    .product-text.card-body {
+        margin: 0;
+        padding: 20px;
+    }
+
+    .product-brand.card-title {
+        font-size: 2rem;
+    }
+
+    a.btn.heart {
+        font-size: 2.5rem;
+    }
+
+    .product-name.card-title {
+        font-size: 1.1rem;
+        letter-spacing: 0;
+    }
+
+    a#review_count {
+        line-height: 1;
+        font-size: 1rem;
+    }
+
+    #product-price,
+    #product-shades {
+        font-size: 1.2rem;
+    }
+
+    .product-image.card-img {
+        padding: 10px 10px;
+    }
+
+    #product-info a#product-reviews,
+    #product-info a#edit_product,
+    #product-info a#delete_product {
+        font-size: 1rem;
+        display: block;
+    }
+
+    #reviewModalBtns {
+        display: -ms-grid;
+        display: grid;
+    }
+
+    .modal-title {
+        padding-top: 30px;
+        font-size: 2.5rem;
+    }
+
+    .modal-body {
+        padding: 0;
+    }
+
+    #searchProducts.form-inline .form-control {
+        width: 100%;
+    }
+
+    #searchProducts.form-inline {
+        padding: 10px;
+    }
+
+    #searchBtn {
+        margin: auto;
+        font-size: 1rem;
+    }
+
+    #brandHead,
+    #productName {
+        font-size: 1.8rem;
+        padding-top: 10px;
+    }
+
+    .product-brand.card-title {
+        font-size: 1.8rem;
+    }
+
+    .product-image.card-img {
+        padding: 10px 0px;
+    }
+
+    #productDetails {
+        padding: 0;
+    }
+
+    .product-info.card-body {
+        font-size: 1rem;
+    }
+
+    #product-info button#review,
+    #product-info a#product-reviews,
+    #review-info a#delete_review {
+        font-size: 1rem;
+    }
+
+    a#more_reviews {
+        padding: 10px;
+        font-size: 1rem;
+
+    }
+
+    .no-review {
+        font-size: 1.7rem;
+        padding: 25px;
+    }
+
+    #review-info i,
+    #userReviewInfo i,
+    #starRating {
+        font-size: 1.1rem;
+    }
+
+    #edit_review.btn-large,
+    #add_review.btn-large {
+        font-size: 1rem;
+    }
+
+    /*Reviews Page*/
+    a#product_back {
+        margin-top: 70px;
+        font-size: 1rem;
+    }
+
+    #reviewProductName {
+        font-size: 1.8rem;
+        padding-top: 20px;
+    }
+
+    #reviewHeader {
+        font-size: 2rem;
+    }
+
+    #review-info button#edit_review {
+        font-size: 1rem;
+        margin-top: 10px;
+    }
+
+    .container {
+        padding-left: 0;
+        padding-right: 0;
+    }
+
+    .reviewBtns {
+        font-size: 1rem;
+        margin-top: 10px;
+        display: -ms-grid;
+        display: grid;
+    }
+
+    .rating.card-title {
+        font-size: 1.2rem;
+    }
+
+    /*404 Page*/
+    .container-404 {
+        padding: 50px 0px;
+        margin-top: 30px;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    #header-404 {
+        font-size: 5.5rem;
+    }
+
+    #error-404 {
+        font-size: 1.8rem;
+    }
+
+    #sub-404,
+    #message-404 {
+        font-size: 1.6rem;
+    }
+
+    button#btn-404 {
+        padding: 10px;
+        font-size: 1.3rem;
+    }
 }
 
-.flashes h4{
-    font-size: 1.5rem;
-}
-
-#navbarLogo.navbar-brand a {
-    font-size: 1.2rem;
-}
-
-.navbar-light .navbar-nav .nav-link,
-.dropdown-menu{
-    font-size: 1.1rem;
-}
-
-.dropdown-item {
-    display: inline;
-    font-size: 1.1rem;
-}
-
-#home h2 {
-    font-size: 2rem;
-}
-
-#home p{
-    font-size: 1.5rem;
-}
-
-#home button{
-    margin: auto;
-    font-size: 1rem;
-}
-
-#home a{
-    font-size: 1rem;
-    padding: 5px 20px;
-}
-
-#searchHome.form-inline .form-control{
-    width: 100%;
-    margin: auto;
-}
-
-#footer-details {
-    font-size: 1rem;
-    padding: 0;
-}
-
-.category-header{
-    font-size: 2.5rem;
-    padding-top: 0;
-}
-
-/*Login/Register Page*/
-#loginCard.card-body,
-#registerCard.card-body{
-    padding: 15px;
-}
-
-.register-container {
-    padding-top: 30px;
-}
-
-#registerBtn{
-    margin: 0px 50px;
-    font-size: 1.2rem;
-}
-
-#registerHeading{
-    font-size: 1.8rem;
-}
-
-.form-group{
-    font-size: 1rem;
-}
-/*Profile*/
-.profile-container {
-    height: 100%;
-}
-
-.profile-header{
-    font-size: 2.5rem;
-    padding-top: 10px;
-    padding-bottom: 0;
-}
-
-#adminAccordion{
-    padding: 0;
-}
-
-#favourites,
-#accordion{
-    padding: 10px 10px;
-}
-
-#profile-heart {
-    font-size: 2rem;
-}
-
-.favourites.card button{
-    font-size: 1.3rem;
-}
-
-#favouriteCard.card-body{
-    font-size: 1.5rem;
-}
-
-#userReviewInfo.card-body,
-#review-info.card-body {
-    margin: 0;
-    font-size: 1rem;
-}
-
-#profileReviewBtns{
-    display: grid;
-}
-
-.review-title.card-title {
-    font-size: 1.7rem;
-}
-
-.rating.card-title{
-    font-size: 1.3rem;
-}
-
-#reviewText, #added_by, #created_by {
-    font-size: 1.1rem;
-}
-
-#userReviewInfo button#edit_review,
-#userReviewInfo a#delete_review{
-    font-size: 1rem;
-}
-
-#deleteAccount{
-    margin: 10px 10px;
-}
-
-.admin-manage.card button, 
-.user.card button {
-    font-size: 1.7rem;
-}
-
-#deleteAccount {
-    margin: 50px 10px;
-    padding: 5px 5px;
-}
-
-/* Add/Edit Category Pages*/
-#categoryManage, 
-#productManage {
-    padding-top: 70px;
-    padding-bottom: 0;
-    font-size: 2.5rem;
-}
-
-.category-input select,
-.category-input input,
-.category-input label,
-.product-input select,
-.product-input input,
-.product-input label,
-.product-input textarea{
-    font-size: 1.1rem;
-}
-
-.category-input select.form-control,
-.product-input select.form-control,
-.product-input textarea {
-    padding: 0;
-    width: 100%;
-}
-
-.category-input input.form-control,
-.product-input input.form-control {
-    width: 100%;
-}
-
-#categoryAdd.form-container,
-#categoryEdit.form-container{
-    padding-left: 20px;
-    padding-right: 20px;
-
-}
-
-.category-form{
-    padding: 30px 10px;
-    margin: 30px 0;
-}
-
-#add_category.btn-large, 
-#edit_category.btn-large, 
-#add_product.btn-large {
-    padding: 0 5px;
-    margin-left: 2px;
-    margin-top: 5px;
-}
-
-#category_group option, #category_name option {
-    font-size: 1rem;
-}
-
-/*Add/Edit product pages*/
-select#category_name.form-control {
-    padding: 0px 65px;
-}
-
-.product-form {
-    margin-top: 20px;
-    padding: 30px 10px;
-}
-
-#productManage {
-    padding-top: 50px;
-}
-
-.addProduct{
-    padding: 20px;
-}
-
-.category-card.card {
-    width: 100%;
-}
-
-.category-text.card-text,
-.search{
-    font-size: 1rem;
-    padding-left: 15px;
-}
-
-.adminBtns a.category_edit, 
-.adminBtns a.category_delete {
-    padding: 10px 5px;
-    font-size: 1rem;
-    margin: 10px 10px;
-    display: block;
-}
-
-/* Manage Users Page */
-.user.card p {
-    font-size: 1.9rem
-}
-
-.user-details.card-body p{
-    font-size: 1.3rem;
-}
-
-/* Products/Product Info page*/
-.product-text.card-body {
-    margin: 0;
-    padding: 20px;
-}
-
-.product-brand.card-title {
-    font-size: 2rem;
-}
-
-a.btn.heart {
-    font-size: 2.5rem;
-}
-
-.product-name.card-title {
-    font-size: 1.1rem;
-    letter-spacing: 0;
-}
-
-a#review_count {
-    line-height: 1;
-    font-size: 1rem;
-}
-
-#product-price, #product-shades {
-    font-size: 1.2rem;
-}
-
-.product-image.card-img {
-    padding: 10px 10px;
-}
-
-#product-info a#product-reviews, 
-#product-info a#edit_product, 
-#product-info a#delete_product {
-    font-size: 1rem;
-    display: block;
-}
-
-#searchProducts.form-inline .form-control{
-    width: 100%;
-}
-
-#searchProducts.form-inline {
-    padding: 10px;
-}
-
-#searchBtn {
-    margin: auto;
-    font-size: 1rem;
-}
-
-#brandHead,
-#productName{
-    font-size: 1.8rem;
-    padding-top: 10px;
-}
-
-.product-brand.card-title {
-    font-size: 1.8rem;
-}
-
-.product-image.card-img {
-    padding: 10px 0px;
-}
-
-#productDetails{
-    padding: 0;
-}
-
-.product-info.card-body{
-    font-size: 1rem;
-}
-
-#product-info button#review, 
-#product-info a#product-reviews,
-#review-info a#delete_review{
-    font-size: 1rem;
-}
-
-a#more_reviews{
-    padding: 10px;
-    font-size: 1rem;
-
-}
-
-.no-review {
-    font-size: 1.7rem;
-    padding: 25px;
-}
-
-#review-info i,
-#userReviewInfo i{
-    font-size: 1.1rem;
-}
-
-/*Reviews Page*/
-a#product_back{
-    margin-top: 70px;
-    font-size: 1rem;
-}
-
-#reviewProductName{
-    font-size: 1.8rem;
-    padding-top: 20px;
-}
-
-#reviewHeader{
-    font-size: 2rem;
-}
-
-#review-info button#edit_review{
-    font-size: 1rem;
-    margin-top: 10px;
-}
-
-.container{
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.reviewBtns {
-    font-size: 1rem;
-    margin-top: 10px;
-    display: grid;
-}
-
-.rating.card-title {
-    font-size: 1.2rem;
-}
-
-/*404 Page*/
-.container-404 {
-    padding: 50px 0px;
-    margin-top: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-#header-404 {
-    font-size: 5.5rem;
-}
-
-#error-404 {
-    font-size: 1.8rem;
-}
-
-#sub-404, #message-404{
-    font-size: 1.6rem;
-}
-
-button#btn-404 {
-    padding: 10px;
-    font-size: 1.3rem;
-}
-}
 /* Medium devices (tablets, 768px and up) */
 
-@media screen and (min-width: 767px){
+@media screen and (min-width: 767px) {
 
-body{
-    padding: 0;
-}
+    body {
+        padding: 0;
+    }
 
-#navbarLogo.navbar-brand a {
-    font-size: 2.1rem;
-}
-    
-.navbar-light .navbar-nav .nav-link,
-.dropdown-menu{
-    font-size: 1.3rem;
-}
+    #navbarLogo.navbar-brand a {
+        font-size: 2.1rem;
+    }
 
-#searchHome.form-inline .form-control{
-    width: 80%;
-}
+    .navbar-light .navbar-nav .nav-link,
+    .dropdown-menu {
+        font-size: 1.3rem;
+    }
 
-#home{
-    padding: 50px;
-}
+    #searchHome.form-inline .form-control {
+        width: 80%;
+    }
 
-#registerCard.card-body{
-    padding: 50px 40px;
-}
+    #home {
+        padding: 50px;
+    }
 
-#registerBtn{
-    font-size: 1.5rem;
-}
+    #registerCard.card-body {
+        padding: 50px 40px;
+    }
 
-#registerHeading{
-    font-size: 2rem;
-}
+    #registerBtn {
+        font-size: 1.5rem;
+    }
 
-.form-group{
-    font-size: 1.2rem;
-}
+    #registerHeading {
+        font-size: 2rem;
+    }
 
-/*Profile Page*/
-#adminAccordion {
-    padding: 60px 30px;
-}
+    .form-group {
+        font-size: 1.2rem;
 
-#favourites,
-#accordion {
-    padding: 20px 40px;
-}
+    }
 
-#deleteAccount {
-    margin: auto;
-    padding: 10px 20px;
-    margin-bottom: 30px;
-    font-size: 1.6rem;
-}
+    /*Profile Page*/
+    #adminAccordion {
+        padding: 60px 30px;
+    }
 
-#userReviewInfo.card-body {
-    margin: 30px 5px;
-}
+    #favourites,
+    #accordion {
+        padding: 20px 40px;
+    }
 
-/*Add Category Page*/
-#categoryAdd.form-container,
-#categoryEdit.form-container{
-    height: 100vh;
-    padding-top: 50px;
-}
+    #deleteAccount {
+        margin: auto;
+        padding: 10px 20px;
+        margin-bottom: 30px;
+        font-size: 1.6rem;
+    }
 
-.category-input input.form-control,
-.category-input select.form-control,
-.product-input input.form-control,
-.product-input select.form-control,
-.product-input textarea.form-control{
-    width: 90%;
-}
+    #userReviewInfo.card-body {
+        margin: 30px 5px;
+    }
 
-#productManage {
-    padding-top: 60px;
-}
+    /*Add Category Page*/
+    #categoryAdd.form-container,
+    #categoryEdit.form-container {
+        height: 100vh;
+        padding-top: 50px;
+    }
 
-.category-card.card {
-    width: 70%;
-}
+    .category-input input.form-control,
+    .category-input select.form-control,
+    .product-input input.form-control,
+    .product-input select.form-control,
+    .product-input textarea.form-control {
+        width: 90%;
+    }
 
-/* Products/ProductInfo Pages */
-#searchProducts.form-inline .form-control {
-    width: 80%;
-}
+    #productManage {
+        padding-top: 60px;
+    }
 
-.product-image.card-img {
-    padding: 30px 150px;
-}
+    .category-card.card {
+        width: 70%;
+    }
 
-.product-text.card-body {
-    margin: 0px 10px;
-}
+    /* Products/ProductInfo Pages */
+    #searchProducts.form-inline .form-control {
+        width: 80%;
+    }
 
-#edit_review.btn-large,
-#add_review.btn-large{
-    margin-left: 15px;
-}
+    .product-image.card-img {
+        padding: 30px 150px;
+    }
 
-.no-review {
-    padding: 30px;
-}
+    .product-text.card-body {
+        margin: 0px 10px;
+    }
 
-#review-info.card-body {
-    margin: 30px 20px;
-}
+    #edit_review.btn-large,
+    #add_review.btn-large {
+        margin-left: 15px;
+    }
 
-/* Reviews Page*/
-#reviewsContainer{
-    padding-top: 20px;
-}
-#reviewHeader{
-    padding-top: 20px;
-}
+    .no-review {
+        padding: 30px;
+    }
 
-#reviewProductName{
-    font-size: 3.5rem;
-}
+    #review-info.card-body {
+        margin: 30px 20px;
+    }
 
-a#product_back{
-    margin-top: 70px;
-    font-size: 1rem;
-}
+    /* Reviews Page*/
+    #reviewsContainer {
+        padding-top: 20px;
+    }
 
-/*Manage Users Page*/
-#manageUsers{
-    margin-top: 60px;
-}
+    #reviewHeader {
+        padding-top: 20px;
+    }
 
-#accounts{
-    padding-top: 10px;
-}
+    #reviewProductName {
+        font-size: 3.5rem;
+    }
 
-#footer-details {
-    font-size: 1.3rem;
-    padding: 10px;
-}
+    a#product_back {
+        margin-top: 70px;
+        font-size: 1rem;
+    }
+
+    /*Manage Users Page*/
+    #manageUsers {
+        margin-top: 60px;
+    }
+
+    #accounts {
+        padding-top: 10px;
+    }
+
+    #footer-details {
+        font-size: 1.3rem;
+        padding: 10px;
+    }
 }
 
 /*Large devices (desktops, 992px and up)*/
 
-@media screen and (min-width: 992px) {
-}
+@media screen and (min-width: 992px) {}

@@ -8,9 +8,9 @@
     </form>
     <!--Header to return number of results found from query search-->
     {% if query %}
-    {% if results >= 1 %}
-    <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
-    {% endif %}
+        {% if results >= 1 %}
+            <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
+        {% endif %}
     {% endif %}
     <!--Product Brand-->
     <h2 id="brandHead" class="category-header">{{product.brand}}</h2>
@@ -28,17 +28,13 @@
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if session.user|lower %}
                     <!--If product already in favourites - add full coloured heart-->
-                    {% if product._id in favourites %}
-                            <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active"
-                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
-                                title="Remove from Favourites"><i class="fas fa-heart"></i>
-                            </a>
+                        {% if product._id in favourites %}
+                        <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
+                        </a>
                         <!--If product not in user favourites - show outlined heart-->
                         {% else %}
-                            <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active"
-                                role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left"
-                                title="Add to Favourites"><i class="far fa-heart"></i>
-                            </a>
+                        <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
+                        </a>
                         {% endif %}
                     {% endif %}
                     <!--Product Card - details about the specific product-->
@@ -47,31 +43,31 @@
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
                     <!--Product Rating Average-->
                     {% for rating in ratings %}
-                        <!-- only apply if the product._id matches the rating._id -->
-                        {% if product._id == rating._id %}
-                            <!-- set variable "count" to the leftover value deducted from rating.average -->
-                            {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
-                            <!-- for each star in the rating.average, insert whole-star -->
-                            {% for star in range(rating.average|int) %}
-                                <i id="star" class="fas fa-star"></i>
-                            {% endfor %}
-                            <!-- for each half-star in rating.average, insert half-star -->
-                            {% if ".5" in rating.average|string %}
-                                <i class="fas fa-star-half-alt"></i>
-                            {% endif %}
-                            <!-- for each remaining value in "count" variable, insert empty-star -->
-                            {% for star in range(count) %}
-                                <i id="star" class="far fa-star"></i>
-                            {% endfor %}
-                        {% endif %}
+                    <!-- only apply if the product._id matches the rating._id -->
+                    {% if product._id == rating._id %}
+                    <!-- set variable "count" to the leftover value deducted from rating.average -->
+                    {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
+                    <!-- for each star in the rating.average, insert whole-star -->
+                    {% for star in range(rating.average|int) %}
+                    <i id="star" class="fas fa-star"></i>
+                    {% endfor %}
+                    <!-- for each half-star in rating.average, insert half-star -->
+                    {% if ".5" in rating.average|string %}
+                    <i class="fas fa-star-half-alt"></i>
+                    {% endif %}
+                    <!-- for each remaining value in "count" variable, insert empty-star -->
+                    {% for star in range(count) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %}
+                    {% endif %}
                     {% endfor %}
                     <!--if product has no reviews-->
                     {% if review_count == 0 %}
-                        {% set count = 5  %}
-                        <!-- for each star in the range(count), insert whole-star -->
-                        {% for star in range(count) %}
-                            <i id="star" class="far fa-star"></i>
-                        {% endfor %}
+                    {% set count = 5  %}
+                    <!-- for each star in the range(count), insert whole-star -->
+                    {% for star in range(count) %}
+                    <i id="star" class="far fa-star"></i>
+                    {% endfor %}
                     {% endif %}
                     <p class="product-card card-text"><strong id="description">Description:</strong></p>
                     <p class="product-card card-text">{{product.description}}</p>
@@ -81,25 +77,21 @@
                             href="{{ product.buy_url}}" target="_blank">Buy Here!</a></span>--><br>
                     <!--Button to add a review for the product - only available to registered users-->
                     {% if session.user|lower %}
-                    <button type="button" id="review" class="btn btn-lg review-btn" data-toggle="modal"
-                        data-target="#addReview">
+                    <button type="button" id="review" class="btn btn-lg review-btn" data-toggle="modal" data-target="#addReview">
                         Add Review
                     </button>
                     <!--Button to edit a product from the db - available to admin only-->
                     {% elif session.user|lower == "admin"|lower %}
-                    <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button"
-                        class="btn btn-lg review-btn" id="edit_product">
+                    <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="edit_product">
                         Edit Product
                     </a>
-                     <!--Button to delete a product from the db - available to admin only-->
-                    <a href="{{ url_for('delete_product', product_id=product._id) }}" type="button"
-                        class="btn btn-lg review-btn" id="delete_product">
+                    <!--Button to delete a product from the db - available to admin only-->
+                    <a href="{{ url_for('delete_product', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="delete_product">
                         Delete Product
                     </a>
                     {% endif %}
                     <!--Adding a Review using a Modal Popup-->
-                    <div class="modal fade" id="addReview" tabindex="-1" role="dialog"
-                        aria-labelledby="addReviewLabel" aria-hidden="true">
+                    <div class="modal fade" id="addReview" tabindex="-1" role="dialog" aria-labelledby="addReviewLabel" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -110,14 +102,12 @@
                                 </div>
                                 <div class="modal-body">
                                     <div class="row form-group">
-                                        <form class=" review-form col-12" method="POST"
-                                            action=" {{url_for('add_review', product_id= product._id)}}">
+                                        <form class=" review-form col-12" method="POST" action=" {{url_for('add_review', product_id= product._id)}}">
                                             <!-- Review Tagline -->
                                             <div class="row">
                                                 <div class=" product-input input-field col-12">
                                                     <label for="title">Title: </label>
-                                                    <input class="form-control" id="title" name="title" minlength="3"
-                                                        maxlength="25" type="text" class="validate" required>
+                                                    <input class="form-control" id="title" name="title" minlength="3" maxlength="25" type="text" class="validate" required>
                                                 </div>
                                             </div>
                                             <!--Product Rating-->
@@ -126,16 +116,11 @@
                                                     <legend id="starRating"><i class="fas fa-star"></i> Star Rating
                                                     </legend>
                                                     <div id="radio" class="md-form mb-5">
-                                                        <label class="radio-inline"> <input type="radio" name="rating"
-                                                                id="rating" value=1 /> 1 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating"
-                                                                id="rating" value=2 /> 2 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating"
-                                                                id="rating" value=3 /> 3 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating"
-                                                                id="rating" value=4 /> 4 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating"
-                                                                id="rating" value=5 /> 5 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=1 /> 1 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=2 /> 2 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=3 /> 3 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=4 /> 4 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=5 /> 5 </label>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -143,9 +128,7 @@
                                             <div class="row">
                                                 <div class=" product-input col-12">
                                                     <label for="review_content">Review: </label>
-                                                    <textarea class="form-control" id="review_content"
-                                                        name="review_content" minlength="3" type="text" rows="2"
-                                                        class="validate" required></textarea>
+                                                    <textarea class="form-control" id="review_content" name="review_content" minlength="3" type="text" rows="2" class="validate" required></textarea>
                                                 </div>
                                             </div>
                                             <!--Repurchase Checkbox-->
@@ -195,34 +178,33 @@
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <!--Review Rating-->
                     <h5 class="rating card-title">Rating:
-                    <!-- set variable "count" to the leftover value deducted from review rating -->
-                    {% set count = (5 - review.rating)%}
-                    <!-- for each star in the review rating, insert whole-star -->
-                    {% for star in range(review.rating|int) %}
-                    <i id="star" class="fas fa-star"></i>
-                    {% endfor %}
-                    <!-- for each remaining value in "count" variable, insert empty-star -->
-                    {% for star in range(count) %}
-                    <i id="star" class="far fa-star"></i>
-                    {% endfor %} 
+                        <!-- set variable "count" to the leftover value deducted from review rating -->
+                        {% set count = (5 - review.rating)%}
+                        <!-- for each star in the review rating, insert whole-star -->
+                        {% for star in range(review.rating|int) %}
+                        <i id="star" class="fas fa-star"></i>
+                        {% endfor %}
+                        <!-- for each remaining value in "count" variable, insert empty-star -->
+                        {% for star in range(count) %}
+                        <i id="star" class="far fa-star"></i>
+                        {% endfor %}
                     </h5>
                     <p class="card-text "><strong id="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>
                     {% if review.repurchase == "on" %}
                     <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
                     {% else %}
-                    <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left"
-                        title="Wouldn't buy again"></i>
+                    <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left" title="Wouldn't buy again"></i>
                     {% endif %}
                     <p class="card-text "><strong id="added_by">Added By: </strong>
-                        {{ review.created_by|capitalize}}</p>
+                        {{ review.created_by|capitalize}}
+                    </p>
                     <span class="card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
                         <!--Button to delete review from db if the review was written by the user or the user is admin-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a href="{{url_for('delete_review', review_id=review._id)}}" type="button"
-                            class="btn btn-lg review-btn" id="delete_review">
+                        <a href="{{url_for('delete_review', review_id=review._id)}}" type="button" class="btn btn-lg review-btn" id="delete_review">
                             Delete Review
                         </a>
                         {% endif %}
@@ -236,10 +218,9 @@
 </div>
 <!--Button to show all reviews for the product if more than the 5 displayed-->
 {% if review_count >=1 %}
-<div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button"
-    class="btn btn-lg review-btn" id="more_reviews">
-    More Reviews...
-</a>
+<div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button" class="btn btn-lg review-btn" id="more_reviews">
+        More Reviews...
+    </a>
 </div>
 {% endif %}
 </div>
