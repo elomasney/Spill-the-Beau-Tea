@@ -87,7 +87,7 @@ body {
 
 .flashes h4 {
     line-height: 1;
-    padding-top: 50px;
+    padding-top: 25px;
     font-family: "Lato", sans-serif;
     font-weight: bold;
     color: #fafd42;
@@ -1576,7 +1576,7 @@ button#btn-404 a {
     /*Add Category Page*/
     #categoryAdd.form-container,
     #categoryEdit.form-container {
-        height: 100vh;
+        height: 100%;
         padding-top: 50px;
     }
 
