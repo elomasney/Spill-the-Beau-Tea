@@ -349,6 +349,7 @@ button.swal2-confirm.swal2-styled {
     padding: 10px 30px;
     margin-left: 50px;
     margin-top: 10px;
+    border-radius: 5px;
 }
 
 #edit_category.btn-large a,
@@ -373,7 +374,7 @@ button.swal2-confirm.swal2-styled {
 .category-input input,
 .product-input input,
 .product-input select {
-    padding: 5px 50px;
+    padding: 5px 5px;
 }
 
 .category-input select {
@@ -502,7 +503,9 @@ textarea#description.form-control {
 }
 
 select#category_name.form-control {
-    padding: 0 200px;
+   width: 60%;
+   border-radius: 5px;
+   padding: 0 100px;
 }
 
 #product.product-card.card,
@@ -770,11 +773,12 @@ textarea.form-control {
 
 /*Register Page*/
 .register-container {
-    height: 100%;
+    min-height: 100%;
     padding-top: 80px;
 }
 
-#registerHeading {
+#registerHeading,
+#loginHeading {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-size: 2.5rem;
@@ -810,7 +814,8 @@ textarea.form-control {
 
 }
 
-#registerForm {
+#registerForm,
+#loginForm {
     border: none;
     padding-bottom: 20px;
 }
@@ -823,6 +828,7 @@ textarea.form-control {
     letter-spacing: .1rem;
     font-size: 1.3rem;
     display: inline;
+    border-radius: 5px;
 }
 
 .form-group i {
@@ -834,6 +840,12 @@ textarea.form-control {
 }
 
 /*LogIn Page*/
+
+.login-container{
+    height: 100vh;
+    padding-top: 80px;
+}
+
 #registerLink,
 #loginLink {
     text-align: center;
@@ -952,6 +964,7 @@ hr#userReviews {
 #deleteAccount {
     margin: 30px 40px;
     padding: 10px 10px;
+    border-radius: 5px;
 }
 
 /*404 Page*/
@@ -1241,7 +1254,9 @@ button#btn-404 a {
     }
 
     select#category_name.form-control {
-        padding: 0px 65px;
+        width: 100%;
+        border-radius: 5px;
+        padding: 0 60px;
     }
 
     .product-form {
@@ -1249,12 +1264,8 @@ button#btn-404 a {
         padding: 30px 10px;
     }
 
-    #productManage {
-        padding-top: 50px;
-    }
-
     .addProduct {
-        padding: 20px;
+        padding: 5px;
     }
 
     .category-card.card {
@@ -1611,4 +1622,13 @@ button#btn-404 a {
 
 /*Large devices (desktops, 992px and up)*/
 
-@media screen and (min-width: 992px) {}
+@media screen and (min-width: 992px) {
+
+    .category-input input.form-control,
+    .category-input select.form-control,
+    .product-input input.form-control,
+    .product-input select.form-control,
+    .product-input textarea.form-control {
+        width: 70%;
+    }
+}
