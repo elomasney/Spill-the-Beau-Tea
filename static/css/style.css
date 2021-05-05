@@ -805,6 +805,10 @@ textarea.form-control {
     color: #fafd42;
 }
 
+#passwordHelpBlock.form-text.text-muted{
+    color: #fafd42 !important;
+}
+
 /*LogIn Page*/
 #registerLink,
 #loginLink {
