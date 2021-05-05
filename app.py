@@ -290,12 +290,12 @@ def delete_product(product_id):
 def manage_reviews():
     # Gets all reviews from the db
     # Sorts by product id
-    products = list(mongo.db.products.find())
+    product = list(mongo.db.products.find())
     reviews = list(mongo.db.reviews.find().sort("product", 1))
     # Gets users from db to display certain items depending on user
     user = mongo.db.users.find_one({"username": session["user"]})
     return render_template(
-        "reviews.html", reviews=reviews, products=products, user=user)
+        "reviews.html", reviews=reviews, product=product, user=user)
 
 
 @app.route("/reviews/<product_id>")

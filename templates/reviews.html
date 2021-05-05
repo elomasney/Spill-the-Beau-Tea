@@ -3,20 +3,21 @@
 
 <div id="reviewsContainer" class="container">
     <!--Button to direct user back to the product info page-->
-    <div class="col-md-12 text-left"><a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product_back">
+    {% if session.user|lower != "admin"|lower %}
+    <div class="col-md-12 text-left">
+        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product_back">
             < Go to Product</a>
     </div>
     <!--Displays the product name and brand of the product related to the reviews shown-->
-    {% if session.user|lower != "admin"|lower %}
     <h2 id="reviewProductName" class="category-header">{{product.brand}}: {{product.product_name}}</h2>
     {% endif %}
     <h2 id="reviewHeader" class="category-header">Reviews</h2>
     <!--Displays review information-->
     {% for review in reviews %}
-    <div id="reviews" class="card product-card mb-3 col-md-12">
+    <div id="reviews_{{review._id}}" class="reviews card product-card mb-3 col-md-12">
         <div class="row">
-            <div id="reviewCard" class="col-md-12">
-                <div id="review-info" class="review-text card-body">
+            <div id="reviewCard_{{review._id}}" class="col-md-12">
+                <div id="reviewInfo_{{review._id}}" class="review-text card-body">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
                     <!--Review Rating-->
                     <h5 class="rating card-title">Rating:
@@ -31,30 +32,31 @@
                         <i id="star" class="far fa-star"></i>
                         {% endfor %}
                     </h5>
-                    <p class="card-text "><strong id="reviewText">Review:</strong></p>
-                    <p class="card-text ">{{review.review}}</p>
+                    <p class="review-card card-text "><strong id="reviewText">Review:</strong></p>
+                    <p class="review-card card-text ">{{review.review}}</p>
                     {% if review.repurchase == "on" %}
                     <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
                     {% else %}
                     <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left" title="Wouldn't buy again"></i>
                     {% endif %}
-                    <p class="card-text "><strong id="added_by">Added By: </strong>
+                    <p class="review-card card-text "><strong id="added_by">Added By: </strong>
                         {{ review.created_by|capitalize}}
                     </p>
-                    <span class="card-text "> <strong id="created_by">Added On:
+                    <span class="review-card card-text "> <strong id="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class=" reviewBtns text-center">
                         <!--Button to edit the review in the db - only if the user created the review-->
                         {% if review.created_by == session['user']%}
-                        <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal" data-target="#Modal_{{review._id}}">
+                        <button type="button" class="edit_review btn btn-lg review-btn" data-toggle="modal" data-target="#Modal_{{review._id}}">
                             Edit Review
                         </button>
                         {% endif%}
                         <!--Button to delete review from the db - only if the user created the review-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a id="delete_review" data-href="{{url_for('delete_review', review_id=review._id)}}" type="button" class="review_delete btn btn-lg review-btn">
+                        <a data-href="{{url_for('delete_review', review_id=review._id)}}" type="button" class="review_delete btn btn-lg review-btn">
                             Delete Review
                         </a>
+                        
                         {% endif %}
                     </div>
                 </div>
@@ -68,7 +70,7 @@
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
-                        <h5 class="modal-title" id="reviewModal">Edit Review</h5>
+                        <h5 class="modal-title" id="reviewModal{{review._id}}">Edit Review</h5>
 
                     </div>
                     <div class="modal-body">
@@ -121,11 +123,11 @@
                     <div class="modal-footer">
                         <!-- submit button -->
                         <div class="row">
-                            <div id="reviewModalBtns" class="col-12 ">
-                                <button id="edit_review" type="submit" class="btn-large"><a href="
+                            <div class=" reviewModalBtns col-12 ">
+                                <button type="submit" class="edit_review btn-large"><a href="
                                                     {{url_for('reviews', product_id=product._id)}}">
                                         Cancel <i class="fas fa-times-circle right"></i></a></button>
-                                <button id="add_review" type="submit" class="btn-large">
+                                <button type="submit" class="edit_review btn-large">
                                     Edit Review <i class="fas fa-plus-square right"></i>
                                 </button>
                             </div>

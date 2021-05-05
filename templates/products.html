@@ -18,7 +18,7 @@
     <h2 class="category-header">Products</h2>
 
     {% for product in products %}
-    <div id="product" class="card product-card mb-3 col-md-12">
+    <div id="product_{{product._id}}" class="card product-card mb-3 col-md-12">
         <div class="row">
             <!--Product Image-->
             <div class="col-md-12 col-lg-5">
@@ -26,7 +26,7 @@
             </div>
             <!--Product Information - details about the product-->
             <div class="col-md-12 col-lg-7">
-                <div id="product-info" class="product-text card-body">
+                <div id="product-info_{{product._id}}" class="product-text card-body">
                     {% if session.user|lower %}
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if product._id in favourites %}
@@ -50,7 +50,7 @@
                     {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
                     <!-- for each star in the rating.average, insert whole-star -->
                     {% for star in range(rating.average|int) %}
-                    <i id="star" class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                     {% endfor %}
                     <!-- for each half-star in rating.average, insert half-star -->
                     {% if ".5" in rating.average|string %}
@@ -58,7 +58,7 @@
                     {% endif %}
                     <!-- for each remaining value in "count" variable, insert empty-star -->
                     {% for star in range(count) %}
-                    <i id="star" class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                     {% endfor %}
                     <!--Shows review count for the product-->
                     <!--Acts as a link to direct users to the reviews for that product-->
@@ -70,28 +70,28 @@
                     <!-- if product has no reviews, set 5 empty stars -->
                     {% if product._id not in has_rating %}
                     {% for star in range(5) %}
-                    <i id="star" class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                     {% endfor %}
                     {% endif %}
-                    <p id="product-shades" class="card-text">
+                    <p class="product-shades card-text">
                         <strong>Shades: </strong> {{ product.num_shades }}
                     </p>
-                    <span id="product-price" class="card-text">
+                    <span class=" product-price card-text">
                         <strong>Price: </strong>
                         €{{ product.price }}
                     </span>
-                    <div id="productBtns">
+                    <div class ="productBtns">
                         <!--A link to direct users to the product-info page, a more detailed page on the specific product-->
-                        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product-reviews">
+                        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="products-btns btn-lg review-btn">
                             More Info...
                         </a>
                         <!--Button to edit the product in the db - only displayed if user is Admin-->
                         {% if session.user|lower == "admin"|lower %}
-                        <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="edit_product">
+                        <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button" class="products-btns btn-large review-btn">
                             Edit Product
                         </a>
                         <!-- Button to delete a product from the db - only displayed if user is admin-->
-                        <a id="delete_product" data-href="{{ url_for('delete_product', product_id=product._id) }}" type="button" class="product_delete btn btn-lg review-btn" id="delete_product">
+                        <a id="delete_product" data-href="{{ url_for('delete_product', product_id=product._id) }}" type="button" class="product_delete products-btns btn-large review-btn">
                             Delete Product
                         </a>
                     </div>

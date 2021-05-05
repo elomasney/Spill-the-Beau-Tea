@@ -15,16 +15,16 @@
             {% if session.user|lower == "admin"|lower %}
             <div id="adminAccordion" class="accordion">
                 <div class="admin-manage card">
-                    <div class="admin-heading card-header" id="headingOne">
+                    <div class="admin-heading card-header" id="manageOne">
                         <h2 class="mb-0">
                             <!--Button to display manage options to admin-->
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdminOne" aria-expanded="true" aria-controls="collapseOne">
                                 Manage
                             </button>
                         </h2>
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#adminAccordion">
+                    <div id="collapseAdminOne" class="collapse" aria-labelledby="manageOne" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct Admin to view all categories in the db-->
                             <button>
@@ -54,15 +54,15 @@
                     </div>
                 </div>
                 <div class="admin-manage card">
-                    <div class="admin-heading card-header" id="headingTwo">
+                    <div class="admin-heading card-header" id="manageTwo">
                         <h2 class="mb-0">
                             <!--Button to display the option to manage users-->
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminTwo" aria-expanded="false" aria-controls="collapseTwo">
                                 Users
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#adminAccordion">
+                    <div id="collapseAdminTwo" class="collapse" aria-labelledby="manageTwo" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link that directs Admin to a list of all users-->
                             <button><a href="{{url_for('manage_users')}}">Manage Users</a></button>
@@ -70,15 +70,15 @@
                     </div>
                 </div>
                 <div class="admin-manage card">
-                    <div class="admin-heading card-header" id="headingThree">
+                    <div class="admin-heading card-header" id="manageThree">
                         <h2 class="mb-0">
                             <!--Button to show option to Admin to manage reviews-->
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminThree" aria-expanded="false" aria-controls="collapseThree">
                                 Reviews
                             </button>
                         </h2>
                     </div>
-                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#adminAccordion">
+                    <div id="collapseAdminThree" class="collapse" aria-labelledby="manageThree" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct admin to a list of all reviews in the database-->
                             <button><a href="{{ url_for('manage_reviews')}}">All Reviews</a></button>
@@ -87,27 +87,27 @@
                 </div>
             </div>
             {% else %}
-            <!--Itmes displayed for every other user with an account-->
+            <!--Items displayed for every other user with an account-->
             <!--Favourite Products List-->
             <div class="row">
                 <div id="favourites" class="col-md-12">
                     <h3 id="favouritesHeading" class="category-header">Favourites <i id="profile-heart" class="fas fa-heart"></i></h3>
                     {% for product_info in favourites %}
-                    <div id="favAccordion" class="text-center">
+                    <div id="favAccordion_{{favourites._id}}" class="favouriteAccordion text-center">
                         <div class="favourites card">
-                            <div class="card-header" id="headingOne">
+                            <div class="card-header" id="favourite_{{product_info._id}}">
                                 <h5 class="mb-0">
                                     <!--Displays the product name and brand in an accordion list-->
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapse" aria-expanded="true" aria-controls="collapseOne">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFav_{{favourites._id}}" aria-expanded="true" aria-controls="collapseOne">
                                         {{product_info.brand}} : {{product_info.product_name}}
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="collapse" class="collapse show" aria-labelledby="headingOne" data-parent="#favAccordion">
+                            <div id="collapseFav_{{favourites._id}}" class="collapse show" aria-labelledby="favourite_{{product_info._id}}" data-parent="#favAccordion_{{favourites._id}}">
                                 <!--Button provided to user to remove an item from their favourites list. 
                                     It will delete the item from user favourites in the db-->
-                                <div id="favouriteCard" class="card-body">
+                                <div id="favouriteCard_{{favourites._id}}" class="favourite-card card-body">
                                     <a href="{{ url_for('delete_favourite', product_id=product_info._id)}}">
                                         Delete Product</a>
                                 </div>
@@ -121,11 +121,11 @@
                             <hr id="userReviews">
                             <h3 class="category-header">My Reviews</h3>
                             {% for reviews in user_reviews %}
-                            <div id="reviews" class="card product-card mb-3 col-md-12">
+                            <div class="card product-card mb-3 col-md-12">
                                 <div class="row">
                                     <div class="col-md-12">
                                         <!--Review Details-->
-                                        <div id="userReviewInfo" class="review-text card-body">
+                                        <div id="userReviewInfo_{{reviews._id}}" class="review-text card-body">
                                             {% for product in products %}
                                             {% if reviews.product == product._id%}
                                             <h3 class="product card-title">{{ product.product_name }}</h3>
@@ -158,10 +158,14 @@
                                                 </strong>{{ reviews.created_on}}</span>
                                             <div class="reviewBtns text-center">
                                                 <!--Button to allow user to edit the review in the db-->
-                                                <button type="button" id="edit_review" class="btn btn-lg review-btn" data-toggle="modal" data-target="#editReview_{{reviews._id}}">
+                                                <button type="button" class="edit_review btn btn-lg review-btn" data-toggle="modal" data-target="#editReview_{{reviews._id}}">
                                                     Edit Review
                                                 </button>
-
+                                                 <!--Button to allow user to delete their review from the db-->
+                                         
+                                                    <a data-href="{{url_for('delete_review', review_id=reviews._id)}}" type="button" class="review_delete btn btn-lg review-btn">
+                                                        Delete Review
+                                                    </a>
                                                 <!--Editing a Review using a Modal Popup-->
                                                 <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="editReviewLabel" aria-hidden="true">
                                                     <div class="modal-dialog modal-lg" role="document">
@@ -181,31 +185,31 @@
                                                                         <div class="row">
                                                                             <div class=" product-input input-field col-12">
                                                                                 <label for="title">Title: </label>
-                                                                                <input class="form-control" id="title" name="title" minlength="3" value="{{reviews.title}}" maxlength="25" type="text" class="validate" required>
+                                                                                <input class="form-control" id="editTitle" name="title" minlength="3" value="{{reviews.title}}" maxlength="25" type="text" class="validate" required>
                                                                             </div>
                                                                         </div>
 
                                                                         <!--Product Rating-->
                                                                         <div>
                                                                             <fieldset>
-                                                                                <legend id="starRating"><i class="fas fa-star"></i>
+                                                                                <legend id="editStarRating"><i class="fas fa-star"></i>
                                                                                     Star Rating
                                                                                 </legend>
-                                                                                <div id="radio" class="md-form mb-5">
+                                                                                <div id="editRadio" class="md-form mb-5">
                                                                                     <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating" value="1" required /> 1
+                                                                                        <input type="radio" name="rating" id="rating1" value="1" required /> 1
                                                                                     </label>
                                                                                     <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating" value="2" required /> 2
+                                                                                        <input type="radio" name="rating" id="rating2" value="2" required /> 2
                                                                                     </label>
                                                                                     <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating" value="3" required /> 3
+                                                                                        <input type="radio" name="rating" id="rating3" value="3" required /> 3
                                                                                     </label>
                                                                                     <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating" value="4" required /> 4
+                                                                                        <input type="radio" name="rating" id="rating4" value="4" required /> 4
                                                                                     </label>
                                                                                     <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating" value="5" required /> 5
+                                                                                        <input type="radio" name="rating" id="rating5" value="5" required /> 5
                                                                                     </label>
                                                                                 </div>
                                                                             </fieldset>
@@ -213,17 +217,17 @@
                                                                         <!--Product Review-->
                                                                         <div class="row">
                                                                             <div class=" product-input col-12">
-                                                                                <label for="review_content">Review:
+                                                                                <label for="edit_review_content">Review:
                                                                                 </label>
-                                                                                <textarea class="form-control" id="review_content" value="{{reviews.review}}" name="review_content" minlength="3" type="text" rows="2" class="validate" required>{{reviews.review}}</textarea>
+                                                                                <textarea class="form-control" id="edit_review_content" value="{{reviews.review}}" name="review_content" minlength="3" type="text" rows="2" class="validate" required>{{reviews.review}}</textarea>
                                                                             </div>
                                                                         </div>
                                                                         <!--Repurchase Checkbox-->
                                                                         <div class="switch">
                                                                             <i class="fas fa-thumbs-up"></i>
-                                                                            <label for="repurchase">Would you
+                                                                            <label for="editRepurchase">Would you
                                                                                 repurchase?</label>
-                                                                            <input type="checkbox" id="repurchase" name="repurchase">
+                                                                            <input type="checkbox" id="editRepurchase" name="repurchase">
                                                                             <span class="lever"></span>
                                                                         </div>
                                                                 </div>
@@ -232,10 +236,10 @@
                                                                 <!-- submit button -->
                                                                 <div class="row">
                                                                     <div id="profileReviewBtns" class="col-12 ">
-                                                                        <button id="edit_category" type="submit" class="btn-large"><a href="
+                                                                        <button type="submit" class="edit_review btn-large"><a href="
                                                                             {{ url_for ('profile', username=session['user'])}}">
                                                                                 Cancel <i class="fas fa-times-circle right"></i></a></button>
-                                                                        <button id="add_product" type="submit" class="btn-large">
+                                                                        <button type="submit" class="edit_review btn-large">
                                                                             Edit Review <i class="fas fa-plus-square right"></i>
                                                                         </button>
                                                                     </div>
@@ -245,10 +249,6 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <!--Button to allow user to delete their review from the db-->
-                                                <a id="delete_review" data-href="{{url_for('delete_review', review_id=reviews._id)}}" type="button" class="review_delete btn btn-lg review-btn">
-                                                    Delete Review
-                                                </a>
                                             </div>
                                         </div>
                                     </div>
