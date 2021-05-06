@@ -47,10 +47,25 @@ This project is a makeup review website developed with the purpose of providing 
 This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with use of vivid imagery and a bold and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is a user friendly, and easy to navigate with clear calls to action.
 
 ### **_User Stories_**
-In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
+- As a user I would like to understand the purpose of the website, who it is for and how it works
+- As a user I want to be able to create my own profile that holds all my content
+- As a user, I want to be able to navigate the website with ease.
+- As a user, I would like the ability to edit and delete the content I create
+- As a user I want to access reviews posted by other users
+- As a user, I want the ability to provide a rating for the product I am reviewing
+- As a user I would like to add my favourite products to my profile
+- As a user, I want to be able to delete my account
+- As a user, I want the ability to search for products by name, brand or category
+- As a user, I would like to add a review to any product available on the website
+- As a user, I want the ability to remove products I have added to my favourites list
+- As a user, I want the site to visually identify if a product has already been added to my list of favourite products.
+- As the owner and user, I want to provide a reliable platform that encourages users to get involved and create content
+- As the owner and user, I want to provide users with relevant and current information
+- As the owner and user, I want a website that is fun, vibrant and inviting.
+- As the owner and user, I want to be able to add, update or delete products on the website
+- As the owner, I want to be able to remove any reviews or users if necessary (e.g. inappropriate content)
+- As the owner and user, I want the ability to create, update and delete categories
 
-As a user type, I want to perform an action, so that I can achieve a goal.
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 ### **_Strategy Plane_**
 Database Schema
 
