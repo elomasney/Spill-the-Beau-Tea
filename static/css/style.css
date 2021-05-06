@@ -583,7 +583,6 @@ a.btn.heart i {
 }
 
 .product-image.card-img {
-    padding: 100px 50px;
     height: 100%;
 }
 
@@ -1601,7 +1600,7 @@ button#btn-404 a {
     }
 
     .product-image.card-img {
-        padding: 30px 150px;
+        padding: 40px 150px;
     }
 
     .product-text.card-body {
@@ -1666,5 +1665,9 @@ button#btn-404 a {
 
     select#category_name.form-control {
         padding: 0 350px;
+    }
+
+    .product-text.card-body{
+        margin: 80px 10px;
     }
 }
