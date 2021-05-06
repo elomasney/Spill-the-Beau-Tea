@@ -401,7 +401,8 @@ a.review_delete,
     width: 50%;
 }
 
-.category-input option {
+.category-input option,
+#category_name option {
     background-color: #ff0080;
     color: #fafd42;
     font-size: 1.2rem;
@@ -1665,5 +1666,10 @@ button#btn-404 a {
 
     .category-input select.form-control{
         width: 40%;
+        
+    }
+
+    select#category_name.form-control {
+        padding: 0 350px;
     }
 }

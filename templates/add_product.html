@@ -7,25 +7,11 @@
     <div class="row form-group">
         <!--Form for adding a Product to the db-->
         <form class=" product-form col-12" method="POST" action="{{ url_for('add_product') }}">
-            <!-- Product Name -->
-            <div class="row">
-                <div class=" product-input input-field col-12">
-                    <label for="product_name"> Product Name: </label>
-                    <input class="form-control" id="product_name" name="product_name" minlength="3" maxlength="25" type="text" class="validate" required>
-                </div>
-            </div>
-            <!--Product Brand-->
-            <div class="row">
-                <div class=" product-input input-field col-12">
-                    <label for="brand">Product Brand: </label>
-                    <input class="form-control" id="brand" name="brand" minlength="3" maxlength="25" type="text" class="validate" required>
-                </div>
-            </div>
             <!--Product Category-->
             <div class="row">
                 <div id="product-dropdown" class=" product-input input-field col-12">
                     <label for="category_name"> Product Category</label>
-                    <select class="form-control" id="category_name" name="category_name" class="validate" required>
+                    <select class="form-control" id="category_name" name="category_name" required>
                         <option value="" disabled selected>Choose Category</option>
                         {% for category in categories %}
 
@@ -35,39 +21,53 @@
                     </select>
                 </div>
             </div>
+            <!-- Product Name -->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="product_name"> Product Name: </label>
+                    <input class="form-control" id="product_name" name="product_name" minlength="3" maxlength="30" type="text" required>
+                </div>
+            </div>
+            <!--Product Brand-->
+            <div class="row">
+                <div class=" product-input input-field col-12">
+                    <label for="brand">Product Brand: </label>
+                    <input class="form-control" id="brand" name="brand" minlength="3" maxlength="30" type="text" required>
+                </div>
+            </div>
             <!--Product Image-->
             <div class="row">
                 <div class=" product-input col-12">
                     <label for="product_image">Product Image:(image url) </label>
-                    <input class="form-control" id="product_image" name="product_image" type="text" class="validate" required>
+                    <input class="form-control" id="product_image" name="product_image" type="text" required>
                 </div>
             </div>
             <!--Product Description-->
             <div class="row">
                 <div class=" product-input col-12">
                     <label for="description"> Product Description: </label>
-                    <textarea class="form-control" id="description" name="description" minlength="3" type="text" rows="2" class="validate" required></textarea>
+                    <textarea class="form-control" id="description" name="description" minlength="3" type="text" rows="2" required></textarea>
                 </div>
             </div>
             <!--Product Price-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="product_price"> Price €: </label>
-                    <input class="form-control" id="product_price" name="product_price" minlength="1" maxlength="5" type="text" class="validate" required>
+                    <input class="form-control" id="product_price" name="product_price" minlength="1" maxlength="5" type="text" required>
                 </div>
             </div>
             <!--Product Shades Available-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="shades"> No. of Shades: </label>
-                    <input class="form-control" id="shades" name="shades" type="number" class="validate" required>
+                    <input class="form-control" id="shades" name="shades" type="number" required>
                 </div>
             </div>
             <!--Purchase Link-->
             <div class="row">
                 <div class=" product-input input-field col-12">
                     <label for="buy_url"> Where to Buy: (url link) </label>
-                    <input class="form-control" id="buy_url" name="buy_url" minlength="3" maxlength="25" type="text" class="validate" required>
+                    <input class="form-control" id="buy_url" name="buy_url" minlength="3" type="text" required>
                 </div>
             </div>
             <!-- submit button -->

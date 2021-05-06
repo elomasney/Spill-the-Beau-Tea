@@ -10,7 +10,7 @@
              <div class="row">
                 <div class=" category-input col-12">
                     <label class="col-form-label" for="category_group">Category Group: <i class="fas fa-folder-open prefix"></i></label>
-                    <select class="form-control" id="category_group" name="category_group" class="validate" required>
+                    <select class="form-control" id="category_group" name="category_group" required>
                         <option value="" selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
                         <option value="{{category['_id']}}">{{category["_id"]}}</option>
@@ -22,14 +22,14 @@
             <div class="row">
                 <div class="category-input col-12">
                     <label class=" col-form-label" for="category_name">Category Name: <i class="fas fa-folder-open"></i></label>
-                    <input class="form-control" id="category_name" name="category_name" value="{{category.category_name}}" minlength="3" maxlength="25" type="text" class="validate" required>
+                    <input class="form-control" id="category_name" name="category_name" value="{{category.category_name}}" minlength="3" maxlength="30" type="text" required>
                 </div>
             </div>
             <!-- Category Image -->
             <div class="row">
                 <div class=" category-input col-12">
                     <label class=" col-form-label" for="category_image">Category Image: (image url) <i class="fas fa-folder-open prefix"></i></label>
-                    <input class="form-control" id="category_image" name="category_image" value="{{category.img_url}}" type="text" class="validate" required>
+                    <input class="form-control" id="category_image" name="category_image" value="{{category.img_url}}" type="text" required>
                 </div>
                 <!-- submit button -->
                 <div id="editCategorySubmit" class="row">
