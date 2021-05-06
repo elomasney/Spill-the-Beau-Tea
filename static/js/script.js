@@ -194,6 +194,7 @@ function confirm_delete_account(delete_url) {
 $(function () {
     if (window.location.pathname == "/404") {
         $('#main-container').height('100vh');
+        $("body").css("padding-top", "0");
     }
 });
 

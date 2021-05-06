@@ -75,7 +75,6 @@ body {
     margin: 0;
     padding-right: 0;
     padding-left: 0;
-    height: 100%;
 }
 
 .flashes {
@@ -1531,7 +1530,7 @@ button#btn-404 a {
         font-size: 3rem;
     }
     
-    .register-container{
+    #main-container{
         height: 100vh;
     }
 
