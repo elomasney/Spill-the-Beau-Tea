@@ -111,14 +111,14 @@
                                             <!--Product Rating-->
                                             <div>
                                                 <fieldset>
-                                                    <legend id="starRating"><i class="fas fa-star"></i> Star Rating
+                                                    <legend class="star-rating"><i class="fas fa-star"></i> Star Rating
                                                     </legend>
                                                     <div id="radio" class="md-form mb-5">
-                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=1 /> 1 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=2 /> 2 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=3 /> 3 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=4 /> 4 </label>
-                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating" value=5 /> 5 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating1" value=1 /> 1 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating2" value=2 /> 2 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating3" value=3 /> 3 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating4" value=4 /> 4 </label>
+                                                        <label class="radio-inline"> <input type="radio" name="rating" id="rating5" value=5 /> 5 </label>
                                                     </div>
                                                 </fieldset>
                                             </div>
@@ -180,24 +180,24 @@
                         {% set count = (5 - review.rating)%}
                         <!-- for each star in the review rating, insert whole-star -->
                         {% for star in range(review.rating|int) %}
-                        <i id="star" class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
                         {% endfor %}
                         <!-- for each remaining value in "count" variable, insert empty-star -->
                         {% for star in range(count) %}
-                        <i id="star" class="far fa-star"></i>
+                        <i class="far fa-star"></i>
                         {% endfor %}
                     </h5>
-                    <p class="card-text "><strong id="reviewText">Review:</strong></p>
+                    <p class="card-text "><strong class="reviewText">Review:</strong></p>
                     <p class="card-text ">{{review.review}}</p>
                     {% if review.repurchase == "on" %}
                     <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
                     {% else %}
                     <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left" title="Wouldn't buy again"></i>
                     {% endif %}
-                    <p class="card-text "><strong id="added_by">Added By: </strong>
+                    <p class="card-text "><strong class="added_by">Added By: </strong>
                         {{ review.created_by|capitalize}}
                     </p>
-                    <span class="card-text "> <strong id="created_by">Added On:
+                    <span class="card-text "> <strong class="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
                     <div class="text-center">
                         <!--Button to delete review from db if the review was written by the user or the user is admin-->
