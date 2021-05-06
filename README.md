@@ -229,17 +229,18 @@ It is hosted on Heroku using automatic deployment from GitHub. Link to the live 
 - Once all the steps above are done, go back to the 'Deploy' tab on the Heroku dashboard
 - Click 'Enable Automatic Deployment'
 - Then select the branch to deploy
-- Once the correct branch has been selected, click 'Deploy'
+- Once the correct branch has been selected, click 'Deploy Branch'
 - Heroku will receive the code from the GitHub repository and start building the app.
 - It will automatically update when changes are pushed to GitHub.
 
 ##### **To run the project locally:**
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
+**Step 1:**
+- Login to GitHub and locate the repository
+**Step :**
+- Click on the 'Code' button at the top.
+**Step 3:**
+- From here you can select to either download or clone to a desktop IDE using the url provided.
 
-Different values for environment variables (Heroku Config Vars)?
-Different configuration files?
-Separate git branch?
-In addition, if it is not obvious, you should also describe how to run your code locally.
 ## **Credits**
 ### **Code**
 ### **Content**
