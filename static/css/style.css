@@ -1529,10 +1529,6 @@ button#btn-404 a {
     #productName.category-header{
         font-size: 3rem;
     }
-    
-    #main-container{
-        height: 100vh;
-    }
 
     #registerCard.card-body {
         padding: 50px 40px;

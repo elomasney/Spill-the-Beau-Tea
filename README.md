@@ -65,12 +65,14 @@ This website was designed for makeup lovers who are looking for honest product r
 - As the owner and user, I want to be able to add, update or delete products on the website
 - As the owner, I want to be able to remove any reviews or users if necessary (e.g. inappropriate content)
 - As the owner and user, I want the ability to create, update and delete categories
+- As a guest user, I would like to be able to search for products and see the associated reviews without the ability to add/edit/delete reviews.
 
 ### **_Strategy Plane_**
-Database Schema
-
+The aim of this project was to develop a makeup review website, that provides honest real reviews on makeup products generated from everyday users from real life experience using the products. The website is vibrant, energetic, fun, inviting and easy to navigate. This website has pre-populates
 ### **_Scope Plane_**
+
 ### **_Structure Plane_**
+Database Schema
 ### **_Skeleton Plane_**
 ### **_Wireframes Mockup_**
 ### **_Surface Plane_**
