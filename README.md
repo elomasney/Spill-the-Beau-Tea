@@ -44,8 +44,8 @@ This project is a makeup review website developed with the purpose of providing 
 - To provide a contact admin section for user queries or suggested products to be included in the site
 
 ## **UX**
-UX
-Use this section to provide insight into your UX process, focusing on who this website is for, what it is that they want to achieve and how your project is the best way to help them achieve these things.
+This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with use of vivid imagery and a bold and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is a user friendly, and easy to navigate with clear calls to action.
+
 ### **_User Stories_**
 In particular, as part of this section we recommend that you provide a list of User Stories, with the following general structure:
 
@@ -184,12 +184,55 @@ You should also mention in this section any interesting bugs or problems you dis
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
 ## **Deployment**
-This project was developed using Gitpod IDE, then pushed to Github where the repository was stored.
-It was then deployed automatically through Heroku from the Github respository.
+This project was developed using Gitpod IDE, then pushed to GitHub where the repository was stored.
+It is hosted on Heroku using automatic deployment from GitHub. Link to the live site [here](https://)
+
+#### **Requirements to Run this App**
+- Python3
+- Flask/Pymongo
+- Werkzeug
+- PIP Installation Package
+- MongoDB
+    - All content for this app is stored in a MongoDB database
+    - The collections used in the database are as follows:
+
+![Database Schema](static/images/database_schema_design.jpg "Database Collections")
 ### **Project Deployment**
 ##### **The following steps outline how the project was deployed to Heroku:**
-Deployment
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+
+**Step 1: Create requirement.txt file**
+- Using command 'pip3 freeze --local > requirements.txt
+- This contains a list of dependancies needed to run the app
+**Step 2: Create the Procfile**
+- Using the command ' echo web: python app.py > Procfile
+- This tells Heroku how to run the app
+**Step 3: Log In to Heroku.com/Create a new account** 
+- Log in to heroku.com or create a new account if you have not set one up.
+**Step 4: Heroku Dashboard**
+- Go to the dashboard and click on 'Create a New App'
+**Step 5: Create App**
+- Give the app a name, this must be unique. Use all lowercase, and a dash or minus instead of spaces
+- Choose your region
+- Then click on 'Create App'
+**Step 6: Set Up Automatic Deployment from Github**
+- Select Deploy tab on the Heroku dashboard
+- Select deployment method 'GitHub'
+- Make sure your GitHub name is displayed
+- Enter the name of your repository and click 'Search'
+- Once the correct repository is found, click 'Connect'
+**Step 7: Set Up Config Variables in the Heroku app**
+- Click on the 'Settings' tab on the Heroku app dashboard
+- Then click on 'Reveal Config Vars'
+- Enter the (key, value) variables from the env.py file. (Make sure not to include any quotes)
+- The following key, value variables were included in this project: IP, PORT, SECRET_KEY, MONGO_URI, MONGO_DBNAME
+**Step 8: Deploy project to Heroku**
+- Once all the steps above are done, go back to the 'Deploy' tab on the Heroku dashboard
+- Click 'Enable Automatic Deployment'
+- Then select the branch to deploy
+- Once the correct branch has been selected, click 'Deploy'
+- Heroku will receive the code from the GitHub repository and start building the app.
+- It will automatically update when changes are pushed to GitHub.
+
 ##### **To run the project locally:**
 In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
 
