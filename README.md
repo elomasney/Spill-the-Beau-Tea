@@ -6,12 +6,42 @@
 ## **_Milestone Project 3 - Data Centric Development_**
 
 ## **Project Description**
-One or two paragraphs providing an overview of your project.
-### **_Business Objectives_**
-### **_Customer Objectives_**
-### **_Future Goals_**
+This project is a makeup review website developed with the purpose of providing real, honest and authentic reviews on makeup products. It allows users to add, edit and delete their own content. The makeup industry has grown exponentially over the last decade and with it a vast amount of products to chose from and a growing number of sites to purchase from. Makeup is an art, it provides a way for people to express themselves. With the growth of influencers, the idea of trustworthy reviews has become an issue in mainstream society as the people promoting these products have a lot to gain from the results of pushing product sales. With this in mind I decided to develop a review site that allows everyday users to add their opinion on products and also see reviews left by other users on products they are looking to try out. The user can then add products to their favourites which is a list of products the user wants to buy. The inspiration for this project came from the fact I am always on the hunt for good makeup products to buy but it can be so easy to get lost in the sea of information and false advertising and it's difficult to trust reviews you see on Instagram or on sites where they are selling these products. This site acts as a sort of makeup forum with the hope of providing a tips and tricks section or makeup tutorials section in the future and a means by which users can connect with each other through the platform.
 
-Essentially, this part is your sales pitch.
+### **_Business Objectives_**
+- Create a community for makeup lovers that they can trust
+- Provide users with up to date products and product information
+- Provide a website that is inviting, attractive to users
+- Provide users with authentic content
+- Provide a website that is easy to navigate
+- Encourage users to add content to the site
+- Allow users to create a profile and build a 'to buy' list of all their favourite products
+- Help users to find the products they are looking for
+
+### **_Customer Objectives_**
+- To establish the purpose of the website immediately
+- To easily navigate the website
+- To be able to quickly search for the products they are looking for.
+- A website that is attractive, inviting and interesting.
+- To browse products and their reviews easily.
+- To have the ability to create their own profile
+- To add reviews to products
+- To add a rating within the product review
+- To generate a list of favourite products
+- To have the ability to remove products from favourites list.
+- To have the ability to edit and delete their own content
+- The ability to delete their account
+- To have access to product stockists
+
+
+### **_Future Goals_**
+- Provide users with links to where the product can be bought
+- Allow users to comment on other user reviews
+- Allow users to like/upvote other user reviews
+- Provide the ability for users to interact with each other through chat/message
+- Provide a 'Tips & Tricks' blog section on how to use products, makeup hacks etc.
+- Provide the means for users to upload video content to show how to apply products etc.
+- To provide a contact admin section for user queries or suggested products to be included in the site
 
 ## **UX**
 UX
@@ -22,6 +52,8 @@ In particular, as part of this section we recommend that you provide a list of U
 As a user type, I want to perform an action, so that I can achieve a goal.
 This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included as a pdf file in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
 ### **_Strategy Plane_**
+Database Schema
+
 ### **_Scope Plane_**
 ### **_Structure Plane_**
 ### **_Skeleton Plane_**
@@ -33,6 +65,7 @@ This section is also where you would share links to any wireframes, mockups, dia
 
 
 ## **Features**
+### **_CRUD Functionality_**
 ### **_Navigation Bar & Footer_**
 ### **_Homepage_**
 ### **_Categories_**
