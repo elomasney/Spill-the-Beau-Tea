@@ -199,16 +199,6 @@ $(function () {
 });
 
 /**
- * @function - changes main container height on register page only
- */
-//Change main container height on register page only
-$(function () {
-    if (window.location.pathname == "/register") {
-        $('#main-container').height('100vh');
-    }
-});
-
-/**
  * @function - adds slide up/slide down animation to flash messages
  * Sets timeout for 5 seconds
  */
