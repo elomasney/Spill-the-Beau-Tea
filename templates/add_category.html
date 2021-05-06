@@ -7,6 +7,21 @@
     <div class="row">
         <!--Form for adding a category to the db-->
         <form class=" category-form col-12" method="POST" action="{{ url_for('add_category') }}">
+             <!-- Category Group-->
+             <div class="row">
+                <div class=" category-input col-12">
+                    <label class="col-form-label" for="category_group">Category Group:
+                        <i class="fas fa-folder-open prefix"></i>
+                    </label>
+                    <select class="form-control" id="categoryAddGroup" name="category_group" class="validate" required>
+                        <option class="text-center" value="" disabled selected>Choose Category</option>
+                        {% for category in category_group|sort(attribute="_id") %}
+
+                        <option class="text-center" value="{{category['_id']}}">{{category["_id"]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
             <!-- Category Name -->
             <div class="row">
                 <div class="category-input col-12">
@@ -14,22 +29,6 @@
                         <i class="fas fa-folder-open"></i>
                     </label>
                     <input class="form-control" id="categoryAddName" name="category_name" minlength="3" maxlength="25" type="text" class="validate" required>
-                </div>
-            </div>
-            <!-- Category Group-->
-            <div class="row">
-                <div class=" category-input col-12">
-                    <label class="col-form-label" for="category_group">Category Group:
-                        <i class="fas fa-folder-open prefix"></i>
-                    </label>
-                    <select class="form-control" id="categoryAddGroup" name="category_group" class="validate" required>
-                        <option value="" disabled selected>Choose Category</option>
-                        {% for category in category_group|sort(attribute="_id") %}
-
-                        <option value="{{category['_id']}}">{{category["_id"]}}</option>
-                        {% endfor %}
-
-                    </select>
                 </div>
             </div>
             <!-- Category Image -->

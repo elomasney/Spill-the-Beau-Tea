@@ -1664,6 +1664,6 @@ button#btn-404 a {
     }
 
     .category-input select.form-control{
-        padding: 0 250px;
+        width: 40%;
     }
 }
