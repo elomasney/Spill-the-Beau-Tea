@@ -1553,6 +1553,11 @@ button#btn-404 a {
         font-size: 1rem;
     }
 
+    /*Contact Modal*/
+    #contactBody.modal-body{
+        padding: 10px 10px;
+    }
+
     /*404 Page*/
     .container-404 {
         padding: 50px 0px;

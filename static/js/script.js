@@ -40,7 +40,7 @@ function confirm_delete_category(delete_url) {
         text: "This category will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#fafd42',
+        confirmButtonColor: '#fff346',
         cancelButtonColor: '#009ACD	',
         confirmButtonText: 'Yes, delete it!',
 
@@ -83,7 +83,7 @@ function confirm_delete_product(delete_url) {
         text: "This product will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#fafd42',
+        confirmButtonColor: '#fff346',
         cancelButtonColor: '#009ACD	',
         confirmButtonText: 'Yes, delete it!',
 
@@ -126,7 +126,7 @@ function confirm_delete_review(delete_url) {
         text: "This review will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#fafd42',
+        confirmButtonColor: '#fff346',
         cancelButtonColor: '#009ACD	',
         confirmButtonText: 'Yes, delete it!',
 
@@ -169,7 +169,7 @@ function confirm_delete_account(delete_url) {
         text: "Your account will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#fafd42',
+        confirmButtonColor: '#fff346',
         cancelButtonColor: '#009ACD	',
         confirmButtonText: 'Yes, delete it!',
 
@@ -212,7 +212,7 @@ function confirm_delete_comment(delete_url) {
         text: "This feedback will be permanently deleted!",
         icon: 'warning',
         showCancelButton: true,
-        confirmButtonColor: '#fafd42',
+        confirmButtonColor: '#fff346',
         cancelButtonColor: '#009ACD	',
         confirmButtonText: 'Yes, delete it!',
 
