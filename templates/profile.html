@@ -130,188 +130,190 @@
                             </div>
                         </div>
                     </div>
-                </div>
-                </div>
                     {% endfor %}
-                    <!--User Reviews-->
-                    <div class="row">
-                        <div class="col-md-12">
-                            <hr id="userReviews">
-                            <div class="col-md-12 text-center">
-                                <button id="contact" type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackModal">Contact</button>
-                                </div>  
-                            <h3 class="category-header">My Reviews</h3>
-                            {% for reviews in user_reviews %}
-                            <div class="card product-card mb-3 col-md-12">
-                                <div class="row">
-                                    <div class="col-md-12">
-                                        <!--Review Details-->
-                                        <div id="userReviewInfo_{{reviews._id}}" class="review-text card-body">
-                                            {% for product in products %}
-                                            {% if reviews.product == product._id%}
-                                            <h3 class="product card-title">{{ product.product_name }}</h3>
-                                            {% endif %}
-                                            {% endfor %}
-                                            <h4 class="review-title card-title">{{ reviews.title }}</h4>
-                                            <h5 class="rating card-title">Rating:
-                                                <!--Review Rating-->
-                                                <!-- set variable "count" to the leftover value deducted from review rating -->
-                                                {% set count = (5 - reviews.rating)%}
-                                                <!-- for each star in the review rating, insert whole-star -->
-                                                {% for star in range(reviews.rating|int) %}
-                                                <i class="fas fa-star"></i>
-                                                {% endfor %}
-                                                <!-- for each remaining value in "count" variable, insert empty-star -->
-                                                {% for star in range(count) %}
-                                                <i  class="far fa-star"></i>
-                                                {% endfor %}
-                                            </h5>
-                                            <p class="card-text "><strong class="reviewText">Review:</strong></p>
-                                            <p class="card-text ">{{reviews.review}}</p>
-                                            <!--Displays icon of thumbs up if user would repurchase-->
-                                            {% if reviews.repurchase == "on" %}
-                                            <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
-                                            <!--Displays icon thumbs down if user would not repurchase-->
-                                            {% else %}
-                                            <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left" title="Would'nt buy again"></i>
-                                            {% endif %}
-                                            <span class="card-text "> <strong class="created_by">Added On:
-                                                </strong>{{ reviews.created_on}}</span>
-                                            <div class="reviewBtns text-center">
-                                                <!--Button to allow user to edit the review in the db-->
-                                                <button type="button" class="edit_review btn btn-lg review-btn" data-toggle="modal" data-target="#editReview_{{reviews._id}}">
-                                                    Edit Review
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--User Reviews-->
+    <div class="row">
+        <div class="col-md-12">
+            <hr id="userReviews">
+            <div class="col-md-12 text-center">
+                <button id="contact" type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackModal">Contact</button>
+            </div>
+            <h3 class="category-header">My Reviews</h3>
+            {% for reviews in user_reviews %}
+            <div class="card product-card mb-3 col-md-12">
+                <div class="row">
+                    <div class="col-md-12">
+                        <!--Review Details-->
+                        <div id="userReviewInfo_{{reviews._id}}" class="review-text card-body">
+                            {% for product in products %}
+                            {% if reviews.product == product._id%}
+                            <h3 class="product card-title">{{ product.product_name }}</h3>
+                            {% endif %}
+                            {% endfor %}
+                            <h4 class="review-title card-title">{{ reviews.title }}</h4>
+                            <h5 class="rating card-title">Rating:
+                                <!--Review Rating-->
+                                <!-- set variable "count" to the leftover value deducted from review rating -->
+                                {% set count = (5 - reviews.rating)%}
+                                <!-- for each star in the review rating, insert whole-star -->
+                                {% for star in range(reviews.rating|int) %}
+                                <i class="fas fa-star"></i>
+                                {% endfor %}
+                                <!-- for each remaining value in "count" variable, insert empty-star -->
+                                {% for star in range(count) %}
+                                <i class="far fa-star"></i>
+                                {% endfor %}
+                            </h5>
+                            <p class="card-text "><strong class="reviewText">Review:</strong></p>
+                            <p class="card-text ">{{reviews.review}}</p>
+                            <!--Displays icon of thumbs up if user would repurchase-->
+                            {% if reviews.repurchase == "on" %}
+                            <i class="fas fa-thumbs-up" data-toggle="tooltip" data-placement="left" title="Would buy again"></i>
+                            <!--Displays icon thumbs down if user would not repurchase-->
+                            {% else %}
+                            <i class="fas fa-thumbs-down" data-toggle="tooltip" data-placement="left" title="Would'nt buy again"></i>
+                            {% endif %}
+                            <span class="card-text "> <strong class="created_by">Added On:
+                                </strong>{{ reviews.created_on}}</span>
+                            <div class="reviewBtns text-center">
+                                <!--Button to allow user to edit the review in the db-->
+                                <button type="button" class="edit_review btn btn-lg review-btn" data-toggle="modal" data-target="#editReview_{{reviews._id}}">
+                                    Edit Review
+                                </button>
+                                <!--Button to allow user to delete their review from the db-->
+
+                                <a data-href="{{url_for('delete_review', review_id=reviews._id)}}" type="button" class="review_delete btn btn-lg review-btn">
+                                    Delete Review
+                                </a>
+                                <!--Editing a Review using a Modal Popup-->
+                                <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="editReviewLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-lg" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
                                                 </button>
-                                                 <!--Button to allow user to delete their review from the db-->
-                                         
-                                                    <a data-href="{{url_for('delete_review', review_id=reviews._id)}}" type="button" class="review_delete btn btn-lg review-btn">
-                                                        Delete Review
-                                                    </a>
-                                                <!--Editing a Review using a Modal Popup-->
-                                                <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="editReviewLabel" aria-hidden="true">
-                                                    <div class="modal-dialog modal-lg" role="document">
-                                                        <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                    <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                                <h5 class="modal-title" id="reviewModal">Edit Review
-                                                                </h5>
+                                                <h5 class="modal-title" id="reviewModal">Edit Review
+                                                </h5>
 
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <div class="row form-group">
-                                                                    <form class=" review-form col-12" method="POST" action="{{ url_for('edit_review', review_id=reviews._id) }}">
-                                                                        <!-- Review Tagline -->
-                                                                        <div class="row">
-                                                                            <div class=" product-input input-field col-12">
-                                                                                <label for="title">Title: </label>
-                                                                                <input class="form-control" id="editTitle" name="title" minlength="3" value="{{reviews.title}}" maxlength="50" type="text" required>
-                                                                            </div>
-                                                                        </div>
-
-                                                                        <!--Product Rating-->
-                                                                        <div>
-                                                                            <fieldset>
-                                                                                <legend class="star-rating"><i class="fas fa-star"></i>
-                                                                                    Star Rating
-                                                                                </legend>
-                                                                                <div id="editRadio" class="md-form mb-5">
-                                                                                    <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating1" value="1" required /> 1
-                                                                                    </label>
-                                                                                    <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating2" value="2" required /> 2
-                                                                                    </label>
-                                                                                    <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating3" value="3" required /> 3
-                                                                                    </label>
-                                                                                    <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating4" value="4" required /> 4
-                                                                                    </label>
-                                                                                    <label class="radio-inline">
-                                                                                        <input type="radio" name="rating" id="rating5" value="5" required /> 5
-                                                                                    </label>
-                                                                                </div>
-                                                                            </fieldset>
-                                                                        </div>
-                                                                        <!--Product Review-->
-                                                                        <div class="row">
-                                                                            <div class=" product-input col-12">
-                                                                                <label for="edit_review_content">Review:
-                                                                                </label>
-                                                                                <textarea class="form-control" id="edit_review_content" value="{{reviews.review}}" name="review_content" minlength="3" type="text" rows="2" required>{{reviews.review}}</textarea>
-                                                                            </div>
-                                                                        </div>
-                                                                        <!--Repurchase Checkbox-->
-                                                                        <div class="switch">
-                                                                            <i class="fas fa-thumbs-up"></i>
-                                                                            <label for="editRepurchase">Would you
-                                                                                repurchase?</label>
-                                                                            <input type="checkbox" id="editRepurchase" name="repurchase">
-                                                                            <span class="lever"></span>
-                                                                        </div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="modal-footer">
-                                                                <!-- submit button -->
-                                                                <div class="row">
-                                                                    <div class="profileReviewBtns col-12 ">
-                                                                        <button type="submit" class="edit_review btn-large"><a href="
-                                                                            {{ url_for ('profile', username=session['user'])}}">
-                                                                                Cancel <i class="fas fa-times-circle right"></i></a></button>
-                                                                        <button type="submit" class="edit_review btn-large">
-                                                                            Edit Review <i class="fas fa-plus-square right"></i>
-                                                                        </button>
-                                                                    </div>
-                                                                </div>
-                                                                </form>
+                                            </div>
+                                            <div class="modal-body">
+                                                <div class="row form-group">
+                                                    <form class=" review-form col-12" method="POST" action="{{ url_for('edit_review', review_id=reviews._id) }}">
+                                                        <!-- Review Tagline -->
+                                                        <div class="row">
+                                                            <div class=" product-input input-field col-12">
+                                                                <label for="title">Title: </label>
+                                                                <input class="form-control" id="editTitle" name="title" minlength="3" value="{{reviews.title}}" maxlength="50" type="text" required>
                                                             </div>
                                                         </div>
+
+                                                        <!--Product Rating-->
+                                                        <div>
+                                                            <fieldset>
+                                                                <legend class="star-rating"><i class="fas fa-star"></i>
+                                                                    Star Rating
+                                                                </legend>
+                                                                <div id="editRadio" class="md-form mb-5">
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rating" id="rating1" value="1" required /> 1
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rating" id="rating2" value="2" required /> 2
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rating" id="rating3" value="3" required /> 3
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rating" id="rating4" value="4" required /> 4
+                                                                    </label>
+                                                                    <label class="radio-inline">
+                                                                        <input type="radio" name="rating" id="rating5" value="5" required /> 5
+                                                                    </label>
+                                                                </div>
+                                                            </fieldset>
+                                                        </div>
+                                                        <!--Product Review-->
+                                                        <div class="row">
+                                                            <div class=" product-input col-12">
+                                                                <label for="edit_review_content">Review:
+                                                                </label>
+                                                                <textarea class="form-control" id="edit_review_content" value="{{reviews.review}}" name="review_content" minlength="3" type="text" rows="2" required>{{reviews.review}}</textarea>
+                                                            </div>
+                                                        </div>
+                                                        <!--Repurchase Checkbox-->
+                                                        <div class="switch">
+                                                            <i class="fas fa-thumbs-up"></i>
+                                                            <label for="editRepurchase">Would you
+                                                                repurchase?</label>
+                                                            <input type="checkbox" id="editRepurchase" name="repurchase">
+                                                            <span class="lever"></span>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <!-- submit button -->
+                                                <div class="row">
+                                                    <div class="profileReviewBtns col-12 ">
+                                                        <button type="submit" class="edit_review btn-large"><a href="
+                                                                            {{ url_for ('profile', username=session['user'])}}">
+                                                                Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                                        <button type="submit" class="edit_review btn-large">
+                                                            Edit Review <i class="fas fa-plus-square right"></i>
+                                                        </button>
                                                     </div>
                                                 </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
-                            {% endfor %}
-                            {% endif %}
-                            <!--Button to allow user to delete their account-->
-                            <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
-                                        Account</a></button>
-                            </div>
                         </div>
-                        
-                        <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-                            <div  class="modal-dialog" role="document">
-                              <div id="contactModal" class="modal-content">
-                                <div id="contactHeader" class="modal-header">
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                      </button>
-                                  <h5 class="modal-title" id="feedbackModalLabel">Contact Us</h5> 
-                                </div>
-                                <div id="contactBody" class="modal-body">
-                                  <form action="{{url_for('user_feedback', user_id=user._id)}}" method="POST"  >
-                                    <div class="form-group">
-                                      <label for="name" class="col-form-label">Name:</label>
-                                      <input type="text" class="form-control" id="name" placeholder="Name" name="name" minlength="3" maxlength="15">
-                                    </div>
-                                    <div class="form-group">
-                                      <label for="comment" class="col-form-label">Comment:</label>
-                                      <textarea class="form-control" id="comment" name="comment" placeholder="Comment" minlength="3" maxlength="200" ></textarea>
-                                    </div>
-                                 
-                                </div>
-                                <div id="contactFooter" class="modal-footer">
-                                  <button type="button" class="feedbackModal btn btn-secondary" data-dismiss="modal">Close</button>
-                                  <button type="submit" value="submit" class="feedbackModal btn">Send message</button>
-                                </div>
-                            </form>
-                              </div>
-                            </div>
-                          </div>
                     </div>
-               
-                {% endblock %}
+                </div>
+            </div>
+            {% endfor %}
+            {% endif %}
+            <!--Button to allow user to delete their account-->
+            <div class="col-md-4 offset-md-4 text-center"><button id="deleteAccount"><a class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
+                        Account</a></button>
+            </div>
+        </div>
+
+        <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div id="contactModal" class="modal-content">
+                    <div id="contactHeader" class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h5 class="modal-title" id="feedbackModalLabel">Contact Us</h5>
+                    </div>
+                    <div id="contactBody" class="modal-body">
+                        <form action="{{url_for('user_feedback', user_id=user._id)}}" method="POST">
+                            <div class="form-group">
+                                <label for="name" class="col-form-label">Name:</label>
+                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" minlength="3" maxlength="15">
+                            </div>
+                            <div class="form-group">
+                                <label for="comment" class="col-form-label">Comment:</label>
+                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment" minlength="3" maxlength="200"></textarea>
+                            </div>
+                    </div>
+                    <div id="contactFooter" class="modal-footer">
+                        <button type="button" class="feedbackModal btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="submit" value="submit" class="feedbackModal btn">Send message</button>
+                    </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

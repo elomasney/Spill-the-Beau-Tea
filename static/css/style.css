@@ -1632,7 +1632,7 @@ button#btn-404 a {
     /*Profile Page*/
 
     .profile-container {
-        height: 100vh;
+        height: 100%;
     }
 
     #adminAccordion {
@@ -1647,7 +1647,7 @@ button#btn-404 a {
     #deleteAccount {
         margin: auto;
         padding: 10px 20px;
-        margin-bottom: 30px;
+        margin-bottom: 80px;
         font-size: 1.6rem;
     }
 
