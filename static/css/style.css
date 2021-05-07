@@ -20,14 +20,14 @@
 }
 
 .dropdown-divider {
-    border-top: 1px solid #ff0080;
+    border-top: 1px solid #ff1493;
 }
 
 .navbar-light .navbar-nav .nav-link,
 .dropdown-item {
     font-size: 1.3rem;
     font-family: "Lato", sans serif;
-    color: #ff0080;
+    color: #ff1493;
     font-weight: 900;
     letter-spacing: .2rem;
     padding: 15px;
@@ -49,7 +49,7 @@
     font-family: "Dancing Script", sans-serif;
     font-size: 2.5rem;
     font-weight: bolder;
-    color: #ff0080;
+    color: #ff1493;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     text-decoration: none;
@@ -57,7 +57,7 @@
 }
 
 #navbarLogo i {
-    color: #ff0080;
+    color: #ff1493;
 }
 
 .navbar-light .navbar-nav .nav-link:focus,
@@ -80,7 +80,7 @@ body {
 .flashes {
     margin: auto;
     padding-top: 10px;
-    background-color: #ff0080;
+    background-color: #ff1493;
 }
 
 .flashes h4 {
@@ -104,7 +104,7 @@ body {
 
 #footer-details {
     font-family: "Dancing Script", sans-serif;
-    background-color: #ff0080;
+    background-color: #ff1493;
     color: #fef2f8;
     font-size: 1.5rem;
     letter-spacing: .2rem;
@@ -115,7 +115,7 @@ body {
 }
 
 .card-body {
-    background-color: rgba(255, 0, 128, 1);
+    background-color: rgba(255,20,147, 1);
     padding: 50px 100px;
     margin: 30px 0;
 }
@@ -177,7 +177,7 @@ body {
     font-family: "Dancing Script", sans-serif;
     font-size: 4rem;
     font-weight: bolder;
-    color: #ff0080;
+    color: #ff1493;
     text-shadow: 3px 3px 3px rgba(0, 0, 0, 1);
     letter-spacing: .1rem;
 
@@ -201,7 +201,7 @@ body {
 #search input,
 #searchProducts input {
     font-size: 1.5rem;
-    color: #ff0080;
+    color: #ff1493;
     font-family: "Dancing Script";
 }
 
@@ -224,7 +224,7 @@ body {
     font-weight: bolder;
     font-size: 1.2rem;
     color: #fafd42;
-    background: #ff0080;
+    background: #ff1493;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     border-radius: 5px;
@@ -236,7 +236,7 @@ body {
 }
 
 div.swal2-popup {
-    background-color: #ff0080;
+    background-color: #ff1493;
 }
 
 h2#swal2-title.swal2-title {
@@ -248,7 +248,7 @@ h2#swal2-title.swal2-title {
 }
 
 #swal2-content {
-    color: #15bce2;
+    color: #0099CC;
     font-size: 1.6rem;
     letter-spacing: .1rem;
     font-weight: bold;
@@ -266,17 +266,17 @@ div.swal2-icon.swal2-warning.swal2-icon-show {
 
 div.swal2-icon.swal2-success {
     color: #fafd42;
-    border-color: #ff0080;
+    border-color: #ff1493;
 }
 
 button.swal2-cancel.swal2-styled {
-    color: #ff0080;
+    color: #ff1493;
     font-size: 1.4rem;
     font-weight: bold;
 }
 
 button.swal2-confirm.swal2-styled {
-    color: #ff0080;
+    color: #ff1493;
     font-size: 1.4rem;
     font-weight: bold;
     margin-right: 5px;
@@ -301,7 +301,7 @@ button.swal2-confirm.swal2-styled {
     font-weight: bolder;
     font-size: 1.2rem;
     color: #fafd42;
-    background: #ff0080;
+    background: #ff1493;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 10px 20px;
@@ -323,7 +323,7 @@ button.swal2-confirm.swal2-styled {
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
     font-size: 4rem;
-    color: #ff0080;
+    color: #ff1493;
     letter-spacing: .2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -336,7 +336,7 @@ button.swal2-confirm.swal2-styled {
 
 .category-form {
     background-color: #0ab8df;
-    color: #ff0080;
+    color: #ff1493;
     text-align: center;
     margin: 50px 0;
     padding: 80px 20px;
@@ -405,7 +405,7 @@ a.review_delete,
 
 .category-input option,
 #category_name option {
-    background-color: #ff0080;
+    background-color: #ff1493;
     color: #fafd42;
     font-size: 1.2rem;
 }
@@ -446,7 +446,7 @@ a.review_delete,
 .category-title.card-title,
 .category-text.card-text {
     background-color: rgba(10, 184, 223, 0.3);
-    color: #ff0080;
+    color: #ff1493;
     font-weight: 900;
 }
 
@@ -463,7 +463,7 @@ a.review_delete,
 }
 
 #search button {
-    color: #ff0080;
+    color: #ff1493;
     background-color: #0ab8df;
 }
 
@@ -492,7 +492,7 @@ a.review_delete,
 .product-form,
 .review-form {
     background-color: #0ab8df;
-    color: #ff0080;
+    color: #ff1493;
     text-align: center;
     padding: 25px 0;
 
@@ -571,7 +571,7 @@ a.btn.heart i {
     font-weight: bolder;
     font-size: 2.7rem;
     letter-spacing: .1rem;
-    color: #15bce2;
+    color: #0099CC;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
@@ -581,7 +581,7 @@ a.btn.heart i {
     font-weight: bolder;
     font-size: 1.6rem;
     letter-spacing: .1rem;
-    color: #15bce2;
+    color: #0099CC;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
@@ -616,7 +616,7 @@ i.fas.fa-star-half-alt {
     font-weight: bolder;
     font-size: 1.3rem;
     color: #fafd42;
-    background: #15bce2;
+    background: #0099CC;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 5px 10px;
@@ -647,14 +647,14 @@ hr {
     padding: 15px;
     color: #000000;
     font-weight: bolder;
-    background-color: #15bce2;
+    background-color: #0099CC;
 }
 
 .no-review {
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
     font-size: 3.5rem;
-    color: #ff0080;
+    color: #ff1493;
     letter-spacing: .2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 60px;
@@ -683,7 +683,7 @@ hr {
 }
 
 .review-title.card-title {
-    color: #ff0080;
+    color: #ff1493;
     font-family: "Dancing Script", sans-serif;
     font-size: 2.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
@@ -693,7 +693,7 @@ hr {
 .reviewText,
 .added_by,
 .created_by {
-    color: #ff0080;
+    color: #ff1493;
     font-family: "Lato", sans-serif;
     font-size: 1.3rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -709,7 +709,7 @@ a.review_delete.btn.btn-lg {
     font-weight: bolder;
     font-size: 1.3rem;
     color: #fafd42;
-    background: #ff0080;
+    background: #ff1493;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 5px 10px;
@@ -762,7 +762,7 @@ a#more_reviews {
     font-family: "Dancing Script", sans-serif;
     font-weight: bolder;
     font-size: 3rem;
-    color: #ff0080;
+    color: #ff1493;
     letter-spacing: .2rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -862,7 +862,7 @@ textarea.form-control {
 #registerLink,
 #loginLink {
     text-align: center;
-    color: #ff0080;
+    color: #ff1493;
     padding-bottom: 20px;
 }
 
@@ -907,7 +907,7 @@ hr#profileHeader {
     color: #fafd42;
     font-family: "Dancing Script", sans-serif;
     font-size: 2rem;
-    background-color: #15bce2;
+    background-color: #0099CC;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -927,7 +927,7 @@ div.admin-card.card-body,
 .favourites.card button,
 .admin-manage.card button,
 .user.card button {
-    color: #ff0080;
+    color: #ff1493;
     font-family: "Lato", sans-serif;
     font-size: 2rem;
     font-weight: bolder;
@@ -947,7 +947,7 @@ div.admin-card.card-body,
 .admin-card.card-body button,
 .user-details.card-body button {
     border: none;
-    background-color: #ff0080;
+    background-color: #ff1493;
     padding: 5px;
     font-family: "Dancing Script", sans-serif;
     font-size: 2.5rem;
@@ -959,7 +959,7 @@ div.admin-card.card-body a {
 }
 
 .user-details a {
-    color: #15bce2;
+    color: #0099CC;
 }
 
 .accordion {
@@ -972,18 +972,18 @@ div.admin-card.card-body a {
 }
 
 #contactModal {
-    color: #ff0080;
-    background-color: #15bce2;
+    color: #ff1493;
+    background-color: #0099CC;
 }
 
 #contactBody label{
-    color: #ff0080;
+    color: #ff1493;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 #contactFooter button{
-    background-color: #ff0080;
+    background-color: #ff1493;
     color: #fafd42;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     font-weight: bold;
@@ -1017,7 +1017,7 @@ hr#userReviews {
 }
 
 .feedback-header{
-    background-color: #15bce2;
+    background-color: #0099CC;
     text-align: center;
 }
 
@@ -1032,7 +1032,7 @@ hr#userReviews {
 .feedback-body.card-body{
     padding: 20px 30px;
     margin: 10px 0;
-    color: #15bce2;
+    color: #0099CC;
     font-family: "Lato",sans-serif;
     font-size: 1.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -1063,7 +1063,7 @@ hr#userReviews {
     font-size: 7rem;
     font-weight: bolder;
     padding-bottom: 20px;
-    color: #ff0080;
+    color: #ff1493;
     text-align: center;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -1071,7 +1071,7 @@ hr#userReviews {
 #sub-404,
 #message-404,
 #error-404 {
-    color: #ff0080;
+    color: #ff1493;
     text-align: center;
     padding-bottom: 30px;
     font-size: 2.2rem;
@@ -1081,7 +1081,7 @@ hr#userReviews {
 }
 
 #sub-404 i {
-    color: #ff0080;
+    color: #ff1493;
     font-size: 2.5rem;
     padding: 10px;
 }
@@ -1105,7 +1105,7 @@ button#btn-404 a {
 }
 
 #top-404 {
-    background-color: #ff0080;
+    background-color: #ff1493;
     padding: 30px;
 }
 
