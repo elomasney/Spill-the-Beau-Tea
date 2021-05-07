@@ -445,7 +445,6 @@ a.review_delete,
 
 .category-title.card-title,
 .category-text.card-text {
-    background-color: rgba(10, 184, 223, 0.3);
     color: #d71868;
     font-weight: 900;
 }
