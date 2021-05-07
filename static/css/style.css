@@ -115,7 +115,7 @@ body {
 }
 
 .card-body {
-    background-color: rgba(215,24,104, 1);
+    background-color: #d71868;;
     padding: 50px 100px;
     margin: 30px 0;
 }
@@ -1362,6 +1362,7 @@ button#btn-404 a {
 
     .category-card.card {
         width: 100%;
+        padding-bottom: 0;
     }
 
     .category-text.card-text,
