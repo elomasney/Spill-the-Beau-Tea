@@ -65,6 +65,7 @@ This website was designed for makeup lovers who are looking for honest product r
 - As the owner and user, I want to be able to add, update or delete products on the website
 - As the owner, I want to be able to remove any reviews or users if necessary (e.g. inappropriate content)
 - As the owner and user, I want the ability to create, update and delete categories
+- As the owner and user, I want other users to be able to give feedback and procide suggestion of products they would like included on the website.
 - As a guest user, I would like to be able to search for products and see the associated reviews without the ability to add/edit/delete reviews.
 
 ### **_Strategy Plane_**
