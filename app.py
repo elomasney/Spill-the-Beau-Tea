@@ -541,6 +541,38 @@ def manage_users():
     return render_template("manage_users.html", users=users)
 
 
+@app.route("/user_feedback/<user_id>", methods=["GET", "POST"])
+def user_feedback(user_id):
+    if request.method == "POST":
+        feedback = {
+            "user": ObjectId(user_id),
+            "name": request.form.get("name"),
+            "comment": request.form.get("comment")
+        }
+        mongo.db.user_feedback.insert_one(feedback)
+        flash("Your feedback has been sent")
+        return redirect(
+            url_for(
+                "profile", username=session["user"],
+                _external=True, _scheme='https'))
+
+
+@app.route("/manage_feedback")
+def manage_feedback():
+    feedback = list(mongo.db.user_feedback.find())
+    return render_template("user_feedback.html", feedback=feedback)
+
+
+@app.route("/delete_feedback/<user_feedback_id>")
+def delete_feedback(user_feedback_id):
+    mongo.db.user_feedback.remove({"_id": ObjectId(user_feedback_id)})
+    flash("This comment has been deleted!")
+    username = mongo.db.users.find_one(
+            {"username": session["user"]})["username"]
+    return redirect(
+        url_for("profile", username=username, _external=True, _scheme='https'))
+
+
 # 404 error page
 @app.errorhandler(404)
 def page_not_found(error):

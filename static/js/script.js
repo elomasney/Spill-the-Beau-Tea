@@ -188,6 +188,49 @@ function confirm_delete_account(delete_url) {
 };
 
 /**
+ * @function - displays sweetalert confirmation on 'delete category' button
+ */
+//Popup confirm delete category on link click
+$(function () {
+    $('.delete-comment').on('click', function () {
+        let delete_url = $(this).attr('data-href');
+        confirm_delete_comment(delete_url);
+    });
+});
+
+/**
+ * @function confirm_delete_comment - displays sweetalert popup
+ * @param delete_url - path to delete a feedback entry from the db
+ * Asks user to confirm if they want to delete a feedback entry from the database
+ * On confirmation the comment is deleted from the db
+ */
+//Confirm Delete Feedback 
+function confirm_delete_comment(delete_url) {
+
+    Swal.fire({
+        title: 'Delete this Comment?',
+        text: "This feedback will be permanently deleted!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#fafd42',
+        cancelButtonColor: '#15bce2',
+        confirmButtonText: 'Yes, delete it!',
+
+    }).then((result) => {
+        if (result.isConfirmed) {
+
+            window.location.href = delete_url
+
+            Swal.fire(
+                'Deleted!',
+                'This comment has been deleted.',
+                'success');
+
+        }
+    })
+};
+
+/**
  * @function - changes main container height on 404 error page only
  */
 //Change main container height on 404 page only
