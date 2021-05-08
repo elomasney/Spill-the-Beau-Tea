@@ -15,13 +15,11 @@
                             <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
                         </form>
                         <!--SignUp/Login Buttons-->
-                        <button class="btn btn-lg login-btn" id="login">
-                        <a href="{{ url_for('login')}}">
+                        <a href="{{ url_for('login')}}" class="btn btn-lg login-btn" id="login">
                             Sign In
-                        </a></button>
-                        <button class="btn btn-lg register-btn" id="register">
-                        <a href="{{ url_for('register')}}" >
-                            Register</a></button>
+                        </a>
+                        <a href="{{ url_for('register')}}" class="btn btn-lg register-btn" id="register">
+                            Register</a>
             </div>
         </div>
     </div>
