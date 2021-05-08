@@ -155,12 +155,67 @@ The registered user CRUD functionality is all accessed through modal forms which
 
 ### **_Surface Plane_**
 #### **_Colours_**
+The colour palette chosen for this project is bright, fun and vibrant colours. After doing some research into similar sites I found that many makeup product sites are very similar in design using white background and black text, however I wanted my website to stand out amongst the crowd and decided to use pink, blue and yellow as the theme. Makeup is about expressing yourself and allows people to be creative and fun when using products and bright bold colours are extremely popular in makeup products at the moment. I wanted people to be visually attracted to the website and wanted to peak the interest of the user so they would be encouraged to join and create content. Today, people have to visit a variety of instagram accounts to get access to product reviews, with each influencer promoting a different product, but sometimes it can be hard to trust those reviews as many influencers get paid to review makeup products. I wanted to create a space for the everyday makeup lover, a place they could go to express their real honest views on makeup products and allow them to keep a record of these items all in one space. The main background I have kept white for the purpose of not overshadowing the images. The card layout and accordions are a variety of blue with pink text or pink with blue text. Yellow is used for the ratings, call to action buttons/or button text. I have keep the body of content such as review content and product descriptions black purely to make the content readable and clear for the user.
+
+
 #### **_Typography_**
+The fonts chosen for this project were 'Dancing Script' for the logo and headers as it has a nice design, a creative feel, fun and is visually attractive. The body of the website uses the font 'Lato' as it reads well and doesn't distract from the actual content of the site while still visually appealing. 
+
+
 #### **_Images_**
+The images for this site were sourced from a variety of locations:
+- The homepage background image was sourced from [Pexels](https://www.pexels.com/photo/colored-powders-and-brush-1749452/)
+- The 404 background image was sourced from [Unsplash](https://unsplash.com/s/photos/liz-breygel-broken-makeup?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash)
+- The category and product images were sourced from a range of other sites including:
+    - [Beauty Bay](https://www.beautybay.com/)
+    - [Pop Sugar](https://www.popsugar.co.uk/)
+    - [Get The Gloss](https://www.getthegloss.com/)
+    - [Allure](https://www.allure.com/)
+    - [Pinterest](https://www.pinterest.ie/)
+    - [Fabulous Makeup](https://www.fabulousmakeup.co.uk/)
+    - [Boots](https://www.boots.ie/)
+    - [Cult Beauty](https://www.cultbeauty.com/ie/en/)
+    - [Look Fantastic](https://www.lookfantastic.ie/)
+    - [Brown Thomas](https://www.brownthomas.com/)
+    - [Catrice Cosmetics](https://catrice.eu/en/index.html)
+    - [Kaggle](https://www.kaggle.com/oftomorrow/herokuapp-makeup-products)
 
 
 ## **Features**
 ### **_CRUD Functionality_**
+In this project I wanted to implement as much CRUD functionality as possible
+The CRUD functionality for this website works as follows:
+
+#### **Users Can:**
+- Add a Review
+- Edit their own Reviews
+- Delete their own Reviews
+- View all Reviews
+- Add a Product to their Favourites
+- Delete a Product from their Favourites
+- Add user feedback
+- Delete their own account
+
+#### **Admin Can:**
+- Add a Category
+- Edit a Category
+- Delete a Category
+- Add a Product
+- Edit a Product
+- Delete a Product
+- View all Reviews
+- Delete any Review
+- Delete a User Account
+- Delete their own account
+- View all User Feedback
+- Delete User Feedback
+
+#### **Guest Users Can:**
+- View all Categories
+- View all Products
+- View all Reviews
+
+
 ### **_Navigation Bar & Footer_**
 ### **_Homepage_**
 ### **_Categories_**
