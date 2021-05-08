@@ -85,9 +85,26 @@ Along with this, I wanted the site to be accessible to all but with extra featur
 
 
 ### **_Structure Plane_**
-Database Schema
+- The structure of this website was designed to be easy to navigate and user friendly. The navigation bar is visible on every page and includes different links depending on whether a user is logged in, a guest user or the admin user. It is a vibrant, fun and inviting site, using vivid images and a bright colour scheme designed to capture the attention and peak the interest of the user. 
+- The homepagehas a simple and straightforward design with a bright full viewgeight background image and a jumbotron with minimal text that states the purpose of the website. A search bar and two call to action buttons, 'Register' and 'Sign In' are also included to encouage the user to create an account.
+The navigation bar includes a dropdown menu of product category groups that take the user to a list of product categories within that group. These are designed using cards with a top image and the product category underneath with a search icon. This will lead the user to the products within the specific category. Minimal text is used here so as not to overload the user with information.
+- The products page is designed in a similar layout using card structure with product images and a card with basic product information, including name, brand, average rating, number of reviews, price and number of shades that are available. It also has a heart icon available to registered users which will add or remove a product from the user favourites list. It also contains a button 'More Info' that will lead the user to more in depth information on the specific product. 
+- The product information page is a card layout with product image and product information which includes product name, brand, description, price, average rating and shades available. It also has a heart icon available to registered users which will add or remove a product from the user favourites list. A button to add a review is available to registered users and the most recent 5 reviews for that product are shown in card layout below the product card. At the bottom of the page under the most recent reviews is another button which leads the user to the remaining reviews for this product.
+- Both the products page and the product information page have a search bar at the top to allow users to search for different products by product name, category or brand.
+- The reviews page is a card layout displaying all reviews related to that specific product. Reviews contain a title, star rating, review, user who the review was added by, and the date it was created.
+This page also contains a button that will bring the user back to the product information page of the related product. 
+- The register and login pages can be accessed from the home page and the navigation bar. It is a basic form which includes fields, username, email and password for sign up and username and password for sign in. These pages also contain links to either page if the user is on the incorrect one.
+- When users register they have a profile which can be accessed by the navigation bar once logged in.
+This page includes a header with the users name, a list of their favourite products, a button to submit user feedback to admin through a modal and below this is a list of the reviews the user has created and a button to delete their account.
+- All user functionality i.e adding and editing content is done through use of modal popups and buttons to delete items. The delete buttons have a sweetalert popup to confirm any deletes made on the site.
+- The admin user has a slightly different layout on the profile page which consists of an accordion menu which allows them to access a list of all users, a list of all reviews, a list of all feedback, which gives the admin user the ability to delete any of these list items from the database. It also includes a manage button to allow the admin user to add, edit or delete a product or category.
+- Guest users can view the categories page, products page, product info page, and reviews page, however all functionality is unabale to be accessed i.e. adding, editing or deleting reviews.
+- Flash messages are used to alert the user when any action has been taken and are displayed at the top of the page. They are programmed to dropdown and timeout after a few seconds..
+
+
 ### **_Skeleton Plane_**
 ### **_Wireframes Mockup_**
+### **Database Planning**
 ### **_Surface Plane_**
 #### **_Colours_**
 #### **_Typography_**
@@ -227,6 +244,8 @@ It is hosted on Heroku using automatic deployment from GitHub. Link to the live 
     - The collections used in the database are as follows:
 
 ![Database Schema](static/images/database_schema_design.jpg "Database Collections")
+
+
 ### **Project Deployment**
 #### **The following steps outline how the project was deployed to Heroku:**
 
@@ -311,4 +330,6 @@ Content for reviews
 MongoDB Documentation
 
 ### **Acknowledgements**
-
+This project was a new challenge for me as it was my first project working with databases and also the first project that contained multiple pages. In undertaking this challenge I have learned so much which will be of great benefit to me going forward into future projects. In hindsight there are some elements throughout this process that I would handle differently in future projects, but given my timeframe and skills to date I am very happy with the project and I have been amazed at how far I have come in the last year. I would like to thank tutor support, special mention to Tim, for the amazing support and advice I was given when dealing with one or two issues in this project. I found the tutor support experience really rewarding as I came away having learned some valuable information that will stick with me for use in future projects. The tutor support team are extremely patient, helpful and understanding and it is a extremely valuable resource to have available to me.
+I would also like to thank my mentor Brian Macaria for his support, encouragement and guidance throughout this project.
+I would also like to thank Code Institute for giving me the opportunity to participate in this course, I have finally found something I have a real interest in and I am enjoying every aspect, both challenges and victories.
