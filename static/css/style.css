@@ -70,7 +70,7 @@ body {
 }
 
 #main-container.container {
-    min-height: 100%;
+    min-height: 100vh;
     max-width: 100%;
     margin: 0;
     padding-right: 0;
@@ -458,6 +458,7 @@ a.review_delete,
     font-size: 1.3rem;
     letter-spacing: .2rem;
     margin-right: 10px;
+    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 
 }
 
@@ -687,6 +688,7 @@ hr {
     font-size: 2.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 2);
     letter-spacing: .1rem;
+    font-weight: bolder;
 }
 
 .reviewText,
@@ -903,6 +905,7 @@ hr#profileHeader {
 
 #profile-heart {
     font-size: 2.5rem;
+    color: #f6fd39;
 }
 
 #favourites {
@@ -921,7 +924,7 @@ hr#profileHeader {
     color: #f6fd39;
     font-family: "Dancing Script", sans-serif;
     font-size: 2rem;
-    background-color: #04cbfa	;
+    background-color: #ff55be	;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
@@ -941,11 +944,15 @@ div.admin-card.card-body,
 .favourites.card button,
 .admin-manage.card button,
 .user.card button {
-    color: #ff55be;
+    color: #04cbfa;
     font-family: "Lato", sans-serif;
     font-size: 2rem;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+#favouritesHeading{
+    color: #04cbfa;
 }
 
 .user.card p {
@@ -1211,6 +1218,17 @@ button#btn-404 a {
         font-size: 1rem;
     }
 
+    #registerLink {
+        font-size: 1rem;
+        margin: 0px 30px;
+    }
+
+    #loginLink {
+        font-size: 1rem;
+        margin: 0px 20px;
+        margin-bottom: 20px;
+    }
+
     /*Profile*/
     .profile-container {
         height: 100%;
@@ -1220,6 +1238,14 @@ button#btn-404 a {
         font-size: 2.5rem;
         padding-top: 10px;
         padding-bottom: 0;
+    }
+
+    hr#profileHeader {
+        margin: 15px 20px;
+    }
+
+    hr#userReviews {
+        margin: 50px 50px;
     }
 
     #adminAccordion {
