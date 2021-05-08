@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-
+<!--Feedback accordion dropdown -->
 <div class="feedback-container">
     <h3 class="category-header">User Feedback</h3>
     <div class="accordion" id="feedbackAccordion">
@@ -8,18 +8,20 @@
         <div class="feedback-card card">
             <div class="feedback-header card-header" id="headingOne">
                 <h2 class="mb-0">
+                    <!--Displays name of user left feedback comment-->
                     <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_{{feedback._id}}" aria-expanded="true" aria-controls="collapseOne">
                         {{feedback.name.capitalize()}}
                     </button>
                 </h2>
             </div>
-
+            <!--Displays the user's feedback comment-->
             <div id="collapseOne_{{feedback._id}}" class="collapse show" aria-labelledby="headingOne" data-parent="#feedbackAccordion">
                 <div class="feedback-body card-body">
                     <strong class="text-center">Comments: </strong>
                     <p>{{feedback.comment }}</p>
                 </div>
             </div>
+            <!--Button to delete feedback comment-->
             <button class="comment-delete"><a type="button" data-href="{{url_for('delete_feedback', user_feedback_id=feedback._id)}}" class="delete-comment">Delete Comment</a></button>
             {% endfor %}
         </div>

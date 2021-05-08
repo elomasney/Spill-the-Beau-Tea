@@ -88,7 +88,7 @@
                 <div class="admin-manage card">
                     <div class="admin-heading card-header" id="manageFour">
                         <h2 class="mb-0">
-                            <!--Button to show option to Admin to manage reviews-->
+                            <!--Button to show option to Admin to manage user feedback-->
                             <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminFour" aria-expanded="false" aria-controls="collapseThree">
                                 Feedback & Suggestions
                             </button>
@@ -96,7 +96,7 @@
                     </div>
                     <div id="collapseAdminFour" class="collapse" aria-labelledby="manageFour" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
-                            <!--Link to direct admin to a list of all reviews in the database-->
+                            <!--Link to direct admin to a list of all feedback comments in the database-->
                             <button><a href="{{ url_for('manage_feedback')}}">All Feedback</a></button>
                         </div>
                     </div>
@@ -140,9 +140,11 @@
     <div class="row">
         <div class="col-md-12">
             <hr id="userReviews">
+            <!--Button to open contact feedback form modal-->
             <div class="col-md-12 text-center">
                 <button id="contact" type="button" class="btn btn-primary" data-toggle="modal" data-target="#feedbackModal">Contact</button>
             </div>
+            <!--List of User Reviews they have created-->
             <h3 class="category-header">My Reviews</h3>
             {% for reviews in user_reviews %}
             <div class="card product-card mb-3 col-md-12">
@@ -285,7 +287,7 @@
                         Account</a></button>
             </div>
         </div>
-
+        <!--Contact Us Modal-->
         <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div id="contactModal" class="modal-content">
@@ -298,15 +300,18 @@
                     <div id="contactBody" class="modal-body">
                         <form action="{{url_for('user_feedback', user_id=user._id)}}" method="POST">
                             <div class="form-group">
+                                <!--Field for users name-->
                                 <label for="name" class="col-form-label">Name:</label>
                                 <input type="text" class="form-control" id="name" placeholder="Name" name="name" minlength="3" maxlength="15">
                             </div>
                             <div class="form-group">
+                                <!--Field for user's feedback comments-->
                                 <label for="comment" class="col-form-label">Comment:</label>
                                 <textarea class="form-control" id="comment" name="comment" placeholder="Comment" minlength="3" maxlength="200"></textarea>
                             </div>
                     </div>
                     <div id="contactFooter" class="modal-footer">
+                        <!--Buttons to submit feedback form or cancel to close the modal-->
                         <button type="button" class="feedbackModal btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="submit" value="submit" class="feedbackModal btn">Send message</button>
                     </div>

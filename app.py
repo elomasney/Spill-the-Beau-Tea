@@ -543,12 +543,14 @@ def manage_users():
 
 @app.route("/user_feedback/<user_id>", methods=["GET", "POST"])
 def user_feedback(user_id):
+    # If user submits feedback through modal
     if request.method == "POST":
         feedback = {
             "user": ObjectId(user_id),
             "name": request.form.get("name"),
             "comment": request.form.get("comment")
         }
+        # Inserts user feedback into user_feedback in db
         mongo.db.user_feedback.insert_one(feedback)
         flash("Your feedback has been sent")
         return redirect(
@@ -559,12 +561,14 @@ def user_feedback(user_id):
 
 @app.route("/manage_feedback")
 def manage_feedback():
+    # Gets a list of all user feedback from the db
     feedback = list(mongo.db.user_feedback.find())
     return render_template("user_feedback.html", feedback=feedback)
 
 
 @app.route("/delete_feedback/<user_feedback_id>")
 def delete_feedback(user_feedback_id):
+    # Removes a specific feedback entry from the db
     mongo.db.user_feedback.remove({"_id": ObjectId(user_feedback_id)})
     flash("This comment has been deleted!")
     username = mongo.db.users.find_one(
