@@ -416,7 +416,7 @@ It is hosted on Heroku using automatic deployment from GitHub. Link to the live 
 - Heroku will receive the code from the GitHub repository and start building the app.
 - It will automatically update when changes are pushed to GitHub.
 
-#### **To run the project locally:**
+### **To run the project locally:**
 ##### **Step 1:**
 - Login to GitHub and locate the repository
 
@@ -431,23 +431,61 @@ It is hosted on Heroku using automatic deployment from GitHub. Link to the live 
 
 ## **Credits**
 ### **Code**
+**_MongoDb Documentation_**
+- Code was taken from MongoDb documentation for group aggregation used to get the average rating from the reviews collection in the database. Code taken from [MongoDb Docs](https://docs.mongodb.com/manual/reference/operator/aggregation/group/)
+
+**_Stackoverflow_**
+- HTML code was taken from StackOverflow, to solve an issue with the hamburger menu. The menu was not closing when a link had been clicked,
+the navbar was remaining open. Code taken from [Orel Eliyahu](https://stackoverflow.com/questions/36405991/bootstrap-toggle-menu-on-one-page-site-does-not-uncollapse-when-clicked).
+
+- Javascript code taken from Stack Overflow to hide a div only on the 404 error page. Code taken from [Stack Overflow](https://stackoverflow.com/questions/28034638/hide-div-on-certain-pages-using-jquery) and edited.
+
+**_Bootstrap Documentation_**
+- HTML code used to build the 'Instructions' modal dialog box forms and edited for this project. This code was taken from [Bootstrap Documentation](https://getbootstrap.com/docs/4.1/components/modal/) and edited.
+- HTML code was used to create the accordion menus on the profile favourites, admin profile, and user feedback and edited for this project. Code was taken from [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/components/collapse/) and edited.
+
+**_Favicon_**
+- Code snippet used to generate a favicon for this website. This code was inserted into the html document in the `<head>` section. I have also included the source files for this in the favicon folder. The website used to generate the favicon and associated files was [Favicon.io](https://favicon.io/).
 ### **Content**
 ### **Media**
+**Images:**
+
+Images for this project were sourced from a variety of resources shown below:
+- [Beauty Bay](https://www.beautybay.com/)
+- [Pop Sugar](https://www.popsugar.co.uk/)
+- [Get The Gloss](https://www.getthegloss.com/)
+- [Allure](https://www.allure.com/)
+- [Pinterest](https://www.pinterest.ie/)
+- [Fabulous Makeup](https://www.fabulousmakeup.co.uk/)
+- [Boots](https://www.boots.ie/)
+- [Cult Beauty](https://www.cultbeauty.com/ie/en/)
+- [Look Fantastic](https://www.lookfantastic.ie/)
+- [Brown Thomas](https://www.brownthomas.com/)
+- [Catrice Cosmetics](https://catrice.eu/en/index.html)
+- [Kaggle](https://www.kaggle.com/oftomorrow/herokuapp-makeup-products)
+- [Unsplash](https://unsplash.com/s/photos/liz-breygel-broken-makeup?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash)
+- [Pexels](https://www.pexels.com/photo/colored-powders-and-brush-1749452/)
+
 ### **Resources**
-Code Institute Content - specifically the Task Manager Project
-Slack Community
-Bootstrap Documentation
-Flask Documentation
-Jinja Templating Documentation
-WW3 Schools
-Stack Overflow
-YouTube
-Balsamiq Wireframes
-CSS Tricks
-Beauty Websites
-Images
-Content for reviews
-MongoDB Documentation
+- Code Institute Content - specifically the Task Manager Project
+- Slack Community
+- Bootstrap Documentation
+- Flask Documentation
+- Jinja Templating Documentation
+- WW3 Schools
+- Stack Overflow
+- YouTube
+- Balsamiq Wireframes
+- CSS Tricks
+- Beauty Websites for Images, Product Details and Review Content
+- MongoDB Documentation
+- Unsplash
+- Pexels
+- Scheme Colour
+- Favicon.io
+- Beautifier.io
+- Tutor Support
+
 
 ### **Acknowledgements**
 This project was a new challenge for me as it was my first project working with databases and also the first project that contained multiple pages. In undertaking this challenge I have learned so much which will be of great benefit to me going forward into future projects. In hindsight there are some elements throughout this process that I would handle differently in future projects, but given my timeframe and skills to date I am very happy with the project and I have been amazed at how far I have come in the last year. I would like to thank tutor support, special mention to Tim, for the amazing support and advice I was given when dealing with one or two issues in this project. I found the tutor support experience really rewarding as I came away having learned some valuable information that will stick with me for use in future projects. The tutor support team are extremely patient, helpful and understanding and it is a extremely valuable resource to have available to me.
