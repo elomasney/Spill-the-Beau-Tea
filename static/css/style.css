@@ -468,7 +468,7 @@ a.review_delete,
     background-color: #04cbfa	;
 }
 
-#search-category {
+.search-category {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
