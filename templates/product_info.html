@@ -49,7 +49,7 @@
                     {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
                     <!-- for each star in the rating.average, insert whole-star -->
                     {% for star in range(rating.average|int) %}
-                    <i id="star" class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
                     {% endfor %}
                     <!-- for each half-star in rating.average, insert half-star -->
                     {% if ".5" in rating.average|string %}
@@ -57,7 +57,7 @@
                     {% endif %}
                     <!-- for each remaining value in "count" variable, insert empty-star -->
                     {% for star in range(count) %}
-                    <i id="star" class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                     {% endfor %}
                     {% endif %}
                     {% endfor %}
@@ -66,7 +66,7 @@
                     {% set count = 5  %}
                     <!-- for each star in the range(count), insert whole-star -->
                     {% for star in range(count) %}
-                    <i id="star" class="far fa-star"></i>
+                    <i class="far fa-star"></i>
                     {% endfor %}
                     {% endif %}
                     <p class="product-card card-text"><strong id="description">Description:</strong></p>
@@ -89,7 +89,7 @@
                     </a>
                     {% endif %}
                     <!--Adding a Review using a Modal Popup-->
-                    <div class="modal fade" id="addReview" tabindex="-1" role="dialog" aria-labelledby="addReviewLabel" aria-hidden="true">
+                    <div class="modal fade" id="addReview" tabindex="-1" role="dialog" aria-labelledby="addReview" aria-hidden="true">
                         <div class="modal-dialog modal-lg" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -126,7 +126,7 @@
                                             <div class="row">
                                                 <div class=" product-input col-12">
                                                     <label for="review_content">Review: </label>
-                                                    <textarea class="form-control" id="review_content" name="review_content" minlength="3" type="text" rows="2" required></textarea>
+                                                    <textarea class="form-control" id="review_content" name="review_content" minlength="3" rows="2" required></textarea>
                                                 </div>
                                             </div>
                                             <!--Repurchase Checkbox-->
@@ -136,22 +136,22 @@
                                                 <input type="checkbox" id="repurchase" name="repurchase">
                                                 <span class="lever"></span>
                                             </div>
-
+                                        </form>
                                     </div>
                                 </div>
                                 <div class="modal-footer">
                                     <!-- submit button -->
                                     <div class="row">
                                         <div id="modalBtns" class="col-12 ">
-                                            <button type="submit" class="edit_review btn-large"><a href="
+                                            <a class="edit_review btn-large"href="
                                                 {{ url_for('product_info', product_id=product._id) }}">
-                                                    Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                                    Cancel <i class="fas fa-times-circle right"></i></a>
                                             <button id="add_review" type="submit" class="btn-large">
                                                 Add Review <i class="fas fa-plus-square right"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    </form>
+                                    
                                 </div>
                             </div>
                         </div>
@@ -160,8 +160,6 @@
             </div>
         </div>
     </div>
-</div>
-<div>
     <hr>
     <!--Header that displays different message based on whether the product has reviews or not-->
     <h3 class="no-review">{{message}}</h3>
@@ -211,9 +209,7 @@
             </div>
         </div>
     </div>
-</div>
 {% endfor %}
-</div>
 <!--Button to show all reviews for the product if more than the 5 displayed-->
 {% if review_count >=1 %}
 <div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button" class="btn btn-lg review-btn" id="more_reviews">
