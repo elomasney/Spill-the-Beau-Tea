@@ -290,22 +290,39 @@ Technologies Used
 In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 ## **Technologies Used**
 ### **_Languages_**
-### **_Frameworkd/Integrations
-Bootstrap 4 
-Google Fonts
-Font Awesome
-Flask
-JQuery
-SweetAlert2
-MongoDb
-The project uses JQuery to simplify DOM manipulation.
+- **HTML5:** This was used to create the structure for all pages
+- **CSS:** This was used to style all elements of the website
+- **JavaScript:** This was used to implement SweetAlert popup modals to provide confirmation for delete functionality of items from the database in Mongodb. It was also used to dynamically set the copyright year and to set a timeout on the flash messages.
+- **Python:** This was used to run the backend development of the website 
+- **Jinja Templating Language:** This was used in the creation of html templates in conjunction with Python.
+
+### **_Database_**
+- **MongoDb Atlas:** This was used to create the database for storing the data needed for the project.
+
+### **_Frameworks/Integrations_**
+- **Bootstrap4:** Used for the grid layout for the website and modal forms.
+- **Font Awesome:** Used to add icons to the website.
+- **Google Fonts:** Used to select the font styles used on the website for the section headers and body.
+- **JQuery:** Used for the drop down navigation, sweetalert delete confirmation popups, dynamically set copyright year, collapsible accordion menus and setting timeout on the flash messages.
+- **SweetAlert2:** Used to create the alerts for the popup confirmation boxes used to confirm deletes on data from the database.
+- **Flask:** [Flask](https://flask.palletsprojects.com/en/1.1.x/) was used  extensively including for Jinja templating and Werkzeug security
+- **Werkzeug:** [Werkzeug](https://werkzeug.palletsprojects.com/en/1.0.x/) used for data security
+- 
+
 ### **_Workspace_**
 - **Github:** - (IDE) Integrated Development Environment
 - **GitPod:** - Cloud based hosting platform for managing my repositories, tracking changes and storing files.
+- **Heroku:** - Cloud application platform used to deploy and host the website
 
 ### **_Other_**
-Tinyjpeg
-Balsamiq Wireframes
+- **Tinyjpeg:** This was used to compress the images used on the website.
+- **Balsamiq Wireframes:** Used to create wireframes for this project
+- **Chrome DevTools:** used to check the UX design on all devices
+- **Favicon:** used to create a favicon for the website
+- **Am I Responsive:** used to create the mockup of the website on all devices
+- **Auto Prefixer CSS:** used to parse the CSS for vendor prefixes
+- **SchemeColour:** used to aid with the colour palette choices
+
 
 ## **Testing**
 Testing
