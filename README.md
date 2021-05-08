@@ -69,19 +69,24 @@ This website was designed for makeup lovers who are looking for honest product r
 - As a guest user, I would like to be able to search for products and see the associated reviews without the ability to add/edit/delete reviews.
 
 ### **_Strategy Plane_**
-The aim of this project was to develop a makeup review website, that provides honest real reviews on makeup products generated from everyday users from real life experience using the products. The website is vibrant, energetic, fun, inviting and easy to navigate. This website was designed with a focus on user experience and user needs and the aim of encouraging users to join and create content. With this in mind I made the decision to include pre-populated products, for an easier user experience. A lot of information would need to be sourced to add a product which might be discouraging to users when adding content to the site. It is designed so only admin can add/edit products and users can add reviews to the products and edit and delete these from their profile. I have also included a user feedback modal so that users can communicate with admin on suggested products to add to the site, or provide feedback on site improvements. These feedback comments can then be seen by admin in the user feedback section on the admin profile and deleted as necessary. This project should be a go to for users when researching the best makeup products worth purchasing. There are so many makeup product websites and blogs, it is hard to distinguish between them so the aim of this project was to provide a more interactive and enjoyable way of experiencing this type of website.
+- The aim of this project was to develop a makeup review website, that provides honest real reviews on makeup products generated from everyday users from real life experience using the products. The website is vibrant, energetic, fun, inviting and easy to navigate. 
+- This website was designed with a focus on user experience and user needs and the aim of encouraging users to join and create content. With this in mind I made the decision to include pre-populated products, for an easier user experience. A lot of information would need to be sourced to add a product which might be discouraging to users when adding content to the site. It is designed so only admin can add/edit products and users can add reviews to the products and edit and delete these from their profile. - I have also included a user feedback modal so that users can communicate with admin on suggested products to add to the site, or provide feedback on site improvements. These feedback comments can then be seen by admin in the user feedback section on the admin profile and deleted as necessary. 
+- This project should be a go to for users when researching the best makeup products worth purchasing. There are so many makeup product websites and blogs, it is hard to distinguish between them so the aim of this project was to provide a more interactive and enjoyable way of experiencing this type of website.
 
 
 ### **_Scope Plane_**
-The priority for this project was to create a database of popular user products available on the market and allow users to create, edit and delete reviews for these products and have access to other user reviews. It was extremely important that the site’s purpose was immediately evident and that it was fun and attractive to users. It needed to be vibrant with a clear layout and easy to use navigation. Given my timeframe and skills, my focus was on ensuring that users had control their own content they created for the website, to provide a profile where this content could be accessed together and to provide as many benefits to the user as possible. I decided to pre-populate the products and product information for the site for ease of use while also providing a means of communication between admin and users so that users get to have more involvement in the content creation and improvements for the site. This would allow the Admin team to keep track of areas for improvement and really deliver the content that the user was looking for.
-The site needed to be easy to use so it was necessary to include search bars on the homepage, products page and product information pages. I want to ensure that the user could search by product name, brand or category name. This would allow the user to navigate to different items with ease while also have the navigation bar menu displayed at all times if they wish to navigate to the homepage, profile, sign out or login and category pages.
-The products page contains a list of products depending on item searched or category chosen. Each product shows the user the average reviews and also the number of reviews for each product, which acts as a like to that product’s reviews. Also included is a button ‘More Info’ that allows the user to navigate to further information and reviews on that specific product.
-The use of vivid images and minimal text on the category and products pages was so that the user isn’t overwhelmed with information, but has the option to delve deeper into a specific product if they wish where they have the option to see product reviews, add a review or delete a review they have added. The product information shows a limit of 5 reviews under each product, however there is a ‘More Reviews’ button located underneath to take the user to all the product reviews for that specific item. 
-Again, to make navigation easy for the user on the reviews page I have provided a button that brings the user back to the product information of that specific item.
-It was also essential that user could create a list of favourite products and have the ability to add and remove these products whenever they wished to do so. I have included favourite buttons on each product and product information page that immediately indicate to the user if the product has been added to this list or not with the use of a heart icon which toggles from outlined to full colour depending on whether the product is in the user favourites list.
-The user profile welcomes the user with a visual greeting on sign in and included an accordion list of their favourite products, a button for leaving feedback comments, the reviews they have created and a button to delete their account if necessary.
-The admin profile contains a different layout showing an accordion menu with management items such as all reviews with the ability to delete these, all users with the ability to delete a user account, user feedback with the ability to delete comments and adding, editing products and categories for the site.
-Along with this, I wanted the site to be accessible to all but with extra features/benefits to registered users. The products and reviews can be seen and accessed by everyone who visits the site, however only registered users can add reviews and add their favourites products.
+- The priority for this project was to create a database of popular user products available on the market and allow users to create, edit and delete reviews for these products and have access to other user reviews. 
+- It was extremely important that the site’s purpose was immediately evident and that it was fun and attractive to users. It needed to be vibrant with a clear layout and easy to use navigation. 
+- Given my timeframe and skills, my focus was on ensuring that users had control their own content they created for the website, to provide a profile where this content could be accessed together and to provide as many benefits to the user as possible. 
+- I decided to pre-populate the products and product information for the site for ease of use while also providing a means of communication between admin and users so that users get to have more involvement in the content creation and improvements for the site. This would allow the Admin team to keep track of areas for improvement and really deliver the content that the user was looking for.
+- The site needed to be easy to use so it was necessary to include search bars on the homepage, products page and product information pages. I want to ensure that the user could search by product name, brand or category name. This would allow the user to navigate to different items with ease while also have the navigation bar menu displayed at all times if they wish to navigate to the homepage, profile, sign out or login and category pages.
+- The products page contains a list of products depending on item searched or category chosen. Each product shows the user the average reviews and also the number of reviews for each product, which acts as a like to that product’s reviews. Also included is a button ‘More Info’ that allows the user to navigate to further information and reviews on that specific product.
+- The use of vivid images and minimal text on the category and products pages was so that the user isn’t overwhelmed with information, but has the option to delve deeper into a specific product if they wish where they have the option to see product reviews, add a review or delete a review they have added. The product information shows a limit of 5 reviews under each product, however there is a ‘More Reviews’ button located underneath to take the user to all the product reviews for that specific item. 
+- To make navigation easy for the user on the reviews page I have provided a button that brings the user back to the product information of that specific item.
+- It was also essential that user could create a list of favourite products and have the ability to add and remove these products whenever they wished to do so. I have included favourite buttons on each product and product information page that immediately indicate to the user if the product has been added to this list or not with the use of a heart icon which toggles from outlined to full colour depending on whether the product is in the user favourites list.
+- The user profile welcomes the user with a visual greeting on sign in and included an accordion list of their favourite products, a button for leaving feedback comments, the reviews they have created and a button to delete their account if necessary.
+- The admin profile contains a different layout showing an accordion menu with management items such as all reviews with the ability to delete these, all users with the ability to delete a user account, user feedback with the ability to delete comments and adding, editing products and categories for the site.
+- Along with this, I wanted the site to be accessible to all but with extra features/benefits to registered users. The products and reviews can be seen and accessed by everyone who visits the site, however only registered users can add reviews and add their favourites products.
 
 
 ### **_Structure Plane_**
@@ -99,12 +104,29 @@ This page includes a header with the users name, a list of their favourite produ
 - All user functionality i.e adding and editing content is done through use of modal popups and buttons to delete items. The delete buttons have a sweetalert popup to confirm any deletes made on the site.
 - The admin user has a slightly different layout on the profile page which consists of an accordion menu which allows them to access a list of all users, a list of all reviews, a list of all feedback, which gives the admin user the ability to delete any of these list items from the database. It also includes a manage button to allow the admin user to add, edit or delete a product or category.
 - Guest users can view the categories page, products page, product info page, and reviews page, however all functionality is unabale to be accessed i.e. adding, editing or deleting reviews.
-- Flash messages are used to alert the user when any action has been taken and are displayed at the top of the page. They are programmed to dropdown and timeout after a few seconds..
+- Flash messages are used to alert the user when any action has been taken and are displayed at the top of the page. They are programmed to dropdown and timeout after a few seconds.
+
+
+**Here is the site layout for this project:**
+![Site Layout](static/images/site_layout.jpg "Site Map")
+
+### **Database Architecture**
+The database for this project was created using MongoDb. It consists of 5 collections: 
+- Categories - stores the category name and category group
+- Products - stores the product name, brand, category name, description, price, number of shades, image url, url link to where to purchase
+- Reviews - stores the product id, review title, rating, review content, username who created the review and the date it was created
+- Users - stores the username, email, password and an array of favourite products(product ids)
+- User Feedback - stores the user id, name and comments
+- The collections were structured as follows:
+
+
+![Database Schema](static/images/database_schema_design.jpg "Database Collections")
 
 
 ### **_Skeleton Plane_**
+This project is a 
 ### **_Wireframes Mockup_**
-### **Database Planning**
+
 ### **_Surface Plane_**
 #### **_Colours_**
 #### **_Typography_**
