@@ -16,7 +16,7 @@
                     <select class="form-control" id="category_group" name="category_group"  required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
-                        <option class="text-center" id="{{category['_id']}}" value="{{category['_id']}}">{{category["_id"]}}</option>
+                        <option class="text-center" value="{{category['_id']}}">{{category["_id"]}}</option>
                         {% endfor %}
                     </select>
                 </div>
