@@ -10,10 +10,10 @@
              <!-- Category Group-->
              <div class="row">
                 <div class=" category-input col-12">
-                    <label class="col-form-label" for="category_group">Category Group:
+                    <label class="col-form-label" for="categoryAddGroup">Category Group:
                         <i class="fas fa-folder-open prefix"></i>
                     </label>
-                    <select class="form-control" id="category_group" name="category_group"  required>
+                    <select class="form-control" id="categoryAddGroup" name="category_group"  required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
                         <option class="text-center" value="{{category['_id']}}">{{category["_id"]}}</option>
@@ -24,7 +24,7 @@
             <!-- Category Name -->
             <div class="row">
                 <div class="category-input col-12">
-                    <label class=" col-form-label" for="category_name">Category Name:
+                    <label class=" col-form-label" for="categoryAddName">Category Name:
                         <i class="fas fa-folder-open"></i>
                     </label>
                     <input class="form-control" id="categoryAddName" name="category_name" minlength="3" maxlength="30" type="text" required>
