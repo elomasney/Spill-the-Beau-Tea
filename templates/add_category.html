@@ -13,7 +13,7 @@
                     <label class="col-form-label" for="category_group">Category Group:
                         <i class="fas fa-folder-open prefix"></i>
                     </label>
-                    <select class="form-control" id="categoryAddGroup" name="category_group"  required>
+                    <select class="form-control" id="category_group" name="category_group"  required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
 
