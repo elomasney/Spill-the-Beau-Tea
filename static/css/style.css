@@ -881,11 +881,8 @@ textarea.form-control {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-
-#usernameLogin.form-control,
-#usernameRegister.form-control,
-#passwordLogin.form-control,
-#passwordRegister.form-control
+#password.form-control,
+#password.form-control
 #email.form-control {
     width: 100%;
     text-align: left;

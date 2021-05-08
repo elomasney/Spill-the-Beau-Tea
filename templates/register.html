@@ -12,7 +12,7 @@
                     <div class="form-group col-md-12">
                         <label for="username">Username</label>
                         <i class="fas fa-user-plus"></i>
-                        <input id="usernameRegister" name="username" type="text" minlength="3" maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" class="form-control" aria-describedby="username" placeholder="Enter username" required>
+                        <input id="username" name="username" type="text" minlength="3" maxlength="15" pattern="^[a-zA-Z0-9]{3,15}$" class="form-control" aria-describedby="username" placeholder="Enter username" required>
                     </div>
                 </div>
                 <!--Email-->
@@ -28,7 +28,7 @@
                     <div class="form-group col-md-12">
                         <label for="password">Password</label>
                         <i class="fas fa-user-lock"></i>
-                        <input id="passwordRegister" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
+                        <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
                         <small id="passwordHelpBlock" class="form-text text-muted">
                         Your password must be 5-15 characters long.
                         </small>
@@ -49,6 +49,5 @@
             </p>
         </div>
     </div>
-</div>
 </div>
 {% endblock %}
