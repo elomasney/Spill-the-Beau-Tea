@@ -31,12 +31,13 @@
                     <label class=" col-form-label" for="category_image">Category Image: (image url) <i class="fas fa-folder-open prefix"></i></label>
                     <input class="form-control" id="category_image" name="category_image" value="{{category.img_url}}" type="text" required>
                 </div>
+            </div>
                 <!-- submit button -->
                 <div id="editCategorySubmit" class="row">
                     <div class="col-12">
-                        <button id="editCategoryCancel" type="submit" class="btn-large"><a href="
+                       <a id="editCategoryCancel" href="
                             {{ url_for('all_categories') }}">
-                                Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                Cancel <i class="fas fa-times-circle right"></i></a>
                         <button id="edit_category" type="submit" class="btn-large">
                             Edit Category <i class="fas fa-plus-square right"></i>
                         </button>

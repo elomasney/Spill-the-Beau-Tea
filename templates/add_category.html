@@ -13,7 +13,7 @@
                     <label class="col-form-label" for="category_group">Category Group:
                         <i class="fas fa-folder-open prefix"></i>
                     </label>
-                    <select class="form-control" id="categoryAddGroup" name="category_group" class="validate" required>
+                    <select class="form-control" id="categoryAddGroup" name="category_group"  required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
 
@@ -39,16 +39,15 @@
                     </label>
                     <input class="form-control" id="categoryAddImage" name="category_image" minlength="3" type="text" required>
                 </div>
+            </div>
                 <!-- submit button -->
                 <div id="addCategorySubmit" class="row">
                     <div id="addCategoryBtns" class="col-12">
-                        <button id="addCategoryCancel" type="submit" class="btn-large">
-                            <a href="
+                            <a id="addCategoryCancel" href="
                                     {{ url_for('all_categories') }}">
                                 Cancel
                                 <i class="fas fa-times-circle right"></i>
                             </a>
-                        </button>
                         <button id="add_category" type="submit" class="btn-large">
                             Add Category
                             <i class="fas fa-plus-square right"></i>

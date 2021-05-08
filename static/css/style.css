@@ -208,8 +208,8 @@ body {
 #home button,
 #home a,
 #add_category.btn-large,
-#editCategoryCancel.btn-large,
-#addCategoryCancel.btn-large,
+#editCategoryCancel,
+#addCategoryCancel,
 #edit_category.btn-large,
 .product-btn.btn-large,
 #searchBtn,
@@ -229,6 +229,12 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     border-radius: 5px;
     margin-top: 20px;
+}
+
+#addCategoryCancel,
+#editCategoryCancel{
+    padding: 15px 25px;
+    margin-right: 10px;
 }
 
 /* Sweet Alerts*/
@@ -305,7 +311,7 @@ button.swal2-confirm.swal2-styled {
     background: #ff55be;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    padding: 10px 20px;
+    padding: 10px 10px;
     margin: 15px 10px;
     -webkit-box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
     box-shadow: 0 1rem 1rem rgba(10, 184, 223, .3);
@@ -351,8 +357,6 @@ button.swal2-confirm.swal2-styled {
 
 #add_category.btn-large,
 #edit_category.btn-large,
-#editCategoryCancel.btn-large,
-#addCategoryCancel.btn-large,
 .product-btn.btn-large,
 .edit_review.btn-large,
 #add_review.btn-large {
@@ -361,8 +365,6 @@ button.swal2-confirm.swal2-styled {
     border-radius: 5px;
 }
 
-#addCategoryCancel.btn-large a,
-#editCategoryCancel.btn-large a,
 .edit_review.btn-large a,
 a.review_delete,
 #add_review.btn-large a,
@@ -927,6 +929,11 @@ hr#profileHeader {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+.admin-manage.card,
+.user.card {
+    background-color: #04cbfa;
+}
+
 .favourite-card.card-body,
 div.admin-card.card-body,
 .user-details.card-body {
@@ -947,6 +954,11 @@ div.admin-card.card-body,
     font-size: 2rem;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.admin-manage.card button,
+.user.card button {
+    color: #ff55be;
 }
 
 #favouritesHeading{
@@ -1685,7 +1697,6 @@ button#btn-404 a {
 
     #deleteAccount {
         margin: auto;
-        padding: 10px 20px;
         margin-bottom: 80px;
         font-size: 1.6rem;
     }
