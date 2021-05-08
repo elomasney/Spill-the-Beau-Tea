@@ -124,8 +124,34 @@ The database for this project was created using MongoDb. It consists of 5 collec
 
 
 ### **_Skeleton Plane_**
-This project is a 
+This project contains multiple pages, with some pages displaying different elements based on the level of user: Admin user, guest user and registered user. It incorporates CRUD functionality for registered users and admin users in a variety of different elements. It also includes delete confirmation popups to ensure nothing that the delete functionality is authorised by the user or admin user.
+This project layout contains the following pages:
+- Homepage
+- Categories Page
+- Products Page
+- Product Information Page
+- Reviews Page
+- Login Page
+- Register Page
+- User Profile Page
+- Admin Profile Page
+- Add Category Page (Admin Only)
+- Edit Category Page (Admin Only)
+- Add Product Page (Admin Only)
+- Edit Product Page (Admin Only)
+- Manage Users Page (Admin Only)
+- User Feedback Page (Admin Only)
+
+The registered user CRUD functionality is all accessed through modal forms which include:
+- Add Review Modal
+- Edit Review Modal
+- Contact Us Modal
+
+
 ### **_Wireframes Mockup_**
+- [Wireframes]()
+- The wireframe design didn't really deviate from the original except for a few extra features such as a contact modal, the exclusion of a user profile image and including the user favourites on the profile page instead of a separate page for products favourited by users. It has always been the plan to include plenty of images with minimal text and provide a user friendly, fun and inviting website.
+
 
 ### **_Surface Plane_**
 #### **_Colours_**

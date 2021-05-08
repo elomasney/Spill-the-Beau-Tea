@@ -11,7 +11,7 @@ $('.collapse').collapse();
 
 // Toggles favourites icon button on click
 $('.far.fa-heart').click(function () {
-    $('.far.fa-heart').toggleClass('far fa-heart fas fa-heart')
+    $('.far.fa-heart').toggleClass('far fa-heart fas fa-heart');
 
 });
 
@@ -47,7 +47,7 @@ function confirm_delete_category(delete_url) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location.href = delete_url
+            window.location.href = delete_url;
 
             Swal.fire(
                 'Deleted!',
@@ -55,8 +55,8 @@ function confirm_delete_category(delete_url) {
                 'success');
 
         }
-    })
-};
+    });
+}
 
 /**
  * @function - displays sweetalert confirmation on 'delete product' button
@@ -90,7 +90,7 @@ function confirm_delete_product(delete_url) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location.href = delete_url
+            window.location.href = delete_url;
 
             Swal.fire(
                 'Deleted!',
@@ -98,8 +98,8 @@ function confirm_delete_product(delete_url) {
                 'success');
 
         }
-    })
-};
+    });
+}
 
 /**
  * @function - displays sweetalert confirmation on 'delete review' button
@@ -133,7 +133,7 @@ function confirm_delete_review(delete_url) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location.href = delete_url
+            window.location.href = delete_url;
 
             Swal.fire(
                 'Deleted!',
@@ -141,8 +141,8 @@ function confirm_delete_review(delete_url) {
                 'success');
 
         }
-    })
-};
+    });
+}
 
 /**
  * @function - displays sweetalert confirmation on 'delete account' button
@@ -176,7 +176,7 @@ function confirm_delete_account(delete_url) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location.href = delete_url
+            window.location.href = delete_url;
 
             Swal.fire(
                 'Deleted!',
@@ -184,8 +184,8 @@ function confirm_delete_account(delete_url) {
                 'success');
 
         }
-    })
-};
+    });
+}
 
 /**
  * @function - displays sweetalert confirmation on 'delete category' button
@@ -219,7 +219,7 @@ function confirm_delete_comment(delete_url) {
     }).then((result) => {
         if (result.isConfirmed) {
 
-            window.location.href = delete_url
+            window.location.href = delete_url;
 
             Swal.fire(
                 'Deleted!',
@@ -227,8 +227,8 @@ function confirm_delete_comment(delete_url) {
                 'success');
 
         }
-    })
-};
+    });
+}
 
 /**
  * @function - changes main container height on 404 error page only
@@ -246,7 +246,7 @@ $(function () {
  * Sets timeout for 5 seconds
  */
 //Timeout for flash messages
-$('.flashes').hide().slideDown('slow')
+$('.flashes').hide().slideDown('slow');
 setTimeout(function(){
     $('.flashes').slideUp('slow');
 }, 5000);
