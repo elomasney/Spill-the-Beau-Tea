@@ -10,13 +10,13 @@
              <!-- Category Group-->
              <div class="row">
                 <div class=" category-input col-12">
-                    <label class="col-form-label" for="category_group">Category Group:
+                    <label class="col-form-label" for="{{category_group['_id']}}">Category Group:
                         <i class="fas fa-folder-open prefix"></i>
                     </label>
-                    <select class="form-control" id="category_group" name="category_group"  required>
+                    <select class="form-control" id="{{category_group['_id']}}" name="category_group"  required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
-                        <option class="text-center" id="category_group" value="{{category['_id']}}">{{category["_id"]}}</option>
+                        <option class="text-center" id="{{category['_id']}}" value="{{category['_id']}}">{{category["_id"]}}</option>
                         {% endfor %}
                     </select>
                 </div>
