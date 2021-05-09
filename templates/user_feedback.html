@@ -22,7 +22,7 @@
                 </div>
             </div>
             <!--Button to delete feedback comment-->
-            <button class="text-center comment-delete" type="button" data-href="{{url_for('delete_feedback', user_feedback_id=feedback._id)}}" class="delete-comment">Delete Comment</button>
+            <button class="text-center comment-delete delete-comment" type="button" data-href="{{url_for('delete_feedback', user_feedback_id=feedback._id)}}">Delete Comment</button>
             {% endfor %}
         </div>
     </div>

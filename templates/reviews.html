@@ -6,7 +6,7 @@
     {% if session.user|lower != "admin"|lower %}
     <div class="col-md-12 text-left">
         <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product_back">
-            < Go to Product</a>
+            Back to Product</a>
     </div>
     <!--Displays the product name and brand of the product related to the reviews shown-->
     <h2 id="reviewProductName" class="category-header">{{product.brand}}: {{product.product_name}}</h2>
@@ -53,7 +53,7 @@
                         {% endif%}
                         <!--Button to delete review from the db - only if the user created the review-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a data-href="{{url_for('delete_review', review_id=review._id)}}" type="button" class="review_delete btn btn-lg review-btn">
+                        <a data-href="{{url_for('delete_review', review_id=review._id)}}" class="review_delete btn btn-lg review-btn">
                             Delete Review
                         </a>
                         
@@ -63,7 +63,7 @@
             </div>
         </div>
         <!--Editing a Review using a Modal Popup-->
-        <div class="modal fade" id="Modal_{{review._id}}" tabindex="-1" role="dialog" aria-labelledby="reviewModalLabel" aria-hidden="true">
+        <div class="modal fade" id="Modal_{{review._id}}" tabindex="-1" role="dialog" aria-labelledby="reviewModal{{review._id}}" aria-hidden="true">
             <div class="modal-dialog modal-lg" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
@@ -91,15 +91,15 @@
                                     <fieldset>
                                         <legend class="star-rating"><i class="fas fa-star"></i> Star Rating</legend>
                                         <div id="radio" class="md-form mb-5">
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating" value="1" required /> 1
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating1" value="1" required /> 1
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating" value="2" required /> 2
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating2" value="2" required /> 2
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating" value="3" required /> 3
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating3" value="3" required /> 3
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating" value="4" required /> 4
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating4" value="4" required /> 4
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating" value="5" required /> 5
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating5" value="5" required /> 5
                                             </label>
                                         </div>
                                     </fieldset>
@@ -108,7 +108,7 @@
                                 <div class="row">
                                     <div class=" product-input col-12">
                                         <label for="review_content">Review: </label>
-                                        <textarea class="form-control" id="review_content" value="{{review.review}}" name="review_content" minlength="3" type="text" rows="2" required>{{review.review}}</textarea>
+                                        <textarea class="form-control" id="review_content" name="review_content" minlength="3" rows="2" required>{{review.review}}</textarea>
                                     </div>
                                 </div>
                                 <!--Repurchase Checkbox-->
