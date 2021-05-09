@@ -41,7 +41,7 @@ This project is a makeup review website developed with the purpose of providing 
 - Provide the ability for users to interact with each other through chat/message
 - Provide a 'Tips & Tricks' blog section on how to use products, makeup hacks etc.
 - Provide the means for users to upload video content to show how to apply products etc.
-- To provide a contact admin section for user queries or suggested products to be included in the site
+- To provide a contact admin section by email for user queries or suggested products to be included in the site
 
 ## **UX**
 This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with use of vivid imagery and a bold and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is a user friendly, and easy to navigate with clear calls to action.
@@ -189,10 +189,12 @@ In this project I wanted to implement as much CRUD functionality as possible
 The CRUD functionality for this website works as follows:
 
 #### **Users Can:**
+- Create an account
 - Add a Review
 - Edit their own Reviews
 - Delete their own Reviews
 - View all Reviews
+- View all their content on their profile
 - Add a Product to their Favourites
 - Delete a Product from their Favourites
 - Add user feedback
@@ -213,32 +215,250 @@ The CRUD functionality for this website works as follows:
 - Delete User Feedback
 
 #### **Guest Users Can:**
+- Create an account
 - View all Categories
 - View all Products
 - View all Reviews
 
-### **_General_**
-- Navigation bar that is in a **fixed position** and **accessible** from all pages sitewide, includes a logo that acts as link back to homepage, and navigation links to the right that change depending on the user status. It is **fully responsive** and collapses into a **hamburger menu** on medium and small devices.
-- The footer is fixed at the bottom and contains **copyright information** located in the center.
-- Flash messages are used to alert the user when any action has been taken, these messages slide down from the top of the page and are set to timeout after a few seconds.
+### **_Navigation Bar & Footer_**
+- The **navigation bar** is in a fixed position
+- Access to navigation elements on all pages for a user friendly experience
+- Consists of a **logo** to the left, which acts as a link back to the homepage, and **navigation links** to the right. These navigation links differ depending on the user status: 
+- A guest user has access to:
+    - Homepage 
+    - Categories -( which is a dropdown menu of the category groups currently available on the website)
+    - Sign in
+    - Register.
+- A registered user has access to:
+    - Homepage
+    - Categories - ( which is a dropdown menu of the category groups currently available on the website) - User Profile
+    - Sign out.
+- An admin user has access to:
+    - Homepage
+    - Manage dropdown menu(which holds links to all categories, add a category, all products, add a product)
+    - Profile
+    - Sign out
+- The navigation bar is **responsive** and the links collapse into a **hamburger menu** for both 
+tablet and mobile devices. 
+- The footer is fixed at the bottom and contains **copyright information** located in the center. 
 
 ### **_Homepage_**
-- The homepage contains a full viewheight bright and vibrant background image with a **callout jumbotron** which states the purpose of the website.
-- Within the jumbotron there is a search bar which can be seen and utilised by all users (guest, registered and admin). Users can search products by category, name or brand.
-- Directly underneath the search bar are two **call to action** buttons, 'Sign In' and 'Register', once clicked will direct the user to either the login or register page depending on the button clicked.
+- The homepage consists of a full width height, **responsive image**
+- Contains a **callout jumbotron** which is the title of the website and a brief introduction to the purpose of the website.
+- Directly under the callout there is a **search bar**, which allows the user to search for products on the website by category name, product name or product brand. This is clear to the user and displayed as the placeholder text. 
+- There are two **call to action buttons**, one 'Register' which will take the user to the register page to create an account and another 'Sign In' to take the user to the sign in page to log into their account.
 
 ### **_Categories_**
-- Displays a list of categories within the category groups displayed in the dropdown 'Categories' list in the navigation bar. Each category has a top image and a hidden search input displayed as text "Explore category products" and a search icon, which when clicked, takes the user to the list of products within that category.
-- Admin users have a slightly different view with the inclusion of two buttons on each category card: 'Edit Category' and 'Delete Category'. This gives the admin user the ability to edit a category or delete a category from the database.
+- Accessed through the category group dropdown menu on the navigation bar
+- This will lead the user to the product categories within that category group.
+- Includes a header telling the user which category they are viewing. 
+- Displayed in card layout with a top image and the category name underneath. 
+- Includes a hidden search input that is labelled 'Explore category products' and a search icon, when clicked this will direct the user to the list of products within this category displayed on the products page.
+- For Admin users only, each category has two **buttons** available to them. 'Edit Category' and 'Delete Category'. 
+- 'Edit Category' button directs the user to the edit category form page to allow them to edit the category
+- 'Delete Category' button once clicked will trigger a sweet alert popup asking the user if they definitely want to delete that category, with options to cancel or confirm the delete. 
+- Cancel directs the user back to the categories page. 
+- Confirm deletes the category selected and removes from the database.
 
 ### **_Add A Category_**
+- Only accessible to admin users. 
+- Admin has access to this page either from the 'Manage' dropdown menu on the navigation bar or the accordion menu on the Admin profile page. 
+- 'Add Category' page is a displayed as an empty form to be completed by the user. 
+- Includes fields for the category name and a dropdown select input to choose a category group from the category groups available in the database. 
+- There are two **buttons** located at the bottom of the form, 'Cancel', which redirects the user back to the 'Categories' page and the 'Add Category' button which will submit the form and insert the new category into the database in MongoDb.
+
+### **_Edit A Category_**
+- Only accessible to admin users. 
+- Admin can be accessed from the categories page. 
+- Allows user to edit a specific category
+- User is directed to the Edit Category page, which is a form layout
+- Includes fields for category name and a dropdown list of category groups to choose from. 
+- The information is pre-populated with the specific category information from the database
+- Allows the user to edit and update the category in the database in Mongodb.
+
+### **_Delete A Category_**
+- Only accessible to Admin users
+- Accessed on the categories page, where each category has a call to action button 'Delete Category' 
+- Once clicked, a sweetalert popup is triggered and will ask the user to confirm the delete function. 
+- Cancel will redirect the user back to the categories page. 
+- Confirm deletes the category and removes it from the database 
+- The user is alerted it has been deleted via a flash message at the top of the screen.
+
+### **_Products_**
+- Registered users and guest users can access the products page using the search bar functionality on the home page, or through the category pages from the navigation bar dropdown menu.
+- Registered users have access to an extra feature that is unavailabe to guest users, a clickable heart icon on the product information card. When clicked will add or remove the product to/from the user favourites list depending on the toggle state of the icon.
+- The icon toggles between full colour and outline depending on whether the item has been added to the user favourites or not.
+- Admin users can access the products page through the 'Manage' dropdown menu on the navigation bar or using the same avenues as the registered or guest users.
+- Displays a list of products in card layout which include the product image and basic product information( product name, average rating, no. of reviews, price, number of shades available) 
+- Includes a  **button** 'More Info', when clicked takes the user to more detailed information on that specific product and the most recent 5 reviews for that product.
+- The number of reviews acts as a link for users to be taken directly to all reviews associated with this specific product.
+- Admin users have extra features on the products page: two **buttons**, 'Edit Product' and 'Delete Product'.
+
+### **_Product Info_**
+- The product info page displays only one product with more detailed information
+- Also includes the most recent 5 reviews for the product. 
+- Has a card layout with a product image and product information(product name, brand, average rating, description, price, number of shades available)
+- For registered users only, a **call to action button** is displayed 'Add A Review' which triggers a popup moodal form to allow the user to add a review to the product.
+- A clickable heart icon acts as a user favourites button located on the product information card which is only available to registered users. 
+- The heart icon when clicked will add or remove the product to/from the user favourites list depending on the toggle state of the icon.
+- The icon toggles between full colour and outline depending on whether the item has been added to the user favourites or not.
+- At the bottom of the page there is a button 'More Reviews' whichtakes the user to the reviews page and all reviews for that product are displayed.
+- If a registered user has created a review which is displayed, they will have access to a button 'Delete Review' on the review, which will allow them to delete that review.
+
+### **_Add A Product_**
+- Only available to admin users.
+- Accessed from the 'Manage' dropdown menu on the navbar or from the button 'Add Product' located on the product cards in the products page.
+- When this button is clicked it directs the user to the Add Product page, a blank form with fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list to choose the category name.
+- The form has 2 buttons 'Cancel' and 'Add Product'. The cancel button redirects the user to the products page and the add product button submits the form and adds the product to the database in MongoDb.
+
+### **_Edit A Product_**
+- For admin users only 
+- Accessed on the products page, by a call to action button 'Edit Product'. 
+- Directs the user to the Edit Product page, which is a form, including fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list of categories to choose from. 
+- All fields are pre-populated with the that products information from the database
+- Allows the user to edit and update the product in the database in Mongodb.
+
+### **_Delete A Product_**
+- For Admin users only
+- Accessed on the products page, by a call to action button 'Delete Product'. 
+- Triggers a sweetalert popup asking the user to confirm the delete function. 
+- Cancel will redirect the user back to the products page.
+- Confirms will delete the product from the database.
+- The user is alerted it has been deleted via a flash message at the top of the screen.
+
+### **_Product Reviews_**
+- Reviews can be accessed by all users through the product page via the number of reviews link on the product card or through the 'More Reviews' button located at the bottom of the product info page.
+- A **button** 'Back to Product' located at the top of the page that will direct the user back to the specific product they were viewing.
+- If a registered user has created the review, two **buttons** will be displayed on that review card: 'Edit Review' and 'Delete Review'
+- Admin users also have access to view all reviews in the database through the Admin profile accordion menu 'Reviews' section.
+- Each review in this section has a 'Delete Review'
+- Giving admin the ability to delete any review on the website.
+
+### **_Add A Review_**
+- Only available to registered users 
+- The button titled 'Add Review' is located on the product info page only at the bottom of the product information card.
+- Triggers a popup modal form on the product info page 
+- Allows the user to add a review to the database.
+- Contains input fields for review title, radio buttons to select the rating for values between 1 - 5, and review content. 
+- The date the review is created and the user that created it are populated automatically from the backend.
+
+### **_Edit A Review_**
+- Only available on the review cards if the user has created the review.
+- A button titled 'Edit Review is located on the review card 
+- Access to edit a review can be done through the product info page, the reviews page and also in the user profile in the 'My Reviews' section.
+- Triggers a popup modal form that pre-populates the review fields with the exception of the star rating - Allows the user to edit and update their review on the database
+
+#### **_Delete A Review_**
+- Only vailable to registered user who have created that review 
+- Accessed via a button 'Delete Review' located on the review card on the product info page, the reviews page and also in the user profile in the 'My Reviews' section.
+- Triggers a sweetalert confirmation popup, that asks the user to confirm if they are sure they want to delete the review. 
+- Cancels will direct the user back to the page they were on
+- Confirmed will delete the their review from the database.
+- Admin users can delete reviews by navigating to the reviews section in their profile. 
+- Within the reviews page each review card has a 'Delete Review' button which will trigger the confirmation popup and a review can be deleted from the database.
+
+### **_Profile_**
+- Only available to registered users
+- Displays a list of user favourites(product name and brand of products they have added to their favourite list)
+- A list of the reviews they have created.
+- At the bottom of the page, there is a 'Delete Account' button. 
+- Triggers a sweetalert pop confirmation asking the user if they are sure they want to delete their account.  
+- The cancel button redirects the user back to their profile 
+- The confirm button will delete th user from the database, clear the session cookies and redirect the user to the homepage.
+
+#### **_Add A Favourite_**
+- A clickable heart icon located on the products and product info page allows a registered user to add a product to their favourites list.
+- If the user has not added the product to their favourites the heart icon will remian outlined in yellow, and if clicked will add the product to the user favourites.
+- The product is then displayed on the user profile in the favourites accordion list
+
+#### **_Delete A Favourite_**
+- The heart icon will display full yellow colour if a product has already been added to a user's favourites
+- Users can click the heart icon which will remove the product from the user's favourites.
+- Users can also remove an item from their favourites list on their profile using the 'Delete Product button in the favourites accordion menu.
+- This allows the user to remove the item from their favourites and it will no longer appear in their list.
+
+#### **_Submit User Feedback_**
+- Allows the user to submit feedback comments to the Admin team. 
+- Gives users the ability to communicate their thoughts and opinions on the website to help with future improvements.
+- Only available to registered users through the a button link on the user profile page.
+- Located below the user favourites list, titled 'Contact Us'
+- Triggers a popup modal form, which includes field inputs for user's name and comments.
+- Gives user the option to close the modal form or submit the form. 
+- Cancel redirect the user back to their profile page. 
+- Submit will add the user feedback to the database 
+- Can only be viewed by Admin users.
+
+### **_Admin Profile_**
+- Includes a Manage section(Add a product, all products, add a category, all categories), a Reviews section(All Reviews), a Manage Users section (All Users), and Manage User Feedback (All Feedback)
+- Contains a 'Delete Account' button at the bottom of the page.
+- Triggers a sweetalert pop confirmation asking the user if they are sure they want to delete their account. 
+- The cancel button redirects the user back to their profile 
+- The confirm button will delete th user from the database, clear the session cookies and redirect the user to the homepage.
+
+#### **_Delete A User_**
+- Only available to Admin users
+- Accessed from the Admin profile through the Manage Users section of the accordion menu. 
+- The link directs the user to a list of usernames including a button on each user titled 'Delete User'.
+- Triggers a sweetalert pop confirmation asking the user if they are sure they want to delete the user account. 
+- The cancel button will stop the delete from being executed 
+- The confirm button will delete the user from the database, and alert Admin that the user has been deleted.
+
+#### **_Delete User Feedback_**
+- Only available to Admin users
+- Accessed from the Admin profile through the 'Feedback & Suggestions' section of the accordion menu. 
+- The link directs the user to a list of user feedback(including name and comments). 
+- A button is located below each feedback entry, titled 'Delete Comment'.
+- Triggers a sweetalert pop confirmation asking the user if they are sure they want to delete the user feedback. 
+- The cancel button will stop the delete from being executed 
+- The confirm button will delete th user feedbaack from the database.
+
+#### **_Sign In_**
+- Allows registered users to log into their account
+- Will alert user if username/password is incorrect
+- Contains a link to the register page if a user has no account set up
+
+#### **_Register_**
+- Allows user to create an account on the website
+- Will alert user if username has already been taken
+- Contains a link to the login page incase user gets clicks on wrong link on the navigation bar
+
+## **Existing Features**
+
+### **_General_**
+- Navigation bar that is in a **fixed position** and **accessible** from all pages sitewide, includes a logo that acts as link back to homepage, and navigation links to the right that change depending on the user status. It is **fully responsive** and collapses into a **hamburger menu** on medium and small devices.
+- The navigation bar consists of a **logo** to the left, which acts as a link back to the homepage, and **navigation links** to the right. These navigation links differ depending on the user status: 
+    - A guest user has access to the homepage, product categories( which is a dropdown menu of the category groups currently available on the website), sign in and register.
+    - A registered user upon signing into their account will be able to view links to the home page, categories dropdown, the user profile and sign out.
+    - An admin user upon signing into their account will be able to access, the homepage, a manage dropdown menu(which holds links to all categories, add a category, all products, add a product), their user profile and the sign out link.
+- The navigation bar is **responsive** and the navigation menu collapses into a **hamburger menu** for both 
+tablet and mobile devices. 
+- The footer is fixed at the bottom and contains **copyright information** located in the center.
+- Flash messages are used to alert the user when any action has been taken, these messages slide down from the top of the page and are set to timeout after a few seconds.
+- Users can sign into their account from the navigation bar link
+- Users can register and create their own account through the register link on the navigation bar.
+- Registered users can sign out using the link in the navigation bar
+
+### **_Homepage_**
+- The homepage consists of a full width height, **responsive image**. It is a bright and vibrant background image with a **callout jumbotron** which is the title of the website and a brief introduction to the purpose of the website.
+- Directly under the callout there is a **search bar**, which utilised by all users (guest, registered and admin) and allows the user to search for products on the website by category name, product name or product brand. This is clear to the user and displayed as the placeholder text. Directly underneath this there are two **call to action buttons**, one 'Register' which will take the user to the register page to create an account and another 'Sign In' to take the user to the sign in page to log into their account.
+- Users can sign into their account through the navigation link or the button on the homepage jumbotron.
+- Users can register for an account through the navigation link or the button on the homepage jumbotron.
+
+### **_Categories_**
+- The categories can be accessed through the dropdown menu on the navigation bar which includes links to the category groups. When a category group is selected it will lead the user to the product categories within that category group. The categories page includes a header telling the user which category theu are viewing. 
+- The categories are displayed in card layout with a top image and the category name underneath. It also has a hidden search input that is labelled 'Explore category products' and a search icon, which when clicked, takes the user to the list of products within that category which are displayed on the products page.
+- Admin users have a slightly different view with the inclusion of two buttons on each category card: 'Edit Category' and 'Delete Category'. This gives the admin user the ability to edit a category or delete a category from the database., each category has an **Edit Category button** and a **Delete Category button** located on the end of each category card.
+- The 'Edit Category' button will direct the user to the edit category form page which will generate the information from that specific category and allow the user to edit the information as needed.
+- The 'Delete Category' button once clicked will trigger a sweet alert popup asking the user if they definitely want to delete that category, with options to cancel or confirm the delete. If the delete is cancelled the user is directed back to the categories page. If the user confirms the delete, the category selected will be removed from the database.
+
+#### **_Add A Category_**
 - This is for admin users only and can be accessed either through the 'Manage' dropdown menu or on the categories page by clicking the button 'Add Category'. It takes the user to the Add Category page, a blank form with fields for category name and a dropdown list to choose the category group.
 - Two buttons are located at the bottom of the form, 'Cancel' and 'Add Category'. The cancel button will redirect the user back to the categories page and the add category button will submit the form and add the category to the database in MongoDb.
 
-### **_Edit A Category_**
+#### **_Edit A Category_**
 - This is for admin users only and can be accessed on the categories page, where each category has a call to action button to edit the specific category. Once clicked, the user is directed to the Edit Category page, which is a form layout, including fields for category name and a dropdown list of category groups to choose from. The category name is pre-populated with the specific category information from the database and allows the user to edit and update the category in the database in Mongodb.
 
-### **_Delete A Category_**
+#### **_Delete A Category_**
 - This is for admin users only and can be accessed on the categories page, where each category has a call to action button to delete the specific category. Once clicked, a sweetalert popup is triggered and will ask the user to confirm the delete function. If the user cancels, they are redirected back to the categories page, and if the user confirms the delete, then the category is deleted from the database and the user is alerted it has been deleted via a flash message at the top of the screen.
 
 ### **_Products_**
@@ -259,15 +479,15 @@ The CRUD functionality for this website works as follows:
 - At the bottom of the product info page there is a button 'More Reviews' which when clicked, takes the user to the reviews page and all reviews for that specific product are displayed.
 - If a registered user has a review in the most recent reviews displayed, then they will have access to a delete button 'Delete Review' on the review they have created, which will allow them to delete that review.
 
-### **_Add A Product_**
+#### **_Add A Product_**
 - This feature is only available to admin users and can be accessed from the 'Manage' dropdown menu on the navbar or from the button 'Add Product' located on the product cards in the products page.
 - When this button is clicked it will direct the user to the Add Product page, a blank form with fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list to choose the category name.
 - Two buttons are located at the bottom of the form, 'Cancel' and 'Add Product'. The cancel button will redirect the user back to the products page and the add product button will submit the form and add the product to the database in MongoDb.
 
-### **_Edit A Product_**
+#### **_Edit A Product_**
 - This is for admin users only and can be accessed on the products page, where each product has a call to action button to edit the specific product. Once clicked, the user is directed to the Edit Product page, which is a form layout, including fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list of categories to choose from. All fields are pre-populated with the specific Product information from the database and allows the user to edit and update the product in the database in Mongodb.
 
-### **_Delete A Product_**
+#### **_Delete A Product_**
 - This is for admin users only and can be accessed on the products page, where each product has a call to action button to delete the specific product. Once clicked, a sweetalert popup is triggered and will ask the user to confirm the delete function. If the user cancels, they are redirected back to the products page, and if the user confirms the delete, then the product is deleted from the database and the user is alerted it has been deleted via a flash message at the top of the screen.
 
 ### **_Product Reviews_**
@@ -276,16 +496,16 @@ The CRUD functionality for this website works as follows:
 - If a registered user has created a review, two **buttons** will be displayed on that review card: 'Edit Review' and 'Delete Review'
 - Admin users can access the reviews in this same way, however admin users also have access to view all reviews in the database through a link in the Admin profile accordion menu 'Reviews' section. Here admin has the ability to delete reviews through the use of a button on each review card 'Delete Review'.
 
-### **_Add A Review_**
+#### **_Add A Review_**
 - The Add Review feature is only available to registered users and is located on the product info page only at the bottom of the product information card. A button called 'Add Review', this btton once clicked, will trigger a popup modal form on the product info page and allow the user to fill in the review form.
 - It contains input fields for review title, radio buttons to select the rating for values between 1 - 5, and review content. The add review function populates the date the review is created and the user that created it automatically.
 
-### **_Edit A Review_**
+#### **_Edit A Review_**
 - The Edit Review feature is only available on the review cards if the user has created the review.
 - The button to edit the review is located on the review card and can be accessed through the product info page, the reviews page and also in the user profile in the 'My Reviews' section.
 - This button triggers a popup modal form that pre-populates the review fields with the exception of the star rating and allows the user to edit and update their review on the database.
 
-### **_Delete A Review_**
+#### **_Delete A Review_**
 - The Delete Review feature is available to registered user who have created that review and is located on the review card and can be accessed through the product info page, the reviews page and also in the user profile in the 'My Reviews' section.
 - This button triggers a sweetalert confirmation popup, that asks the user to confirm if they are sure they want to delete the review. If the user cancels the request then they are directed back to the page they were on and if confirmed it will allows the user to delete their review from the database.
 - Admin users can delete reviews by navigating to the reviews section from their admin profile accordion menu. Within the reviews page each review card has a 'Delete Review' button which will trigger the confirmation popup and a review can be deleted from the database.
@@ -294,17 +514,17 @@ The CRUD functionality for this website works as follows:
 - Only registered users have access to the 'Profile' feature of the website. Here a registered user profile will display a list of user favourites(product name and brand of products they have added to their favourite list) and a list of the reviews their own review content they have created.
 - At the bottom of the profile page, there is a 'Delete Account' button. This triggers a sweetalert pop confirmation asking the user if they are sure they want to delete their account. It has two buttons within the popup: 'Cancel' and 'Delete'. The cancel button redirects the user back to their profile and the confirm button will delete th user from the database, clear the session cookies and redirect the user to the homepage.
 
-### **_Add A Favourite_**
+#### **_Add A Favourite_**
 - As mentioned in the products and product information section, this project includes a feature that allows a registered user to add a product to their favourites list. This is done through the use of a heart icon that is clickable on the product card.
 - If the user has not added the product to their favourites the heart icon will remian outlined in yellow, and if clicked will add the product to the user favourites.
 - The product will then be displayed on the user profile in the favourites accordion list
 
-### **_Delete A Favourite_**
+#### **_Delete A Favourite_**
 - If a user has added a product to their favourites list then the heart icon will display full yellow colour, and if clicked will remove the product from the user's favourites.
 - Users also have the option to remove an item from their favourites list on their profile. The favourites accordion menu shows the name and brand of the product in their favourites. If the user clicks on that product a button to delete the product will appear.
 - The 'delete product' button on the favourites list will allow the user to remove the item from their favourites and it will no longer appear in their list.
 
-### **_Submit User Feedback_**
+#### **_Submit User Feedback_**
 - Another feature included in this project is the user feedback contact modal. It allows the user to submit feedback comments to the Admin team. It gives users the ability to communicate their thoughts and opinions on the website to help with future improvements.
 - This feature is available only to registered users through the use of a button on the user profile page.
 - The button is located below the user favourites list, called 'Contact Us'
@@ -315,85 +535,33 @@ The CRUD functionality for this website works as follows:
 - The Admin profile layout is different and displays an accordion menu of elements that Admin need access to, including a Manage section(Add a product, all products, add a category, all categories), a Reviews section(All Reviews), a Manage Users section (All Users), and Manage User Feedback (All Feedback)
 - At the bottom of the profile page, there is a 'Delete Account' button. This triggers a sweetalert pop confirmation asking the user if they are sure they want to delete their account. It has two buttons within the popup: 'Cancel' and 'Delete'. The cancel button redirects the user back to their profile and the confirm button will delete th user from the database, clear the session cookies and redirect the user to the homepage.
 
-### **_Delete A User_**
+#### **_Delete A User_**
 - This feature is only available to Admin users and can be accessed from the Admin profile only through the Manage Users section of the accordion menu in the Admin profile page. This will direct the user to a list of usernames including a button on each user named 'Delete User'.
 - When this button is clicked it triggers a sweetalert pop confirmation asking the user if they are sure they want to delete the user account. It has two buttons within the popup: 'Cancel' and 'Delete'. The cancel button will stop the delete from being executed and the confirm button will delete the user from the database, and alert Admin that the user has been deleted.
 
-### **_Delete User Feedback_**
+#### **_Delete User Feedback_**
 - This feature is only available to Admin users and can be accessed from the Admin profile only through the 'Feedback & Suggestions' section of the accordion menu in the Admin profile page. This will direct the user to a list of user feedback(including name and comments). A button is located below each feedback entry, 'Delete Comment'.
 - When this button is clicked it triggers a sweetalert pop confirmation asking the user if they are sure they want to delete the user feedback. It has two buttons within the popup: 'Cancel' and 'Delete'. The cancel button will stop the delete from being executed and the confirm button will delete th user feedbaack from the database.
 
-## **Existing Features**
-Existing Features
-### **_Navigation Bar & Footer_**
-- The **navigation bar** is in a fixed position, making it easy for users to access the navigation elements of the website, and allow them to view these elements at any point while browsing the website.
-- The navigation bar consists of a **logo** to the left, which acts as a link back to the homepage, and **navigation links** to the right. These navigation links differ depending on the user status: 
-    - A guest user has access to the homepage, product categories( which is a dropdown menu of the category groups currently available on the website), sign in and register.
-    - A registered user upon signing into their account will be able to view links to the home page, categories dropdown, the user profile and sign out.
-    - An admin user upon signing into their account will be able to access, the homepage, a manage dropdown menu(which holds links to all categories, add a category, all products, add a product), their user profile and the sign out link.
-- The navigation bar is **responsive** and the navigation menu collapses into a **hamburger menu** for both 
-tablet and mobile devices. 
-- The footer is fixed at the bottom and contains **copyright information** located in the center. 
 
-### **_Homepage_**
-- The homepage consists of a full width height, **responsive image**. It is a bright and vibrant background image with a **callout jumbotron** which is the title of the website and a brief introduction to the purpose of the website.
-- Directly under the callout there is a **search bar**, which allows the user to search for products on the website by category name, product name or product brand. This is clear to the user and displayed as the placeholder text. Directly underneath this there are two **call to action buttons**, one 'Register' which will take the user to the register page to create an account and another 'Sign In' to take the user to the sign in page to log into their account.
-
-### **_Categories_**
-- The categories can be accessed through the dropdown menu on the navigation bar which includes links to the category groups. When a category group is selected it will lead the user to the product categories within that category group. The categories page includes a header telling the user which category theu are viewing. 
-- The categories are displayed in card layout with a top image and the category name underneath. It also has a hidden search input that is labelled 'Explore category products' and a search icon. When clicked this will direct the user to the list of products within this category displayed on the products page.
-- For Admin users, each category has two **buttons** available to them. 'Edit Category' and 'Delete Category'. 
-- The 'Edit Category' button will direct the user to the edit category form page which will generate the information from that specific category and allow the user to edit the information as needed.
-- The 'Delete Category' button once clicked will trigger a sweet alert popup asking the user if they definitely want to delete that category, with options to cancel or confirm the delete. If the delete is cancelled the user is directed back to the categories page. If the user confirms the delete, the category selected will be removed from the database.
-
-### **_Add A Category_**
-- The add a category page is only accessible to admin users. Admin has access to this page either from the 'Manage' dropdown menu on the navigation bar or the accordion menu on the Admin profile page. The 'Add Category' page is a displayed as an empty form to be completed by the user. 
-- It includes fields for the category name and a dropdown select input to choose a category group from the category groups available in the database. 
-- At the bottom of the form there are two **buttons**, 'Cancel', which will cancel the form and redirect the user back to the 'Categories' page and a 'Add Category' button which will submit the form and insert the new category into the database in MongoDb.
-
-### **_Edit A Category_**
-- The edit a category page is only accessible to admin users. The edit category page can be accessed from the categories page. 
-### **_Delete A Category_**
-
-### **_Products_**
-- It will also alert the user via a header to indicate the number of products returned for that category.
-### **_Product Info_**
-### **_Add A Product_**
-### **_Edit A Product_**
-### **_Delete A Product_**
-
-### **_Product Reviews_**
-### **_Add A Review_**
-### **_Edit A Review_**
-### **_Delete A Review_**
-
-### **_Profile_**
-### **_Add A Favourite_**
-### **_Delete A Favourite_**
-### **_Add User Feedback_**
-
-### **_Admin Profile_**
-### **_Delete A User_**
-### **_Delete A Review_**
-### **_Delete User Feedback_**
-
-
-
-Feature 1 - allows users X to achieve Y, by having them fill out Z
-...
-For some/all of your features, you may choose to reference the specific project files that implement them, although this is entirely optional.
 ## **_Future Features Left to Implement_**
-Buy url
-user message capability/Forum
-Video uploads
-Tips and tricks
-Blog
-Further security
+- **Product Buy Url Link**
+    - I have included a buy url link in the products collection in mongodb. I didn't get to use it in the project so far but I would hope to use it at some point in the future to include a button with a link to where users could purchase the product.
+- **User Messaging Capability/Forum**
+    - I would like to include some form of messaging capability where users could communicate with each other on the platform or open a forum style communication where users could post questions on different products and provide more interactivity between registered users.
+- **Likes, Comments & Upvotes**
+    - Add logic so users could comment on other user reviews or like/upvote reviews on the website.
+- **Video Uploads**
+    - In the future I would hope to introduce more variety in the types of content the website offers, such as video tutorials on how to use products, tips and tricks etc. Maybe even collaborate with local makeup artists as a way of supporting local businesses in the community.
+- **Tips and tricks**
+    - Addition of a tips and tricks section, include a feature where users could share content such as information on makeup hacks or useful tips for other users when applying, using or how to clean makeup products and tools.
+- **Blog**
+    - Addition of blog style content discussing the latest trends, do's and don'ts and other makeup topics of interest to registered users.
+- **Password Rest Capability**
+    - Include a password reset capability for users where an email link would be sent to the user to reset their password if forgotten.
+- **Further security**
+    - Addition of further security measures for admin login and access and also for registered users.
 
-Features Left to Implement
-Another feature idea
-Technologies Used
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
 ## **Technologies Used**
 ### **_Languages_**
 - **HTML5:** This was used to create the structure for all pages
