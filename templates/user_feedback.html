@@ -9,7 +9,7 @@
             <div class="feedback-header card-header" id="headingOne">
                 <h2 class="mb-0">
                     <!--Displays name of user left feedback comment-->
-                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_{{feedback._id}}" aria-expanded="true" aria-controls="collapseOne">
+                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne_{{feedback._id}}" aria-expanded="true" aria-controls="collapseOne_{{feedback._id}}">
                         {{feedback.name.capitalize()}}
                     </button>
                 </h2>
@@ -22,10 +22,11 @@
                 </div>
             </div>
             <!--Button to delete feedback comment-->
-            <button class="comment-delete"><a type="button" data-href="{{url_for('delete_feedback', user_feedback_id=feedback._id)}}" class="delete-comment">Delete Comment</a></button>
+            <button class="text-center comment-delete" type="button" data-href="{{url_for('delete_feedback', user_feedback_id=feedback._id)}}" class="delete-comment">Delete Comment</button>
             {% endfor %}
         </div>
     </div>
+</div>
 
 
     {% endblock %}

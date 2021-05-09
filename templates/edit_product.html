@@ -41,10 +41,9 @@
             </div>
             <!--Product Description-->
             <div class="row">
-
                 <div class=" product-input col-12">
                     <label for="description"> Product Description: </label>
-                    <textarea class="form-control" id="description" name="description" value="{{product.description}}" minlength="3" type="text" required>{{product.description}}</textarea>
+                    <textarea class="form-control" id="description" name="description" value="{{product.description}}" minlength="3" required>{{product.description}}</textarea>
                 </div>
             </div>
             <!--Product Price-->
@@ -68,18 +67,18 @@
                     <input class="form-control" id="buy_url" name="buy_url" value="{{product.buy_url}}" minlength="3" type="text" required>
                 </div>
             </div>
+            </form>
             <!-- submit button -->
             <div class="row">
-                <div class="col-12 ">
-                    <button type="submit" class="product-btn btn-large"><a href="
+                <div class="product-btns col-12 ">
+                   <a class="product-btn" href="
                         {{ url_for('all_products')}}">
-                            Cancel <i class="fas fa-times-circle right"></i></a></button>
+                            Cancel <i class="fas fa-times-circle right"></i></a>
                     <button  type="submit" class="product-btn btn-large">
                         Edit Product <i class="fas fa-plus-square right"></i>
                     </button>
                 </div>
             </div>
-        </form>
     </div>
 </div>
 {% endblock %}

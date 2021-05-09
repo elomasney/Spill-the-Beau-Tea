@@ -263,9 +263,9 @@
                                                 <!-- submit button -->
                                                 <div class="row">
                                                     <div class="profileReviewBtns col-12 ">
-                                                        <button type="submit" class="edit_review btn-large"><a href="
-                                                                            {{ url_for ('profile', username=session['user'])}}">
-                                                                Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                                       <a class="edit_review" href="
+                                                                {{ url_for ('profile', username=session['user'])}}">
+                                                                Cancel <i class="fas fa-times-circle right"></i></a>
                                                         <button type="submit" class="edit_review btn-large">
                                                             Edit Review <i class="fas fa-plus-square right"></i>
                                                         </button>

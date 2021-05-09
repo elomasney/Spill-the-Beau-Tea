@@ -118,21 +118,22 @@
                                     <input type="checkbox" id="repurchase" name="repurchase">
                                     <span class="lever"></span>
                                 </div>
+                            </form>
                         </div>
                     </div>
                     <div class="modal-footer">
                         <!-- submit button -->
                         <div class="row">
                             <div class=" reviewModalBtns col-12 ">
-                                <button type="submit" class="edit_review btn-large"><a href="
+                               <a class="edit_review" href="
                                                     {{url_for('reviews', product_id=product._id)}}">
-                                        Cancel <i class="fas fa-times-circle right"></i></a></button>
+                                        Cancel <i class="fas fa-times-circle right"></i></a>
                                 <button type="submit" class="edit_review btn-large">
                                     Edit Review <i class="fas fa-plus-square right"></i>
                                 </button>
                             </div>
                         </div>
-                        </form>
+                       
                     </div>
                 </div>
             </div>

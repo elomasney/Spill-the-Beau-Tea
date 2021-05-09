@@ -75,6 +75,7 @@ body {
     margin: 0;
     padding-right: 0;
     padding-left: 0;
+    margin-bottom: 50px;
 }
 
 .flashes {
@@ -212,13 +213,13 @@ body {
 #addCategoryCancel,
 #edit_category.btn-large,
 .product-btn.btn-large,
+.product-btn,
 #searchBtn,
 #deleteAccount,
 #deleteAccount a,
 .comment-delete,
-.comment-delete a,
 #contact,
-.edit_review.btn-large,
+.edit_review,
 #add_review.btn-large{
     font-family: "Lato", sans-serif;
     font-weight: bolder;
@@ -229,6 +230,10 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     border-radius: 5px;
     margin-top: 20px;
+}
+
+.comment-delete{
+    margin-top: 5px;
 }
 
 #addCategoryCancel,
@@ -358,17 +363,22 @@ button.swal2-confirm.swal2-styled {
 #add_category.btn-large,
 #edit_category.btn-large,
 .product-btn.btn-large,
-.edit_review.btn-large,
+.product-btn,
+.edit_review,
 #add_review.btn-large {
     padding: 10px 30px;
     margin-top: 10px;
     border-radius: 5px;
 }
 
-.edit_review.btn-large a,
+.product-btn{
+    padding: 15px 30px;
+    margin-left: 10px;
+}
+
+.edit_review,
 a.review_delete,
-#add_review.btn-large a,
-.product-btn.btn-large a {
+#add_review.btn-large a {
     color: #f6fd39;
 }
 
@@ -504,6 +514,10 @@ a.review_delete,
 .addProduct {
     height: 100%;
     padding: 40px;
+}
+
+.product-btns{
+    text-align: center;
 }
 
 textarea#description.form-control {
@@ -643,6 +657,7 @@ hr {
 }
 
 /*Reviews*/
+
 .review-text.card-body {
     margin: 30px 200px;
     font-family: "Lato", sans-serif;
@@ -740,7 +755,7 @@ a#more_reviews {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-.edit_review.btn-large,
+.edit_review,
 .reviewBtns button,
 #add_review.btn-large {
     padding: 5px 10px;
@@ -785,6 +800,11 @@ textarea.form-control {
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
+}
+
+a.edit_review {
+    padding: 10px 30px;
+    margin-left: 10px;
 }
 
 /*Register Page*/
@@ -965,6 +985,10 @@ div.admin-card.card-body,
     color: #04cbfa;
 }
 
+.favourite-card.card-body{
+    background-color: #04cbfa;
+}
+
 .user.card p {
     font-size: 2.5rem;
     font-weight: bolder;
@@ -1058,6 +1082,10 @@ hr#userReviews {
     font-family: "Dancing Script", sans-serif;
     font-size: 2.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+}
+
+.feedback-header button:hover{
+    color: #ff55be;
 }
 
 .feedback-body.card-body{
@@ -1378,7 +1406,8 @@ button#btn-404 a {
         margin: 30px 0;
     }
 
-    .product-btn.btn-large {
+    .product-btn.btn-large,
+    .product-btn {
         padding: 0 5px;
         margin-left: 2px;
         margin-top: 5px;
@@ -1600,8 +1629,9 @@ button#btn-404 a {
         font-size: 1rem;
     }
 
-    .comment-delete a{
-        font-size: 1rem;
+    .comment-delete{
+        font-size: 1.1rem;
+        margin-top: 0;
     }
 
     /*Contact Modal*/
@@ -1796,7 +1826,7 @@ button#btn-404 a {
     }
 
     select#category_name.form-control {
-        padding: 0 350px;
+        padding: 0 280px;
     }
 
     .product-text.card-body{

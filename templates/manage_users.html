@@ -20,8 +20,8 @@
             <div class="user-details card-body">
                 <p>Email: {{user.email}}</p>
                 <!--Button to delete a user account from the db-->
-                <button><a class="account_delete" data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
-                        Account </a></button>
+                <a class="account_delete" data-href="{{url_for('delete_user_account', user_id=user._id)}}">Delete
+                        Account </a>
             </div>
         </div>
     </div>
