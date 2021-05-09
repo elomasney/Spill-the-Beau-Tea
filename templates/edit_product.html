@@ -6,8 +6,8 @@
     <div class="row form-group">
         <!--Form for adding a product to the db-->
         <form class=" product-form col-12" method="POST" action="{{ url_for('edit_product', product_id=product._id) }}">
-               <!--Product Category-->
-               <div class="row">
+            <!--Product Category-->
+            <div class="row">
                 <div id="product-dropdown" class=" product-input input-field col-12">
                     <label for="category_name"> Product Category</label>
                     <select class="form-control" id="category_name" name="category_name" required>
@@ -67,18 +67,18 @@
                     <input class="form-control" id="buy_url" name="buy_url" value="{{product.buy_url}}" minlength="3" type="text" required>
                 </div>
             </div>
-            </form>
-        </div>
-            <!-- submit button -->
-            <div class="row">
-                <div class="product-btns col-12 ">
-                   <a class="product-btn" href="
+        </form>
+    </div>
+    <!-- submit button -->
+    <div class="row">
+        <div class="product-btns col-12 ">
+            <a class="product-btn" href="
                         {{ url_for('all_products')}}">
-                            Cancel <i class="fas fa-times-circle right"></i></a>
-                    <button  type="submit" class="product-btn btn-large">
-                        Edit Product <i class="fas fa-plus-square right"></i>
-                    </button>
-                </div>
-            </div>
+                Cancel <i class="fas fa-times-circle right"></i></a>
+            <button type="submit" class="product-btn btn-large">
+                Edit Product <i class="fas fa-plus-square right"></i>
+            </button>
+        </div>
+    </div>
 </div>
 {% endblock %}

@@ -263,15 +263,15 @@
                                                 <!-- submit button -->
                                                 <div class="row">
                                                     <div class="profileReviewBtns col-12 ">
-                                                       <a class="edit_review" href="
+                                                        <a class="edit_review" href="
                                                                 {{ url_for ('profile', username=session['user'])}}">
-                                                                Cancel <i class="fas fa-times-circle right"></i></a>
+                                                            Cancel <i class="fas fa-times-circle right"></i></a>
                                                         <button type="submit" class="edit_review btn-large">
                                                             Edit Review <i class="fas fa-plus-square right"></i>
                                                         </button>
                                                     </div>
                                                 </div>
-                                                
+
                                             </div>
                                         </div>
                                     </div>
@@ -282,12 +282,12 @@
                 </div>
             </div>
         </div>
-            {% endfor %}
-            {% endif %}
-            <!--Button to allow user to delete their account-->
-            <div class="col-md-4 offset-md-4 text-center delete-acc-btn"><a  id="deleteAccount" class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
-                        Account</a>
-            </div>
+        {% endfor %}
+        {% endif %}
+        <!--Button to allow user to delete their account-->
+        <div class="col-md-4 offset-md-4 text-center delete-acc-btn"><a id="deleteAccount" class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
+                Account</a>
+        </div>
         <!--Contact Us Modal-->
         <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">

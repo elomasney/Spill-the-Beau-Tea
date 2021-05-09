@@ -5,10 +5,10 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
-<link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
-<link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
-<link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ url_for('static', filename='favicon/apple-touch-icon.png') }}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{{ url_for('static', filename='favicon/favicon-32x32.png') }}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ url_for('static', filename='favicon/favicon-16x16.png') }}">
+    <link rel="manifest" href="{{ url_for('static', filename='favicon/site.webmanifest') }}">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" type="text/css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" type="text/css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
@@ -43,10 +43,10 @@
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="{{ url_for('add_product')}}">Add A Product</a>
                                 <div class="dropdown-divider"></div>
-                                </div>
+                            </div>
                         </li>
-                                <!--Nav items available to anyone-->
-                                {% else %}
+                        <!--Nav items available to anyone-->
+                        {% else %}
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Categories</a>
                             <div id="navigation" class="dropdown-menu scrollable-menu">
@@ -62,12 +62,12 @@
                                     Accessories</a>
                                 <div class="dropdown-divider"></div>
                             </div>
-                            </li>
-                            {% endif %}
-                            <!--Navbar items only available to registered users-->
-                            {% if session.user %}
+                        </li>
+                        {% endif %}
+                        <!--Navbar items only available to registered users-->
+                        {% if session.user %}
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link" href="{{ url_for ('profile', username=session['user'])}}">Profile</a>
-                       </li>
+                        </li>
                         <li class="nav-item" data-toggle="collapse" data-target=".navbar-collapse"><a class="nav-link" href="{{ url_for ('logout')}}">Sign Out</a></li>
                         {% else %}
                         <!--Nav items available to non registered users-->
@@ -105,7 +105,7 @@
                 <i class=" far fa-copyright" aria-hidden="true"></i>
                 <span class="copyright-text">Spill the Beau-Tea</span>
                 <span class="sr-only">copyright</span><span class="copyright-date">2021</span>
-                    <div class="col-md-12 text-center" id="disclaimer"> <small>For educational purposes only</small></div>
+                <div class="col-md-12 text-center" id="disclaimer"> <small>For educational purposes only</small></div>
             </div>
         </div>
     </footer>

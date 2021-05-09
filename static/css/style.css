@@ -900,15 +900,12 @@ a.edit_review {
     font-size: 1.3rem;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    background-color: #ff55be;
 }
 
 #registerLink a,
 #loginLink a {
-    color: #f6fd39;
-    font-weight: bolder;
+    color: #ff55be;
     letter-spacing: .1rem;
-    text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
 #password.form-control,
@@ -1268,7 +1265,6 @@ button#btn-404 a {
 
     #registerLink {
         font-size: 1rem;
-        margin: 0px 30px;
     }
 
     #loginLink {
@@ -1406,6 +1402,7 @@ button#btn-404 a {
 
     }
     #addCategoryBtns{
+        display: -ms-grid;
         display: grid;
         margin-left: 0;
     }

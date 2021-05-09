@@ -17,22 +17,22 @@
                 </div>
                 <!--Password-->
                 <div class="row">
-                <div class="form-group col-md-12">
-                    <label for="password">Password</label>
-                    <i class="fas fa-user-lock"></i>
-                    <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
+                    <div class="form-group col-md-12">
+                        <label for="password">Password</label>
+                        <i class="fas fa-user-lock"></i>
+                        <input id="password" name="password" type="password" minlength="5" maxlength="15" pattern="^[a-zA-Z0-9]{5,15}$" class="form-control" placeholder="Password" required>
+                    </div>
                 </div>
             </div>
             <!--Login-->
             <div class="row">
                 <button id="loginBtn" type="submit" class="btn col-md-10 offset-md-1">Sign In <i class="fas fa-sign-in-alt"></i></button>
             </div>
-            </div>
         </form>
     </div>
     <!--Links to Register page if user does not have an account yet-->
     <div class="row">
-        <div class="col-md-4 offset-md-4">
+        <div class="col-md-8 offset-md-2">
             <p id="registerLink">Don't have an account yet?
                 <a href="{{ url_for('register') }}">Register here</a>
             </p>

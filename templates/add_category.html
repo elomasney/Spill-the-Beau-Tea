@@ -7,13 +7,13 @@
     <div class="row">
         <!--Form for adding a category to the db-->
         <form class=" category-form col-12" method="POST" action="{{ url_for('add_category') }}">
-             <!-- Category Group-->
-             <div class="row">
+            <!-- Category Group-->
+            <div class="row">
                 <div class=" category-input col-12">
                     <label class="col-form-label" for="categoryAddGroup">Category Group:
                         <i class="fas fa-folder-open prefix"></i>
                     </label>
-                    <select class="form-control" id="categoryAddGroup" name="category_group"  required>
+                    <select class="form-control" id="categoryAddGroup" name="category_group" required>
                         <option class="text-center" value="" disabled selected>Choose Category</option>
                         {% for category in category_group|sort(attribute="_id") %}
                         <option class="text-center" value="{{category['_id']}}">{{category["_id"]}}</option>
@@ -40,21 +40,20 @@
                 </div>
             </div>
         </form>
-                <!-- submit button -->
-                <div id="addCategorySubmit" class="row">
-                    <div id="addCategoryBtns" class="col-12">
-                            <a id="addCategoryCancel" href="
+        <!-- submit button -->
+        <div id="addCategorySubmit" class="row">
+            <div id="addCategoryBtns" class="col-12">
+                <a id="addCategoryCancel" href="
                                     {{ url_for('all_categories') }}">
-                                Cancel
-                                <i class="fas fa-times-circle right"></i>
-                            </a>
-                        <button id="add_category" type="submit" class="btn-large">
-                            Add Category
-                            <i class="fas fa-plus-square right"></i>
-                        </button>
-                    </div>
-                </div>
-       
+                    Cancel
+                    <i class="fas fa-times-circle right"></i>
+                </a>
+                <button id="add_category" type="submit" class="btn-large">
+                    Add Category
+                    <i class="fas fa-plus-square right"></i>
+                </button>
+            </div>
+        </div>
     </div>
 </div>
 {% endblock %}

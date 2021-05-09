@@ -8,9 +8,9 @@
     </form>
     <!--Header to return number of results found from query search-->
     {% if query %}
-        {% if results >= 1 %}
-            <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
-        {% endif %}
+    {% if results >= 1 %}
+    <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
+    {% endif %}
     {% endif %}
     <!--Product Brand-->
     <h2 id="brandHead" class="category-header">{{product.brand}}</h2>
@@ -28,14 +28,14 @@
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if session.user|lower %}
                     <!--If product already in favourites - add full coloured heart-->
-                        {% if product._id in favourites %}
-                        <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
-                        </a>
-                        <!--If product not in user favourites - show outlined heart-->
-                        {% else %}
-                        <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
-                        </a>
-                        {% endif %}
+                    {% if product._id in favourites %}
+                    <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
+                    </a>
+                    <!--If product not in user favourites - show outlined heart-->
+                    {% else %}
+                    <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
+                    </a>
+                    {% endif %}
                     {% endif %}
                     <!--Product Card - details about the specific product-->
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
@@ -145,13 +145,13 @@
                                         <div id="modalBtns" class="col-12 ">
                                             <a class="edit_review btn-large" href="
                                                 {{ url_for('product_info', product_id=product._id) }}">
-                                                    Cancel <i class="fas fa-times-circle right"></i></a>
+                                                Cancel <i class="fas fa-times-circle right"></i></a>
                                             <button id="add_review" type="submit" class="btn-large">
                                                 Add Review <i class="fas fa-plus-square right"></i>
                                             </button>
                                         </div>
                                     </div>
-                                    
+
                                 </div>
                             </div>
                         </div>
@@ -209,14 +209,14 @@
             </div>
         </div>
     </div>
-{% endfor %}
-<!--Button to show all reviews for the product if more than the 5 displayed-->
-{% if review_count >=1 %}
-<div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" type="button" class="btn btn-lg review-btn" id="more_reviews">
-        More Reviews...
-    </a>
-</div>
-{% endif %}
+    {% endfor %}
+    <!--Button to show all reviews for the product if more than the 5 displayed-->
+    {% if review_count >=1 %}
+    <div class="col-md-12 text-center"><a href="{{url_for('reviews', product_id=product._id)}}" class="review-btn" id="more_reviews">
+            More Reviews...
+        </a>
+    </div>
+    {% endif %}
 </div>
 
 
