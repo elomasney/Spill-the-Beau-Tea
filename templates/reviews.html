@@ -5,7 +5,7 @@
     <!--Button to direct user back to the product info page-->
     {% if session.user|lower != "admin"|lower %}
     <div class="col-md-12 text-left">
-        <a href="{{ url_for('product_info', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="product_back">
+        <a href="{{ url_for('product_info', product_id=product._id) }}" class="btn btn-lg review-btn" id="product_back">
             Back to Product</a>
     </div>
     <!--Displays the product name and brand of the product related to the reviews shown-->
@@ -82,7 +82,7 @@
                                 <div class="row">
                                     <div class=" product-input input-field col-12">
                                         <label for="title">Title: </label>
-                                        <input class="form-control" id="title" name="title" minlength="3" value="{{review.title}}" maxlength="50" type="text" required>
+                                        <input class="form-control" id="title_{{review._id}}" name="title" minlength="3" value="{{review.title}}" maxlength="50" type="text" required>
                                     </div>
                                 </div>
 
@@ -91,15 +91,15 @@
                                     <fieldset>
                                         <legend class="star-rating"><i class="fas fa-star"></i> Star Rating</legend>
                                         <div id="radio" class="md-form mb-5">
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating1" value="1" required /> 1
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating1_{{review._id}}" value="1" required /> 1
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating2" value="2" required /> 2
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating2_{{review._id}}" value="2" required /> 2
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating3" value="3" required /> 3
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating3_{{review._id}}" value="3" required /> 3
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating4" value="4" required /> 4
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating4_{{review._id}}" value="4" required /> 4
                                             </label>
-                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating5" value="5" required /> 5
+                                            <label class="radio-inline"> <input type="radio" name="rating" id="rating5_{{review._id}}" value="5" required /> 5
                                             </label>
                                         </div>
                                     </fieldset>
@@ -108,14 +108,14 @@
                                 <div class="row">
                                     <div class=" product-input col-12">
                                         <label for="review_content">Review: </label>
-                                        <textarea class="form-control" id="review_content" name="review_content" minlength="3" rows="2" required>{{review.review}}</textarea>
+                                        <textarea class="form-control" id="review_content_{{review._id}}" name="review_content" minlength="3" rows="2" required>{{review.review}}</textarea>
                                     </div>
                                 </div>
                                 <!--Repurchase Checkbox-->
                                 <div class="switch">
                                     <i class="fas fa-thumbs-up"></i>
                                     <label for="repurchase">Would you repurchase?</label>
-                                    <input type="checkbox" id="repurchase" name="repurchase">
+                                    <input type="checkbox" id="repurchase_{{review._id}}" name="repurchase">
                                     <span class="lever"></span>
                                 </div>
                             </form>

@@ -8,15 +8,15 @@
     <div class=" user card mb-3">
         <!--User Name-->
         <div class="card-header" id="userHeading_{{user._id}}">
+            <p>Account Name:</p>
             <h5 class="mb-0">
-                <p>Account Name:</p>
-                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_{{user._id}}" aria-expanded="true" aria-controls="collapseOne">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne_{{user._id}}" aria-expanded="true" aria-controls="collapseOne_{{user._id}}">
                     {{user.username.capitalize()}}
                 </button>
             </h5>
         </div>
         <!--User Email-->
-        <div id="collapseOne_{{user._id}}" class="collapse show" aria-labelledby="userHeading" data-parent="#accordion_{{user._id}}">
+        <div id="collapseOne_{{user._id}}" class="collapse show" aria-labelledby="collapseOne_{{user._id}}" data-parent="#accordion_{{user._id}}">
             <div class="user-details card-body">
                 <p>Email: {{user.email}}</p>
                 <!--Button to delete a user account from the db-->

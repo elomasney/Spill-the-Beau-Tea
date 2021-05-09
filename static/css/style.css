@@ -618,6 +618,10 @@ i.fas.fa-star-half-alt {
     padding: 15px 0;
 }
 
+.productBtns{
+    margin-top: 20px;
+}
+
 .product-buy.card-text {
     margin-left: 50px;
 }
@@ -639,6 +643,7 @@ i.fas.fa-star-half-alt {
     padding: 5px 10px;
     margin-top: 20px;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 #review.btn.btn-lg.review-btn {
