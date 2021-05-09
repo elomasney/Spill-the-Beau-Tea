@@ -238,6 +238,8 @@ $(function () {
     if (window.location.pathname == "/404") {
         $('#main-container').height('100vh');
         $("body").css("padding-top", "0");
+        $('#main-container').css("margin-bottom", "0");
+
     }
 });
 

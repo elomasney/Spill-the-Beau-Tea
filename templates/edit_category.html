@@ -32,8 +32,10 @@
                     <input class="form-control" id="category_image" name="category_image" value="{{category.img_url}}" type="text" required>
                 </div>
             </div>
+        </form>
+    </div>
                 <!-- submit button -->
-                <div id="editCategorySubmit" class="row">
+                <div id="editCategorySubmit" class=" text-center row">
                     <div class="col-12">
                        <a id="editCategoryCancel" href="
                             {{ url_for('all_categories') }}">
@@ -43,8 +45,7 @@
                         </button>
                     </div>
                 </div>
-        </form>
+       
     </div>
-</div>
 
 {% endblock %}

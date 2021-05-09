@@ -216,7 +216,6 @@ body {
 .product-btn,
 #searchBtn,
 #deleteAccount,
-#deleteAccount a,
 .comment-delete,
 #contact,
 .edit_review,
@@ -230,6 +229,10 @@ body {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     border-radius: 5px;
     margin-top: 20px;
+}
+
+.delete-acc-btn{
+    margin-top: 30px;
 }
 
 .comment-delete{
@@ -357,7 +360,6 @@ button.swal2-confirm.swal2-styled {
 #editCategorySubmit,
 #addCategorySubmit {
     margin: auto;
-    margin-top: 30px;
 }
 
 #add_category.btn-large,
@@ -1065,8 +1067,7 @@ hr#userReviews {
 }
 
 #deleteAccount{
-    margin: 30px 40px;
-    padding: 10px 10px;
+    padding: 15px 5px;
     border-radius: 5px;
 }
 
@@ -1177,6 +1178,10 @@ button#btn-404 a {
 
 /*Phones*/
 @media screen and (max-width:480px) {
+    #main-container.container {
+        height: 100%;
+    }
+
     body {
         padding: 0;
     }
@@ -1351,7 +1356,6 @@ button#btn-404 a {
     }
 
     #deleteAccount {
-        margin: 50px 10px;
         padding: 5px 5px;
     }
 
@@ -1406,6 +1410,25 @@ button#btn-404 a {
         margin-left: 0;
     }
 
+    #add_category.btn-large,
+    #edit_category.btn-large{
+        padding: 10px 10px;
+        font-size: 1.2rem;
+    }
+
+    .btn-grid{
+        margin-right: 0;
+    }
+
+    #addCategoryCancel,
+    #editCategoryCancel{
+        margin-right: 0;
+        text-align: center;
+        padding: 10px 45px;
+        font-size: 1.2rem;
+    }
+
+
     .category-form {
         padding: 30px 10px;
         margin: 30px 0;
@@ -1413,9 +1436,9 @@ button#btn-404 a {
 
     .product-btn.btn-large,
     .product-btn {
-        padding: 0 5px;
         margin-left: 2px;
-        margin-top: 5px;
+        margin-top: 15px;
+        font-size: 1.2rem;
     }
 
     #category_group option,
@@ -1827,8 +1850,9 @@ button#btn-404 a {
 
     .category-input select.form-control{
         width: 40%;
+        padding: 0 150px;
         
-    }
+    }  
 
     select#category_name.form-control {
         padding: 0 280px;
