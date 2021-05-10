@@ -153,9 +153,9 @@
                         <!--Review Details-->
                         <div id="userReviewInfo_{{reviews._id}}" class="review-text card-body">
                             {% for product in products %}
-                            {% if reviews.product == product._id%}
-                            <h3 class="product card-title">{{ product.product_name }}</h3>
-                            {% endif %}
+                                {% if reviews.product == product._id%}
+                                <h3 class="product card-title">{{ product.product_name }}</h3>
+                                {% endif %}
                             {% endfor %}
                             <h4 class="review-title card-title">{{ reviews.title }}</h4>
                             <h5 class="rating card-title">Rating:

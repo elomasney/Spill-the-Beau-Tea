@@ -8,9 +8,9 @@
     </form>
     <!--Header to return number of results found from query search-->
     {% if query %}
-    {% if results >= 1 %}
-    <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
-    {% endif %}
+        {% if results >= 1 %}
+        <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
+        {% endif %}
     {% endif %}
     <!--Product Brand-->
     <h2 id="brandHead" class="category-header">{{product.brand}}</h2>
@@ -28,14 +28,14 @@
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
                     {% if session.user|lower %}
                     <!--If product already in favourites - add full coloured heart-->
-                    {% if product._id in favourites %}
-                    <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
-                    </a>
-                    <!--If product not in user favourites - show outlined heart-->
-                    {% else %}
-                    <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
-                    </a>
-                    {% endif %}
+                        {% if product._id in favourites %}
+                        <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
+                        </a>
+                        <!--If product not in user favourites - show outlined heart-->
+                        {% else %}
+                        <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
+                        </a>
+                        {% endif %}
                     {% endif %}
                     <!--Product Card - details about the specific product-->
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
@@ -43,31 +43,31 @@
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
                     <!--Product Rating Average-->
                     {% for rating in ratings %}
-                    <!-- only apply if the product._id matches the rating._id -->
-                    {% if product._id == rating._id %}
-                    <!-- set variable "count" to the leftover value deducted from rating.average -->
-                    {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
-                    <!-- for each star in the rating.average, insert whole-star -->
-                    {% for star in range(rating.average|int) %}
-                    <i class="fas fa-star"></i>
-                    {% endfor %}
-                    <!-- for each half-star in rating.average, insert half-star -->
-                    {% if ".5" in rating.average|string %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% endif %}
-                    <!-- for each remaining value in "count" variable, insert empty-star -->
-                    {% for star in range(count) %}
-                    <i class="far fa-star"></i>
-                    {% endfor %}
-                    {% endif %}
+                        <!-- only apply if the product._id matches the rating._id -->
+                        {% if product._id == rating._id %}
+                        <!-- set variable "count" to the leftover value deducted from rating.average -->
+                        {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
+                        <!-- for each star in the rating.average, insert whole-star -->
+                        {% for star in range(rating.average|int) %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                        <!-- for each half-star in rating.average, insert half-star -->
+                        {% if ".5" in rating.average|string %}
+                        <i class="fas fa-star-half-alt"></i>
+                        {% endif %}
+                        <!-- for each remaining value in "count" variable, insert empty-star -->
+                        {% for star in range(count) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
+                        {% endif %}
                     {% endfor %}
                     <!--if product has no reviews-->
                     {% if review_count == 0 %}
-                    {% set count = 5  %}
-                    <!-- for each star in the range(count), insert whole-star -->
-                    {% for star in range(count) %}
-                    <i class="far fa-star"></i>
-                    {% endfor %}
+                        {% set count = 5  %}
+                        <!-- for each star in the range(count), insert whole-star -->
+                        {% for star in range(count) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
                     {% endif %}
                     <p class="product-card card-text"><strong id="description">Description:</strong></p>
                     <p class="product-card card-text">{{product.description}}</p>

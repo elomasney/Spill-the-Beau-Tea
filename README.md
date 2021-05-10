@@ -59,6 +59,7 @@ This website was designed for makeup lovers who are looking for honest product r
 - As a user, I would like to add a review to any product available on the website
 - As a user, I want the ability to remove products I have added to my favourites list
 - As a user, I want the site to visually identify if a product has already been added to my list of favourite products.
+- As a user I would like the ability to be able to communicate with the website admin team.
 - As the owner and user, I want to provide a reliable platform that encourages users to get involved and create content
 - As the owner and user, I want to provide users with relevant and current information
 - As the owner and user, I want a website that is fun, vibrant and inviting.
@@ -260,14 +261,14 @@ tablet and mobile devices.
 - Cancel directs the user back to the categories page. 
 - Confirm deletes the category selected and removes from the database.
 
-### **_Add A Category_**
+#### **_Add A Category_**
 - Only accessible to admin users. 
 - Admin has access to this page either from the 'Manage' dropdown menu on the navigation bar or the accordion menu on the Admin profile page. 
 - 'Add Category' page is a displayed as an empty form to be completed by the user. 
 - Includes fields for the category name and a dropdown select input to choose a category group from the category groups available in the database. 
 - There are two **buttons** located at the bottom of the form, 'Cancel', which redirects the user back to the 'Categories' page and the 'Add Category' button which will submit the form and insert the new category into the database in MongoDb.
 
-### **_Edit A Category_**
+#### **_Edit A Category_**
 - Only accessible to admin users. 
 - Admin can be accessed from the categories page. 
 - Allows user to edit a specific category
@@ -276,7 +277,7 @@ tablet and mobile devices.
 - The information is pre-populated with the specific category information from the database
 - Allows the user to edit and update the category in the database in Mongodb.
 
-### **_Delete A Category_**
+#### **_Delete A Category_**
 - Only accessible to Admin users
 - Accessed on the categories page, where each category has a call to action button 'Delete Category' 
 - Once clicked, a sweetalert popup is triggered and will ask the user to confirm the delete function. 
@@ -305,20 +306,20 @@ tablet and mobile devices.
 - At the bottom of the page there is a button 'More Reviews' whichtakes the user to the reviews page and all reviews for that product are displayed.
 - If a registered user has created a review which is displayed, they will have access to a button 'Delete Review' on the review, which will allow them to delete that review.
 
-### **_Add A Product_**
+#### **_Add A Product_**
 - Only available to admin users.
 - Accessed from the 'Manage' dropdown menu on the navbar or from the button 'Add Product' located on the product cards in the products page.
 - When this button is clicked it directs the user to the Add Product page, a blank form with fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list to choose the category name.
 - The form has 2 buttons 'Cancel' and 'Add Product'. The cancel button redirects the user to the products page and the add product button submits the form and adds the product to the database in MongoDb.
 
-### **_Edit A Product_**
+#### **_Edit A Product_**
 - For admin users only 
 - Accessed on the products page, by a call to action button 'Edit Product'. 
 - Directs the user to the Edit Product page, which is a form, including fields for product name, product brand, description, image url link, price, number of shades, a url link to where the item can be purchased and a dropdown list of categories to choose from. 
 - All fields are pre-populated with the that products information from the database
 - Allows the user to edit and update the product in the database in Mongodb.
 
-### **_Delete A Product_**
+#### **_Delete A Product_**
 - For Admin users only
 - Accessed on the products page, by a call to action button 'Delete Product'. 
 - Triggers a sweetalert popup asking the user to confirm the delete function. 
@@ -334,7 +335,7 @@ tablet and mobile devices.
 - Each review in this section has a 'Delete Review'
 - Giving admin the ability to delete any review on the website.
 
-### **_Add A Review_**
+#### **_Add A Review_**
 - Only available to registered users 
 - The button titled 'Add Review' is located on the product info page only at the bottom of the product information card.
 - Triggers a popup modal form on the product info page 
@@ -342,7 +343,7 @@ tablet and mobile devices.
 - Contains input fields for review title, radio buttons to select the rating for values between 1 - 5, and review content. 
 - The date the review is created and the user that created it are populated automatically from the backend.
 
-### **_Edit A Review_**
+#### **_Edit A Review_**
 - Only available on the review cards if the user has created the review.
 - A button titled 'Edit Review is located on the review card 
 - Access to edit a review can be done through the product info page, the reviews page and also in the user profile in the 'My Reviews' section.
@@ -412,12 +413,12 @@ tablet and mobile devices.
 - The cancel button will stop the delete from being executed 
 - The confirm button will delete th user feedbaack from the database.
 
-#### **_Sign In_**
+### **_Sign In_**
 - Allows registered users to log into their account
 - Will alert user if username/password is incorrect
 - Contains a link to the register page if a user has no account set up
 
-#### **_Register_**
+### **_Register_**
 - Allows user to create an account on the website
 - Will alert user if username has already been taken
 - Contains a link to the login page incase user gets clicks on wrong link on the navigation bar
@@ -441,8 +442,8 @@ tablet and mobile devices.
 ### **_Homepage_**
 - The homepage consists of a full width height, **responsive image**. It is a bright and vibrant background image with a **callout jumbotron** which is the title of the website and a brief introduction to the purpose of the website.
 - Directly under the callout there is a **search bar**, which utilised by all users (guest, registered and admin) and allows the user to search for products on the website by category name, product name or product brand. This is clear to the user and displayed as the placeholder text. Directly underneath this there are two **call to action buttons**, one 'Register' which will take the user to the register page to create an account and another 'Sign In' to take the user to the sign in page to log into their account.
-- Users can sign into their account through the navigation link or the button on the homepage jumbotron.
-- Users can register for an account through the navigation link or the button on the homepage jumbotron.
+- Users can sign into their account through the navigation link or the button on the homepage jumbotron. The user will be alerted by flash message if username/and or password is incorrect. All fields are required before the user can submit the form.
+- Users can register for an account through the navigation link or the button on the homepage jumbotron. Users will be alerted by flash message if they username has already been taken. All fields are required before the user can submit the form.
 
 ### **_Categories_**
 - The categories can be accessed through the dropdown menu on the navigation bar which includes links to the category groups. When a category group is selected it will lead the user to the product categories within that category group. The categories page includes a header telling the user which category theu are viewing. 
@@ -597,33 +598,9 @@ tablet and mobile devices.
 - **Auto Prefixer CSS:** used to parse the CSS for vendor prefixes
 - **SchemeColour:** used to aid with the colour palette choices
 
-
 ## **Testing**
-Testing
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
+- Full Testing Documentation can be found [here](TESTING.md)
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
-### **Tests Carried Out**
-List each page and tests carried out within each
-### **General**
-Check alt text on images
-Spellcheck on README
-Autoprefixer CSS
-Mobile Friendly Test
-Testing on Physical devices
-#### **User Story Tests**
-For any scenarios that have not been automated, test the user stories manually and provide as much detail as is relevant. A particularly useful form for describing your testing process is via scenarios, such as:
-### **Issues Encountered**
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 ## **Deployment**
 This project was developed using Gitpod IDE, then pushed to GitHub where the repository was stored.
 It is hosted on Heroku using automatic deployment from GitHub. Link to the live site [here](https://)

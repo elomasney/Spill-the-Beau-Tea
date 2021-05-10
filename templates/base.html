@@ -84,13 +84,13 @@
     <section>
         <!--Flash Messages-->
         {% with messages = get_flashed_messages() %}
-        {% if messages %}
-        {% for message in messages %}
-        <div class="row flashes">
-            <h4>{{ message }} <i class="fas fa-mug-hot"></i></h4>
-        </div>
-        {% endfor %}
-        {% endif %}
+            {% if messages %}
+            {% for message in messages %}
+            <div class="row flashes">
+                <h4>{{ message }} <i class="fas fa-mug-hot"></i></h4>
+            </div>
+            {% endfor %}
+            {% endif %}
         {% endwith %}
     </section>
     <main id="main-container" class="container">

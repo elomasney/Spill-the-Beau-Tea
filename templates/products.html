@@ -10,9 +10,9 @@
 
     <!--Header to show user the number of results returned from the search-->
     {% if query %}
-    {% if results >= 1 %}
-    <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
-    {% endif %}
+        {% if results >= 1 %}
+        <h2 class="category-header">Your search for '{{ query }}' returned {{ results }} results</h2>
+        {% endif %}
     {% endif %}
     <!--List of products from the db-->
     <h2 class="category-header">Products</h2>
@@ -29,15 +29,15 @@
                 <div id="product-info_{{product._id}}" class="product-text card-body">
                     {% if session.user|lower %}
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
-                    {% if product._id in favourites %}
-                    <!--If product already in favourites - add full coloured heart-->
-                    <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
-                    </a>
-                    {% else %}
-                    <!--If product not in user favourites - show outlined heart-->
-                    <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
-                    </a>
-                    {% endif %}
+                        {% if product._id in favourites %}
+                        <!--If product already in favourites - add full coloured heart-->
+                        <a href="{{url_for('delete_favourite', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Remove from Favourites"><i class="fas fa-heart"></i>
+                        </a>
+                        {% else %}
+                        <!--If product not in user favourites - show outlined heart-->
+                        <a href="{{url_for('favourites', product_id=product._id)}}" class="btn heart btn-lg active" role="button" aria-pressed="true" data-toggle="tooltip" data-placement="left" title="Add to Favourites"><i class="far fa-heart"></i>
+                        </a>
+                        {% endif %}
                     {% endif %}
                     <h4 class=" product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
@@ -45,33 +45,33 @@
                     <!--Product Average Ratings-->
                     {% for rating in ratings %}
                     <!-- only apply if the product._id matches the rating._id -->
-                    {% if product._id == rating._id %}
-                    <!-- set variable "count" to the leftover value deducted from rating.average -->
-                    {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
-                    <!-- for each star in the rating.average, insert whole-star -->
-                    {% for star in range(rating.average|int) %}
-                    <i class="fas fa-star"></i>
-                    {% endfor %}
-                    <!-- for each half-star in rating.average, insert half-star -->
-                    {% if ".5" in rating.average|string %}
-                    <i class="fas fa-star-half-alt"></i>
-                    {% endif %}
-                    <!-- for each remaining value in "count" variable, insert empty-star -->
-                    {% for star in range(count) %}
-                    <i class="far fa-star"></i>
-                    {% endfor %}
-                    <!--Shows review count for the product-->
-                    <!--Acts as a link to direct users to the reviews for that product-->
-                    <a href="{{url_for('reviews', product_id=product._id)}}" class="review_count btn btn-lg review-btn">
-                        ( {{rating.ratings}} Reviews)
-                    </a>
-                    {% endif %}
+                        {% if product._id == rating._id %}
+                        <!-- set variable "count" to the leftover value deducted from rating.average -->
+                        {% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}
+                        <!-- for each star in the rating.average, insert whole-star -->
+                        {% for star in range(rating.average|int) %}
+                        <i class="fas fa-star"></i>
+                        {% endfor %}
+                        <!-- for each half-star in rating.average, insert half-star -->
+                        {% if ".5" in rating.average|string %}
+                        <i class="fas fa-star-half-alt"></i>
+                        {% endif %}
+                        <!-- for each remaining value in "count" variable, insert empty-star -->
+                        {% for star in range(count) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
+                        <!--Shows review count for the product-->
+                        <!--Acts as a link to direct users to the reviews for that product-->
+                        <a href="{{url_for('reviews', product_id=product._id)}}" class="review_count btn btn-lg review-btn">
+                            ( {{rating.ratings}} Reviews)
+                        </a>
+                        {% endif %}
                     {% endfor %}
                     <!-- if product has no reviews, set 5 empty stars -->
                     {% if product._id not in has_rating %}
-                    {% for star in range(5) %}
-                    <i class="far fa-star"></i>
-                    {% endfor %}
+                        {% for star in range(5) %}
+                        <i class="far fa-star"></i>
+                        {% endfor %}
                     {% endif %}
                     <p class="product-shades card-text">
                         <strong>Shades: </strong> {{ product.num_shades }}

@@ -1265,12 +1265,14 @@ button#btn-404 a {
 
     #registerLink {
         font-size: 1rem;
+        text-shadow: none;
     }
 
     #loginLink {
         font-size: 1rem;
         margin: 0px 20px;
         margin-bottom: 20px;
+        text-shadow: none;
     }
 
     /*Profile*/
