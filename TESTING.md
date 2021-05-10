@@ -179,7 +179,7 @@ which will peak the interest of users and encourage user involvement in the cont
 
 **_Navigation links_**
 
-_All navigation links should take the user to the correct targeted section._
+**_All navigation links should take the user to the correct targeted section._**
 - The navigation links all work as intended and operate correctly.
 
 _Navigation links should change depending on user status_
@@ -202,121 +202,121 @@ _Navigation links should change depending on user status_
 
 **_Navigation bar responsiveness_**
 
-_Check responsiveness of navigation bar using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of navigation bar using Chrome DevTools to check if it worked across all devices._**
 - The navigation bar is fully responsive, it shows links to the right hand side on larger screens
 and collapses into a hamburger menu on medium and smaller devices. This is working correctly and is responsive.
 
 **_Navigation Logo link_**
 
-_Check that navigation logo link directs user to homepage when clicked._
+**_Check that navigation logo link directs user to homepage when clicked._**
 - The navigation logo link is functioning as expected  and when clicked, takes the user back to the homepage. This test was successful.
 
 **_Navigation Links Hover Function: blue colour_**
 
-_Check that when mouse hovers over navigation links the text changes to blue colour_
+**_Check that when mouse hovers over navigation links the text changes to blue colour_**
 - When any of the navigation links on the navigation bar are hovered over with the mouse, they should change to a blue colour.
 All buttons function as expected and no issues were found.
 
 **_Hamburger menu closing after link has been selected._**
 
-_Check that hamburger toggle menu automatically closes after a link has been selected_
+**_Check that hamburger toggle menu automatically closes after a link has been selected_**
 - The hamburger menu toggles to show the three links provided and closes on selection of the chosen link. I had an issue with this on a previous project and had found the solution for this on 
 [StackOverflow](https://stackoverflow.com/questions/36405991/bootstrap-toggle-menu-on-one-page-site-does-not-uncollapse-when-clicked),
 which I used in this project to ensure the issue did not occur.
 
 **_Category group links from dropdown menu work._**
 
-_Check that the user is directed to the correct category group when a category group link is selected_
+**_Check that the user is directed to the correct category group when a category group link is selected_**
 - All links take the user to the correct page 
 
 **_Manage links from dropdown menu for Admin Users work._**
 
-_Check that the all links in the dropdown 'Manage' menu work_
+**_Check that the all links in the dropdown 'Manage' menu work_**
 - All links take the user to the correct page 
 
 
 #### **Homepage**
 **_Homepage Hero Image Responsiveness_**
 
-_Check that homepage background image is responsive and scales up and down depending on the device being used._
+**_Check that homepage background image is responsive and scales up and down depending on the device being used._**
 - I ran a test for this using DevTools on Google Chrome, to show how the site looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The homepage hero image is fully responsive across all devices.
 
 **_Callout_**
 
-_Verify that callout is responsive and that text is displayed well on all devices._
+**_Verify that callout is responsive and that text is displayed well on all devices._**
 - I ran a test using Google Chrome Dev Tools to ensure that the callout description and button were responsive and would scale up and down depending on the device being used.
 The callout text is responsive and the text size changes slightly depending on the device being used. There were no issues found.
 
 **_Search Bar Functionality_**
 
-_Check that the search bar functions properly and directs the user to the products page related to their search_
+**_Check that the search bar functions properly and directs the user to the products page related to their search_**
 - The search bar works as intended and directs the user to the products page with a list of products rellated to their search.
 - It also returns a statement at the top of the search results indicating to the user the number of results found for their search.
 
 **_Search Bar Input Field_**
 
-_Check that the search bar input field will not function with an empty search field_
+**_Check that the search bar input field will not function with an empty search field_**
 - I ran this test by trying attempting to use the search button with no search query input into the search field.
 - The search function will not work with an empty field and the user is prompted to fill in the search input.
 - This test was successful
 
 **_Search Bar_**
 
-_Check that the search bar will allow the user to search by product name, brand or category and return the correct results_
+**_Check that the search bar will allow the user to search by product name, brand or category and return the correct results_**
 - I ran this test by trying attempting to search by product name, brand and category using the search bar on the homepage
 - The search function worked as expected and returned the correct products, users can search by product name, brand or category.
 - This test was successful
 
 **_Sign In Button_**
 
-_Verify that sign in button works and directs the user to the sign in page._
+**_Verify that sign in button works and directs the user to the sign in page._**
 - Button works and directs the user to the sign page where the user can sign into their account
 
 **_Register Button_**
 
-_Verify that register button works and directs the user to the register page._
+**_Verify that register button works and directs the user to the register page._**
 - Button works and directs the user to the register page to create a new account
 
 
 #### **Categories Page**
 **_Category card display responsiveness_**
 
-_Check responsiveness of category cards using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of category cards using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the category cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The category cards are fully responsive across all devices.
 
 **_Hidden search input functionality on category cards_**
 
-_Check that the search function on the category card directs the user to a list of products within that category_
+**_Check that the search function on the category card directs the user to a list of products within that category_**
 - I ran a test by clicking the search icon on each category card to check if the user is directed to the correct products.
 - This test was successful and the user is directed to the correct list of products within each category.
 
 **_'Edit Category' & 'Delete Category' buttons_**
 
-_Check that the 'Edit Category' and 'Delete Category' buttons are only viewable when signed in as Admin._
+**_Check that the 'Edit Category' and 'Delete Category' buttons are only visible when signed in as Admin._**
 - I ran a test by signing in as an Admin user and the button were displayed on each card as expected.
-- I then signed in as a registered user and the buttons were no longer viewable on the category cards.
+- I then signed in as a registered user and the buttons were no longer visible on the category cards.
 - I also tested this as a guest user and the buttons are not visible to a guest user.
 - This test was successful.
 
 **_'Edit Category' button functionality_**
 
-_Check that the 'Edit Category' button directs the admin user to the edit category page._
+**_Check that the 'Edit Category' button directs the admin user to the edit category page._**
 - I ran a test by clicking on the edit category button as an Admin user.
 - I was directed to the Edit category page as expected
 - This test was successful.
 
 **_'Delete Category' button functionality_**
 
-_Check that the 'Delete Category' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete Category' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete category button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
 - This test was successful.
 
 **_'Delete Category' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete Category' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete Category' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete category button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
 - I then clicked cancel and remained on the categories page, the category was **NOT** deleted and the popup disappeared.
@@ -324,7 +324,7 @@ _Check that the cancel button on the 'Delete Category' SweetAlert confirmation p
 
 **_'Delete Category' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete Category' SweetAlert confirmation popup successfully deletes a category._
+**_Check that the confirm button on the 'Delete Category' SweetAlert confirmation popup successfully deletes a category._**
 - I ran a test by clicking on the delete category button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
 - I then clicked 'Yes, Delete' button and the category selected was deleted.
@@ -337,26 +337,26 @@ _Check that the confirm button on the 'Delete Category' SweetAlert confirmation 
 
 **_Add Category form responsiveness_**
 
-_Check responsiveness of add category form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of add category form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the add category form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The add category form is fully responsive across all devices.
 
 **_Add Category Form Validity - required fields_**
 
-_Check that the user is alerted if input fields are not filled in._
+**_Check that the user is alerted if input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' button functionality_**
 
-_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._
+**_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Categories page as expected
 - This test was successful.
 
 **_'Add Category' button functionality_**
 
-_Check that the 'Add Category' button works and adds a category to the database._
+**_Check that the 'Add Category' button works and adds a category to the database._**
 - I ran a test by completing the add category form.
 - I then clicked the Add Category button on the form
 - The category was added to the database and the user is alerted via flash message that 'New Category Added'
@@ -368,32 +368,32 @@ _Check that the 'Add Category' button works and adds a category to the database.
 
 **_Edit Category form responsiveness_**
 
-_Check responsiveness of edit category form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of edit category form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the edit category form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The edit category form is fully responsive across all devices.
 
 **_Edit Category Form Input Fields_**
 
-_Check that the form is pre-populated with the category information to be updated._
+**_Check that the form is pre-populated with the category information to be updated._**
 - The form pre-populates the correct corresponding category information already on the database for that category with the exception of the dropdown list of category groups which have to be selected by the user editing the category.
 - This test was successful
 
 **_Edit Category Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' button functionality_**
 
-_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._
+**_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Categories page as expected
 - This test was successful.
 
 **_'Edit Category' button functionality_**
 
-_Check that the 'Edit Category' button works and the category is updated in the database._
+**_Check that the 'Edit Category' button works and the category is updated in the database._**
 - I ran a test by completing the edit category form.
 - I then clicked the Edit Category button on the form
 - The category was updated in the database and the user is alerted via flash message that 'Category Successfully Updated'
@@ -404,7 +404,7 @@ _Check that the 'Edit Category' button works and the category is updated in the 
 #### **Products Page**
 **_Product card display responsiveness_**
 
-_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the product cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The product cards are fully responsive across all devices.
 - Product cards are displayed with image to the left and product information to the right on larger screens
@@ -412,14 +412,14 @@ full width of the screen on all devices. The product cards are fully responsive 
 
 **_Favourites Heart Icon button_**
 
-_Check that the favourites heart icon button are only viewable when signed in as a registered user._
+**_Check that the favourites heart icon button are only visible when signed in as a registered user._**
 - I ran a test by signing in as registered user and the heart icon was visible on the product card.
 - I also tested this as a guest user and the heart icon button is not visible to a guest user.
 - This test was successful.
 
 **_Favourites Heart Icon button functionality_**
 
-_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._
+**_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._**
 - I ran a test by signing in as registered user and clicking the outlined yellow icon of a product.
 - The button when clicked adds the product to the users favourites list
 - It alerts the user via flash message that 'Product added to favourites'
@@ -427,7 +427,7 @@ _Check that the favourites heart icon(when only showing outline yellow) button w
 
 **_Favourites Heart Icon button functionality_**
 
-_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._
+**_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._**
 - I ran a test by signing in as registered user and clicking the full yellow coloured icon of a product I had added to the favourites list
 - The button when clicked removes the product from the users favourites list
 - It alerts the user via flash message that 'Product removed from favourites'
@@ -435,64 +435,64 @@ _Check that the favourites heart icon button works(when showing full yellow colo
 
 **_Favourites Heart Icon button toggle outline_**
 
-_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._
+**_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._**
 - I ran a test by signing in as registered user and locating an item not in my favourites list
 - The icon was outlined in yellow indicating the product was not in my favourites list
 - This test was successful.
 
 **_Favourites Heart Icon button toggle full colour_**
 
-_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._
+**_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._**
 - I ran a test by signing in as registered user and locating an item that was added to my favourites list
 - The icon was displaying as a full yellow coloured heart indicating that the product was already in my favourites list.
 - This test was successful.
 
 **_Average Star Product Rating_**
 
-_Check that the correct average star product rating is displayed on the product card._
+**_Check that the correct average star product rating is displayed on the product card._**
 - I ran a test by checking the review ratings on some products, calculating the average and checking it against the stars shown on the product card.
 - The correct average rating is displayed on all product cards.
 - This test was successful.
 
 **_Number of Reviews Link Functionality_**
 
-_Check that the number of reviews link, when clicked directs the user to the product reviews related to that product._
+**_Check that the number of reviews link, when clicked directs the user to the product reviews related to that product._**
 - I ran a test by clicking on the number of reviews link on the product card.
 - The link takes the user to the reviews page displaying all related product reviews for that specific product.
 - This test was successful.
 
 **_'More Info' button functionality_**
 
-_Check that the 'More Info' button directs the user to the product info page for that specific product._
+**_Check that the 'More Info' button directs the user to the product info page for that specific product._**
 - I ran a test by clicking on the more info button.
 - I was directed to the product info page for that specific product as expected
 - This test was successful.
 
 **_'Edit Product' & 'Delete Product' buttons_**
 
-_Check that the 'Edit Product' and 'Delete Product' buttons are only visible when signed in as Admin._
+**_Check that the 'Edit Product' and 'Delete Product' buttons are only visible when signed in as Admin._**
 - I ran a test by signing in as an Admin user and the button were displayed on each card as expected.
-- I then signed in as a registered user and the buttons were no longer viewable on the category cards.
+- I then signed in as a registered user and the buttons were no longer visible on the category cards.
 - I also tested this as a guest user and the buttons are not visible to a guest user.
 - This test was successful.
 
 **_'Edit Product' button functionality_**
 
-_Check that the 'Edit Product' button directs the admin user to the edit product page._
+**_Check that the 'Edit Product' button directs the admin user to the edit product page._**
 - I ran a test by clicking on the edit product button as an Admin user.
 - I was directed to the Edit product page as expected
 - This test was successful.
 
 **_'Delete Product' button functionality_**
 
-_Check that the 'Delete Product' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete Product' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete product button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
 - This test was successful.
 
 **_'Delete Product' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete Product' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete Product' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete product button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
 - I then clicked cancel and remained on the products page, the product was **NOT** deleted and the popup disappeared.
@@ -500,7 +500,7 @@ _Check that the cancel button on the 'Delete Product' SweetAlert confirmation po
 
 **_'Delete Product' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete Product' SweetAlert confirmation popup successfully deletes a product._
+**_Check that the confirm button on the 'Delete Product' SweetAlert confirmation popup successfully deletes a product._**
 - I ran a test by clicking on the delete product button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
 - I then clicked 'Yes, Delete' button and the product selected was deleted.
@@ -513,26 +513,26 @@ _Check that the confirm button on the 'Delete Product' SweetAlert confirmation p
 
 **_Add Product form responsiveness_**
 
-_Check responsiveness of add product form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of add product form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the add product form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The add product form is fully responsive across all devices.
 
 **_Add Product Form Validity - required fields_**
 
-_Check that the user is alerted if input fields are not filled in._
+**_Check that the user is alerted if input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' button functionality_**
 
-_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._
+**_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Products page as expected
 - This test was successful.
 
 **_'Add Product' button functionality_**
 
-_Check that the 'Add Product' button works and adds a product to the database._
+**_Check that the 'Add Product' button works and adds a product to the database._**
 - I ran a test by completing the add product form.
 - I then clicked the Add Product button on the form
 - The product was added to the database and the user is alerted via flash message that 'New Product Added'
@@ -544,32 +544,32 @@ _Check that the 'Add Product' button works and adds a product to the database._
 
 **_Edit Product form responsiveness_**
 
-_Check responsiveness of edit product form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of edit product form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the edit product form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The edit product form is fully responsive across all devices.
 
 **_Edit Product Form Input Fields_**
 
-_Check that the form is pre-populated with the product information to be updated._
+**_Check that the form is pre-populated with the product information to be updated._**
 - The form pre-populates the correct corresponding product information already on the database for that product with the exception of the dropdown list of category names which have to be selected by the user editing the product.
 - This test was successful
 
 **_Edit Product Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' button functionality_**
 
-_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._
+**_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Products page as expected
 - This test was successful.
 
 **_'Edit Product' button functionality_**
 
-_Check that the 'Edit Product' button works and the product is updated in the database._
+**_Check that the 'Edit Product' button works and the product is updated in the database._**
 - I ran a test by completing the edit product form.
 - I then clicked the Edit Product button on the form
 - The product was updated in the database and the user is alerted via flash message that 'Product Successfully Updated'
@@ -580,20 +580,20 @@ _Check that the 'Edit Product' button works and the product is updated in the da
 #### **Product Info Page**
 **_Product card display responsiveness_**
 
-_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the product card looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The product card is fully responsive across all devices.
 
 **_Favourites Heart Icon button_**
 
-_Check that the favourites heart icon button is only visible when signed in as a registered user._
+**_Check that the favourites heart icon button is only visible when signed in as a registered user._**
 - I ran a test by signing in as registered user and the heart icon was visible on the product card.
 - I also tested this as a guest user and the heart icon button is not visible to a guest user.
 - This test was successful.
 
 **_Favourites Heart Icon button functionality_**
 
-_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._
+**_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._**
 - I ran a test by signing in as registered user and clicking the outlined yellow icon of a product.
 - The button when clicked adds the product to the users favourites list
 - It alerts the user via flash message that 'Product added to favourites'
@@ -601,7 +601,7 @@ _Check that the favourites heart icon(when only showing outline yellow) button w
 
 **_Favourites Heart Icon button functionality_**
 
-_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._
+**_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._**
 - I ran a test by signing in as registered user and clicking the full yellow coloured icon of a product I had added to the favourites list
 - The button when clicked removes the product from the users favourites list
 - It alerts the user via flash message that 'Product removed from favourites'
@@ -609,61 +609,61 @@ _Check that the favourites heart icon button works(when showing full yellow colo
 
 **_Favourites Heart Icon button toggle outline_**
 
-_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._
+**_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._**
 - I ran a test by signing in as registered user and locating an item not in my favourites list
 - The icon was outlined in yellow indicating the product was not in my favourites list
 - This test was successful.
 
 **_Favourites Heart Icon button toggle full colour_**
 
-_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._
+**_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._**
 - I ran a test by signing in as registered user and locating an item that was added to my favourites list
 - The icon was displaying as a full yellow coloured heart indicating that the product was already in my favourites list.
 - This test was successful.
 
 **_Average Star Product Rating_**
 
-_Check that the correct average star product rating is displayed on the product card._
+**_Check that the correct average star product rating is displayed on the product card._**
 - I ran a test by checking the review ratings from the related product reviews, calculating the average and checking it against the stars shown on the product card.
 - The correct average rating is displayed on the product card.
 - This test was successful.
 
 **_Add Review button_**
 
-_Check that the Add Review button is only visible when signed in as a registered user._
+**_Check that the Add Review button is only visible when signed in as a registered user._**
 - I ran a test by signing in as registered user and the 'Add Review' button was visible on the product card.
 - I also tested this as a guest user and the 'Add Review' button is not visible to a guest user.
 - This test was successful.
 
 **_'Add Review' button functionality_**
 
-_Check that the 'Add Review' button works and triggers the add review popup modal form._
+**_Check that the 'Add Review' button works and triggers the add review popup modal form._**
 - I ran a test by clicking the add review button
 - A popup modal form 'Add Review' was triggered for a user to fill in to add a review.
 - This test was successful.
 
 **_'Add Review' modal responsiveness_**
 
-_Check responsiveness of 'Add Review' modal using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of 'Add Review' modal using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the Add Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The add review modal is fully responsive across all devices.
 
 **_Add Review Modal Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' modal form button functionality_**
 
-_Check that the 'Cancel' button redirects the user back to the the 'Product Info Page'._
+**_Check that the 'Cancel' button redirects the user back to the the 'Product Info Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Product Info page as expected
 - This test was successful.
 
 **_'Add Review' modal form button functionality_**
 
-_Check that the 'Add Review' button works and the review is added to the database._
+**_Check that the 'Add Review' button works and the review is added to the database._**
 - I ran a test by completing the add review modal form.
 - I then clicked the Add Review button on the form
 - The review was successfully added in the database and the user is alerted via flash message that 'New Review Added'
@@ -672,25 +672,25 @@ _Check that the 'Add Review' button works and the review is added to the databas
 
 **_Review card display responsiveness_**
 
-_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The review cards are fully responsive across all devices.
 
 **_Review card - correct related reviews displayed_**
 
-_Check that the correct reviews related to that specific product is displayed on product info page._
+**_Check that the correct reviews related to that specific product is displayed on product info page._**
 - I ran a test for this by checking that the reviews displayed were related to the product.
 - This test was a success and only reviews for the specific product are displayed.
 
 **_Review card - most recent 5 reviews displayed_**
 
-_Check that max five reviews for products is displayed on product info page._
+**_Check that max five reviews for products is displayed on product info page._**
 - I ran a test for this by adding more than 5 reviews to one product and checking the product info page
 - This test was a success and only the most recent 5 related product reviews are displayed on the product info page
 
 **_'More Reviews' button functionality_**
 
-_Check that the 'More Info' button directs the user to the reviews page for that specific product._
+**_Check that the 'More Info' button directs the user to the reviews page for that specific product._**
 - I ran a test by clicking on the more reviews button.
 - I was directed to the reviews page
 - The reviews displayed were all the correct reviews related to that specific product.
@@ -700,26 +700,26 @@ _Check that the 'More Info' button directs the user to the reviews page for that
 #### **Reviews Page**
 **_Review card display responsiveness_**
 
-_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The review cards are fully responsive across all devices.
 
 **_Review cards - correct reviews displayed_**
 
-_Check that the correct reviews for the corresponding product are displayed._
+**_Check that the correct reviews for the corresponding product are displayed._**
 - The reviews displayed were all the correct reviews related to that specific product.
 - This test was successful.
 
 **_Review cards - all reviews displayed(Admin only)_**
 
-_Check that the all reviews are displayed when Admin navigates to Reviews page from Admin profile link - All Reviews'._
+**_Check that the all reviews are displayed when Admin navigates to Reviews page from Admin profile link - All Reviews'._**
 - I ran this test by signing in as Admin, navigating to the Admin profile, clicking on the 'All Reviews' link.
 - The link directed me to the reviews page and displayed all reviews from the database as expected.
 - This test was successful.
 
 **_'Edit Review' button_**
 
-_Check that the 'Edit Review' button is only visible when the user has created the review._
+**_Check that the 'Edit Review' button is only visible when the user has created the review._**
 - I ran a test by signing in as a registered user and navigating to the reviews page.
 - The button was only visible on the reviews I created.
 - I then signed in as an Admin user and the button was no longer visible on the review cards
@@ -727,7 +727,7 @@ _Check that the 'Edit Review' button is only visible when the user has created t
 - This test was successful.
 
 **_'Delete Review' button_**
-_Check that the 'Delete Review' button is only visible when the user has created the review or Admin._
+**_Check that the 'Delete Review' button is only visible when the user has created the review or Admin._**
 - I ran a test by signing in as an Admin user and the button was displayed on each card as expected.
 - I then signed in as a registered user and the buttons was only visible on the cards of the reviews I created
 - I also tested this as a guest user and the button is not visible to a guest user.
@@ -735,39 +735,39 @@ _Check that the 'Delete Review' button is only visible when the user has created
 
 **_'Edit Review' button functionality_**
 
-_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+**_Check that the 'Edit Review' button works and triggers the edit review popup modal form._**
 - I ran a test by clicking the edit review button
 - A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
 - This test was successful.
 
 **_'Edit Review' modal responsiveness_**
 
-_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the Edit Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The edit review modal is fully responsive across all devices.
 
 **_Edit Review Modal Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_Edit Review Form Input Fields_**
 
-_Check that the form is pre-populated with the review information to be updated._
+**_Check that the form is pre-populated with the review information to be updated._**
 - The form pre-populates the correct corresponding review information already on the database for that review with the exception of the product rating which has to be selected by the user again when editing the review.
 - This test was successful
 
 **_'Cancel' modal form button functionality_**
 
-_Check that the 'Cancel' button redirects the user back to the the 'Reviews Page'._
+**_Check that the 'Cancel' button redirects the user back to the the 'Reviews Page'._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Reviews page as expected
 - This test was successful.
 
 **_'Edit Review' modal form button functionality_**
 
-_Check that the 'Edit Review' button works and the review is updated on the database._
+**_Check that the 'Edit Review' button works and the review is updated on the database._**
 - I ran a test by completing the edit review modal form.
 - I then clicked the Edit Review button on the form
 - The review was successfully updated on the database and the user is alerted via flash message that 'Review Succesfully Updated'
@@ -776,14 +776,14 @@ _Check that the 'Edit Review' button works and the review is updated on the data
 
 **_'Delete Review' button functionality_**
 
-_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete review button as the registered user that created the review.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - This test was successful.
 
 **_'Delete Review' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete review button as the registered user that created the review.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - I then clicked cancel and remained on the reviews page, the review was **NOT** deleted and the popup disappeared.
@@ -791,7 +791,7 @@ _Check that the cancel button on the 'Delete Review' SweetAlert confirmation pop
 
 **_'Delete Review' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._
+**_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._**
 - I ran a test by clicking on the delete review button as the registered user that created the review.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - I then clicked 'Yes, Delete' button and the review selected was deleted.
@@ -801,14 +801,14 @@ _Check that the confirm button on the 'Delete Review' SweetAlert confirmation po
 
 **_'Back to Product' button functionality(registered users and guest users)_**
 
-_Check that the 'Back to Product' button redirects the user back to the product info page._
+**_Check that the 'Back to Product' button redirects the user back to the product info page._**
 - I ran a test by signing in as a registered user and a guest user and clicking on the back to product button from the reviews page.
 - I was redirected back to the product info page as expected.
 - This test was successful.
 
 **_'Back to Profile' button functionality(Admin only)_**
 
-_Check that the 'Back to Profile' button redirects the user back to the Admin profile page._
+**_Check that the 'Back to Profile' button redirects the user back to the Admin profile page._**
 - I ran a test by signing in as Admin and navigating to the all reviews page and clicking the 'Back to Profile' button.
 - I was redirected back to the Admin profile page as expected.
 - This test was successful.
@@ -817,46 +817,46 @@ _Check that the 'Back to Profile' button redirects the user back to the Admin pr
 #### **Profile Page**
 **_Favourites Accordion responsiveness_**
 
-_Check responsiveness of favourites accordion using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of favourites accordion using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the favourites accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The favourites accordion is fully responsive across all devices.
 
 **_'Delete Favourite' button functionality_**
 
-_Check that the 'Delete Favourites' button removes product from user favourites list._
+**_Check that the 'Delete Favourites' button removes product from user favourites list._**
 - I ran a test by clicking on the delete product button on the favourites accordion list on the profile page.
 - The product was removed from the favourites list and an alert via flash message was displayed 'Product removed from Favourites'.
 - This test was successful.
 
 **_'Edit Review' button functionality_**
 
-_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+**_Check that the 'Edit Review' button works and triggers the edit review popup modal form._**
 - I ran a test by clicking the edit review button
 - A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
 - This test was successful.
 
 **_'Contact Us' modal responsiveness_**
 
-_Check responsiveness of 'Contact Us' modal using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of 'Contact Us' modal using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the Contact Us modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The contact us modal is fully responsive across all devices.
 
 **_Edit Review Modal Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_'Cancel' modal form button functionality_**
 
-_Check that the 'Cancel' button redirects the user back to the the Profile page._
+**_Check that the 'Cancel' button redirects the user back to the the Profile page._**
 - I ran a test by clicking on the cancel button on the form.
 - It closes the contact us modal.
 - This test was successful.
 
 **_'Contact Us' modal form button functionality_**
 
-_Check that the 'Send Message' button works and the feedback is added to the database._
+**_Check that the 'Send Message' button works and the feedback is added to the database._**
 - I ran a test by completing the contact us modal form.
 - I then clicked the Send Message button on the form
 - The feedback was successfully added to the database and the user is alerted via flash message that 'Your message has been sent'
@@ -865,51 +865,51 @@ _Check that the 'Send Message' button works and the feedback is added to the dat
 
 **_Review card display responsiveness_**
 
-_Check responsiveness of user review cards using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of user review cards using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the user review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The user review cards are fully responsive across all devices.
 
 **_Review cards - correct reviews displayed_**
 
-_Check that the correct reviews for the corresponding user are displayed._
+**_Check that the correct reviews for the corresponding user are displayed._**
 - The reviews displayed were all the correct reviews created by the user.
 - This test was successful.
 
 **_'Edit Review' button functionality_**
 
-_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+**_Check that the 'Edit Review' button works and triggers the edit review popup modal form._**
 - I ran a test by clicking the edit review button
 - A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
 - This test was successful.
 
 **_'Edit Review' modal responsiveness_**
 
-_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the Edit Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The edit review modal is fully responsive across all devices.
 
 **_Edit Review Modal Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 
 **_Edit Review Form Input Fields_**
 
-_Check that the form is pre-populated with the review information to be updated._
+**_Check that the form is pre-populated with the review information to be updated._**
 - The form pre-populates the correct corresponding review information already on the database for that review with the exception of the product rating which has to be selected by the user again when editing the review.
 - This test was successful
 
 **_'Cancel' modal form button functionality_**
 
-_Check that the 'Cancel' button redirects the user back to the the Profile page._
+**_Check that the 'Cancel' button redirects the user back to the the Profile page._**
 - I ran a test by clicking on the cancel button on the form.
 - I was redirected back to the Profile page as expected
 - This test was successful.
 
 **_'Edit Review' modal form button functionality_**
 
-_Check that the 'Edit Review' button works and the review is updated on the database._
+**_Check that the 'Edit Review' button works and the review is updated on the database._**
 - I ran a test by completing the edit review modal form.
 - I then clicked the Edit Review button on the form
 - The review was successfully updated on the database and the user is alerted via flash message that 'Review Succesfully Updated'
@@ -918,14 +918,14 @@ _Check that the 'Edit Review' button works and the review is updated on the data
 
 **_'Delete Review' button functionality_**
 
-_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete review button as the registered user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - This test was successful.
 
 **_'Delete Review' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete review button as the registered user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - I then clicked cancel and remained on the reviews page, the review was **NOT** deleted and the popup disappeared.
@@ -933,7 +933,7 @@ _Check that the cancel button on the 'Delete Review' SweetAlert confirmation pop
 
 **_'Delete Review' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._
+**_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._**
 - I ran a test by clicking on the delete review button as the registered user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
 - I then clicked 'Yes, Delete' button and the review selected was deleted.
@@ -977,7 +977,7 @@ full width of the screen on all devices. The admin profile accordion list is ful
 
 **_'All Categories' link functionality_**
 
-_Check that the 'All Categories' link works and directs the user to the categories page._
+**_Check that the 'All Categories' link works and directs the user to the categories page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the All Categories link in Manage section of the accordion menu.
 - The link when clicked directed me to the Categories page as expected.
@@ -985,7 +985,7 @@ _Check that the 'All Categories' link works and directs the user to the categori
 
 **_'Add A Category' link functionality_**
 
-_Check that the 'Add A Category' link works and directs the user to the Add Category page._
+**_Check that the 'Add A Category' link works and directs the user to the Add Category page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the Add A Category link in Manage section of the accordion menu.
 - The link when clicked directed me to the Add Category page as expected.
@@ -993,7 +993,7 @@ _Check that the 'Add A Category' link works and directs the user to the Add Cate
 
 **_'All Products' link functionality_**
 
-_Check that the 'All Products' link works and directs the user to the products page._
+**_Check that the 'All Products' link works and directs the user to the products page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the All Products link in Manage section of the accordion menu.
 - The link when clicked directed me to the Products page as expected.
@@ -1001,7 +1001,7 @@ _Check that the 'All Products' link works and directs the user to the products p
 
 **_'Add A Product' link functionality_**
 
-_Check that the 'Add A Product' link works and directs the user to the Add Product page._
+**_Check that the 'Add A Product' link works and directs the user to the Add Product page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the Add A Product link in Manage section of the accordion menu.
 - The link when clicked directed me to the Add Product page as expected.
@@ -1009,7 +1009,7 @@ _Check that the 'Add A Product' link works and directs the user to the Add Produ
 
 **_'All Users' link functionality_**
 
-_Check that the 'All Users' link works and directs the user to the Manage Users page._
+**_Check that the 'All Users' link works and directs the user to the Manage Users page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the All Users link in Users section of the accordion menu.
 - The link when clicked directed me to the Manage Users page as expected.
@@ -1025,7 +1025,7 @@ _Check that the 'All Reviews' link works and directs the user to the reviews pag
 
 **_'All Feedback' link functionality_**
 
-_Check that the 'All Feedback' link works and directs the user to the user feedback page._
+**_Check that the 'All Feedback' link works and directs the user to the user feedback page._**
 - I ran a test by signing in as an Admin user and navigating to the Admin profile page.
 - I clicked on the All Feedback link in Feedback & Suggestions section of the accordion menu.
 - The link when clicked directed me to the User Feedback page as expected.
@@ -1035,20 +1035,20 @@ _Check that the 'All Feedback' link works and directs the user to the user feedb
 #### **Manage Users Page**
 **_Manage Users Accordion responsiveness_**
 
-_Check responsiveness of manage users accordion using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of manage users accordion using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the manage users accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The manage users accordion fully responsive across all devices.
 
 **_'Delete User' button functionality_**
 
-_Check that the 'Delete User' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete User' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete user button as an Admin User
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
 - This test was successful.
 
 **_'Delete User' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete User' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete User' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete user button as an Admin User.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
 - I then clicked cancel and remained on the manage users page, the user account was **NOT** deleted and the popup disappeared.
@@ -1056,7 +1056,7 @@ _Check that the cancel button on the 'Delete User' SweetAlert confirmation popup
 
 **_'Delete User' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete User' SweetAlert confirmation popup successfully deletes a user account._
+**_Check that the confirm button on the 'Delete User' SweetAlert confirmation popup successfully deletes a user account._**
 - I ran a test by clicking on the delete user button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
 - I then clicked 'Yes, Delete' button and the user account selected was deleted.
@@ -1068,20 +1068,20 @@ _Check that the confirm button on the 'Delete User' SweetAlert confirmation popu
 #### **User Feedback Page**
 **_User Feedback Accordion responsiveness_**
 
-_Check responsiveness of user feedback accordion using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of user feedback accordion using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the user feedback accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The user feedback fully responsive across all devices.
 
 **_'Delete Comment' button functionality_**
 
-_Check that the 'Delete Comment' button triggers the SweetAlert confirmation popup._
+**_Check that the 'Delete Comment' button triggers the SweetAlert confirmation popup._**
 - I ran a test by clicking on the delete comment button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
 - This test was successful.
 
 **_'Delete Comment' SweetAlert cancel functionality_**
 
-_Check that the cancel button on the 'Delete Comment' SweetAlert confirmation popup works._
+**_Check that the cancel button on the 'Delete Comment' SweetAlert confirmation popup works._**
 - I ran a test by clicking on the delete comment button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
 - I then clicked cancel and remained on the user feedback page, the user feedback was **NOT** deleted and the popup disappeared.
@@ -1089,7 +1089,7 @@ _Check that the cancel button on the 'Delete Comment' SweetAlert confirmation po
 
 **_'Delete Comment' SweetAlert confirm functionality_**
 
-_Check that the confirm button on the 'Delete Comment' SweetAlert confirmation popup successfully deletes a user feedback entry._
+**_Check that the confirm button on the 'Delete Comment' SweetAlert confirmation popup successfully deletes a user feedback entry._**
 - I ran a test by clicking on the delete comment button as an Admin user.
 - The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
 - I then clicked 'Yes, Delete' button and the review selected was deleted.
@@ -1101,20 +1101,20 @@ _Check that the confirm button on the 'Delete Comment' SweetAlert confirmation p
 #### **Login Page**
 **_Sign In responsiveness_**
 
-_Check responsiveness of sign in form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of sign in form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the sign in form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The sign in form is fully responsive across all devices.
 
 **_Sign Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 - If a user enters the incorrect username or password, the user is alerted via flash message 'Incorrect username and/or password'
 
 **_Sign In Page - link to Register_**
 
-_Check that the register link at the bottom of the sign in form is working._
+**_Check that the register link at the bottom of the sign in form is working._**
 - The register link at the bottom of the sign in form is working and when clicked will direct the user to the register page.
 - This test was successful
 
@@ -1122,13 +1122,13 @@ _Check that the register link at the bottom of the sign in form is working._
 #### **Register Page**
 **_Register form responsiveness_**
 
-_Check responsiveness of register form using Chrome DevTools to check if it worked across all devices._
+**_Check responsiveness of register form using Chrome DevTools to check if it worked across all devices._**
 - I ran a test for this using DevTools on Google Chrome, to show how the register form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The register form is fully responsive across all devices.
 
 **_Register Form Validity - required fields_**
 
-_Check that the user is alerted if the empty input fields are not filled in._
+**_Check that the user is alerted if the empty input fields are not filled in._**
 - If you try to submit the form without all of the fields complete, an error will occur
 and prompt you to populate all the other required fields before the user can submit the form.
 - If a user enters a username that is already in the database, the user is alerted via flash message 'Username Already Registered'
@@ -1136,7 +1136,7 @@ and prompt you to populate all the other required fields before the user can sub
 
 **_Register Page - link to sign in_**
 
-_Check that the sign in link at the bottom of the register form is working._
+**_Check that the sign in link at the bottom of the register form is working._**
 - The sign in link at the bottom of the register form is working and when clicked will direct the user to the sign in page.
 - This test was successful
 
@@ -1144,11 +1144,28 @@ _Check that the sign in link at the bottom of the register form is working._
 #### **Guest User**
 **_No Functionality Accesible to Guest User_**
 
-_Check that no buttons or functionality other than browsing the site is accesible to guest users._
+**_Check that no buttons or functionality other than browsing the site is accesible to guest users._**
 - I ran a test for this by viewing the site while not signed in.
 - No buttons or functionality is accessible to a guest user.
 - The guest user can only browse the website.
 - This test was successful.
+
+
+#### **404 Error Page**
+**_Responsiveness of background image_**
+
+**_Check that 404 background image is responsive and scales up and down depending on the device being used._**
+- I ran a test for this using DevTools on Google Chrome, to show how the site looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The 404 background image is fully responsive across all devices.
+
+**_'Back to Home' button functionality_**
+
+**_Check that the 'Back to Home' button works and directs the user back to the homepage._**
+- I ran a test by navigating to the 404 error page.
+- I clicked on the Back to Home button in Feedback.
+- The button when clicked directed me back to the Homepage as expected.
+- This test was successful.
+
 
 #### **Footer**
 **_Responsiveness of footer_**
