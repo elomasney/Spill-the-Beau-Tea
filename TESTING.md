@@ -263,6 +263,7 @@ _Verify that sign in button works and directs the user to the sign in page._
 _Verify that register button works and directs the user to the register page._
 - Button works and directs the user to the register page to create a new account
 
+
 #### **Categories Page**
 **_Category card display responsiveness_**
 
@@ -316,6 +317,7 @@ _Check that the confirm button on the 'Delete Category' SweetAlert confirmation 
 - I checked that this category had been deleted from the Mongodb database and it had.
 - This test was successful.
 
+
 #### **Add Category Page**
 
 **_Add Category form responsiveness_**
@@ -345,6 +347,7 @@ _Check that the 'Add Category' button works and adds a category to the database.
 - The category was added to the database and the user is alerted via flash message that 'New Category Added'
 - I checked that this category had been added to the Mongodb database and it had.
 - This test was successful.
+
 
 #### **Edit Category Page**
 
@@ -381,6 +384,7 @@ _Check that the 'Edit Category' button works and the category is updated in the 
 - The category was updated in the database and the user is alerted via flash message that 'Category Successfully Updated'
 - I checked that this category had been updated in the Mongodb database and it had.
 - This test was successful.
+
 
 #### **Products Page**
 **_Product card display responsiveness_**
@@ -489,6 +493,7 @@ _Check that the confirm button on the 'Delete Product' SweetAlert confirmation p
 - I checked that this product had been deleted from the Mongodb database and it had.
 - This test was successful.
 
+
 #### **Add Product Page**
 
 **_Add Product form responsiveness_**
@@ -518,6 +523,7 @@ _Check that the 'Add Product' button works and adds a product to the database._
 - The product was added to the database and the user is alerted via flash message that 'New Product Added'
 - I checked that this product had been added to the Mongodb database and it had.
 - This test was successful.
+
 
 #### **Edit Product Page**
 
@@ -554,6 +560,7 @@ _Check that the 'Edit Product' button works and the product is updated in the da
 - The product was updated in the database and the user is alerted via flash message that 'Product Successfully Updated'
 - I checked that this product had been updated in the Mongodb database and it had.
 - This test was successful.
+
 
 #### **Product Info Page**
 **_Product card display responsiveness_**
@@ -674,6 +681,7 @@ _Check that the 'More Info' button directs the user to the reviews page for that
 - The reviews displayed were all the correct reviews related to that specific product.
 - This test was successful.
 
+
 #### **Reviews Page**
 **_Review card display responsiveness_**
 
@@ -709,7 +717,6 @@ _Check that the 'Delete Review' button is only visible when the user has created
 - I then signed in as a registered user and the buttons was only visible on the cards of the reviews I created
 - I also tested this as a guest user and the button is not visible to a guest user.
 - This test was successful.
-
 
 **_'Edit Review' button functionality_**
 
@@ -791,12 +798,108 @@ _Check that the 'Back to Profile' button redirects the user back to the Admin pr
 - I was redirected back to the Admin profile page as expected.
 - This test was successful.
 
+
 #### **Profile Page**
 **_Favourites Accordion responsiveness_**
 
 _Check responsiveness of favourites accordion using Chrome DevTools to check if it worked across all devices._
 - I ran a test for this using DevTools on Google Chrome, to show how the favourites accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The favourites accordion is fully responsive across all devices.
+
+**_'Delete Favourite' button functionality_**
+
+_Check that the 'Delete Favourites' button removes product from user favourites list._
+- I ran a test by clicking on the delete product button on the favourites accordion list on the profile page.
+- The product was removed from the favourites list and an alert via flash message was displayed 'Product removed from Favourites'.
+- This test was successful.
+
+**_'Edit Review' button functionality_**
+
+_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+- I ran a test by clicking the edit review button
+- A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
+- This test was successful.
+
+**_'Contact Us' modal responsiveness_**
+
+_Check responsiveness of 'Contact Us' modal using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the Contact Us modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The contact us modal is fully responsive across all devices.
+
+**_Edit Review Modal Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' modal form button functionality_**
+
+_Check that the 'Cancel' button redirects the user back to the the Profile page._
+- I ran a test by clicking on the cancel button on the form.
+- It closes the contact us modal.
+- This test was successful.
+
+**_'Contact Us' modal form button functionality_**
+
+_Check that the 'Send Message' button works and the feedback is added to the database._
+- I ran a test by completing the contact us modal form.
+- I then clicked the Send Message button on the form
+- The feedback was successfully added to the database and the user is alerted via flash message that 'Your message has been sent'
+- I checked that the user feedback had been added to the Mongodb database and it had.
+- This test was successful.
+
+**_Review card display responsiveness_**
+
+_Check responsiveness of user review cards using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the user review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The user review cards are fully responsive across all devices.
+
+**_Review cards - correct reviews displayed_**
+
+_Check that the correct reviews for the corresponding user are displayed._
+- The reviews displayed were all the correct reviews created by the user.
+- This test was successful.
+
+**_'Edit Review' button functionality_**
+
+_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+- I ran a test by clicking the edit review button
+- A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
+- This test was successful.
+
+**_'Edit Review' modal responsiveness_**
+
+_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the Edit Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The edit review modal is fully responsive across all devices.
+
+**_Edit Review Modal Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_Edit Review Form Input Fields_**
+
+_Check that the form is pre-populated with the review information to be updated._
+- The form pre-populates the correct corresponding review information already on the database for that review with the exception of the product rating which has to be selected by the user again when editing the review.
+- This test was successful
+
+**_'Cancel' modal form button functionality_**
+
+_Check that the 'Cancel' button redirects the user back to the the Profile page._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Profile page as expected
+- This test was successful.
+
+**_'Edit Review' modal form button functionality_**
+
+_Check that the 'Edit Review' button works and the review is updated on the database._
+- I ran a test by completing the edit review modal form.
+- I then clicked the Edit Review button on the form
+- The review was successfully updated on the database and the user is alerted via flash message that 'Review Succesfully Updated'
+- I checked that this review had been updated in the Mongodb database and it had.
+- This test was successful.
 
 **_'Delete Review' button functionality_**
 
@@ -823,19 +926,96 @@ _Check that the confirm button on the 'Delete Review' SweetAlert confirmation po
 - I checked that this review had been deleted from the Mongodb database and it had.
 - This test was successful.
 
+**_'Delete Account' button functionality_**
 
-**_Review card display responsiveness_**
+_Check that the 'Delete Account' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete account button at the bottom of the profile page
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete my account.
+- This test was successful.
 
-_Check responsiveness of user review cards using Chrome DevTools to check if it worked across all devices._
-- I ran a test for this using DevTools on Google Chrome, to show how the user review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
-full width of the screen on all devices. The user review cards are fully responsive across all devices.
+**_'Delete Account' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Account' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete account button at the bottom of the profile page.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete my account.
+- I then clicked cancel and remained on the profile page, the account was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Account' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Account' SweetAlert confirmation popup successfully deletes the user account._
+- I ran a test by clicking on the delete account button at the bottom of the profile page.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete my account.
+- I then clicked 'Yes, Delete' button and the account selected was deleted.
+- An alert is shown to the user via flash message to inform them the account has been deleted.
+- The user is redirected back to the home page
+- I checked if the user account had been deleted from the Mongodb database and it had.
+- This test was successful.
+
 
 #### **Admin Profile Page**
-**_Admin Profile Accordion List_**
+**_Admin Profile Accordion List Responsiveness_**
 
 _Check responsiveness of admin profile accordion list using Chrome DevTools to check if it worked across all devices._
 - I ran a test for this using DevTools on Google Chrome, to show how the admin profile accordion list looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The admin profile accordion list is fully responsive across all devices.
+
+**_'All Categories' link functionality_**
+
+_Check that the 'All Categories' link works and directs the user to the categories page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the All Categories link in Manage section of the accordion menu.
+- The link when clicked directed me to the Categories page as expected.
+- This test was successful.
+
+**_'Add A Category' link functionality_**
+
+_Check that the 'Add A Category' link works and directs the user to the Add Category page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the Add A Category link in Manage section of the accordion menu.
+- The link when clicked directed me to the Add Category page as expected.
+- This test was successful.
+
+**_'All Products' link functionality_**
+
+_Check that the 'All Products' link works and directs the user to the products page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the All Products link in Manage section of the accordion menu.
+- The link when clicked directed me to the Products page as expected.
+- This test was successful.
+
+**_'Add A Product' link functionality_**
+
+_Check that the 'Add A Product' link works and directs the user to the Add Product page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the Add A Product link in Manage section of the accordion menu.
+- The link when clicked directed me to the Add Product page as expected.
+- This test was successful.
+
+**_'All Users' link functionality_**
+
+_Check that the 'All Users' link works and directs the user to the Manage Users page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the All Users link in Users section of the accordion menu.
+- The link when clicked directed me to the Manage Users page as expected.
+- This test was successful.
+
+**_'All Reviews' link functionality_**
+
+_Check that the 'All Reviews' link works and directs the user to the reviews page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the All Reviews link in Reviews section of the accordion menu.
+- The link when clicked directed me to the Reviews page as expected.
+- This test was successful.
+
+**_'All Feedback' link functionality_**
+
+_Check that the 'All Feedback' link works and directs the user to the user feedback page._
+- I ran a test by signing in as an Admin user and navigating to the Admin profile page.
+- I clicked on the All Feedback link in Feedback & Suggestions section of the accordion menu.
+- The link when clicked directed me to the User Feedback page as expected.
+- This test was successful.
+
 
 #### **Manage Users Page**
 **_Manage Users Accordion responsiveness_**
@@ -910,6 +1090,20 @@ _Check responsiveness of sign in form using Chrome DevTools to check if it worke
 - I ran a test for this using DevTools on Google Chrome, to show how the sign in form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The sign in form is fully responsive across all devices.
 
+**_Sign Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+- If a user enters the incorrect username or password, the user is alerted via flash message 'Incorrect username and/or password'
+
+**_Sign In Page - link to Register_**
+
+_Check that the register link at the bottom of the sign in form is working._
+- The register link at the bottom of the sign in form is working and when clicked will direct the user to the register page.
+- This test was successful
+
+
 #### **Register Page**
 **_Register form responsiveness_**
 
@@ -917,7 +1111,29 @@ _Check responsiveness of register form using Chrome DevTools to check if it work
 - I ran a test for this using DevTools on Google Chrome, to show how the register form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The register form is fully responsive across all devices.
 
+**_Register Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+- If a user enters a username that is already in the database, the user is alerted via flash message 'Username Already Registered'
+- If a user enters an email that is already in the database, the user is alerted via flash message 'Email Already Registered'
+
+**_Register Page - link to sign in_**
+
+_Check that the sign in link at the bottom of the register form is working._
+- The sign in link at the bottom of the register form is working and when clicked will direct the user to the sign in page.
+- This test was successful
+
+
 #### **Guest User**
+**_No Functionality Accesible to Guest User_**
+
+_Check that no buttons or functionality other than browsing the site is accesible to guest users._
+- I ran a test for this by viewing the site while not signed in.
+- No buttons or functionality is accessible to a guest user.
+- The guest user can only browse the website.
+- This test was successful.
 
 
 ### **Issues Encountered**

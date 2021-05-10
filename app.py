@@ -552,7 +552,7 @@ def user_feedback(user_id):
         }
         # Inserts user feedback into user_feedback in db
         mongo.db.user_feedback.insert_one(feedback)
-        flash("Your feedback has been sent")
+        flash("Your message has been sent")
         return redirect(
             url_for(
                 "profile", username=session["user"],
