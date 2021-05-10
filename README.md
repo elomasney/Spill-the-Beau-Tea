@@ -47,7 +47,7 @@ This project is a makeup review website developed with the purpose of providing 
 This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with use of vivid imagery and a bold and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is a user friendly, and easy to navigate with clear calls to action.
 
 ### **_User Stories_**
-- As a user I would like to understand the purpose of the website, who it is for and how it works
+- As a user I would like to understand the purpose of the website
 - As a user I want to be able to create my own profile that holds all my content
 - As a user, I want to be able to navigate the website with ease.
 - As a user, I would like the ability to edit and delete the content I create
@@ -60,13 +60,13 @@ This website was designed for makeup lovers who are looking for honest product r
 - As a user, I want the ability to remove products I have added to my favourites list
 - As a user, I want the site to visually identify if a product has already been added to my list of favourite products.
 - As a user I would like the ability to be able to communicate with the website admin team.
-- As the owner and user, I want to provide a reliable platform that encourages users to get involved and create content
+- As the owner and user, I want to provide a platform that encourages users to get involved and create content
 - As the owner and user, I want to provide users with relevant and current information
 - As the owner and user, I want a website that is fun, vibrant and inviting.
 - As the owner and user, I want to be able to add, update or delete products on the website
 - As the owner, I want to be able to remove any reviews or users if necessary (e.g. inappropriate content)
 - As the owner and user, I want the ability to create, update and delete categories
-- As the owner and user, I want other users to be able to give feedback and procide suggestion of products they would like included on the website.
+- As the owner and user, I want other users to be able to give feedback and provide suggestion of products they would like included on the website.
 - As a guest user, I would like to be able to search for products and see the associated reviews without the ability to add/edit/delete reviews.
 
 ### **_Strategy Plane_**
