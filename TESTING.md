@@ -388,6 +388,81 @@ _Check that the 'Edit Category' button works and the category is updated in the 
 _Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._
 - I ran a test for this using DevTools on Google Chrome, to show how the product cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The product cards are fully responsive across all devices.
+- Product cards are displayed with image to the left and product information to the right on larger screens
+- Product cards are displayed with image on top and product information underneath on smaller devices.
+
+**_Favourites Heart Icon button_**
+
+_Check that the favourites heart icon button are only viewable when signed in as a registered user._
+- I ran a test by signing in as registered user and the heart icon was visible on the product card.
+- I also tested this as a guest user and the heart icon button is not visible to a guest user.
+- This test was successful.
+
+**_Favourites Heart Icon button functionality_**
+
+_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._
+- I ran a test by signing in as registered user and clicking the outlined yellow icon of a product.
+- The button when clicked adds the product to the users favourites list
+- It alerts the user via flash message that 'Product added to favourites'
+- This test was successful.
+
+**_Favourites Heart Icon button functionality_**
+
+_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._
+- I ran a test by signing in as registered user and clicking the full yellow coloured icon of a product I had added to the favourites list
+- The button when clicked removes the product from the users favourites list
+- It alerts the user via flash message that 'Product removed from favourites'
+- This test was successful.
+
+**_Favourites Heart Icon button toggle outline_**
+
+_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._
+- I ran a test by signing in as registered user and locating an item not in my favourites list
+- The icon was outlined in yellow indicating the product was not in my favourites list
+- This test was successful.
+
+**_Favourites Heart Icon button toggle full colour_**
+
+_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._
+- I ran a test by signing in as registered user and locating an item that was added to my favourites list
+- The icon was displaying as a full yellow coloured heart indicating that the product was already in my favourites list.
+- This test was successful.
+
+**_Average Star Product Rating_**
+
+_Check that the correct average star product rating is displayed on the product card._
+- I ran a test by checking the review ratings on some products, calculating the average and checking it against the stars shown on the product card.
+- The correct average rating is displayed on all product cards.
+- This test was successful.
+
+**_Number of Reviews Link Functionality_**
+
+_Check that the number of reviews link, when clicked directs the user to the product reviews related to that product._
+- I ran a test by clicking on the number of reviews link on the product card.
+- The link takes the user to the reviews page displaying all related product reviews for that specific product.
+- This test was successful.
+
+**_'More Info' button functionality_**
+
+_Check that the 'More Info' button directs the user to the product info page for that specific product._
+- I ran a test by clicking on the more info button.
+- I was directed to the product info page for that specific product as expected
+- This test was successful.
+
+**_'Edit Product' & 'Delete Product' buttons_**
+
+_Check that the 'Edit Product' and 'Delete Product' buttons are only visible when signed in as Admin._
+- I ran a test by signing in as an Admin user and the button were displayed on each card as expected.
+- I then signed in as a registered user and the buttons were no longer viewable on the category cards.
+- I also tested this as a guest user and the buttons are not visible to a guest user.
+- This test was successful.
+
+**_'Edit Product' button functionality_**
+
+_Check that the 'Edit Product' button directs the admin user to the edit product page._
+- I ran a test by clicking on the edit product button as an Admin user.
+- I was directed to the Edit product page as expected
+- This test was successful.
 
 **_'Delete Product' button functionality_**
 
@@ -487,13 +562,117 @@ _Check responsiveness of product card using Chrome DevTools to check if it worke
 - I ran a test for this using DevTools on Google Chrome, to show how the product card looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The product card is fully responsive across all devices.
 
+**_Favourites Heart Icon button_**
+
+_Check that the favourites heart icon button is only visible when signed in as a registered user._
+- I ran a test by signing in as registered user and the heart icon was visible on the product card.
+- I also tested this as a guest user and the heart icon button is not visible to a guest user.
+- This test was successful.
+
+**_Favourites Heart Icon button functionality_**
+
+_Check that the favourites heart icon(when only showing outline yellow) button works and when clicked adds a product to the user favourites._
+- I ran a test by signing in as registered user and clicking the outlined yellow icon of a product.
+- The button when clicked adds the product to the users favourites list
+- It alerts the user via flash message that 'Product added to favourites'
+- This test was successful.
+
+**_Favourites Heart Icon button functionality_**
+
+_Check that the favourites heart icon button works(when showing full yellow colour) and when clicked removes a product from the user favourites._
+- I ran a test by signing in as registered user and clicking the full yellow coloured icon of a product I had added to the favourites list
+- The button when clicked removes the product from the users favourites list
+- It alerts the user via flash message that 'Product removed from favourites'
+- This test was successful.
+
+**_Favourites Heart Icon button toggle outline_**
+
+_Check that the favourites heart icon button features only a heart with yellow outline if product is not in user favourites._
+- I ran a test by signing in as registered user and locating an item not in my favourites list
+- The icon was outlined in yellow indicating the product was not in my favourites list
+- This test was successful.
+
+**_Favourites Heart Icon button toggle full colour_**
+
+_Check that the favourites heart icon button features a full yellow coloured icon if product is in user favourites._
+- I ran a test by signing in as registered user and locating an item that was added to my favourites list
+- The icon was displaying as a full yellow coloured heart indicating that the product was already in my favourites list.
+- This test was successful.
+
+**_Average Star Product Rating_**
+
+_Check that the correct average star product rating is displayed on the product card._
+- I ran a test by checking the review ratings from the related product reviews, calculating the average and checking it against the stars shown on the product card.
+- The correct average rating is displayed on the product card.
+- This test was successful.
+
+**_Add Review button_**
+
+_Check that the Add Review button is only visible when signed in as a registered user._
+- I ran a test by signing in as registered user and the 'Add Review' button was visible on the product card.
+- I also tested this as a guest user and the 'Add Review' button is not visible to a guest user.
+- This test was successful.
+
+**_'Add Review' button functionality_**
+
+_Check that the 'Add Review' button works and triggers the add review popup modal form._
+- I ran a test by clicking the add review button
+- A popup modal form 'Add Review' was triggered for a user to fill in to add a review.
+- This test was successful.
+
+**_'Add Review' modal responsiveness_**
+
+_Check responsiveness of 'Add Review' modal using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the Add Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The add review modal is fully responsive across all devices.
+
+**_Add Review Modal Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' modal form button functionality_**
+
+_Check that the 'Cancel' button redirects the user back to the the 'Product Info Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Product Info page as expected
+- This test was successful.
+
+**_'Add Review' modal form button functionality_**
+
+_Check that the 'Add Review' button works and the review is added to the database._
+- I ran a test by completing the add review modal form.
+- I then clicked the Add Review button on the form
+- The review was successfully added in the database and the user is alerted via flash message that 'New Review Added'
+- I checked that this review had been added to the Mongodb database and it had.
+- This test was successful.
+
 **_Review card display responsiveness_**
 
 _Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
 - I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The review cards are fully responsive across all devices.
 
+**_Review card - correct related reviews displayed_**
 
+_Check that the correct reviews related to that specific product is displayed on product info page._
+- I ran a test for this by checking that the reviews displayed were related to the product.
+- This test was a success and only reviews for the specific product are displayed.
+
+**_Review card - most recent 5 reviews displayed_**
+
+_Check that max five reviews for products is displayed on product info page._
+- I ran a test for this by adding more than 5 reviews to one product and checking the product info page
+- This test was a success and only the most recent 5 related product reviews are displayed on the product info page
+
+**_'More Reviews' button functionality_**
+
+_Check that the 'More Info' button directs the user to the reviews page for that specific product._
+- I ran a test by clicking on the more reviews button.
+- I was directed to the reviews page
+- The reviews displayed were all the correct reviews related to that specific product.
+- This test was successful.
 
 #### **Reviews Page**
 **_Review card display responsiveness_**
@@ -501,6 +680,77 @@ full width of the screen on all devices. The review cards are fully responsive a
 _Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
 - I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
 full width of the screen on all devices. The review cards are fully responsive across all devices.
+
+**_Review cards - correct reviews displayed_**
+
+_Check that the correct reviews for the corresponding product are displayed._
+- The reviews displayed were all the correct reviews related to that specific product.
+- This test was successful.
+
+**_Review cards - all reviews displayed(Admin only)_**
+
+_Check that the all reviews are displayed when Admin navigates to Reviews page from Admin profile link - All Reviews'._
+- I ran this test by signing in as Admin, navigating to the Admin profile, clicking on the 'All Reviews' link.
+- The link directed me to the reviews page and displayed all reviews from the database as expected.
+- This test was successful.
+
+**_'Edit Review' button_**
+
+_Check that the 'Edit Review' button is only visible when the user has created the review._
+- I ran a test by signing in as a registered user and navigating to the reviews page.
+- The button was only visible on the reviews I created.
+- I then signed in as an Admin user and the button was no longer visible on the review cards
+- I also tested this as a guest user and the button is not visible to a guest user.
+- This test was successful.
+
+**_'Delete Review' button_**
+_Check that the 'Delete Review' button is only visible when the user has created the review or Admin._
+- I ran a test by signing in as an Admin user and the button was displayed on each card as expected.
+- I then signed in as a registered user and the buttons was only visible on the cards of the reviews I created
+- I also tested this as a guest user and the button is not visible to a guest user.
+- This test was successful.
+
+
+**_'Edit Review' button functionality_**
+
+_Check that the 'Edit Review' button works and triggers the edit review popup modal form._
+- I ran a test by clicking the edit review button
+- A popup modal form 'Edit Review' was triggered for a user to update and edit the review.
+- This test was successful.
+
+**_'Edit Review' modal responsiveness_**
+
+_Check responsiveness of 'Edit Review' modal using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the Edit Review modal looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The edit review modal is fully responsive across all devices.
+
+**_Edit Review Modal Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_Edit Review Form Input Fields_**
+
+_Check that the form is pre-populated with the review information to be updated._
+- The form pre-populates the correct corresponding review information already on the database for that review with the exception of the product rating which has to be selected by the user again when editing the review.
+- This test was successful
+
+**_'Cancel' modal form button functionality_**
+
+_Check that the 'Cancel' button redirects the user back to the the 'Reviews Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Reviews page as expected
+- This test was successful.
+
+**_'Edit Review' modal form button functionality_**
+
+_Check that the 'Edit Review' button works and the review is updated on the database._
+- I ran a test by completing the edit review modal form.
+- I then clicked the Edit Review button on the form
+- The review was successfully updated on the database and the user is alerted via flash message that 'Review Succesfully Updated'
+- I checked that this review had been updated in the Mongodb database and it had.
+- This test was successful.
 
 **_'Delete Review' button functionality_**
 
@@ -527,6 +777,19 @@ _Check that the confirm button on the 'Delete Review' SweetAlert confirmation po
 - I checked that this review had been deleted from the Mongodb database and it had.
 - This test was successful.
 
+**_'Back to Product' button functionality(registered users and guest users)_**
+
+_Check that the 'Back to Product' button redirects the user back to the product info page._
+- I ran a test by signing in as a registered user and a guest user and clicking on the back to product button from the reviews page.
+- I was redirected back to the product info page as expected.
+- This test was successful.
+
+**_'Back to Profile' button functionality(Admin only)_**
+
+_Check that the 'Back to Profile' button redirects the user back to the Admin profile page._
+- I ran a test by signing in as Admin and navigating to the all reviews page and clicking the 'Back to Profile' button.
+- I was redirected back to the Admin profile page as expected.
+- This test was successful.
 
 #### **Profile Page**
 **_Favourites Accordion responsiveness_**
