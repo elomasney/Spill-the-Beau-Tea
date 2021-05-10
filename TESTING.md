@@ -246,6 +246,13 @@ _Check that the search bar input field will not function with an empty search fi
 - The search function will not work with an empty field and the user is prompted to fill in the search input.
 - This test was successful
 
+**_Search Bar_**
+
+_Check that the search bar will allow the user to search by product name, brand or category and return the correct results_
+- I ran this test by trying attempting to search by product name, brand and category using the search bar on the homepage
+- The search function worked as expected and returned the correct products, users can search by product name, brand or category.
+- This test was successful
+
 **_Sign In Button_**
 
 _Verify that sign in button works and directs the user to the sign in page._
@@ -257,15 +264,396 @@ _Verify that register button works and directs the user to the register page._
 - Button works and directs the user to the register page to create a new account
 
 #### **Categories Page**
+**_Category card display responsiveness_**
+
+_Check responsiveness of category cards using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the category cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The category cards are fully responsive across all devices.
+
+**_Hidden search input functionality on category cards_**
+
+_Check that the search function on the category card directs the user to a list of products within that category_
+- I ran a test by clicking the search icon on each category card to check if the user is directed to the correct products.
+- This test was successful and the user is directed to the correct list of products within each category.
+
+**_'Edit Category' & 'Delete Category' buttons_**
+
+_Check that the 'Edit Category' and 'Delete Category' buttons are only viewable when signed in as Admin._
+- I ran a test by signing in as an Admin user and the button were displayed on each card as expected.
+- I then signed in as a registered user and the buttons were no longer viewable on the category cards.
+- I also tested this as a guest user and the buttons are not visible to a guest user.
+- This test was successful.
+
+**_'Edit Category' button functionality_**
+
+_Check that the 'Edit Category' button directs the admin user to the edit category page._
+- I ran a test by clicking on the edit category button as an Admin user.
+- I was directed to the Edit category page as expected
+- This test was successful.
+
+**_'Delete Category' button functionality_**
+
+_Check that the 'Delete Category' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete category button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
+- This test was successful.
+
+**_'Delete Category' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Category' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete category button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
+- I then clicked cancel and remained on the categories page, the category was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Category' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Category' SweetAlert confirmation popup successfully deletes a category._
+- I ran a test by clicking on the delete category button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that category.
+- I then clicked 'Yes, Delete' button and the category selected was deleted.
+- An alert is shown to the user via flash message to inform them the category has been deleted.
+- I checked that this category had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+#### **Add Category Page**
+
+**_Add Category form responsiveness_**
+
+_Check responsiveness of add category form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the add category form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The add category form is fully responsive across all devices.
+
+**_Add Category Form Validity - required fields_**
+
+_Check that the user is alerted if input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' button functionality_**
+
+_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Categories page as expected
+- This test was successful.
+
+**_'Add Category' button functionality_**
+
+_Check that the 'Add Category' button works and adds a category to the database._
+- I ran a test by completing the add category form.
+- I then clicked the Add Category button on the form
+- The category was added to the database and the user is alerted via flash message that 'New Category Added'
+- I checked that this category had been added to the Mongodb database and it had.
+- This test was successful.
+
+#### **Edit Category Page**
+
+**_Edit Category form responsiveness_**
+
+_Check responsiveness of edit category form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the edit category form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The edit category form is fully responsive across all devices.
+
+**_Edit Category Form Input Fields_**
+
+_Check that the form is pre-populated with the category information to be updated._
+- The form pre-populates the correct corresponding category information already on the database for that category with the exception of the dropdown list of category groups which have to be selected by the user editing the category.
+- This test was successful
+
+**_Edit Category Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' button functionality_**
+
+_Check that the 'Cancel' button redirects the admin user back to the the 'Categories Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Categories page as expected
+- This test was successful.
+
+**_'Edit Category' button functionality_**
+
+_Check that the 'Edit Category' button works and the category is updated in the database._
+- I ran a test by completing the edit category form.
+- I then clicked the Edit Category button on the form
+- The category was updated in the database and the user is alerted via flash message that 'Category Successfully Updated'
+- I checked that this category had been updated in the Mongodb database and it had.
+- This test was successful.
+
 #### **Products Page**
+**_Product card display responsiveness_**
+
+_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the product cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The product cards are fully responsive across all devices.
+
+**_'Delete Product' button functionality_**
+
+_Check that the 'Delete Product' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete product button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
+- This test was successful.
+
+**_'Delete Product' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Product' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete product button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
+- I then clicked cancel and remained on the products page, the product was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Product' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Product' SweetAlert confirmation popup successfully deletes a product._
+- I ran a test by clicking on the delete product button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that product.
+- I then clicked 'Yes, Delete' button and the product selected was deleted.
+- An alert is shown to the user via flash message to inform them the product has been deleted.
+- I checked that this product had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+#### **Add Product Page**
+
+**_Add Product form responsiveness_**
+
+_Check responsiveness of add product form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the add product form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The add product form is fully responsive across all devices.
+
+**_Add Product Form Validity - required fields_**
+
+_Check that the user is alerted if input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' button functionality_**
+
+_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Products page as expected
+- This test was successful.
+
+**_'Add Product' button functionality_**
+
+_Check that the 'Add Product' button works and adds a product to the database._
+- I ran a test by completing the add product form.
+- I then clicked the Add Product button on the form
+- The product was added to the database and the user is alerted via flash message that 'New Product Added'
+- I checked that this product had been added to the Mongodb database and it had.
+- This test was successful.
+
+#### **Edit Product Page**
+
+**_Edit Product form responsiveness_**
+
+_Check responsiveness of edit product form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the edit product form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The edit product form is fully responsive across all devices.
+
+**_Edit Product Form Input Fields_**
+
+_Check that the form is pre-populated with the product information to be updated._
+- The form pre-populates the correct corresponding product information already on the database for that product with the exception of the dropdown list of category names which have to be selected by the user editing the product.
+- This test was successful
+
+**_Edit Product Form Validity - required fields_**
+
+_Check that the user is alerted if the empty input fields are not filled in._
+- If you try to submit the form without all of the fields complete, an error will occur
+and prompt you to populate all the other required fields before the user can submit the form.
+
+**_'Cancel' button functionality_**
+
+_Check that the 'Cancel' button redirects the admin user back to the the 'Products Page'._
+- I ran a test by clicking on the cancel button on the form.
+- I was redirected back to the Products page as expected
+- This test was successful.
+
+**_'Edit Product' button functionality_**
+
+_Check that the 'Edit Product' button works and the product is updated in the database._
+- I ran a test by completing the edit product form.
+- I then clicked the Edit Product button on the form
+- The product was updated in the database and the user is alerted via flash message that 'Product Successfully Updated'
+- I checked that this product had been updated in the Mongodb database and it had.
+- This test was successful.
+
 #### **Product Info Page**
+**_Product card display responsiveness_**
+
+_Check responsiveness of product card using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the product card looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The product card is fully responsive across all devices.
+
+**_Review card display responsiveness_**
+
+_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The review cards are fully responsive across all devices.
+
+
+
 #### **Reviews Page**
+**_Review card display responsiveness_**
+
+_Check responsiveness of review cards using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The review cards are fully responsive across all devices.
+
+**_'Delete Review' button functionality_**
+
+_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete review button as the registered user that created the review.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- This test was successful.
+
+**_'Delete Review' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete review button as the registered user that created the review.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- I then clicked cancel and remained on the reviews page, the review was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Review' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._
+- I ran a test by clicking on the delete review button as the registered user that created the review.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- I then clicked 'Yes, Delete' button and the review selected was deleted.
+- An alert is shown to the user via flash message to inform them the review has been deleted.
+- I checked that this review had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+
 #### **Profile Page**
+**_Favourites Accordion responsiveness_**
+
+_Check responsiveness of favourites accordion using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the favourites accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The favourites accordion is fully responsive across all devices.
+
+**_'Delete Review' button functionality_**
+
+_Check that the 'Delete Review' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete review button as the registered user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- This test was successful.
+
+**_'Delete Review' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Review' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete review button as the registered user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- I then clicked cancel and remained on the reviews page, the review was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Review' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Review' SweetAlert confirmation popup successfully deletes a review._
+- I ran a test by clicking on the delete review button as the registered user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that review.
+- I then clicked 'Yes, Delete' button and the review selected was deleted.
+- An alert is shown to the user via flash message to inform them the review has been deleted.
+- I checked that this review had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+
+**_Review card display responsiveness_**
+
+_Check responsiveness of user review cards using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the user review cards look on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The user review cards are fully responsive across all devices.
+
 #### **Admin Profile Page**
+**_Admin Profile Accordion List_**
+
+_Check responsiveness of admin profile accordion list using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the admin profile accordion list looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The admin profile accordion list is fully responsive across all devices.
+
 #### **Manage Users Page**
+**_Manage Users Accordion responsiveness_**
+
+_Check responsiveness of manage users accordion using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the manage users accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The manage users accordion fully responsive across all devices.
+
+**_'Delete User' button functionality_**
+
+_Check that the 'Delete User' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete user button as an Admin User
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
+- This test was successful.
+
+**_'Delete User' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete User' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete user button as an Admin User.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
+- I then clicked cancel and remained on the manage users page, the user account was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete User' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete User' SweetAlert confirmation popup successfully deletes a user account._
+- I ran a test by clicking on the delete user button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user account.
+- I then clicked 'Yes, Delete' button and the user account selected was deleted.
+- An alert is shown to the user via flash message to inform them the user account has been deleted.
+- I checked if the user account had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+
 #### **User Feedback Page**
+**_User Feedback Accordion responsiveness_**
+
+_Check responsiveness of user feedback accordion using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the user feedback accordion looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The user feedback fully responsive across all devices.
+
+**_'Delete Comment' button functionality_**
+
+_Check that the 'Delete Comment' button triggers the SweetAlert confirmation popup._
+- I ran a test by clicking on the delete comment button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
+- This test was successful.
+
+**_'Delete Comment' SweetAlert cancel functionality_**
+
+_Check that the cancel button on the 'Delete Comment' SweetAlert confirmation popup works._
+- I ran a test by clicking on the delete comment button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
+- I then clicked cancel and remained on the user feedback page, the user feedback was **NOT** deleted and the popup disappeared.
+- This test was successful.
+
+**_'Delete Comment' SweetAlert confirm functionality_**
+
+_Check that the confirm button on the 'Delete Comment' SweetAlert confirmation popup successfully deletes a user feedback entry._
+- I ran a test by clicking on the delete comment button as an Admin user.
+- The Sweet Alert popup was triggered and asked me to confirm if I wanted to delete that user feedback.
+- I then clicked 'Yes, Delete' button and the review selected was deleted.
+- An alert is shown to the user via flash message to inform them the user feedback has been deleted.
+- I checked that this user feedback had been deleted from the Mongodb database and it had.
+- This test was successful.
+
+
 #### **Login Page**
+**_Sign In responsiveness_**
+
+_Check responsiveness of sign in form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the sign in form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The sign in form is fully responsive across all devices.
+
 #### **Register Page**
+**_Register form responsiveness_**
+
+_Check responsiveness of register form using Chrome DevTools to check if it worked across all devices._
+- I ran a test for this using DevTools on Google Chrome, to show how the register form looks on different devices. I expanded and reduced the screen size to make sure the image fits the 
+full width of the screen on all devices. The register form is fully responsive across all devices.
+
 #### **Guest User**
 
 
