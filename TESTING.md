@@ -23,12 +23,27 @@
 - All code passed and meets the PEP8 standards.
 
 ### **General**
+**_Check alt text appears for all images_**
 
-Check alt text on images
-Spellcheck on README
-Autoprefixer CSS
-Mobile Friendly Test
-Testing on Physical devices
+- Hover over images to see if there is clear alt text visible.
+All images were tested and alt text appears on images.
+
+**_Conducted spell check on README file and text used in both HTML files._**
+
+- All spelling errors were corrected.
+
+**_Autoprefixer CSS_**
+
+- Ran code through Autoprefixer and copied code back into css file.
+
+**_Mobile Friendly Test_**
+
+- Ran code on [Mobile Friendly Test](https://search.google.com/test/mobile-friendly) page and passed all tests. The site is mobile friendly.
+
+**_Testing on physical devices_**
+
+- I also asked friends and family members to test the website on many different devices including large screen laptops,
+iPhone, android, android table and iPad and across a variety of browsers Internet Explorer, Google Chrome, and Firefox
 
 ### **User Story Tests**
 
@@ -1134,6 +1149,14 @@ _Check that no buttons or functionality other than browsing the site is accesibl
 - No buttons or functionality is accessible to a guest user.
 - The guest user can only browse the website.
 - This test was successful.
+
+#### **Footer**
+**_Responsiveness of footer_**
+
+**_Verify that the footer is responsive on all devices._**
+
+- I ran a test using Google Chrome Dev Tools to check that the footer was responsive and was scaling up and down depending on the device being used.
+I can verify that the footer is fully responsive and the text size is altered to suit each device size.
 
 
 ### **Issues Encountered**
