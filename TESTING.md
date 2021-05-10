@@ -96,7 +96,7 @@ iPhone, android, android table and iPad and across a variety of browsers Interne
 ![Favourite](static/images/user-stories/favourite.jpg "Favourite")
 
 **_As a user, I want the site to visually identify if a product has already been added to my list of favourite products._**
-- Using a visual identifier, the heart icon displays as a icon outlined in yelloww if the product has not been added to the user favourites and displays as a full yellow colour if the product has already been added to the favourites list. 
+- Using a visual identifier, the heart icon displays as a icon outlined in yellow if the product has not been added to the user favourites and displays as a full yellow colour if the product has already been added to the favourites list. 
 - This allows registered users to clearly identify if a product is in their favourites list or not
 
 ![Favourites](static/images/user-stories/favourites.jpg "Favourites")
@@ -130,7 +130,7 @@ iPhone, android, android table and iPad and across a variety of browsers Interne
 
 **_As the owner and user, I want to provide a platform that encourages users to get involved and create content_**
 - The website uses bright bold colours to attract the user and provides alot of user functionality(ability to control their own content, provide user feedback, add products to favourites list etc.)
-which will peak the interest of users and encourage user involvement in the content creation 
+which will pique the interest of users and encourage user involvement in the content creation 
 
 **_As the owner and user, I want to provide users with relevant and current information_**
 - Admin users can add, edit and delete categories and products. This allows them to ensure that the most up to date and relevant products are available on the website.
@@ -251,7 +251,7 @@ The callout text is responsive and the text size changes slightly depending on t
 **_Search Bar Functionality_**
 
 **_Check that the search bar functions properly and directs the user to the products page related to their search_**
-- The search bar works as intended and directs the user to the products page with a list of products rellated to their search.
+- The search bar works as intended and directs the user to the products page with a list of products related to their search.
 - It also returns a statement at the top of the search results indicating to the user the number of results found for their search.
 
 **_Search Bar Input Field_**
