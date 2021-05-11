@@ -1301,3 +1301,6 @@ I can verify that the footer is fully responsive and the text size is altered to
 **_Flash Message Section(Validation HTML)_**
 **Issue**
 - When I ran the HTML code through the validator it was showing warning for the `<section>` element, for the flash messages on the base template not having header element.
+**Fix**
+- After discussing the issue with my mentor, he advised to leave it as is as it is not an error.
+
