@@ -640,7 +640,6 @@ i.fas.fa-star-half-alt {
     font-size: 1.3rem;
     color: #fbec5d;
     background: #a0dfdf	;
-    letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 5px 10px;
     margin-top: 20px;
@@ -1855,6 +1854,11 @@ button#btn-404 a {
 
     select#category_name.form-control {
         padding: 0 280px;
+    }
+
+    .product-image.card-img {
+        padding: 60px 0px;
+        margin-bottom: -100px;
     }
 
     .product-text.card-body{

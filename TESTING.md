@@ -129,7 +129,7 @@ iPhone, android, android table and iPad and across a variety of browsers Interne
 ![Contact](static/images/user-stories/contact.jpg "Contact Modal")
 
 **_As the owner and user, I want to provide a platform that encourages users to get involved and create content_**
-- The website uses bright bold colours to attract the user and provides alot of user functionality(ability to control their own content, provide user feedback, add products to favourites list etc.)
+- The website uses bright colours to attract the user and provides alot of user functionality(ability to control their own content, provide user feedback, add products to favourites list etc.)
 which will pique the interest of users and encourage user involvement in the content creation 
 
 **_As the owner and user, I want to provide users with relevant and current information_**
@@ -211,10 +211,10 @@ and collapses into a hamburger menu on medium and smaller devices. This is worki
 **_Check that navigation logo link directs user to homepage when clicked._**
 - The navigation logo link is functioning as expected  and when clicked, takes the user back to the homepage. This test was successful.
 
-**_Navigation Links Hover Function: blue colour_**
+**_Navigation Links Hover Function: turquoise colour_**
 
-**_Check that when mouse hovers over navigation links the text changes to blue colour_**
-- When any of the navigation links on the navigation bar are hovered over with the mouse, they should change to a blue colour.
+**_Check that when mouse hovers over navigation links the text changes to turquoise colour_**
+- When any of the navigation links on the navigation bar are hovered over with the mouse, they should change to a turquoise colour.
 All buttons function as expected and no issues were found.
 
 **_Hamburger menu closing after link has been selected._**
@@ -1177,13 +1177,45 @@ I can verify that the footer is fully responsive and the text size is altered to
 
 
 ### **Issues Encountered**
-Contact form:
-Go to the "Contact Us" page
-Try to submit the empty form and verify that an error message about the required fields appears
-Try to submit the form with an invalid email address and verify that a relevant error message appears
-Try to submit the form with all inputs valid and verify that a success message appears.
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+**_Colour Scheme_**
+- I encountered an issue with the initial colours chosen for this project.
+- Due to issues with my laptop, the colours being displayed were significantly duller in appearance when testing.
+- Only when I tested the website on other devices, I realised that the colours were far too bright and would not be pleasant to the user to view for long periods of time.
+- I made the decision to change the colour scheme to use more muted tones of the initial colour scheme I had chosen.
+- The issue has been resolved and the final version of the website reflects this decision.
 
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
+**_Search bar_**
+- I tried to submit a search request with an empty field and the search query was allowed.
+- I updated the search query input to make the field required which fixed the issue.
+- The issue has been resolved and the user can not submit a search query when the fied is empty.
+- It will prompt the user to complete the search field.
 
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
+**_Average Rating - Star Display_**
+    making it into a list before template render
+
+**_Favourites - Product Name showing up in favourites list_**
+
+**_SweetAlert Delete Confirmations_**
+targeting the correct item in the loop
+
+**_No rating - Star Display_**
+not picking up the else statement in Jinja
+
+**_No reviews - else statement Jinja_**
+not picking up the else statement in Jinja
+
+**_Edit review button_**
+Picking up the first review in the loop
+
+**_Flash Message Section(Validation HTML)_**
+Showing warning for section not having header element
+
+**_Main container height issue on 404 page_**
+
+**_Footer on register page overlapping register button_**
+
+**_Validation(HTML) issue with anchor tag inside button_**
+
+**_Validation(HTML) issue with anchor tag displaying type_**
+
+**_Validation(HTML) issue with element id values in loops_**

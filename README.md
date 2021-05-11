@@ -43,7 +43,7 @@ This project is a makeup review website developed with the purpose of providing 
 - To provide a contact admin section by email for user queries or suggested products to be included in the site
 
 ## **UX**
-This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with the use of vivid imagery and a bold and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is user-friendly, and easy to navigate with clear calls to action.
+This website was designed for makeup lovers who are looking for honest product reviews from everyday makeup users with the end goal of identifying the products they like and are worth purchasing. The design of this website is fun and inviting with the use of vivid imagery and a bright and vibrant colour palette. The idea is to to create a reliable review platform for users and encourage users to want to sign up and create content and express their honest opinions on products. It is user-friendly, and easy to navigate with clear calls to action.
 
 ### **_User Stories_**
 - As a user I would like to understand the purpose of the website
@@ -152,7 +152,7 @@ The registered user CRUD functionality is all accessed through modal forms which
 
 ### **_Surface Plane_**
 #### **_Colours_**
-- The colour palette chosen for this project is bright, fun and vibrant colours. After doing some research into similar sites I found that many makeup product sites are very similar in design using white background and black text, however I wanted my website to stand out amongst the crowd and decided to use pink, blue and yellow as the theme. Makeup is about expressing yourself and allows people to be creative and fun when using products and bright bold colours are extremely popular in makeup products at the moment. 
+- The colour palette chosen for this project is bright, fun and vibrant colours. After doing some research into similar sites I found that many makeup product sites are very similar in design using white background and black text, however I wanted my website to stand out amongst the crowd and decided to use pink, turquoise and yellow as the theme. Makeup is about expressing yourself and allows people to be creative and fun when using products and bright, fun colours are extremely popular in makeup products at the moment. 
 - I wanted people to be visually attracted to the website and wanted to pique the interest of the user so they would be encouraged to join and create content. Today, people have to visit a variety of instagram accounts to get access to product reviews, with each influencer promoting a different product, but sometimes it can be hard to trust those reviews as many influencers get paid to review makeup products. I wanted to create a space for the everyday makeup lover, a place they could go to express their real honest views on makeup products and allow them to keep a record of these items all in one space. 
 - The main background I have kept white for the purpose of not overshadowing the images. The card layout and accordions are a variety of blue with pink text or pink with blue text. Yellow is used for the ratings, call to action buttons/or button text. I have keep the body of content such as review content and product descriptions black purely to make the content readable and clear for the user.
 
@@ -693,7 +693,8 @@ the navbar was remaining open. Code taken from [Orel Eliyahu](https://stackoverf
 - HTML code was used to create the accordion menus on the profile favourites, admin profile, and user feedback and edited for this project. Code was taken from [Bootstrap Documentation](https://getbootstrap.com/docs/4.0/components/collapse/) and edited.
 
 **_Favicon_**
-- Code snippet used to generate a favicon for this website. This code was inserted into the html document in the `<head>` section. I have also included the source files for this in the favicon folder. The website used to generate the favicon and associated files was [Favicon.io](https://favicon.io/).
+- Code snippet used to generate a favicon for this website. This code was inserted into the html document in the `<head>` section. I have also included the source files for this in the favicon folder. The website used to generate the favicon and associated files was [Red Ketchup](https://redketchup.io/favicon-generator)
+.
 ### **Content**
 ### **Media**
 **Images:**
@@ -730,7 +731,7 @@ Images for this project were sourced from a variety of resources shown below:
 - Unsplash
 - Pexels
 - Scheme Colour
-- Favicon.io
+- Redketchup.io
 - Beautifier.io
 - Tutor Support
 
