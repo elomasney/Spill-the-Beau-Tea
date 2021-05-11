@@ -231,27 +231,19 @@ function confirm_delete_comment(delete_url) {
 }
 
 /**
- * @function - changes main container height on 404 error page only
+ * @function - changes main container height on 404 and 500 error pages
+ * Sets body padding to zero on 404 and 500 error pages
  */
 //Change main container height on 404 page only
 $(function () {
     if (window.location.pathname == "/404" ) {
         $('#main-container').height('100vh');
         $("body").css("padding-top", "0");
-        $('#main-container').css("margin-bottom", "0");
 
     }
-});
-
-/**
- * @function - changes main container height on 500 error page only
- */
-//Change main container height on 500 page only
-$(function () {
-    if (window.location.pathname == "/500" ) {
+    else if (window.location.pathname == "/500" ) {
         $('#main-container').height('100vh');
         $("body").css("padding-top", "0");
-        $('#main-container').css("margin-bottom", "0");
 
     }
 });

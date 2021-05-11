@@ -18,7 +18,7 @@
                     <div class="admin-heading card-header" id="manageOne">
                         <h2 class="mb-0">
                             <!--Button to display manage options to admin-->
-                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdminOne" aria-expanded="true" aria-controls="collapseOne">
+                            <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseAdminOne" aria-expanded="true" aria-controls="collapseAdminOne">
                                 Manage
                             </button>
                         </h2>
@@ -27,29 +27,23 @@
                     <div id="collapseAdminOne" class="collapse" aria-labelledby="manageOne" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct Admin to view all categories in the db-->
-                            <button>
                                 <a href=" {{ url_for('all_categories')}}">
                                     All Categories
                                 </a>
-                            </button><br>
+                            <br>
                             <!--Link to direct Admin to add a category to the db-->
-                            <button>
                                 <a href="{{ url_for('add_category') }}">
                                     Add A Category
-                                </a>
-                            </button><br>
+                                </a><br>
                             <!--Link to direct Admin to view all products in the db-->
-                            <button>
                                 <a href="{{ url_for('all_products')}}">
                                     All Products
                                 </a>
-                            </button><br>
+                            <br>
                             <!--Link to direct Admin to Add a product to the db-->
-                            <button>
                                 <a href="{{ url_for('add_product')}}">
                                     Add A Product
                                 </a>
-                            </button>
                         </div>
                     </div>
                 </div>
@@ -57,7 +51,7 @@
                     <div class="admin-heading card-header" id="manageTwo">
                         <h2 class="mb-0">
                             <!--Button to display the option to manage users-->
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminTwo" aria-expanded="false" aria-controls="collapseTwo">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminTwo" aria-expanded="false" aria-controls="collapseAdminTwo">
                                 Users
                             </button>
                         </h2>
@@ -65,7 +59,7 @@
                     <div id="collapseAdminTwo" class="collapse" aria-labelledby="manageTwo" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link that directs Admin to a list of all users-->
-                            <button><a href="{{url_for('manage_users')}}">Manage Users</a></button>
+                            <a href="{{url_for('manage_users')}}">Manage Users</a>
                         </div>
                     </div>
                 </div>
@@ -73,7 +67,7 @@
                     <div class="admin-heading card-header" id="manageThree">
                         <h2 class="mb-0">
                             <!--Button to show option to Admin to manage reviews-->
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminThree" aria-expanded="false" aria-controls="collapseAdminThree">
                                 Reviews
                             </button>
                         </h2>
@@ -81,7 +75,7 @@
                     <div id="collapseAdminThree" class="collapse" aria-labelledby="manageThree" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct admin to a list of all reviews in the database-->
-                            <button><a href="{{ url_for('manage_reviews')}}">All Reviews</a></button>
+                            <a href="{{ url_for('manage_reviews')}}">All Reviews</a>
                         </div>
                     </div>
                 </div>
@@ -89,7 +83,7 @@
                     <div class="admin-heading card-header" id="manageFour">
                         <h2 class="mb-0">
                             <!--Button to show option to Admin to manage user feedback-->
-                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminFour" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseAdminFour" aria-expanded="false" aria-controls="collapseAdminThree">
                                 Feedback & Suggestions
                             </button>
                         </h2>
@@ -97,7 +91,7 @@
                     <div id="collapseAdminFour" class="collapse" aria-labelledby="manageFour" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct admin to a list of all feedback comments in the database-->
-                            <button><a href="{{ url_for('manage_feedback')}}">All Feedback</a></button>
+                            <a href="{{ url_for('manage_feedback')}}">All Feedback</a>
                         </div>
                     </div>
                 </div>
@@ -322,5 +316,6 @@
                 </div>
             </div>
         </div>
+    </div>
     </div>
 {% endblock %}

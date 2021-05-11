@@ -91,7 +91,7 @@
                             Edit Product
                         </a>
                         <!-- Button to delete a product from the db - only displayed if user is admin-->
-                        <a id="delete_product" data-href="{{ url_for('delete_product', product_id=product._id) }}" role="button" class="product_delete products-btns review-btn">
+                        <a id="delete_product_{{product._id}}" data-href="{{ url_for('delete_product', product_id=product._id) }}" role="button" class="product_delete products-btns review-btn">
                             Delete Product
                         </a>
                     </div>
@@ -100,7 +100,6 @@
             </div>
         </div>
     </div>
-</div>
-{% endfor %}
+    {% endfor %}
 </div>
 {% endblock %}
