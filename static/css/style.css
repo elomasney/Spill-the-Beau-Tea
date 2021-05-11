@@ -62,7 +62,7 @@
 
 .navbar-light .navbar-nav .nav-link:focus,
 .navbar-light .navbar-nav .nav-link:hover {
-    color: #adeaea;
+    color: #a0dfdf;
 }
 
 body {
@@ -189,7 +189,7 @@ body {
     letter-spacing: .1rem;
     font-family: "Lato", sans-serif;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
-    color: #adeaea	;
+    color: #a0dfdf	;
 }
 
 #searchHome.form-inline .form-control,
@@ -263,7 +263,7 @@ h2#swal2-title.swal2-title {
 }
 
 #swal2-content {
-    color: #adeaea	;
+    color: #a0dfdf	;
     font-size: 1.6rem;
     letter-spacing: .1rem;
     font-weight: bold;
@@ -350,7 +350,7 @@ button.swal2-confirm.swal2-styled {
 }
 
 .category-form {
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
     color: #f38cb1;
     text-align: center;
     margin: 50px 0;
@@ -435,7 +435,7 @@ a.review_delete,
 }
 
 .category-card.card {
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
     border: none;
     height: 60%;
     margin: auto;
@@ -479,7 +479,7 @@ a.review_delete,
 
 #search button {
     color: #f38cb1;
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
 }
 
 .search-category {
@@ -501,12 +501,12 @@ a.review_delete,
 
 #searchProducts.form-inline {
     padding: 20px;
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
 }
 
 .product-form,
 .review-form {
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
     color: #f38cb1;
     text-align: center;
     padding: 25px 0;
@@ -590,7 +590,7 @@ a.btn.heart i {
     font-weight: bolder;
     font-size: 2.7rem;
     letter-spacing: .1rem;
-    color: #adeaea	;
+    color: #a0dfdf	;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
@@ -600,7 +600,7 @@ a.btn.heart i {
     font-weight: bolder;
     font-size: 1.6rem;
     letter-spacing: .1rem;
-    color: #adeaea	;
+    color: #a0dfdf	;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
@@ -639,7 +639,7 @@ i.fas.fa-star-half-alt {
     font-weight: bolder;
     font-size: 1.3rem;
     color: #fbec5d;
-    background: #adeaea	;
+    background: #a0dfdf	;
     letter-spacing: .1rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     padding: 5px 10px;
@@ -672,7 +672,7 @@ hr {
     padding: 15px;
     color: #000000;
     font-weight: bolder;
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
 }
 
 .no-review {
@@ -825,7 +825,7 @@ a.edit_review {
     text-align: center;
     font-family: "Lato", sans-serif;
     font-size: 2.5rem;
-    color: #adeaea	;
+    color: #a0dfdf	;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     letter-spacing: .1rem;
@@ -845,7 +845,7 @@ a.edit_review {
 
 #registerBtn,
 #loginBtn {
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
     color: #fbec5d;
     margin-top: 10px;
     padding: 10px;
@@ -865,7 +865,7 @@ a.edit_review {
 }
 
 .form-group {
-    color: #adeaea;
+    color: #a0dfdf;
     font-family: "Lato", sans-serif;
     font-weight: bolder;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
@@ -893,7 +893,7 @@ a.edit_review {
 #registerLink,
 #loginLink {
     text-align: center;
-    color: #adeaea;
+    color: #a0dfdf;
     font-weight: bolder;
     padding-bottom: 10px;
     padding-top: 10px;
@@ -955,7 +955,7 @@ hr#profileHeader {
 
 .admin-manage.card,
 .user.card {
-    background-color: #adeaea;
+    background-color: #a0dfdf;
 }
 
 .favourite-card.card-body,
@@ -973,7 +973,7 @@ div.admin-card.card-body,
 .favourites.card button,
 .admin-manage.card button,
 .user.card button {
-    color: #adeaea;
+    color: #a0dfdf;
     font-family: "Lato", sans-serif;
     font-size: 2rem;
     font-weight: bolder;
@@ -986,11 +986,11 @@ div.admin-card.card-body,
 }
 
 #favouritesHeading{
-    color: #adeaea;
+    color: #a0dfdf;
 }
 
 .favourite-card.card-body{
-    background-color: #adeaea;
+    background-color: #a0dfdf;
 }
 
 .user.card p {
@@ -1018,7 +1018,7 @@ div.admin-card.card-body a {
 }
 
 .user-details a {
-    color: #adeaea	;
+    color: #a0dfdf	;
 }
 
 .accordion {
@@ -1032,7 +1032,7 @@ div.admin-card.card-body a {
 
 #contactModal {
     color: #f38cb1;
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
 }
 
 #contactBody label{
@@ -1075,7 +1075,7 @@ hr#userReviews {
 }
 
 .feedback-header{
-    background-color: #adeaea	;
+    background-color: #a0dfdf	;
     text-align: center;
 }
 
@@ -1094,7 +1094,7 @@ hr#userReviews {
 .feedback-body.card-body{
     padding: 20px 30px;
     margin: 10px 0;
-    color: #adeaea	;
+    color: #a0dfdf;
     font-family: "Lato",sans-serif;
     font-size: 1.5rem;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
