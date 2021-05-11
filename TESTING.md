@@ -1178,44 +1178,113 @@ I can verify that the footer is fully responsive and the text size is altered to
 
 ### **Issues Encountered**
 **_Colour Scheme_**
+**Issue**
 - I encountered an issue with the initial colours chosen for this project.
 - Due to issues with my laptop, the colours being displayed were significantly duller in appearance when testing.
 - Only when I tested the website on other devices, I realised that the colours were far too bright and would not be pleasant to the user to view for long periods of time.
+**Fix**
 - I made the decision to change the colour scheme to use more muted tones of the initial colour scheme I had chosen.
 - The issue has been resolved and the final version of the website reflects this decision.
 
 **_Search bar_**
+**Issue**
 - I tried to submit a search request with an empty field and the search query was allowed.
+**Fix**
 - I updated the search query input to make the field required which fixed the issue.
 - The issue has been resolved and the user can not submit a search query when the fied is empty.
 - It will prompt the user to complete the search field.
 
-**_Average Rating - Star Display_**
-    making it into a list before template render
+**_Average Rating - Star Display(products page)_**
+**Issue**
+- Average rating stars displaying correct star value for average rating
+**Fix**
+- Fixed the issue by:
+    - Setting a variable using Jinja `{% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}`
+    - Using for loop to iterate through stars in range 1-5 `{% for star in range(rating.average|int) %}`
+    - Including half stars for .5 values `{% if ".5" in rating.average|string %}`
+    - And setting the remaining stars in the count range as emppty icons `{% for star in range(count) %`
+    - The issue has been resolved and all product average rating appear correctly on the coresponding card as expected. 
 
-**_Favourites - Product Name showing up in favourites list_**
+**_No Rating - Star Display(products page)_**
+**Issue**
+- Products without a star rating were not showing the empty star icons as expected
+- Intially I had an else statement in the Jinja template within the star rating for 5 empty star icons to display if the product had no ratings.
+**Fix**
+- I created a list in the Python function `has_rating = []` and appended all the product id's gathered within the average rating aggregation pipeline, using the following code `for rating in ratings:has_rating.append(rating["_id"])`
+- I was then able to include an 'if' statement within the Jinja template `{% if product._id not in has_rating %}` to display empty star icons for the products not included in the 'has_ratings list.
+- This resolved the issue and now all products without ratings, display 5 empty star icons.
 
-**_SweetAlert Delete Confirmations_**
-targeting the correct item in the loop
+**_Favourites - finding the users favourite products in the products collection_**
+**Issue**
+- Initially I had a 'for' loop on the profile page to loop through the products in the database to find matching product ids from the user favourites array.
+- After advise from my mentor, he suggested that it was not a good idea to loop through all the products, given that there could be a very large number of products and very few favourites. He suggested I move my logic for the favourite ids to the backend, which would be a more efficient way of performing the query.
+**Fix**
+- In the '/profile' function I used the follwoing code `favourites = list(mongo.db.products.find({"_id": {"$in": user["favourites"]}}))` which made a list of the user favourites by searching the products collection to find the product id from the users favourites, using the `$in` operator from the MongoDb Documentation.
+- This issue has been resolved.
 
-**_No rating - Star Display_**
-not picking up the else statement in Jinja
+**_SweetAlert Delete Confirmations - for loops_**
+**Issue**
+- Delete confirmation only picking up the first item in the loop no matter what product was selected to be deleted.
+**Fix**
+- I added a data attribute to the anchor tag `data-href="{{ url_for('delete_product', product_id=product._id) }}"` and used the data attribute in the Javascript function to find the specific 'data-href' value associated with the targeted item in the loop.
+- The following code snippet was used in Javascript, using jQuery, to dynamically create the correct url for the delete function.
+`let delete_url = $(this).attr('data-href');`
+- The issue has been resolved, and the delete confirmation button works as expected.
 
 **_No reviews - else statement Jinja_**
-not picking up the else statement in Jinja
+**Issue**
+- '{% else %} statement used to display a header of 'No Reviews Yet. Be the first to write a Review' for products without any reviews was not showing up.
+**Fix**
+- In the '/product_info' function, I created a variable 'review_count' and the variable 'message = "" '.
+- I then created an if/else statement within the function to return a specific message if the review count = 0 and a separate message if the review count was 1 or more.
+- Finally I added the {{message}} variable to the reviews header on the product info page.
+- This resolved the issue, the correct message is displayed if there are no reviews for the product.
 
 **_Edit review button_**
-Picking up the first review in the loop
-
-**_Flash Message Section(Validation HTML)_**
-Showing warning for section not having header element
+**Issue**
+- Edit review button on the review cards was only picking up the first card in the loop
+**Fix**
+- This issue was resolved by dynamically setting the 'Edit Review' button 'data-target' to `data-target="#editReview_{{reviews._id}}"` which picks up the corresponding review by the review id.
 
 **_Main container height issue on 404 page_**
+**Issue**
+- When I was conducting tests on the UX on all devices, I noticed that the main container on the 404 page needed to be the height and padding adjusted, only for that specific page. 
+**Fix**
+- Using jQuery, I was able to target the main container on the 404 page and adjust the height and padding to suit that specific page, without affecting the other pages.
+- Code snippet used:
+    - ``` if (window.location.pathname == "/404") {
+        $('#main-container').height('100vh');
+        $("body").css("padding-top", "0");
+        $('#main-container').css("margin-bottom", "0");
+        } 
+        ```
+- This issue has been resolved.
 
 **_Footer on register page overlapping register button_**
+**Issue**
+- When conducting tests on medium and larger devices, I noticed that the footer on the register page was overlapping the register button.
+**Fix**
+- I resolved this issue by setting a min height on the main container and register container. This fixed the issue and the footer no longer obstructs the register button view.
 
 **_Validation(HTML) issue with anchor tag inside button_**
+**Issue**
+- HTML validator indicating issue with anchor tag inside button element
+**Fix**
+- This issue was resolved by removing the button element from the anchor tag
 
 **_Validation(HTML) issue with anchor tag displaying type_**
+**Issue**
+- HTML validator indicating issue with anchor tag having 'type = "button"' attribute
+**Fix**
+- This issue was resolved by changing the type attribute to 'role = "button" attribute
 
 **_Validation(HTML) issue with element id values in loops_**
+**Issue**
+- HTML validator indicating issue with id's being duplicated within modal forms
+**Fix**
+- This issue was resolved by adding the review id to the id elements within the modals.
+- Code e.g: `title_{{review._id}}`
+
+**_Flash Message Section(Validation HTML)_**
+**Issue**
+- When I ran the HTML code through the validator it was showing warning for the `<section>` element, for the flash messages on the base template not having header element.
