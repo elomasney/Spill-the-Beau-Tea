@@ -1,7 +1,7 @@
 import os
 from flask import (
     Flask, flash, render_template,
-    redirect, request, session, url_for)
+    redirect, request, session, url_for, abort)
 from flask_pymongo import PyMongo
 from datetime import datetime
 from bson.objectid import ObjectId
@@ -82,18 +82,11 @@ def all_categories():
 @app.route("/get_categories/<category_group>")
 def get_categories(category_group):
     # Gets categories in a particular category group from dropdown menu
-    categories = mongo.db.categories.find({"category_group": "category_group"})
-    # Gets specific category_group from the db
-    if category_group == "Eyes & Brows":
-        categories = mongo.db.categories.find(
-            {"category_group": "Eyes & Brows"})
-    elif category_group == "Face":
-        categories = mongo.db.categories.find({"category_group": "Face"})
-    elif category_group == "Lips":
-        categories = mongo.db.categories.find({"category_group": "Lips"})
-    elif category_group == "Tools & Accessories":
-        categories = mongo.db.categories.find(
-            {"category_group": "Tools & Accessories"})
+    categories = list(mongo.db.categories.find(
+        {"category_group": category_group}))
+
+    if len(categories) == 0:
+        abort(404)
     return render_template(
         "categories.html", category_group=category_group,
         categories=categories)
@@ -121,6 +114,9 @@ def add_category():
 
 @app.route("/edit_category/<category_id>", methods=["GET", "POST"])
 def edit_category(category_id):
+    # Gets all categories by category id
+    category = mongo.db.categories.find_one_or_404(
+        {"_id": ObjectId(category_id)})
     # Edits a category from the database
     if request.method == "POST":
         submit = {
@@ -135,8 +131,6 @@ def edit_category(category_id):
     # Groups all categories by category group
     category_group = mongo.db.categories.aggregate([
         {"$group": {"_id": "$category_group", }}])
-    # Gets all categories by category id
-    category = mongo.db.categories.find_one({"_id": ObjectId(category_id)})
     return render_template(
         "edit_category.html", category=category, category_group=category_group)
 
@@ -188,7 +182,7 @@ def product_info(product_id):
     product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     # Gets a list of the most recent 5 product reviews
     reviews = list(mongo.db.reviews.find({
-        "product": ObjectId(product_id)}).sort("created_on", 1).limit(5))
+        "product": ObjectId(product_id)}).sort("created_on", -1).limit(5))
     # Count the number of reviews for the product
     review_count = len(reviews)
     message = ""
@@ -251,6 +245,9 @@ def add_product():
 
 @app.route("/edit_product/<product_id>", methods=["GET", "POST"])
 def edit_product(product_id):
+    # Gets one product from the db
+    product = mongo.db.products.find_one_or_404(
+        {"_id": ObjectId(product_id)})
     # Edits product from the database
     if request.method == "POST":
         submit = {
@@ -269,8 +266,6 @@ def edit_product(product_id):
             url_for("all_products", _external=True, _scheme='https'))
     # Gets all categories from the db
     categories = mongo.db.categories.find()
-    # Gets one product from the db
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
     return render_template(
         "edit_product.html", product=product, categories=categories)
 
@@ -280,9 +275,8 @@ def delete_product(product_id):
     # Deletes a review from the db - Admin & Registered user access
     mongo.db.products.remove({"_id": ObjectId(product_id)})
     flash("Product Successfully Deleted")
-    product = mongo.db.products.find()
     return redirect(
-        url_for("all_products", product=product, _external=True,
+        url_for("all_products", _external=True,
                 _scheme='https'))
 
 
@@ -331,7 +325,8 @@ def add_review(product_id):
             url_for("product_info", product_id=product_id,
                     _external=True, _scheme='https'))
     # Gets one product from the db
-    product = mongo.db.products.find_one({"_id": ObjectId(product_id)})
+    product = mongo.db.products.find_one_or_404(
+        {"_id": ObjectId(product_id)})
     return render_template(
         "product-info.html", review=review, product=product,
         now=now, product_id=product_id)
@@ -340,7 +335,8 @@ def add_review(product_id):
 @app.route("/edit_review/<review_id>", methods=["GET", "POST"])
 def edit_review(review_id):
     # Edits a review by a user on the db
-    review = mongo.db.reviews.find_one({"_id": ObjectId(review_id)})
+    review = mongo.db.reviews.find_one_or_404(
+        {"_id": ObjectId(review_id)})
     product_id = review["product"]
     repurchase = "on" if request.form.get("repurchase") else "off"
     now = datetime.now()
@@ -370,11 +366,10 @@ def delete_review(review_id):
     # Removes review from the db - Admin & Registered user access
     mongo.db.reviews.remove({"_id": ObjectId(review_id)})
     flash("Review Successfully Deleted")
-    review = mongo.db.reviews.find()
     username = mongo.db.users.find_one(
         {"username": session["user"]})["username"]
     return redirect(
-        url_for("profile", username=username, review=review,
+        url_for("profile", username=username,
                 _external=True, _scheme='https'))
 
 
@@ -458,7 +453,6 @@ def profile(username):
         # Gets list of user favourite products
         favourites = list(mongo.db.products.find(
             {"_id": {"$in": user["favourites"]}}))
-
         return render_template(
             "profile.html", user=user,
             favourites=favourites, user_reviews=user_reviews
@@ -501,29 +495,37 @@ def delete_favourite(product_id):
 
 @app.route("/delete_profile/<username>")
 def delete_profile(username):
-    # Deletes all reviews created by user
-    mongo.db.reviews.delete_many({"created_by": session["user"]})
-    # Removes user account from db
-    mongo.db.users.remove({"username": session["user"]})
-    flash("Your account has been deleted!")
-    # Clears session cookies
-    session.clear()
-    return redirect(
-        url_for("home", username=username, _external=True, _scheme='https'))
+    # Checks if user is in session
+    if "user" in session:
+        # Deletes all reviews created by user
+        mongo.db.reviews.delete_many({"created_by": session["user"]})
+        # Removes user account from db
+        mongo.db.users.remove({"username": session["user"]})
+        flash("Your account has been deleted!")
+        # Clears session cookies
+        session.clear()
+        return redirect(
+            url_for("home", _external=True, _scheme='https'))
 
 
 @app.route("/delete_user_account/<user_id>")
 def delete_user_account(user_id):
     # Allows Admin to delete user accounts
-    # Gets all reviews created by user account
-    mongo.db.reviews.delete_many({"created_by": user_id})
-    # Removes user account from the db
-    mongo.db.users.remove({"_id": ObjectId(user_id)})
-    flash("This account has been deleted!")
-    username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-    return redirect(
-        url_for("profile", username=username, _external=True, _scheme='https'))
+    # Checks if user is in session
+    if "user" in session:
+        # Checks if user is admin
+        if session["user"] == "admin".lower():
+            # Gets all reviews created by user account
+            mongo.db.reviews.delete_many({"created_by": user_id})
+            # Removes user account from the db
+            mongo.db.users.remove({"_id": ObjectId(user_id)})
+            flash("This account has been deleted!")
+            user = mongo.db.users.find_one(
+                    {"username": session["user"]})["username"]
+            return redirect(
+                url_for("profile", user=user, _external=True, _scheme='https'))
+    else:
+        abort(404)
 
 
 @app.route("/logout")
@@ -536,45 +538,78 @@ def logout():
 
 @app.route("/manage_users")
 def manage_users():
-    # Gets a list of all user accounts - Admin access only
-    users = list(mongo.db.users.find())
-    return render_template("manage_users.html", users=users)
+    # Checks if user is in session
+    if "user" in session:
+        # Checks if user is admin
+        if session["user"] == "admin".lower():
+            # Gets a list of all user accounts - Admin access only
+            users = list(mongo.db.users.find())
+            return render_template("manage_users.html", users=users)
+        else:
+            flash('You do not have authorised access')
+            return redirect(url_for('home'))
+    else:
+        abort(404)
 
 
 @app.route("/user_feedback/<user_id>", methods=["GET", "POST"])
 def user_feedback(user_id):
-    # If user submits feedback through modal
-    if request.method == "POST":
-        feedback = {
-            "user": ObjectId(user_id),
-            "name": request.form.get("name"),
-            "comment": request.form.get("comment")
-        }
-        # Inserts user feedback into user_feedback in db
-        mongo.db.user_feedback.insert_one(feedback)
-        flash("Your message has been sent")
-        return redirect(
-            url_for(
-                "profile", username=session["user"],
-                _external=True, _scheme='https'))
+    # Checks if user is in session
+    if "user" in session:
+        # If user submits feedback through modal
+        if request.method == "POST":
+            feedback = {
+                "user": ObjectId(user_id),
+                "name": request.form.get("name"),
+                "comment": request.form.get("comment")
+            }
+            # Inserts user feedback into user_feedback in db
+            mongo.db.user_feedback.insert_one(feedback)
+            flash("Your message has been sent")
+            return redirect(
+                url_for(
+                    "profile", username=session["user"],
+                    _external=True, _scheme='https'))
+    else:
+        flash('You need to log in to access this page.')
+        return redirect(url_for('login'))
 
 
 @app.route("/manage_feedback")
 def manage_feedback():
-    # Gets a list of all user feedback from the db
-    feedback = list(mongo.db.user_feedback.find())
-    return render_template("user_feedback.html", feedback=feedback)
+    # Checks if user is in session
+    if "user" in session:
+        # Checks if user is admin
+        if session["user"] == "admin".lower():
+            # Gets a list of all user feedback from the db
+            feedback = list(mongo.db.user_feedback.find())
+            return render_template("user_feedback.html", feedback=feedback)
+        else:
+            flash('Authorised permission required')
+            return redirect(url_for('home'))
+    else:
+        abort(404)
 
 
 @app.route("/delete_feedback/<user_feedback_id>")
 def delete_feedback(user_feedback_id):
-    # Removes a specific feedback entry from the db
-    mongo.db.user_feedback.remove({"_id": ObjectId(user_feedback_id)})
-    flash("This comment has been deleted!")
-    username = mongo.db.users.find_one(
-            {"username": session["user"]})["username"]
-    return redirect(
-        url_for("profile", username=username, _external=True, _scheme='https'))
+    # Checks if user is in session
+    if "user" in session:
+        # Checks if user is admin
+        if session["user"] == "admin".lower():
+            # Removes a specific feedback entry from the db
+            mongo.db.user_feedback.remove({"_id": ObjectId(user_feedback_id)})
+            flash("This comment has been deleted!")
+            username = mongo.db.users.find_one(
+                    {"username": session["user"]})["username"]
+            return redirect(
+                url_for("profile", username=username,
+                        _external=True, _scheme='https'))
+        else:
+            flash('Authorised permission required')
+            return redirect(url_for('home'))
+    else:
+        abort(404)
 
 
 # 404 error page
