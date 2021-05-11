@@ -80,11 +80,11 @@
                     </button>
                     <!--Button to edit a product from the db - available to admin only-->
                     {% elif session.user|lower == "admin"|lower %}
-                    <a href="{{ url_for('edit_product', product_id=product._id) }}" type="button" class="btn btn-lg review-btn" id="edit_product">
+                    <a href="{{ url_for('edit_product', product_id=product._id) }}" role="button" class="btn btn-lg review-btn" id="edit_product">
                         Edit Product
                     </a>
                     <!--Button to delete a product from the db - available to admin only-->
-                    <a href="{{ url_for('delete_product', product_id=product._id) }}" type="button" class="product_delete btn btn-lg review-btn" id="delete_product">
+                    <a href="{{ url_for('delete_product', product_id=product._id) }}" role="button" class="product_delete btn btn-lg review-btn" id="delete_product">
                         Delete Product
                     </a>
                     {% endif %}
@@ -136,9 +136,6 @@
                                                 <input type="checkbox" id="repurchase" name="repurchase">
                                                 <span class="lever"></span>
                                             </div>
-                                        </form>
-                                    </div>
-                                </div>
                                 <div class="modal-footer">
                                     <!-- submit button -->
                                     <div class="row">
@@ -151,7 +148,9 @@
                                             </button>
                                         </div>
                                     </div>
-
+                                    </div>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -200,7 +199,7 @@
                     <div class="text-center">
                         <!--Button to delete review from db if the review was written by the user or the user is admin-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
-                        <a href="{{url_for('delete_review', review_id=review._id)}}" type="button" class="edit_review btn-large review-btn">
+                        <a data-href="{{url_for('delete_review', review_id=review._id)}}" role="button" class="review_delete edit_review btn-large review-btn">
                             Delete Review
                         </a>
                         {% endif %}

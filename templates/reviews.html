@@ -62,8 +62,7 @@
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
                         <a data-href="{{url_for('delete_review', review_id=review._id)}}" class="review_delete btn btn-lg review-btn">
                             Delete Review
-                        </a>
-                        
+                        </a> 
                         {% endif %}
                     </div>
                 </div>
@@ -125,9 +124,6 @@
                                     <input type="checkbox" id="repurchase_{{review._id}}" name="repurchase">
                                     <span class="lever"></span>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
                     <div class="modal-footer">
                         <!-- submit button -->
                         <div class="row">
@@ -139,8 +135,10 @@
                                     Edit Review <i class="fas fa-plus-square right"></i>
                                 </button>
                             </div>
+                        </div>    
+                    </div>
+                            </form>
                         </div>
-                       
                     </div>
                 </div>
             </div>

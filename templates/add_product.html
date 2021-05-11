@@ -6,7 +6,7 @@
     <h2 id="productManage">Add Product</h2>
     <div class="row form-group">
         <!--Form for adding a Product to the db-->
-        <form class=" product-form col-12" method="POST" action="{{ url_for('add_product') }}">
+        <form class=" product-form col-12"  action="{{ url_for('add_product') }}" method="POST">
             <!--Product Category-->
             <div class="row">
                 <div id="product-dropdown" class=" product-input input-field col-12">
@@ -70,8 +70,7 @@
                     <input class="form-control" id="buy_url" name="buy_url" minlength="3" type="text" required>
                 </div>
             </div>
-        </form>
-    </div>
+     
     <!-- submit button -->
     <div class="row">
         <div class="product-btns col-12 ">
@@ -85,6 +84,7 @@
             </button>
         </div>
     </div>
-
+</form>
+</div>
 </div>
 {% endblock %}
