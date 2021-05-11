@@ -105,6 +105,7 @@ Given my timeframe and skills, my focus was on ensuring that users had control o
 
 
 **Here is the site layout for this project:**
+
 ![Site Layout](static/images/site_layout.jpg "Site Map")
 
 ### **Database Architecture**
