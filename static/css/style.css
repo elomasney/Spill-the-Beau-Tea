@@ -729,6 +729,7 @@ hr {
 a#more_reviews,
 a#product_back,
 #btn-404,
+#btn-500,
 a.review_delete.btn.btn-lg {
     font-family: "Lato", sans-serif;
     font-weight: bolder;
@@ -740,6 +741,7 @@ a.review_delete.btn.btn-lg {
     padding: 5px 10px;
     margin-top: 20px;
     margin-right: 10px;
+    border-radius: 5px;
 }
 
 a.review_count {
@@ -1052,6 +1054,11 @@ div.admin-card.card-body a {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
+.profile-reviews{
+    padding-left: 0;
+    padding-right: 0;
+}
+
 hr#userReviews {
     background-color: #fbec5d;
     padding: 2px;
@@ -1111,7 +1118,8 @@ hr#userReviews {
 
 }
 
-.container-404 {
+.container-404,
+.container-500 {
     background-color: rgba(255, 254, 249, 0.4);
     padding: 50px 20px;
     margin-top: 100px;
@@ -1119,7 +1127,8 @@ hr#userReviews {
     margin-right: 50px;
 }
 
-#header-404 {
+#header-404,
+#header-500 {
     font-family: "Dancing Script", sans-serif;
     font-size: 7rem;
     font-weight: bolder;
@@ -1131,7 +1140,10 @@ hr#userReviews {
 
 #sub-404,
 #message-404,
-#error-404 {
+#error-404,
+#sub-500,
+#message-500,
+#error-500 {
     color: #f38cb1;
     text-align: center;
     padding-bottom: 30px;
@@ -1141,22 +1153,21 @@ hr#userReviews {
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
 }
 
-#sub-404 i {
+#sub-404 i,
+#sub-500 i {
     color: #f38cb1;
     font-size: 2.5rem;
     padding: 10px;
 }
 
-button#btn-404 {
+a #btn-404,
+a #btn-500 {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
     margin: auto;
     padding: 20px;
     font-size: 1.5rem;
-}
-
-button#btn-404 a {
     color: #fbec5d;
 }
 
@@ -1165,7 +1176,8 @@ button#btn-404 a {
         align-content: center;
 }
 
-#top-404 {
+#top-404,
+#top-500 {
     background-color: #f38cb1;
     padding: 30px;
 }
@@ -1666,27 +1678,33 @@ button#btn-404 a {
     }
 
     /*404 Page*/
-    .container-404 {
+    .container-404,
+    .container-500 {
         padding: 50px 0px;
         margin-top: 30px;
         margin-left: 10px;
         margin-right: 10px;
     }
 
-    #header-404 {
+    #header-404,
+    #header-500 {
         font-size: 5.5rem;
     }
 
-    #error-404 {
+    #error-404,
+    #error-500 {
         font-size: 1.8rem;
     }
 
     #sub-404,
-    #message-404 {
+    #message-404,
+    #sub-500,
+    #message-500 {
         font-size: 1.6rem;
     }
 
-    button#btn-404 {
+    a#btn-404,
+    a#btn-500 {
         padding: 10px;
         font-size: 1.3rem;
     }

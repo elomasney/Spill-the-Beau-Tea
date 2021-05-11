@@ -137,7 +137,7 @@
       </div>  
     <!--User Reviews-->
     <div class="row">
-        <div class="col-md-12">
+        <div class="profile-reviews col-md-12">
             <hr id="userReviews">
             <!--Button to open contact feedback form modal-->
             <div class="col-md-12 text-center">
@@ -191,6 +191,7 @@
                                 <a data-href="{{url_for('delete_review', review_id=reviews._id)}}" class="review_delete btn btn-lg review-btn">
                                     Delete Review
                                 </a>
+                               
                                 <!--Editing a Review using a Modal Popup-->
                                 <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="editReview_{{reviews._id}}" aria-hidden="true">
                                     <div class="modal-dialog modal-lg" role="document">
@@ -280,15 +281,14 @@
                     </div>
                 </div>
             </div>
+            {% endfor %}
+            {% endif %}
         </div>
     </div>
-    {% endfor %}
-    {% endif %}
-</div>
+
         <!--Button to allow user to delete their account-->
         <div class="col-md-4 offset-md-4 text-center delete-acc-btn"><a id="deleteAccount" class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
-                Account</a>
-        </div>
+                Account</a>  
         <!--Contact Us Modal-->
         <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -322,5 +322,5 @@
                 </div>
             </div>
         </div>
-
+    </div>
 {% endblock %}

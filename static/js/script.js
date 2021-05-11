@@ -235,7 +235,20 @@ function confirm_delete_comment(delete_url) {
  */
 //Change main container height on 404 page only
 $(function () {
-    if (window.location.pathname == "/404") {
+    if (window.location.pathname == "/404" ) {
+        $('#main-container').height('100vh');
+        $("body").css("padding-top", "0");
+        $('#main-container').css("margin-bottom", "0");
+
+    }
+});
+
+/**
+ * @function - changes main container height on 500 error page only
+ */
+//Change main container height on 500 page only
+$(function () {
+    if (window.location.pathname == "/500" ) {
         $('#main-container').height('100vh');
         $("body").css("padding-top", "0");
         $('#main-container').css("margin-bottom", "0");
