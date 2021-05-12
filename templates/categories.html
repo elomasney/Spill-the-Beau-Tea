@@ -18,7 +18,7 @@
         <h5 class="category-title card-title">{{ category.category_name }}</h5>
         <!--Search button for products in a category-->
         <div id="category_{{category._id}}" class="row search-category">
-            <p class="category-text card-text"> Explore {{category.category_name}} Products </p>
+            <p class="category-text card-text"> Explore {{category.category_name}} </p>
             <form class="search" action="{{url_for('search')}}" method="POST">
                 <input type="hidden" name="query" value="{{category.category_name}}">
                 <button type="submit"><i class="fa fa-search"></i></button>

@@ -27,23 +27,23 @@
                     <div id="collapseAdminOne" class="collapse" aria-labelledby="manageOne" data-parent="#adminAccordion">
                         <div class="admin-card card-body">
                             <!--Link to direct Admin to view all categories in the db-->
-                                <a href=" {{ url_for('all_categories')}}">
-                                    All Categories
-                                </a>
+                            <a href=" {{ url_for('all_categories')}}">
+                                All Categories
+                            </a>
                             <br>
                             <!--Link to direct Admin to add a category to the db-->
-                                <a href="{{ url_for('add_category') }}">
-                                    Add A Category
-                                </a><br>
+                            <a href="{{ url_for('add_category') }}">
+                                Add A Category
+                            </a><br>
                             <!--Link to direct Admin to view all products in the db-->
-                                <a href="{{ url_for('all_products')}}">
-                                    All Products
-                                </a>
+                            <a href="{{ url_for('all_products')}}">
+                                All Products
+                            </a>
                             <br>
                             <!--Link to direct Admin to Add a product to the db-->
-                                <a href="{{ url_for('add_product')}}">
-                                    Add A Product
-                                </a>
+                            <a href="{{ url_for('add_product')}}">
+                                Add A Product
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -108,13 +108,13 @@
                             <div class="card-header" id="favourite_{{product_info._id}}">
                                 <h5 class="mb-0">
                                     <!--Displays the product name and brand in an accordion list-->
-                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFav_{{favourites._id}}" aria-expanded="true" aria-controls="collapseFav_{{product_info._id}}">
+                                    <button class="btn btn-link" data-toggle="collapse" data-target="#collapseFav_{{product-info._id}}" aria-expanded="true" aria-controls="collapseFav_{{product_info._id}}">
                                         {{product_info.brand}} : {{product_info.product_name}}
                                     </button>
                                 </h5>
                             </div>
 
-                            <div id="collapseFav_{{product_info._id}}" class="collapse show" aria-labelledby="collapseFav_{{product_info._id}}" data-parent="#favAccordion_{{favourites._id}}">
+                            <div id="collapseFav_{{product_info._id}}" class="collapse show" aria-labelledby="favouriteCard_{{product_info._id}}" data-parent="#favAccordion_{{product_info._id}}">
                                 <!--Button provided to user to remove an item from their favourites list. 
                                     It will delete the item from user favourites in the db-->
                                 <div id="favouriteCard_{{product_info._id}}" class="favourite-card card-body">
@@ -128,7 +128,7 @@
                 </div>
             </div>
         </div>
-      </div>  
+    </div>
     <!--User Reviews-->
     <div class="row">
         <div class="profile-reviews col-md-12">
@@ -146,9 +146,9 @@
                         <!--Review Details-->
                         <div id="userReviewInfo_{{reviews._id}}" class="review-text card-body">
                             {% for product in products %}
-                                {% if reviews.product == product._id%}
-                                <h3 class="product card-title">{{ product.product_name }}</h3>
-                                {% endif %}
+                            {% if reviews.product == product._id%}
+                            <h3 class="product card-title">{{ product.product_name }}</h3>
+                            {% endif %}
                             {% endfor %}
                             <h4 class="review-title card-title">{{ reviews.title }}</h4>
                             <h5 class="rating card-title">Rating:
@@ -185,85 +185,84 @@
                                 <a data-href="{{url_for('delete_review', review_id=reviews._id)}}" class="review_delete btn btn-lg review-btn">
                                     Delete Review
                                 </a>
-                               
-                                <!--Editing a Review using a Modal Popup-->
-                                <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="editReview_{{reviews._id}}" aria-hidden="true">
-                                    <div class="modal-dialog modal-lg" role="document">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                    <span aria-hidden="true">&times;</span>
-                                                </button>
-                                                <h5 class="modal-title" id="reviewModal_{{reviews._id}}">Edit Review
-                                                </h5>
-                                            </div>
-                                            <div class="modal-body">
-                                                <div class="row form-group">
-                                                    <form class=" review-form col-12" method="POST" action="{{ url_for('edit_review', review_id=reviews._id) }}">
-                                                        <!-- Review Tagline -->
-                                                        <div class="row">
-                                                            <div class=" product-input input-field col-12">
-                                                                <label for="title_{{reviews._id}}">Title: </label>
-                                                                <input class="form-control" id="title_{{reviews._id}}" name="title" minlength="3" value="{{reviews.title}}" maxlength="50" type="text" required>
-                                                            </div>
+                            </div>
+                            <!--Editing a Review using a Modal Popup-->
+                            <div class="modal fade" id="editReview_{{reviews._id}}" tabindex="-1" role="dialog" aria-labelledby="reviewModal_{{reviews._id}}" aria-hidden="true">
+                                <div class="modal-dialog modal-lg" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                            <h5 class="modal-title" id="reviewModal_{{reviews._id}}">Edit Review
+                                            </h5>
+                                        </div>
+                                        <div class="modal-body">
+                                            <div class="row form-group">
+                                                <form class=" review-form col-12" method="POST" action="{{ url_for('edit_review', review_id=reviews._id) }}">
+                                                    <!-- Review Tagline -->
+                                                    <div class="row">
+                                                        <div class=" product-input input-field col-12">
+                                                            <label for="title_{{reviews._id}}">Title: </label>
+                                                            <input class="form-control" id="title_{{reviews._id}}" name="title" minlength="3" value="{{reviews.title}}" maxlength="50" type="text" required>
                                                         </div>
-
-                                                        <!--Product Rating-->
-                                                        <div>
-                                                            <fieldset>
-                                                                <legend class="star-rating"><i class="fas fa-star"></i>
-                                                                    Star Rating
-                                                                </legend>
-                                                                <div id="radio_{{reviews._id}}" class="md-form mb-5">
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="rating" id="rating1_{{reviews._id}}" value="1" required /> 1
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="rating" id="rating2_{{reviews._id}}" value="2" required /> 2
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="rating" id="rating3_{{reviews._id}}" value="3" required /> 3
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="rating" id="rating4_{{reviews._id}}" value="4" required /> 4
-                                                                    </label>
-                                                                    <label class="radio-inline">
-                                                                        <input type="radio" name="rating" id="rating5_{{reviews._id}}" value="5" required /> 5
-                                                                    </label>
-                                                                </div>
-                                                            </fieldset>
-                                                        </div>
-                                                        <!--Product Review-->
-                                                        <div class="row">
-                                                            <div class=" product-input col-12">
-                                                                <label for="review_content_{{reviews._id}}">Review:
-                                                                </label>
-                                                                <textarea class="form-control" id="review_content_{{reviews._id}}" name="review_content" minlength="3" rows="2" required>{{reviews.review}}</textarea>
-                                                            </div>
-                                                        </div>
-                                                        <!--Repurchase Checkbox-->
-                                                        <div class="switch">
-                                                            <i class="fas fa-thumbs-up"></i>
-                                                            <label for="repurchase_{{reviews._id}}">Would you
-                                                                repurchase?</label>
-                                                            <input type="checkbox" id="repurchase_{{reviews._id}}" name="repurchase">
-                                                            <span class="lever"></span>
-                                                        </div>
-                                            <div class="modal-footer">
-                                                <!-- submit button -->
-                                                <div class="row">
-                                                    <div class="profileReviewBtns col-12 ">
-                                                        <a class="edit_review" href="
-                                                                {{ url_for ('profile', username=session['user'])}}">
-                                                            Cancel <i class="fas fa-times-circle right"></i></a>
-                                                        <button type="submit" class="edit_review btn-large">
-                                                            Edit Review <i class="fas fa-plus-square right"></i>
-                                                        </button>
                                                     </div>
-                                                </div>
-                                            </div>
-                                                    </form>
-                                                </div>
+
+                                                    <!--Product Rating-->
+                                                    <div>
+                                                        <fieldset>
+                                                            <legend class="star-rating"><i class="fas fa-star"></i>
+                                                                Star Rating
+                                                            </legend>
+                                                            <div id="radio_{{reviews._id}}" class="md-form mb-5">
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="rating" id="rating1_{{reviews._id}}" value="1" required /> 1
+                                                                </label>
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="rating" id="rating2_{{reviews._id}}" value="2" required /> 2
+                                                                </label>
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="rating" id="rating3_{{reviews._id}}" value="3" required /> 3
+                                                                </label>
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="rating" id="rating4_{{reviews._id}}" value="4" required /> 4
+                                                                </label>
+                                                                <label class="radio-inline">
+                                                                    <input type="radio" name="rating" id="rating5_{{reviews._id}}" value="5" required /> 5
+                                                                </label>
+                                                            </div>
+                                                        </fieldset>
+                                                    </div>
+                                                    <!--Product Review-->
+                                                    <div class="row">
+                                                        <div class=" product-input col-12">
+                                                            <label for="review_content_{{reviews._id}}">Review:
+                                                            </label>
+                                                            <textarea class="form-control" id="review_content_{{reviews._id}}" name="review_content" minlength="3" rows="2" required>{{reviews.review}}</textarea>
+                                                        </div>
+                                                    </div>
+                                                    <!--Repurchase Checkbox-->
+                                                    <div class="switch">
+                                                        <i class="fas fa-thumbs-up"></i>
+                                                        <label for="repurchase_{{reviews._id}}">Would you
+                                                            repurchase?</label>
+                                                        <input type="checkbox" id="repurchase_{{reviews._id}}" name="repurchase">
+                                                        <span class="lever"></span>
+                                                    </div>
+                                                    <div class="modal-footer">
+                                                        <!-- submit button -->
+                                                        <div class="row">
+                                                            <div class="profileReviewBtns col-12 ">
+                                                                <a class="edit_review" href="
+                                                                {{ url_for ('profile', username=session['user'])}}">
+                                                                    Cancel <i class="fas fa-times-circle right"></i></a>
+                                                                <button type="submit" class="edit_review btn-large">
+                                                                    Edit Review <i class="fas fa-plus-square right"></i>
+                                                                </button>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </form>
                                             </div>
                                         </div>
                                     </div>
@@ -278,41 +277,41 @@
         </div>
     </div>
 
-        <!--Button to allow user to delete their account-->
-        <div class="col-md-4 offset-md-4 text-center delete-acc-btn"><a id="deleteAccount" class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
-                Account</a>  
-        <!--Contact Us Modal-->
-        <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div id="contactModal" class="modal-content">
-                    <div id="contactHeader" class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h5 class="modal-title" id="feedbackModalLabel">Contact Us</h5>
-                    </div>
-                    <div id="contactBody" class="modal-body">
-                        <form action="{{url_for('user_feedback', user_id=user._id)}}" method="POST">
-                            <div class="form-group">
-                                <!--Field for users name-->
-                                <label for="name" class="col-form-label">Name:</label>
-                                <input type="text" class="form-control" id="name" placeholder="Name" name="name" minlength="3" maxlength="15">
-                            </div>
-                            <div class="form-group">
-                                <!--Field for user's feedback comments-->
-                                <label for="comment" class="col-form-label">Comment:</label>
-                                <textarea class="form-control" id="comment" name="comment" placeholder="Comment" minlength="3" maxlength="200"></textarea>
-                            </div>
-                    <div id="contactFooter" class="modal-footer">
-                        <!--Buttons to submit feedback form or cancel to close the modal-->
-                        <button type="button" class="feedbackModal btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="submit" value="submit" class="feedbackModal btn">Send message</button>
-                    </div>
-                        </form>
-                    </div>
+    <!--Button to allow user to delete their account-->
+    <div class="col-md-4 offset-md-4 text-center delete-acc-btn"><a id="deleteAccount" class="account_delete" data-href="{{url_for('delete_profile', username=session['user'])}}">Delete
+            Account</a></div>
+    <!--Contact Us Modal-->
+    <div class="modal fade" id="feedbackModal" tabindex="-1" role="dialog" aria-labelledby="feedbackModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div id="contactModal" class="modal-content">
+                <div id="contactHeader" class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h5 class="modal-title" id="feedbackModalLabel">Contact Us</h5>
+                </div>
+                <div id="contactBody" class="modal-body">
+                    <form action="{{url_for('user_feedback', user_id=user._id)}}" method="POST">
+                        <div class="form-group">
+                            <!--Field for users name-->
+                            <label for="name" class="col-form-label">Name:</label>
+                            <input type="text" class="form-control" id="name" placeholder="Name" name="name" minlength="3" maxlength="15">
+                        </div>
+                        <div class="form-group">
+                            <!--Field for user's feedback comments-->
+                            <label for="comment" class="col-form-label">Comment:</label>
+                            <textarea class="form-control" id="comment" name="comment" placeholder="Comment" minlength="3" maxlength="200"></textarea>
+                        </div>
+                        <div id="contactFooter" class="modal-footer">
+                            <!--Buttons to submit feedback form or cancel to close the modal-->
+                            <button type="button" class="feedbackModal btn btn-secondary" data-dismiss="modal">Close</button>
+                            <button type="submit" value="submit" class="feedbackModal btn">Send message</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    </div>
+
+</div>
 {% endblock %}
