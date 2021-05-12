@@ -1128,8 +1128,9 @@ hr#userReviews {
 
 /*Feedback Page*/
 .feedback-container{
-    height: 100vh;
+    height: 100%;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .feedback-header{
@@ -1983,10 +1984,6 @@ a #btn-500 {
 
     .product-image.card-img {
         width: 400px;
-    }
-
-    .product-image.product-info-image.card-img {
-        margin-top: 60px;
     }
 
     .profile-container {
