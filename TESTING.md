@@ -1304,3 +1304,11 @@ I can verify that the footer is fully responsive and the text size is altered to
 **Fix**
 - After discussing the issue with my mentor, he advised to leave it as is as it is not an error.
 
+**_Issue with forms not submitting_**
+**Issue**
+- After running the HTML code through the validation, an issue came up with a stray div tag.
+- After fixing this issue, I conducted tests on the CRUD functionality and the category and product forms were not submitting the data.
+- I took a look back at the HTML code and realised the closing form tag had been moved to the incorrect position and the buttons were located outside of the form element.
+**Fix**
+- I moved the form tag to the correct position to enclose the submit and cancel buttons. This fixed the issue and now all forms are working as expected.
+- This issue has been resolved.
