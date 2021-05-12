@@ -1293,6 +1293,14 @@ I can verify that the footer is fully responsive and the text size is altered to
 **_Validation(HTML) issue with element id values in loops_**
 **Issue**
 - HTML validator indicating issue with id's being duplicated within modal forms
+**Fix**
+- Dynamically set id's to product, category or review id so it would pick up the specific item in the database.
+
+**_Validation(HTML) issue with element stray div tag_**
+**Issue**
+- HTML validator indicating issue with a stray div tag on the user profile page.
+**Fix**
+- Checked the HTML code in the profile section, went through all the div tags and removed the stray div tags.
 
 **Fix**
 - This issue was resolved by adding the review id to the id elements within the modals.
