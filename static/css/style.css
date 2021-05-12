@@ -380,6 +380,10 @@ button.swal2-confirm.swal2-styled {
     margin-left: 10px;
 }
 
+a.product-btn:hover{
+    color: #a0dfdf;
+}
+
 .edit_review,
 a.review_delete,
 #add_review.btn-large a {
