@@ -21,11 +21,11 @@
     <div id="product_{{product._id}}" class="card product-card mb-3 col-md-12">
         <div class="row">
             <!--Product Image-->
-            <div class="col-md-12 col-lg-5">
+            <div class="col-md-12 col-lg-5 my-auto">
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
             <!--Product Information - details about the product-->
-            <div class="product-col col-md-12 col-lg-7">
+            <div class="product-col col-md-12 col-lg-7 my-auto">
                 <div id="product-info_{{product._id}}" class="product-text card-body">
                     {% if session.user|lower %}
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->

@@ -230,6 +230,10 @@ body {
     margin-top: 20px;
 }
 
+#register{
+    margin-left: 15px;
+}
+
 .delete-acc-btn{
     margin-top: 30px;
     margin-bottom: 50px;
@@ -779,6 +783,10 @@ a.review_count {
     line-height: 2.5;
     padding: 5px 5px;
     font-size: 1.3rem;
+}
+
+a.review_count:hover{
+    color: #a0dfdf;
 }
 
 a#more_reviews {
@@ -1896,7 +1904,8 @@ a #btn-500 {
     }
 
     .product-image.card-img {
-        padding: 60px 100px;
+        padding: 25px 100px;
+        width: 650px;
     }
 
     .product-text.card-body {
@@ -1969,12 +1978,12 @@ a #btn-500 {
     }
 
     .product-image.card-img {
-        padding: 60px 0px;
-        margin-bottom: -100px;
+        height: 80%;
+        padding: 10px 20px;
     }
 
-    .product-text.card-body{
-        margin: 150px 10px;
+    .product-image.card-img {
+        width: 500px;
     }
 
     .profile-container {
