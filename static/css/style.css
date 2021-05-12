@@ -1986,6 +1986,10 @@ a #btn-500 {
         width: 500px;
     }
 
+    .product-image.product-info-image.card-img {
+        margin-top: 60px;
+    }
+
     .profile-container {
         height: 100%;
     }

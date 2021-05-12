@@ -24,7 +24,7 @@
     <div id="product" class="card product-card mb-3 col-md-12">
         <div class="row">
             <div class="col-md-12 col-lg-5">
-                <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
+                <img src="{{ product.img_url }}" class="card-img product-image product-info-image" alt="{{ product.product_name }}">
             </div>
             <!--Product information - details about the product-->
             <div id="productDetails" class=" col-md-12 col-lg-7">
@@ -75,7 +75,7 @@
                     {% endif %}
                     <p class="product-card card-text"><strong id="description">Description:</strong></p>
                     <p class="product-card card-text">{{product.description}}</p>
-                    <p class="product-card card-text"><strong id="shades">Shades: </strong> {{ product.num_shades}}</p>
+                    <p class="product-card card-text"><strong id="shades">Shades: </strong>  {{ product.num_shades}}</p>
                     <span class="product-card card-text"> <strong id="price">Price: </strong>€ {{ product.price}}</span>
                     <!--Button to add a review for the product - only available to registered users-->
                     {% if session.user|lower %}
