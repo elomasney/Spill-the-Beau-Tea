@@ -369,9 +369,10 @@ button.swal2-confirm.swal2-styled {
 .product-btn,
 .edit_review,
 #add_review.btn-large {
-    padding: 10px 30px;
+    padding: 12px 30px;
     margin-top: 10px;
     border-radius: 5px;
+    border: none;
 }
 
 .product-btn{
@@ -755,6 +756,14 @@ a.review_delete.btn.btn-lg {
     border-radius: 5px;
 }
 
+a.review_delete.btn.btn-lg {
+    letter-spacing: .1rem;
+}
+
+button.edit_review.btn-large{
+    padding: 7px 10px;
+}
+
 a.review_count {
     color: #fbec5d;
     text-shadow: 2px 2px 2px rgb(0 0 0);
@@ -778,7 +787,7 @@ a#more_reviews {
 .edit_review,
 .reviewBtns button,
 #add_review.btn-large {
-    padding: 5px 10px;
+    padding: 7px 10px;
     margin-left: 0;
     border: none;
 }
@@ -1048,13 +1057,16 @@ div.admin-card.card-body a {
 
 #contactModal {
     color: #f38cb1;
-    background-color: #a0dfdf	;
+    background-color: #a0dfdf;
+    text-align: left;
 }
 
 #contactBody label{
     color: #f38cb1;
     font-weight: bold;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
+    font-size: 1.3rem;
+    text-align: left;
 }
 
 #contactFooter button{
@@ -1062,6 +1074,9 @@ div.admin-card.card-body a {
     color: #fbec5d;
     text-shadow: 2px 2px 2px rgba(0, 0, 0, 1);
     font-weight: bold;
+    margin-top: 15px;
+    font-size: 1.2rem;
+    border: none;
 }
 
 #contactHeader span{
@@ -1356,8 +1371,8 @@ a #btn-500 {
     }
 
     .profileReviewBtns {
-        display: -ms-inline-flexbox;
-        display: inline-block;
+        display: -ms-grid;
+        display: grid;
     }
 
     .review-title.card-title {
@@ -1393,12 +1408,11 @@ a #btn-500 {
     }
 
     #add_review.btn-large {
-        padding: 10px 10px;
         margin-top: 5px;
     }
 
     .edit_review.btn-large{
-        margin: 10px 5px;
+        margin: 10px 0px;
     }
 
     .edit_review.btn-large:hover{
@@ -1445,7 +1459,8 @@ a #btn-500 {
         padding-right: 20px;
 
     }
-    #addCategoryBtns{
+    #addCategoryBtns,
+    #editCategoryBtns{
         display: -ms-grid;
         display: grid;
         margin-left: 0;
@@ -1478,8 +1493,12 @@ a #btn-500 {
     .product-btn.btn-large,
     .product-btn {
         margin-left: 2px;
-        margin-top: 15px;
+        margin-top: 20px;
         font-size: 1.2rem;
+    }
+
+    .product-btn.btn-large{
+        padding: 12px 5px;
     }
 
     #category_group option,
@@ -1684,6 +1703,7 @@ a #btn-500 {
     .review-text button.edit_review.btn-large {
         font-size: 1rem;
         margin-top: 10px;
+        margin-right: 0;
     }
 
     a.edit_review {
@@ -1936,5 +1956,13 @@ a #btn-500 {
 
     .profile-container {
         height: 100%;
+    }
+
+    #contactBody label{
+        font-size: 1.5rem;
+    }
+    
+    #contactFooter button{
+        font-size: 1.4rem;
     }
 }
