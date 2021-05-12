@@ -2,6 +2,10 @@
 {% block content %}
 <!--Feedback accordion dropdown -->
 <div class="feedback-container">
+    <div class="col-md-12 text-left profile-back">
+        <a href=" {{ url_for ('profile', username=session['user'])}}" class="btn btn-lg review-btn" id="product_back">
+            Back to Profile</a>
+    </div>
     <h3 class="category-header">User Feedback</h3>
     <div class="accordion" id="feedbackAccordion">
         {% for feedback in feedback %}

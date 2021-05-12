@@ -1,5 +1,10 @@
 {% extends "base.html" %}
 {% block content %}
+<!--Button to go back to Profile page-->
+<div class="col-md-12 text-left profile-back">
+    <a href=" {{ url_for ('profile', username=session['user'])}}" class="btn btn-lg review-btn" id="product_back">
+        Back to Profile</a>
+</div>
 <!--Page to display names of all users - Admin access only-->
 <h3 id="manageUsers" class="category-header">Manage Users</h3>
 <h5 id="accounts" class="category-header">Accounts</h5>

@@ -12,7 +12,7 @@
     <h2 id="reviewProductName" class="category-header">{{product.brand}}: {{product.product_name}}</h2>
     <h2 id="reviewHeader" class="category-header">Reviews</h2>
     {% elif session.user|lower == "admin"|lower %}
-    <div class="col-md-12 text-left">
+    <div class="col-md-12 text-left profile-back">
         <a href=" {{ url_for ('profile', username=session['user'])}}" class="btn btn-lg review-btn" id="product_back">
             Back to Profile</a>
     </div>
