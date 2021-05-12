@@ -6,6 +6,10 @@
         <input class="form-control mr-sm-2" type="text" name="query" placeholder="Search by category, brand or product name" aria-label="Search">
         <button id="searchBtn" class="btn btn-sm my-2 px-2 my-sm-0" type="submit">Search</button>
     </form>
+    <div class="category-back col-md-12 text-left">
+        <a href="{{ url_for('all_categories') }}" class="btn btn-lg review-btn" id="categories_back">
+            Back to Categories</a>
+    </div>
     <!--Header to return number of results found from query search-->
     {% if query %}
         {% if results >= 1 %}
