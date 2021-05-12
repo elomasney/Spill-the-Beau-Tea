@@ -1978,12 +1978,11 @@ a #btn-500 {
     }
 
     .product-image.card-img {
-        height: 80%;
         padding: 10px 20px;
     }
 
     .product-image.card-img {
-        width: 500px;
+        width: 400px;
     }
 
     .product-image.product-info-image.card-img {
