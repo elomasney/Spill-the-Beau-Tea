@@ -647,7 +647,7 @@ i.fas.fa-star-half-alt {
     color: #fef2f8;
 }
 
-#review.btn.btn-lg.review-btn ,
+#review.btn.btn-lg.review-btn,
 .product-text a#edit_product,
 .product-text a.products-btns {
     font-family: "Lato", sans-serif;
@@ -1900,7 +1900,7 @@ a #btn-500 {
 
     /* Products/ProductInfo Pages */
     #searchProducts.form-inline .form-control {
-        width: 80%;
+        width: 85%;
     }
 
     .product-image.card-img {
@@ -1983,6 +1983,10 @@ a #btn-500 {
 
     .product-image.card-img {
         width: 450px;
+    }
+
+    #searchProducts.form-inline .form-control {
+        width: 90%;
     }
 
     .profile-container {
