@@ -25,7 +25,7 @@
                 <img src="{{ product.img_url }}" class="card-img product-image" alt="{{ product.product_name }}">
             </div>
             <!--Product Information - details about the product-->
-            <div class="col-md-12 col-lg-7">
+            <div class="product-col col-md-12 col-lg-7">
                 <div id="product-info_{{product._id}}" class="product-text card-body">
                     {% if session.user|lower %}
                     <!--Favourites Button to add product to user favourites/ or remove product from favourites-->
@@ -94,12 +94,12 @@
                         <a id="delete_product_{{product._id}}" data-href="{{ url_for('delete_product', product_id=product._id) }}" role="button" class="product_delete products-btns review-btn">
                             Delete Product
                         </a>
-                    </div>
-                    {% endif %}
+                        {% endif %}
+                    </div>  
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     {% endfor %}
 </div>
 {% endblock %}

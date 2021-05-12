@@ -196,7 +196,7 @@
                     </p>
                     <span class="card-text "> <strong class="created_by">Added On:
                         </strong>{{ review.created_on}}</span>
-                    <div class="text-center">
+                    <div class="text-center mt-3">
                         <!--Button to delete review from db if the review was written by the user or the user is admin-->
                         {% if review.created_by == session['user'] or session['user'] == 'admin'%}
                         <a data-href="{{url_for('delete_review', review_id=review._id)}}" role="button" class="review_delete edit_review btn-large review-btn">

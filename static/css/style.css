@@ -569,6 +569,11 @@ a.btn.heart i {
     margin: 90px 20px;
 }
 
+.product-col{
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
 .product-info.card-body {
     padding: 30px 20px;
     font-family: "Lato", sans-serif;
@@ -650,6 +655,7 @@ i.fas.fa-star-half-alt {
 
 .more-reviews{
     margin-bottom: 50px;
+    margin-top: 50px;
 }
 
 #review.btn.btn-lg.review-btn {
@@ -1036,6 +1042,7 @@ div.admin-card.card-body a {
 #contact {
     padding: 10px 70px;
     border-radius: 5px;
+    margin-bottom: 30px;
 }
 
 #contactModal {
@@ -1256,7 +1263,7 @@ a #btn-500 {
 
     .category-header {
         font-size: 2rem;
-        padding-top: 20px;
+        padding-top: 30px;
     }
 
     /*Login/Register Page*/
@@ -1624,7 +1631,7 @@ a #btn-500 {
 
     a#more_reviews {
         padding: 10px;
-        font-size: 1rem;
+        font-size: 1.1rem;
 
     }
 
