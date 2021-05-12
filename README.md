@@ -115,6 +115,7 @@ The database for this project was created using MongoDb. It consists of 5 collec
 - Reviews - stores the product id, review title, rating, review content, username who created the review and the date it was created
 - Users - stores the username, email, password and an array of favourite products(product ids)
 - User Feedback - stores the user id, name and comments
+- I used the subset pattern for the reviews as each product in the products collection could potentially have numerous reviews so it made sense to split the products and reviews into two separate collections to reduce the size of the product documents.
 - The collections were structured as follows:
 
 
