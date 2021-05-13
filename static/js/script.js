@@ -228,17 +228,12 @@ function confirm_delete_comment(delete_url) {
 }
 
 /**
- * @function - changes main container height on 404 and 500 error pages
- * Sets body padding to zero on 404 and 500 error pages
+ * @function - changes main container height on 404 error page
+ * Sets body padding to zero on 404 error page
  */
 //Change main container height on 404 page only
 $(function () {
     if (window.location.pathname == "/404" ) {
-        $('#main-container').height('100vh');
-        $("body").css("padding-top", "0");
-
-    }
-    else if (window.location.pathname == "/500" ) {
         $('#main-container').height('100vh');
         $("body").css("padding-top", "0");
 
