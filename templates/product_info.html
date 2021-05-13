@@ -45,7 +45,7 @@
                     <h4 class="product-brand card-title">{{ product.brand }}</h4>
                     <h4 class="product-brand card-title">{{ product.category_name }}</h4>
                     <h4 class="product-name card-title">{{ product.product_name }}</h4>
-                    <!--Product Rating Average-->
+                    <!--Product Rating Average (collaborated with tutor support)-->
                     {% for rating in ratings %}
                         <!-- only apply if the product._id matches the rating._id -->
                         {% if product._id == rating._id %}
@@ -166,7 +166,7 @@
                 <!--Review Card - review information-->
                 <div id="reviewInfo_{{review._id}}" class="review-text card-body text-justify">
                     <h4 class="review-title card-title">{{ review.title }}</h4>
-                    <!--Review Rating (collaborated with tutor support)-->
+                    <!--Review Rating-->
                     <h5 class="rating card-title">Rating:
                         <!-- set variable "count" to the leftover value deducted from review rating -->
                         {% set count = (5 - review.rating)%}
