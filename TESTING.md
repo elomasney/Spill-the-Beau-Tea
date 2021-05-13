@@ -1201,7 +1201,7 @@ I can verify that the footer is fully responsive and the text size is altered to
 - Average rating stars displaying correct star value for average rating
 
 **Fix**
-- Fixed the issue by:
+- After liasing with tutor support, I was able to fix the issue by:
     - Setting a variable using Jinja `{% set count = (5 - rating.average|int) if ".5" not in rating.average|string else (4 - rating.average|int) %}`
     - Using for loop to iterate through stars in range 1-5 `{% for star in range(rating.average|int) %}`
     - Including half stars for .5 values `{% if ".5" in rating.average|string %}`
@@ -1213,19 +1213,20 @@ I can verify that the footer is fully responsive and the text size is altered to
 - Products without a star rating were not showing the empty star icons as expected
 - Intially I had an else statement in the Jinja template within the star rating for 5 empty star icons to display if the product had no ratings.
 
+
 **Fix**
-- I created a list in the Python function `has_rating = []` and appended all the product id's gathered within the average rating aggregation pipeline, using the following code `for rating in ratings:has_rating.append(rating["_id"])`
+- With the help of tutor support, I created a list in the Python function `has_rating = []` and appended all the product id's gathered within the average rating aggregation pipeline, using the following code `for rating in ratings:has_rating.append(rating["_id"])`
 - I was then able to include an 'if' statement within the Jinja template `{% if product._id not in has_rating %}` to display empty star icons for the products not included in the 'has_ratings list.
 - This resolved the issue and now all products without ratings, display 5 empty star icons.
 
 **_Favourites - finding the users favourite products in the products collection_**
 **Issue**
 - Initially I had a 'for' loop on the profile page to loop through the products in the database to find matching product ids from the user favourites array.
-- After advise from my mentor, he suggested that it was not a good idea to loop through all the products, given that there could be a very large number of products and very few favourites. He suggested I move my logic for the favourite ids to the backend, which would be a more efficient way of performing the query.
+- After advise from my mentor, he suggested that it was not a good idea to loop through all the products, given that there could be a very large number of products and very few favourites. He suggested I move my logic for the favourite ids to the backend, which would be a more efficient way of performing the query. 
 
 **Fix**
-- In the '/profile' function I used the follwoing code `favourites = list(mongo.db.products.find({"_id": {"$in": user["favourites"]}}))` which made a list of the user favourites by searching the products collection to find the product id from the users favourites, using the `$in` operator from the MongoDb Documentation.
-- This issue has been resolved.
+- In the '/profile' function I used the following code `favourites = list(mongo.db.products.find({"_id": {"$in": user["favourites"]}}))` which made a list of the user favourites by searching the products collection to find the product id from the users favourites, using the `$in` operator from the MongoDb Documentation.
+- With the guidance from tutor support, this issue has been resolved.
 
 **_SweetAlert Delete Confirmations - for loops_**
 **Issue**
@@ -1293,12 +1294,14 @@ I can verify that the footer is fully responsive and the text size is altered to
 **_Validation(HTML) issue with element id values in loops_**
 **Issue**
 - HTML validator indicating issue with id's being duplicated within modal forms
+
 **Fix**
 - Dynamically set id's to product, category or review id so it would pick up the specific item in the database.
 
 **_Validation(HTML) issue with element stray div tag_**
 **Issue**
 - HTML validator indicating issue with a stray div tag on the user profile page.
+
 **Fix**
 - Checked the HTML code in the profile section, went through all the div tags and removed the stray div tags.
 
@@ -1309,6 +1312,7 @@ I can verify that the footer is fully responsive and the text size is altered to
 **_Flash Message Section(Validation HTML)_**
 **Issue**
 - When I ran the HTML code through the validator it was showing warning for the `<section>` element, for the flash messages on the base template not having header element.
+
 **Fix**
 - After discussing the issue with my mentor, he advised to leave it as is as it is not an error.
 
@@ -1317,6 +1321,7 @@ I can verify that the footer is fully responsive and the text size is altered to
 - After running the HTML code through the validation, an issue came up with a stray div tag.
 - After fixing this issue, I conducted tests on the CRUD functionality and the category and product forms were not submitting the data.
 - I took a look back at the HTML code and realised the closing form tag had been moved to the incorrect position and the buttons were located outside of the form element.
+
 **Fix**
 - I moved the form tag to the correct position to enclose the submit and cancel buttons. This fixed the issue and now all forms are working as expected.
 - This issue has been resolved.
